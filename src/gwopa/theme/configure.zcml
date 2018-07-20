@@ -19,18 +19,18 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Plone Theme: Theme"
+      title="gwopa.theme"
       directory="profiles/default"
-      description="Installs the Plone theme package gwopa.theme."
+      description="gwopa.theme package."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.post_install"
       />
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="Uninstall: Plone Theme: Theme"
+      title="Uninstall: gwopa.theme"
       directory="profiles/uninstall"
-      description="Uninstalls the Plone theme package gwopa.theme."
+      description="gwopa.theme package."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.uninstall"
       />
