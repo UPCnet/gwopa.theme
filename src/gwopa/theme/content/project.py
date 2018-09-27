@@ -182,7 +182,6 @@ class IProject(model.Schema):
         required=False,
     )
 
-
     @invariant
     def validate_start_end(data):
         if (data.start and data.end and data.start > data.end and not data.open_end):
