@@ -2,11 +2,11 @@
 <object name="menu" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Project</property>
+ <property name="title" i18n:translate="">Project Member</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">Project</property>
- <property name="add_view_expr">string:${folder_url}/++add++Project</property>
+ <property name="factory">ProjectMember</property>
+ <property name="add_view_expr">string:${folder_url}/++add++ProjectMember</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
@@ -15,7 +15,7 @@
  <property name="allow_discussion">False</property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">plone.dexterity.content.Container</property>
+ <!-- <property name="klass">plone.dexterity.content.Container</property> -->
 
  <property name="behaviors">
 
@@ -27,7 +27,7 @@
 
  </property>
 
- <property name="schema">gwopa.theme.content.project.IProject</property>
+ <property name="schema">gwopa.theme.content.projectmember.IProjectmember</property>
 
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>
