@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                     sourceMap: true,
                     outputSourceFiles: true,
                     sourceMapFileInline: false,
-                    sourceMapURL: '++theme++theme/less/theme-compiled.less.map',
+                    sourceMapURL: '++theme++gwopa.theme/less/theme-compiled.less.map',
                     sourceMapFilename: 'less/theme-compiled.less.map',
                     modifyVars: {
                         "isPlone": "false"

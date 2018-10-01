@@ -12,10 +12,10 @@
       />
 
   <!-- Publish static files -->
-  <plone:static
+<!--   <plone:static
       name="gwopa.theme"
       type="plone"
       directory="static"
-      />
+      /> -->
 
 </configure>

@@ -10,11 +10,11 @@
 
   <include package=".browser" />
 
-  <!-- ++theme++theme -->
+  <!-- ++theme++gwopa.theme -->
   <plone:static
       directory="theme"
       type="theme"
-      name="theme"
+      name="gwopa.theme"
       />
 
   <genericsetup:registerProfile
