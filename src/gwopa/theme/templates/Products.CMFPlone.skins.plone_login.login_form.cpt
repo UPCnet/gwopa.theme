@@ -56,10 +56,10 @@
           </div>
           <div class="row">
             <div>
-              <span id="main-header" class="sr-only">UPC. Universitat Politècnica de Catalunya</span>
-<!--               <span aria-hidden="true" role="presentation" class="icona-upc">
-                  <img id="image_login" src="++theme++gwopa/assets/images/logomark.png" alt="Logo"/>
-              </span> -->
+              <span id="main-header" class="sr-only">GWOPA</span>
+              <span aria-hidden="true" role="presentation">
+                  <img id="image_login" src="++theme++theme/assets/images/login-image.png" alt="Logo"/>
+              </span>
               <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                 class="pat-formautofocus"
                 method="post"
@@ -194,57 +194,15 @@
                   i18n:translate="help_password_retrieval">
                   If you have forgotten your password,
                   <span i18n:name="click_here">
-                  <a href="https://identitatdigital.upc.edu/gcredencials/"
+                  <a href="mail_password_form?userid="
                     tal:attributes="target target;"
                     i18n:translate="label_click_here_to_retrieve">we can send you a new one</a></span>.
                 </p>
               </div>
-              <div id="login-new-user"
-                tal:condition="python:join_url and use_normal">
-                <strong i18n:translate="heading_new_user">
-                New user?
-                </strong>
-                <p i18n:translate="description_no_account">
-                  If you do not have an account here, head over to the
-                  <span i18n:name="registration_form">
-                  <a href=""
-                    tal:define="join_url python:test(came_from, join_url+test(join_url.find('?')==-1, '?', '&amp;')+ztu.make_query(came_from=came_from), join_url);"
-                    tal:attributes="href join_url; target target;"
-                    i18n:translate="description_no_account_registration_linktext"
-                    >registration form</a></span>.
-                </p>
-              </div>
+
             </div>
           </div>
-          <tal:use_iframe condition="use_iframe">
-            <form action="#"
-              method="get"
-              id="login_form"
-              name="login_form"
-              class="iframe-wrapper"
-              tal:define="params python:dict(next=request.URL1+'/logged_in', target='_parent', ajax_load=True, ajax_include_head=True, mail_password_url=https://identitatdigital.upc.edu/gcredencials/, join_url=join);
-              dummy python:came_from and params.update(dict(came_from=came_from));
-              src external_login_url"
-              tal:attributes="action src">
-              <div id="login-form">
-                <iframe name="login-form-iframe"
-                  id="login-form-iframe"
-                  tal:attributes="src python:external_login_url+test(join_url.find('?')==-1, '?', '&amp;')+ztu.make_query(params);"
-                  >
-                  <input tal:replace="structure python:ztu.make_hidden_input(params)" />
-                  <div class="formControls">
-                    <input id="sso"
-                      class="context"
-                      type="submit"
-                      name="submit"
-                      value="Log in"
-                      i18n:attributes="value label_log_in;"
-                      />
-                  </div>
-                </iframe>
-              </div>
-            </form>
-          </tal:use_iframe>
+
         </metal:login>
       </div>
     </metal:main>
