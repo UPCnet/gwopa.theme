@@ -11,7 +11,6 @@
 
   <include package="five.grok" />
 
-
   <include package=".browser" />
 
   <!-- Register all components defined with grok -->
@@ -23,7 +22,7 @@
       type="theme"
       name="gwopa.theme"
       />
-  
+
   <genericsetup:registerProfile
       name="default"
       title="GWOPA Theme package (gwopa.theme)"

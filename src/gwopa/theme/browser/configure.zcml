@@ -18,4 +18,14 @@
       directory="static"
       /> -->
 
+  <!-- HOMEPAGE TEMPLATE-->
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="homepage"
+      class=".homepage.MainTemplate"
+      template="templates/homepage.pt"
+      permission="cmf.SetOwnPassword"
+      layer="gwopa.theme.interfaces.IGwopaThemeLayer"
+  />
+
 </configure>
