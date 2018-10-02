@@ -28,7 +28,7 @@ setup(
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     keywords='Python Plone',
-    author='Roberto Diaz',
+    author='PloneTeam@UPCnet',
     author_email='plone.team@upcnet.es',
     url='https://pypi.python.org/pypi/gwopa.theme',
     license='GPL version 2',
@@ -39,12 +39,13 @@ setup(
     zip_safe=False,
     install_requires=[
         'plone.api',
+        'five.grok',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
         'z3c.jbot',
         'plone.app.theming',
         'plone.app.themingplugins',
-        'pycountry'
+        'pycountry',
     ],
     extras_require={
         'test': [

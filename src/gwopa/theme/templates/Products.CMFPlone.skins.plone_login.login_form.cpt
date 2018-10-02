@@ -58,7 +58,7 @@
             <div>
               <span id="main-header" class="sr-only">GWOPA</span>
               <span aria-hidden="true" role="presentation">
-                  <img id="image_login" src="++theme++gwopa.theme/assets/images/login-image.png" alt="Logo"/>
+                  <img class="center" id="image_login" src="++theme++gwopa.theme/assets/images/login-image.png" alt="Logo"/>
               </span>
               <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                 class="pat-formautofocus"
@@ -199,10 +199,8 @@
                     i18n:translate="label_click_here_to_retrieve">we can send you a new one</a></span>.
                 </p>
               </div>
-
             </div>
           </div>
-
         </metal:login>
       </div>
     </metal:main>

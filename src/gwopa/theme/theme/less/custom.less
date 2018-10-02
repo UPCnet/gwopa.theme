@@ -1,40 +1,57 @@
-/* our custom styles */
+/*  GWOPA custom styles */
 
-// DELETE ME:
-.custom-theme-marker {
-    display: none;
-    position: absolute;
-    top: 300px;
-    left: 30%;
-    margin: auto 0;
-    transform: rotate(-20deg);
-    background: #00ECFF;
-    color: #fff;
-    padding: 1em;
-    z-index: 100;
+.template-login_form div#content-core,
+.template-login_failed div#content-core,
+.template-logged_out div#content-core {
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+  width: 420px;
 }
-.section-front-page .custom-theme-marker{
+
+.template-login_form .documentDescription,
+.template-login_failes .documentDescription,
+.template-logged-out .documentDescription {
+    text-align: center;
+    background-color: white;
+}
+
+#sso {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.formControls {
+  text-align: center;
+}
+
+#image_login {
+  padding-bottom: 30px;
+}
+
+#login-forgotten-password {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.center {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
+.template-logged_out .main-element,
+.template-login_failed .main-element,
+.template-login_form .main-element {
+    display: table-cell;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
 
-/* TinyMCE templates */
-
-// image-grid-2x2:
-.image-grid-2x2 {
-    padding: 0;
-    margin: 0 0 @plone-grid-gutter-width 0;
-    list-style: none;
-    .make-row();
-
-    > li {
-        .make-xs-column(12);
-        .make-sm-column(6);
-        margin-top: @plone-grid-gutter-width;
-
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-    }
+main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
 }

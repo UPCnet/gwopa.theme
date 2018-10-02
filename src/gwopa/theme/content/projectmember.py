@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 import unicodedata
 import pycountry
-
+from five import grok
 from plone.supermodel import model
 from zope import schema
 from plone.namedfile import field as namedfile
 from gwopa.core import _
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+
+grok.templatedir("templates")
 
 
 def vocabulary_maker(l):
@@ -48,3 +50,8 @@ class IProjectmember(model.Schema):
         description=_(u"Indicate the year of..."),
         required=False,
     )
+
+
+class View(grok.View):
+    grok.context(IProjectmember)
+    grok.template('project_view')

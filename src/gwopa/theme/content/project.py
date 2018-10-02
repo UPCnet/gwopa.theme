@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from five import grok
 from plone.supermodel import model
 from zope import schema
 from plone.app.event.base import default_timezone
@@ -14,6 +15,8 @@ from zope.interface import Invalid
 from zope.interface import invariant
 from plone.namedfile import field as namedfile
 from gwopa.core import _
+
+grok.templatedir("templates")
 
 
 class StartBeforeEnd(Invalid):
@@ -189,3 +192,8 @@ class IProject(model.Schema):
                 _("error_end_must_be_after_start_date",
                   default=u"End date must be after start date.")
             )
+
+
+class View(grok.View):
+    grok.context(IProject)
+    grok.template('project_view')

@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:browser="http://namespaces.zope.org/browser"
@@ -8,7 +9,13 @@
 
   <includeDependencies package="." />
 
+  <include package="five.grok" />
+
+
   <include package=".browser" />
+
+  <!-- Register all components defined with grok -->
+  <grok:grok package="." />
 
   <!-- ++theme++gwopa.theme -->
   <plone:static
@@ -16,7 +23,7 @@
       type="theme"
       name="gwopa.theme"
       />
-
+  
   <genericsetup:registerProfile
       name="default"
       title="GWOPA Theme package (gwopa.theme)"
