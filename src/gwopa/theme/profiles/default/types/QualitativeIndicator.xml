@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<object name="ProjectMember" meta_type="Dexterity FTI"
+<object name="QualitativeIndicator" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Project Member</property>
+ <property name="title" i18n:translate="">QualitativeIndicator</property>
  <property name="description"></property>
  <property name="icon_expr"></property>
- <property name="factory">ProjectMember</property>
- <property name="add_view_expr">string:${folder_url}/++add++ProjectMember</property>
+ <property name="factory">QualitativeIndicator</property>
+ <property name="add_view_expr">string:${folder_url}/++add++QualitativeIndicator</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
- <property name="global_allow">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types"></property>
  <property name="allow_discussion">False</property>
@@ -24,7 +24,7 @@
   <element value="plone.app.relationfield.behavior.IRelatedItems"/>
  </property>
 
- <property name="schema">gwopa.theme.content.projectmember.IProjectmember</property>
+ <property name="schema">gwopa.theme.content.qualitativeindicator.IQualitativeindicator</property>
 
  <property name="model_file"></property>
  <property name="schema_policy">dexterity</property>

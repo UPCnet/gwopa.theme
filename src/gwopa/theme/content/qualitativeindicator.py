@@ -35,7 +35,7 @@ def default_end(context):
     return default_end_dt(context)
 
 
-class IIndicator(model.Schema):
+class IQualitativeindicator(model.Schema):
     """  Project type
     """
     title = schema.TextLine(
@@ -102,5 +102,5 @@ class IIndicator(model.Schema):
 
 
 class View(grok.View):
-    grok.context(IIndicator)
-    grok.template('indicator_view')
+    grok.context(IQualitativeindicator)
+    grok.template('qualitative_view')
