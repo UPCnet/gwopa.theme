@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="menu" meta_type="Dexterity FTI"
+<object name="Project" meta_type="Dexterity FTI"
    i18n:domain="gwopa"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Project</property>
