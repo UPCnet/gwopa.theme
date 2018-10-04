@@ -54,4 +54,4 @@ class IProjectmember(model.Schema):
 
 class View(grok.View):
     grok.context(IProjectmember)
-    grok.template('project_view')
+    grok.template('projectmember_view')

@@ -28,4 +28,14 @@
       layer="gwopa.theme.interfaces.IGwopaThemeLayer"
   />
 
+  <!-- DASHBOARD TEMPLATE-->
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="globalhome"
+      class=".globalhome.MainTemplate"
+      template="templates/globalhome.pt"
+      permission="cmf.SetOwnPassword"
+      layer="gwopa.theme.interfaces.IGwopaThemeLayer"
+  />
+
 </configure>
