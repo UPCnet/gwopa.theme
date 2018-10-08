@@ -11,8 +11,6 @@
 
   <include package="five.grok" />
 
-  <include package=".browser" />
-
   <!-- Register all components defined with grok -->
   <grok:grok package="." />
 
