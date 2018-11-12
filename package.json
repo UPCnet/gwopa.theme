@@ -8,6 +8,7 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-postcss": "^0.8.0",
+    "grunt-contrib-cssmin": "latest",
     "pixrem": "^3.0.2",
     "cssnano": "^3.7.7",
     "autoprefixer": "^6.5.1"
