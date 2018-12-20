@@ -169,22 +169,25 @@ ul.activity_item li {
 
 .template-login_form div#content-core,
 .template-logged_out div#content-core {
-  margin-top: 140px;
   padding-left: 40px;
   padding-right: 40px;
   background-color: white;
   width: 420px;
 }
 
+.template-login_form div#content-core,{
+  margin-top: 120px;
+}
+
 .template-login_failed div#content-core {
-    margin-top: 140px;
     padding-left: 40px;
     padding-right: 40px;
     background-color: white;
     margin: 0 auto 6px;
 }
 
-body.template-login_form #content-core {
+body.template-login_form #content-core,
+body.template-logged_out #content-core {
   max-width: 420px !important;
 }
 
@@ -195,8 +198,7 @@ body.template-login_form #content-core {
 }
 
 .template-login_form .documentDescription,
-.template-login_failed .documentDescription,
-.template-logged-out .documentDescription {
+.template-login_failed .documentDescription {
     text-align: center;
     background-color: white;
 }
@@ -218,4 +220,24 @@ ul.item {
 
 input#sso.context {
   width: 100%;
+}
+
+.template-login_failed .portalMessage.error {
+  width: 420px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 6px auto 6px;
+}
+
+.template-logged_out .documentDescription {
+    background-color: #41C0F1;
+    border: 1px solid #41C0F1;
+    color: rgba(0, 0, 0, 0.5);
+    width: 420px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 6px auto 6px;
+    height: 50px;
+    padding-top: 11px;
+    text-align: center;
 }
