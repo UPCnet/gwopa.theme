@@ -3,7 +3,7 @@
 /* SIDEBAR */
 
 div.outer-wrapper {
-  margin-left: 125px
+  margin-left: 10%
 }
 
 #portal-logout {
@@ -18,7 +18,7 @@ div.outer-wrapper {
 
 .sidenav {
   height: 100%;
-  width: 125px;
+  width: 10%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -168,13 +168,30 @@ ul.activity_item li {
 .left { float:left; }
 
 .template-login_form div#content-core,
-.template-login_failed div#content-core,
 .template-logged_out div#content-core {
   margin-top: 140px;
   padding-left: 40px;
   padding-right: 40px;
   background-color: white;
   width: 420px;
+}
+
+.template-login_failed div#content-core {
+    margin-top: 140px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+    margin: 0 auto 6px;
+}
+
+body.template-login_form #content-core {
+  max-width: 420px !important;
+}
+
+.template-login_failed #content-core, {
+    width: 420px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .template-login_form .documentDescription,
@@ -184,16 +201,21 @@ ul.activity_item li {
     background-color: white;
 }
 
-
 #image_login {
   padding-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #login-forgotten-password {
   padding-top: 10px;
-  text-align: center;
 }
 
 ul.item {
   padding-left: 0px;
+}
+
+input#sso.context {
+  width: 100%;
 }
