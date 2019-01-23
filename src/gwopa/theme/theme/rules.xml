@@ -16,7 +16,7 @@
     <!-- Title -->
     <replace css:theme="title" css:content="title" />
     <!-- Pull in Plone Meta -->
-    <after css:theme-children="head" css:content="head meta" />
+    <!-- <after css:theme-children="head" css:content="head meta" /> -->
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
@@ -25,7 +25,19 @@
     <!-- CSS -->
     <after css:theme-children="head" css:content="head link" />
     <!-- Script -->
-    <after css:theme-children="head" css:content="head script" />
+
+    <!-- <drop css:content="head script[data-bundle='basic']" /> -->
+    <!-- <after css:theme-children="head" css:content="head script" /> -->
+
+    <!-- <before content="/html/head/script" theme-children="/html/head" /> -->
+        <!-- ... before your own scripts -->
+        <before theme="/html/body">
+            <xsl:apply-templates select="/html/head/script" />
+            <!-- include the Plone scripts -->
+            <script>require = undefined
+            define = undefined</script>
+            <!-- and then unset require and define -->
+        </before>
   </rules>
 
   <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
