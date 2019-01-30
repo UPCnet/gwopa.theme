@@ -33,10 +33,6 @@
         <!-- ... before your own scripts -->
         <before theme="/html/body">
             <xsl:apply-templates select="/html/head/script" />
-            <!-- include the Plone scripts -->
-            <script>require = undefined
-            define = undefined</script>
-            <!-- and then unset require and define -->
         </before>
   </rules>
 
