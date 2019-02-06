@@ -6,6 +6,14 @@
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <theme href="index.html" />
+  <rules css:if-content="body.portaltype-workplan">
+      <drop css:content="head script" />
+        <before theme="/html/body">
+            <xsl:apply-templates select="/html/head/script" />
+        </before>
+  </rules>
+
+
   <notheme css:if-not-content="#visual-portal-wrapper" />
 
   <rules css:if-content="#portal-top">
