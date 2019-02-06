@@ -89,6 +89,7 @@ ul#sidenav-vertical {
     padding: 10px 30px;
     border-radius: 6px;
     box-shadow: none !important;
+    float: right;
     margin-bottom: 25px;
 }
 .documentDescription {
@@ -205,8 +206,7 @@ h1 span {
     color: #004657;
 }
 .menuleft {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 12px;
 }
 p.bottom span:after {
     content: '\A';
@@ -216,7 +216,6 @@ p.card-text.bottom {
     margin-bottom: 30px;
 }
 #portal-header {
-    margin-top: 0px;
     margin-bottom: 20px;
     width: 100% !important;
     background-color: #fff;
@@ -225,9 +224,10 @@ p.card-text.bottom {
     box-shadow: 0px 2px 6px 0px #cecece;
     position: fixed;
     top: 0px;
-    height: 65px;
     left: 0px;
     z-index: 1;
+    margin-top: 0px;
+    padding: 10px 15px;
 }
 .sidenav {
     max-width: 250px;
@@ -238,6 +238,9 @@ p.card-text.bottom {
     background-color: #004657;
     overflow-x: hidden;
     width: 13%;
+    height: 94%;
+    padding-top: 0px;
+    margin-top: 65px;
     box-shadow: 6px 0px 7px #00000021;
 }
 .plone-toolbar-top-default .container {
@@ -302,18 +305,18 @@ p.card-text.bottom {
 }
 .modal-body {
     position: relative;
-    padding: 15px;
+    padding: 0px!important;
 }
 .modal-body#NewKPI {
     height: 500px;
     overflow-y: scroll;
 }
-.modal-body#NewActivity {
+/*.modal-body#NewActivity {
     height: 635px;
 }
 .modal-body#New {
     height: 550px;
-}
+}*/
 #content .col-xs-12.col-sm-12 {
     padding: 0px 10px 0px 0px;
 }
@@ -390,14 +393,21 @@ input#sso.context {
 .menuright img {
     height: 60px;
     float: left;
-    margin-top: -43px;
+    margin-top: -45px;
     margin-left: 50px;
+}
+#portal-header {
+    padding: 10px 20px 10px 20px;
 }
 div.outer-wrapper {
     margin-left: 13%;
-    margin-top: 100px !important;
+    margin-top: 160px !important;
+}
+#portal-header {
+    margin-top: 30px !important;
 }
 .sidenav {
+    margin-top: 50px;
     box-shadow: 6px 0px 7px #00000021;
 }
 .menuleft .fa:before {
@@ -1008,6 +1018,7 @@ tr.descripcion h3 {
         max-width: 180px;
     }
     .sidenav {
+        height: 95%;
         width: 15%;
     }
     div.outer-wrapper {
@@ -1025,6 +1036,7 @@ tr.descripcion h3 {
 @media (max-width: 1000px) {
     .sidenav {
         width: 16%;
+        height: 90%;
     }
     ul.plone-toolbar-main span {
         font-size: 0px;
@@ -1083,7 +1095,6 @@ tr.descripcion h3 {
         width: 625px;
     }
     #portal-header {
-        margin-top: 0px;
         margin-bottom: 20px;
         width: 100% !important;
         background-color: #fff;
@@ -1092,9 +1103,10 @@ tr.descripcion h3 {
         box-shadow: 0px 6px 6px 0px #0000002e;
         position: fixed;
         top: 0px;
-        height: 65px;
         left: 0px;
         z-index: 1;
+        margin-top: 0px;
+        padding: 10px 15px;
     }
     #content {
         margin-bottom: 48px;
@@ -1110,13 +1122,16 @@ tr.descripcion h3 {
     }
     .sidenav {
         width: 8%;
+        height: 87%;
+        padding-top: 0px;
+        margin-top: 50px;
         box-shadow: 6px 0px 7px #00000021;
     }
     .menuright img {
         width: 125px;
         float: left;
-        margin-top: -43px !important;
         margin-left: 60px;
+        margin-top: -50px !important;
     }
 }
 @media (max-width: 769px) {
@@ -1182,11 +1197,18 @@ tr.descripcion h3 {
     .menuright img {
         height: 60px;
         float: left;
-        margin-top: -43px !important;
         margin-left: 50px;
+        margin-top: -50px !important;
+    }
+    #portal-header {
+        padding: 10px 20px 10px 20px;
+    }
+    #portal-header {
+        margin-top: 0px !important;
     }
     .sidenav {
-        margin-top: 65px;
+        height: 95%;
+        margin-top: 50px;
         width: 8%;
     }
     .menuleft .fa:before {
@@ -1219,10 +1241,12 @@ tr.descripcion h3 {
         margin-top: 80px;
     }
     .menuright img {
-        margin-top: -43px;
+        margin-top: -52px;
     }
     .sidenav {
         width: 9%;
+        margin-top: 50px;
+        height: 93%;
     }
     div.outer-wrapper {
         margin-top: 30px !important;
@@ -1260,7 +1284,7 @@ tr.descripcion h3 {
     .menuright img {
         width: 120px;
         float: left;
-        margin-top: -43px !important;
+        margin-top: -47px !important;
         margin-left: 40px;
     }
     .pattern-pickadate-wrapper .pattern-pickadate-date-wrapper .picker__input {
@@ -1375,7 +1399,6 @@ tr.descripcion h3 {
         margin-top: 8px;
     }
     #portal-header {
-        margin-top: 0px;
         margin-bottom: 20px;
         width: 100% !important;
         background-color: #fff;
@@ -1384,9 +1407,10 @@ tr.descripcion h3 {
         box-shadow: 0px 2px 6px 0px #cecece;
         position: fixed;
         top: 0px;
-        height: 65px;
         left: 0px;
         z-index: 1;
+        margin-top: 0px;
+        padding: 10px 15px;
     }
     div#mainnavigation-wrapper {
         margin-top: 75px !important;
@@ -1418,6 +1442,9 @@ tr.descripcion h3 {
     }
     .sidenav {
         width: 9%;
+        height: 93%;
+        padding-top: 0px;
+        margin-top: 50px;
         box-shadow: 6px 0px 7px #00000021;
     }
     div.outer-wrapper {
@@ -1436,7 +1463,7 @@ tr.descripcion h3 {
     .menuright img {
         width: auto;
         float: left;
-        margin-top: -43px !important;
+        margin-top: -50px !important;
         margin-left: 40px;
     }
     .menuleft .fa:before {
@@ -1473,8 +1500,7 @@ tr.descripcion h3 {
         margin-right: 20px;
     }
     .menuleft {
-        margin-top: 20px;
-        margin-left: 20px;
+        margin-top: 0px;
     }
     .menuleft .fa:before {
         float: left;
@@ -1482,6 +1508,9 @@ tr.descripcion h3 {
     }
     .sidenav {
         width: 13%;
+        height: 92%;
+        padding-top: 0px;
+        margin-top: 50px;
         box-shadow: 6px 0px 7px #00000021;
     }
     .menuleft .fa:before {
@@ -1506,4 +1535,15 @@ tr.descripcion h3 {
     .sidenav {
         width: 13%;
     }
+}
+
+
+div.outer-wrapper {
+  margin-top: 70px !important;
+}
+
+@media (max-width: 1500px) {
+  div.outer-wrapper {
+    margin-left: 13%;
+  }
 }

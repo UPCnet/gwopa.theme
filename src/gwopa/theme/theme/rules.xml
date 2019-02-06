@@ -8,9 +8,9 @@
   <theme href="index.html" />
   <rules css:if-content="body.portaltype-workplan">
       <drop css:content="head script" />
-        <before theme="/html/body">
+        <!-- <before theme="/html/body">
             <xsl:apply-templates select="/html/head/script" />
-        </before>
+        </before> -->
   </rules>
 
 

@@ -1,11 +1,58 @@
 /*  GWOPA custom styles */
 
-/* inline_style_edits.inline.css */
-/*
-#edit-zone.pat-toolbar {
-  display: none;
+.plone-toolbar-expanded #edit-zone li:not(.active) a:hover>span {
+  color: white;
 }
-*/
+
+#edit-zone nav > ul a:focus {
+    color: blue;
+}
+
+.logo_img {
+  height: 50px;
+  top: 0;
+  position: absolute;
+  left: 65px;
+}
+
+.plone-toolbar-top #edit-zone nav {
+  padding-left: 125px;
+}
+
+#edit-zone {
+  background: white;
+  border-bottom: 1px solid #f1f1f1;
+  box-shadow: 0px 2px 6px 0px #cecece;
+}
+
+#edit-zone nav>ul a {
+  color: #696969;
+}
+
+.btn_remove, .btn_remove:hover {
+  color: #fff;
+  background-color: #ac2925;
+  border-color: #d43f3a;
+  box-shadow: none !important;
+  margin-bottom: 25px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+
+}
+.btn_warning, .btn_warning:hover {
+  color: #fff;
+  background-color: #d58512;
+  border-color: #985f0d;
+  box-shadow: none !important;
+  margin-bottom: 25px;
+  padding: 10px 12px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
 .portaltype-project .fullwidth {
     width: 100%;
 }
