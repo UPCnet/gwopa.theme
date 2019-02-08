@@ -4,7 +4,8 @@ body {
     background-color: #f1f1f1;
     font-weight: 400;
 }
-.h3, h3 {
+.h3,
+h3 {
     font-size: 20px;
 }
 h4.titulocatplan {
@@ -17,9 +18,6 @@ a {
     font-weight: 500;
     font-size: 16px;
     text-transform: capitalize;
-}
-div.outer-wrapper {
-    margin-left: 13%;
 }
 a.plone-btn.plone-btn-info,
 a.plone-btn.plone-btn-success {
@@ -40,16 +38,6 @@ a.plone-btn.plone-btn-success {
 }
 br {
     display: none;
-}
-#portal-logout {
-    padding-top: 5px;
-    float: right;
-    bottom: 10px;
-    position: absolute;
-    left: 15px;
-}
-#portal-logout i.fa.fa-sign-out {
-    margin-top: 20px;
 }
 a.plone-btn.plone-btn-success:hover {
     background-color: #31b0d5;
@@ -250,9 +238,6 @@ p.card-text.bottom {
     max-width: 100%;
     height: auto !important;
 }
-#portal-logout li {
-    width: 100%;
-}
 .pat-autotoc.autotabs,
 .autotabs {
     border: none;
@@ -270,10 +255,6 @@ p.card-text.bottom {
 }
 .plone-toolbar-top-expanded {
     margin-top: 100px;
-}
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
 }
 .select2-container .select2-choice {
     background-color: none;
@@ -398,10 +379,6 @@ input#sso.context {
 }
 #portal-header {
     padding: 10px 20px 10px 20px;
-}
-div.outer-wrapper {
-    margin-left: 13%;
-    margin-top: 160px !important;
 }
 #portal-header {
     margin-top: 30px !important;
@@ -585,7 +562,6 @@ div.outer-wrapper {
         margin-top: 0px;
     }
 }
-
 .fa-plus-circle:before {
     content: "\f055";
     color: #274656;
@@ -1009,9 +985,6 @@ tr.descripcion h3 {
         width: 100% !important;
         position: absolute;
     }
-    div.outer-wrapper {
-        margin-left: 11%;
-    }
 }
 @media (max-width: 1300px) {
     li a.tablink {
@@ -1020,9 +993,6 @@ tr.descripcion h3 {
     .sidenav {
         height: 95%;
         width: 15%;
-    }
-    div.outer-wrapper {
-        margin-left: 16%;
     }
     .container {
         width: 100%;
@@ -1117,9 +1087,6 @@ tr.descripcion h3 {
     .plone-toolbar-top-default .container {
         width: 100%;
     }
-    div.outer-wrapper {
-        margin-left: 8%;
-    }
     .sidenav {
         width: 8%;
         height: 87%;
@@ -1186,9 +1153,6 @@ tr.descripcion h3 {
         width: 45px !important;
         padding: 0px 10px;
     }
-    div.outer-wrapper {
-        margin-top: 30px !important;
-    }
     /* Provisional Header Negro */
     .plone-toolbar-top-expanded {
         margin-top: 100px;
@@ -1218,10 +1182,6 @@ tr.descripcion h3 {
     #content {
         margin-top: 0px;
     }
-    div.outer-wrapper {
-        margin-left: 8%;
-        margin-top: 100px !important;
-    }
 }
 @media (max-width: 650px) {
     #edit-zone .plone-toolbar-logo,
@@ -1248,9 +1208,6 @@ tr.descripcion h3 {
         margin-top: 50px;
         height: 93%;
     }
-    div.outer-wrapper {
-        margin-top: 30px !important;
-    }
     #content {
         margin-top: 20px;
     }
@@ -1274,9 +1231,6 @@ tr.descripcion h3 {
         margin: 0px;
         width: 100%;
     }
-    div.outer-wrapper {
-        margin-left: 20%;
-    }
     .box img {
         width: 100%;
         height: 100%;
@@ -1293,9 +1247,6 @@ tr.descripcion h3 {
     .pat-autotoc.autotabs,
     .autotabs {
         padding: 0;
-    }
-    div.outer-wrapper {
-        margin-left: 14%;
     }
     a.plone-btn.plone-btn-info {
         font-size: 0px;
@@ -1447,9 +1398,6 @@ tr.descripcion h3 {
         margin-top: 50px;
         box-shadow: 6px 0px 7px #00000021;
     }
-    div.outer-wrapper {
-        margin-left: 9%;
-    }
     .bottom span {
         font-size: 18px;
     }
@@ -1536,14 +1484,34 @@ tr.descripcion h3 {
         width: 13%;
     }
 }
-
-
-div.outer-wrapper {
-  margin-top: 70px !important;
+article#content .col-lg-3 {
+    width: 24%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
 }
-
-@media (max-width: 1500px) {
-  div.outer-wrapper {
-    margin-left: 13%;
-  }
+#sidebar.col-xs-6.col-sm-2.sidebar-offcanvas {
+    height: 100vh;
+    background-color: #0a5272;
+    padding: 0px;
+}
+#portal-logout {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #0a5272;
+    float: none;
+    bottom: 0px;
+    left: 0px;
+}
+#portal-logout a {
+    color: white;
+}
+a.plone-btn.plone-btn-info {
+    width: 100%;
+}
+a.plone-btn.plone-btn-info.active {
+    width: 100%;
 }
