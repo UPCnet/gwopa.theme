@@ -58,7 +58,7 @@ ul#sidenav-vertical {
 }
 .documentFirstHeading {
     padding-bottom: 9px;
-    margin: 0 0 10px;
+    margin: 10px 0 10px 0;
     border-bottom: none;
     color: #00a9f3;
     font-weight: 600;
@@ -231,10 +231,6 @@ p.card-text.bottom {
     margin-top: 65px;
     box-shadow: 6px 0px 7px #00000021;
 }
-.col-xs-12.col-sm-12 img {
-    width: 100%;
-    height: auto !important;
-}
 .pat-autotoc.autotabs,
 .autotabs {
     border: none;
@@ -251,7 +247,7 @@ p.card-text.bottom {
     background: #005880;
 }
 .plone-toolbar-top-expanded {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 .select2-container .select2-choice {
     background-color: none;
@@ -356,7 +352,7 @@ input#sso.context {
 }
 /* Provisional Header Negro */
 .plone-toolbar-top-expanded {
-    margin-top: 100px;
+    margin-top: 60px;
     background-color: #f1f1f1;
 }
 #edit-zone .plone-toolbar-logo,
@@ -972,6 +968,71 @@ tr.descripcion h3 {
     font-size: 16px;
     font-weight: bold;
 }
+article#content .col-lg-3 {
+    width: 24%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+#portal-logout {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #0a5272;
+    float: none;
+    bottom: 0px;
+    left: 0px;
+}
+#portal-logout a {
+    color: white;
+}
+a.plone-btn.plone-btn-info.active {
+    width: 100%;
+}
+div.outer-wrapper {
+    margin-left: 0px;
+}
+.plone-toolbar-top-default .container {
+    width: 100%;
+}
+#sidebar.col-sm-1.sidebar-offcanvas {
+    height: 100%;
+    background-color: #0a5272;
+    padding: 0px;
+    position: fixed;
+    left: 0px;
+    z-index: 1000;
+    top: 50px;
+    width: 8.33333333%;
+}
+a.plone-btn.plone-btn-success,
+a.plone-btn.plone-btn-info {
+    text-align: left;
+    width: 100%;
+}
+.col-xs-12.col-sm-12 img {
+    height: auto;
+    width: 100%;
+}
+.leaflet-left {
+    z-index: 0 !important;
+}
+.plone-toolbar-top #edit-zone nav > ul {
+    float: left;
+}
+.plone-toolbar-top.plone-toolbar-expanded #edit-zone nav > ul > li {
+    width: inherit;
+    border-right: 1px solid #f1f1f1;
+}
+main#main-container .col-sm-11 {
+    width: 91.66666667%;
+    float: right;
+}
+article#content {
+    margin-left: 0px;
+}
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
         padding: 30px 15px;
@@ -981,6 +1042,20 @@ tr.descripcion h3 {
         clear: both;
         width: 100% !important;
         position: absolute;
+    }
+    a.plone-btn.plone-btn-info.active {
+        font-size: 12px;
+    }
+    a.plone-btn.plone-btn-info,
+    ul#portal-logout {
+        font-size: 12px;
+    }
+    i.fas.fa-chart-area,
+    i.fas.fa-users,
+    i.fas.fa-file,
+    i.fa.fa-home,
+    i.fas.fa-power-off {
+        font-size: 20px;
     }
 }
 @media (max-width: 1300px) {
@@ -993,6 +1068,23 @@ tr.descripcion h3 {
     }
     .container {
         width: 100%;
+    }
+    a.plone-btn.plone-btn-info.active {
+        font-size: 0px;
+    }
+    a.plone-btn.plone-btn-info,
+    ul#portal-logout {
+        font-size: 0px;
+    }
+    i.fas.fa-chart-area,
+    i.fas.fa-users,
+    i.fas.fa-file,
+    i.fa.fa-home,
+    i.fas.fa-power-off {
+        font-size: 20px;
+    }
+    #sidebar {
+        width: 60px !important;
     }
 }
 @media (min-width: 1200px) {
@@ -1093,6 +1185,9 @@ tr.descripcion h3 {
     }
 }
 @media (max-width: 769px) {
+    .col-sm-1 {
+        width: 60px;
+    }
     li.visible {
         width: 100%;
     }
@@ -1146,7 +1241,7 @@ tr.descripcion h3 {
     }
     /* Provisional Header Negro */
     .plone-toolbar-top-expanded {
-        margin-top: 100px;
+        margin-top: 60px;
         background-color: #f1f1f1;
     }
     .menuright img {
@@ -1175,6 +1270,10 @@ tr.descripcion h3 {
     }
 }
 @media (max-width: 650px) {
+    .col-xs-12.col-sm-11 {
+        width: 90%;
+        margin-left: 4.5%;
+    }
     #edit-zone .plone-toolbar-logo,
     .plone-toolbar-expanded #edit-zone .plone-toolbar-logo {
         position: absolute;
@@ -1201,6 +1300,12 @@ tr.descripcion h3 {
     }
     #content {
         margin-top: 20px;
+    }
+    article#content .col-lg-3 {
+        width: 49%;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        float: left;
     }
 }
 @media (max-width: 600px) {
@@ -1355,7 +1460,7 @@ tr.descripcion h3 {
         padding: 10px 15px;
     }
     div#mainnavigation-wrapper {
-        margin-top: 75px !important;
+        margin-top: 60px !important;
     }
     i.fa.fa-home:before {
         font-size: 25px;
@@ -1422,11 +1527,14 @@ tr.descripcion h3 {
     .plone-toolbar-expanded #edit-zone .plone-toolbar-logo {
         position: absolute;
         left: -60px;
-        width: 45px !important;
-        height: 45px;
+        width: 40px !important;
+        height: 40px;
         border-radius: 32px !important;
-        margin-top: 10px;
-        padding: 1px 17px;
+        margin-top: 5px;
+        padding: 0px 13px;
+    }
+    article#content {
+        margin-left: 6%;
     }
 }
 @media (max-width: 480px) {
@@ -1470,49 +1578,4 @@ tr.descripcion h3 {
     .sidenav {
         width: 13%;
     }
-}
-article#content .col-lg-3 {
-    width: 24%;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-}
-#portal-logout {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    white-space: nowrap;
-    padding: 15px;
-    font-size: 14px;
-    background-color: #0a5272;
-    float: none;
-    bottom: 0px;
-    left: 0px;
-}
-#portal-logout a {
-    color: white;
-}
-a.plone-btn.plone-btn-info.active {
-    width: 100%;
-}
-div.outer-wrapper {
-    margin-left: 0px;
-}
-.plone-toolbar-top-default .container {
-    width: 100%;
-}
-#sidebar.col-sm-1.sidebar-offcanvas {
-    height: 100%;
-    background-color: #0a5272;
-    padding: 0px;
-    position: fixed;
-    left: 0px;
-    z-index: 10000;
-    top: 50px;
-}
-article#content {
-    margin-left: 9.333333%;
-}
-a.plone-btn.plone-btn-info {
-    text-align: left;
-    width: 100%;
 }
