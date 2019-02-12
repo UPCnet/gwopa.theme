@@ -36,9 +36,6 @@ a.plone-btn.plone-btn-success {
     background-color: #007bb1;
     border-color: transparent;
 }
-br {
-    display: none;
-}
 a.plone-btn.plone-btn-success:hover {
     background-color: #31b0d5;
 }
@@ -62,7 +59,7 @@ ul#sidenav-vertical {
     border-bottom: none;
     color: #00a9f3;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 24px;
 }
 .state-private {
     color: #ababab !important;
@@ -962,9 +959,9 @@ tr.descripcion h3 {
     font-weight: bold;
 }
 article#content .col-lg-3 {
-    width: 24%;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
+    width: 22%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
     margin-bottom: 2.5%;
 }
 #portal-logout {
@@ -1047,10 +1044,6 @@ input.select2-input.select2-default {
     font-size: 16px;
     padding: 5px 10px 0px 10px;
 }
-.plone-toolbar-top-default .col-xs-12.col-sm-12 img {
-    height: 20px;
-    width: 20px;
-}
 .select2-container .select2-choice {
     background-image: none;
 }
@@ -1100,7 +1093,8 @@ img.fullwidth {
     width: 100%;
     float: left;
 }
-select[multiple], select[size]{
+select[multiple],
+select[size] {
     height: auto;
     min-width: 22em;
 }
@@ -1121,6 +1115,37 @@ input#form-buttons-cancel {
     width: 90%;
     float: right;
     margin-right: 20px;
+}
+p.card-text.bottom {
+    margin-bottom: 5px;
+}
+#formfield-form-widgets-image img {
+    height: 20px;
+    width: 20px;
+}
+.select2-container a {
+    border-bottom: 1px solid #cccccc !important;
+}
+.pattern-relateditems-container .dropdown-menu,
+.pat-structure .dropdown-menu,
+.pat-structure .pattern-relateditems-container .dropdown-menu,
+.pattern-relateditems-container .pat-structure .dropdown-menu {
+    position: relative;
+    display: none;
+    float: none;
+    width: 100%;
+}
+button.favorites.dropdown-toggle,
+button.recentlyUsed.dropdown-toggle.btn.btn-primary {
+    min-width: 100%;
+}
+.pull-right {
+    float: right;
+    margin: 0px 0px 0px 5px;
+}
+.pat-leaflet.map.leaflet-container.leaflet-fade-anim {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
