@@ -8,9 +8,6 @@ body {
 h3 {
     font-size: 20px;
 }
-h4.titulocatplan {
-    font-size: 18px;
-}
 a {
     color: #00a9f3;
 }
@@ -71,11 +68,12 @@ ul#sidenav-vertical {
     color: #fff;
     background-color: #007bb1;
     border-color: #00608a;
-    padding: 10px 30px;
-    border-radius: 6px;
+    padding: 7px 18px;
     box-shadow: none !important;
     float: right;
     margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 14px;
 }
 .documentDescription {
     font-size: 16px;
@@ -94,17 +92,18 @@ table {
 h1,
 h2,
 h3 {
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-input#form-buttons-cancel:hover {
-    background-color: #eee;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 input#form-buttons-cancel {
     background-color: white;
     padding: 10px 20px 10px 20px;
     border-radius: 4px;
     margin: 0px 20px;
+    font-weight: 400;
+}
+input#form-buttons-save {
+    padding: 10px 20px 10px 20px;
 }
 select[multiple],
 select[size] {
@@ -257,9 +256,6 @@ p.bottom span:after {
 }
 .pat-leaflet.map.leaflet-container.leaflet-touch.leaflet-retina.leaflet-fade-anim {
     margin-bottom: 20px;
-}
-.documentDescription ul.pagination.pagination-lg {
-    margin: 40px 0px 0px 0px !important;
 }
 #ModalCreateKPIZone .form-group {
     position: relative;
@@ -608,7 +604,7 @@ h4.titulocatplan {
     margin: 3px 20px;
     float: left;
     padding: 2px 0px;
-    font-size: 20px;
+    font-size: 18px;
     color: #3e677c;
     font-weight: 600;
 }
@@ -665,7 +661,7 @@ h4.titulocatplan {
 .zone-planning {
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     float: left;
     padding: 0px;
     font-weight: 600;
@@ -749,7 +745,7 @@ button.btn.btn-default {
     color: white;
     font-weight: 600;
     width: 90px;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
 }
 button.btn.btn-default:hover {
@@ -757,7 +753,8 @@ button.btn.btn-default:hover {
 }
 .modal-footer {
     border-top: none;
-    padding: 30px;
+    padding: 22px;
+    margin-top: 30px;
 }
 button.btn.btn-default:active {
     color: white;
@@ -949,8 +946,10 @@ tr.descripcion select {
 }
 .template-monitoring button.btn.btn-default {
     float: right;
-    margin-right: 15px;
-    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    font-size: 16px;
 }
 tr.descripcion h3 {
     text-align: left;
@@ -1062,9 +1061,6 @@ textarea {
 #form-widgets-wop_platform {
     width: 100% !important;
 }
-input#form-buttons-cancel {
-    margin: 0px;
-}
 .pattern-pickadate-wrapper .pattern-pickadate-date-wrapper {
     width: 90%;
 }
@@ -1105,9 +1101,6 @@ select[size] {
     width: auto;
     float: left;
 }
-input#form-buttons-cancel {
-    margin-right: 20px;
-}
 .plone-toolbar-top #edit-zone nav {
     padding-left: 70px;
 }
@@ -1146,6 +1139,28 @@ button.recentlyUsed.dropdown-toggle.btn.btn-primary {
 .pat-leaflet.map.leaflet-container.leaflet-fade-anim {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.pattern-relateditems-container .toolbar .controls {
+    position: absolute;
+    right: 0px;
+}
+h1.documentFirstHeading a {
+    float: right;
+}
+.pagination {
+    margin: 10px;
+}
+a.btn_remove {
+    margin-right: 10px;
+}
+.plone-toolbar-top #edit-zone nav > ul li.active ul {
+    right: 20px;
+}
+.pattern-relateditems-container .table-bordered,
+.pat-structure .table-bordered,
+.pat-structure .pattern-relateditems-container .table-bordered,
+.pattern-relateditems-container .pat-structure .table-bordered {
+    border: none;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
