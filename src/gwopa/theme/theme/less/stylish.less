@@ -4,6 +4,19 @@ body {
     background-color: #f1f1f1;
     font-weight: 400;
 }
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+li {
+    display: block;
+}
+h2 {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
 .h3,
 h3 {
     font-size: 20px;
@@ -24,9 +37,9 @@ a.plone-btn.plone-btn-success {
 }
 .fa:before {
     font-family: FontAwesome !important;
-    font-size: 16px;
     font-weight: 300;
     margin-right: 0px;
+    font-size: 20px;
 }
 .plone-btn-info,
 a.plone-btn.plone-btn-success {
@@ -271,12 +284,6 @@ p.bottom span:after {
     height: 500px;
     overflow-y: scroll;
 }
-/*.modal-body#NewActivity {
-    height: 635px;
-}
-.modal-body#New {
-    height: 550px;
-}*/
 #content .col-xs-12.col-sm-12 {
     padding: 0px 10px 0px 0px;
 }
@@ -365,9 +372,6 @@ input#sso.context {
 .sidenav {
     margin-top: 50px;
     box-shadow: 6px 0px 7px #00000021;
-}
-.menuleft .fa:before {
-    font-size: 16px !important;
 }
 .nav-tabs > li.active > a {
     border-left: 1px solid #ececec !important;
@@ -1004,7 +1008,6 @@ a.plone-btn.plone-btn-info {
 }
 .col-xs-12.col-sm-12 img {
     height: auto;
-    width: 100%;
 }
 .leaflet-left {
     z-index: 0 !important;
@@ -1026,16 +1029,16 @@ article#content {
 .box .card-body {
     color: white;
     position: absolute;
-    background-color: #0046653d;
+    background-color: #06567aa8;
     width: 100%;
     bottom: 0px;
     font-weight: 500;
-    padding: 20px;
-    font-size: 16px;
+    padding: 5px 20px;
+    font-size: 15px;
 }
 .box .card-body h4.card-title.top a {
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
 }
 input.select2-input.select2-default {
@@ -1153,14 +1156,78 @@ h1.documentFirstHeading a {
 a.btn_remove {
     margin-right: 10px;
 }
-.plone-toolbar-top #edit-zone nav > ul li.active ul {
-    right: 20px;
-}
 .pattern-relateditems-container .table-bordered,
 .pat-structure .table-bordered,
 .pat-structure .pattern-relateditems-container .table-bordered,
 .pattern-relateditems-container .pat-structure .table-bordered {
     border: none;
+}
+article#content .col-lg-3,
+.col-lg-3.col-md-6 {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.col-xs-12.col-sm-12 img,
+.has-table .col-xs-12.col-sm-12 img,
+img.box-img {
+    object-fit: cover;
+    height: 275px;
+}
+.box {
+    width: 100%;
+}
+#edit-zone nav > ul a > span + span {
+    color: white;
+}
+.plone-toolbar-top #edit-zone nav > ul li.active ul {
+    position: relative;
+}
+.plone-toolbar-top #edit-zone ul#personal-bar-container {
+    float: right;
+}
+.plone-toolbar-top #edit-zone ul#personal-bar-container li.active ul {
+    right: 20px;
+}
+.link-category {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #636363;
+    border-radius: 4px;
+    text-align: left;
+    background-color: #dedede;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+.col-md-2 h3 {
+    margin-top: 20px;
+}
+h1,
+h2 {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.col-xs-12.col-sm-11 .row {
+    margin-bottom: 15px;
+}
+ul,
+menu,
+dir {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col-md-7 .col-md-12 {
+    margin-bottom: 20px;
+}
+.row .row .col-md-12 .col-md-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.row .col-md-3 div {
+    margin-bottom: 40px;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1178,13 +1245,6 @@ a.btn_remove {
     a.plone-btn.plone-btn-info,
     ul#portal-logout {
         font-size: 12px;
-    }
-    i.fas.fa-chart-area,
-    i.fas.fa-users,
-    i.fas.fa-file,
-    i.fa.fa-home,
-    i.fas.fa-power-off {
-        font-size: 20px;
     }
 }
 @media (max-width: 1300px) {
@@ -1204,13 +1264,6 @@ a.btn_remove {
     a.plone-btn.plone-btn-info,
     ul#portal-logout {
         font-size: 0px;
-    }
-    i.fas.fa-chart-area,
-    i.fas.fa-users,
-    i.fas.fa-file,
-    i.fa.fa-home,
-    i.fas.fa-power-off {
-        font-size: 20px;
     }
     #sidebar {
         width: 60px !important;
@@ -1262,10 +1315,6 @@ a.btn_remove {
     }
     a.plone-btn.plone-btn-info {
         font-size: 0px;
-    }
-    ul .fa:before,
-    ul .fas:before {
-        font-size: 20px;
     }
     i.fa.fa-home:before {
         font-size: 25px;
@@ -1381,8 +1430,6 @@ a.btn_remove {
     }
     #portal-header {
         padding: 10px 20px 10px 20px;
-    }
-    #portal-header {
         margin-top: 0px !important;
     }
     .sidenav {
@@ -1390,12 +1437,15 @@ a.btn_remove {
         margin-top: 50px;
         width: 8%;
     }
-    .menuleft .fa:before {
-        font-size: 24px !important;
-    }
-    /* Provisional Header Negro */
     #content {
         margin-top: 0px;
+    }
+    #portal-header {
+        height: 50px;
+    }
+    .col-xs-12.col-sm-12 {
+        padding-top: 15px;
+        margin-top: 50px;
     }
 }
 @media (max-width: 650px) {
@@ -1475,10 +1525,6 @@ a.btn_remove {
     }
     a.plone-btn.plone-btn-info {
         font-size: 0px;
-    }
-    ul .fa:before,
-    ul .fas:before {
-        font-size: 20px;
     }
     .documentFirstHeading {
         font-size: 20px;
@@ -1607,11 +1653,6 @@ a.btn_remove {
     .menuleft a {
         color: #004657;
     }
-    .menuleft .fa:before {
-        margin-top: 15px !important;
-        float: left;
-        margin-left: 4px;
-    }
     h1 span {
         color: #9a9a9a !important;
         font-size: 22px;
@@ -1640,7 +1681,7 @@ a.btn_remove {
         margin-left: 40px;
     }
     .menuleft .fa:before {
-        margin-top: 3px !important;
+        margin-top: 15px !important;
         float: left;
         margin-left: 4px;
     }
