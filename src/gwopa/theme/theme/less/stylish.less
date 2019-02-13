@@ -1229,6 +1229,18 @@ dir {
 .row .col-md-3 div {
     margin-bottom: 40px;
 }
+div#content-core img {
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+}
+#content-core a {
+    border-bottom: 0px;
+    width: max-content;
+}
+#search-filter .field {
+    width: 100%;
+}
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
         padding: 30px 15px;
@@ -1245,6 +1257,27 @@ dir {
     a.plone-btn.plone-btn-info,
     ul#portal-logout {
         font-size: 12px;
+    }
+}
+@media (max-width: 1430px){
+    .fa-chart-pie:before {
+        content: "\f200";
+        font-size: 20px;
+    }
+    .fa-calendar-check:before {
+        content: "\f274";
+        font-size: 20px;
+    }
+    .fa-file-alt:before {
+        content: "\f15c";
+        font-size: 20px;
+    }
+    .fa-tachometer-alt:before {
+        content: "\f3fd";
+        font-size: 20px;
+    }
+    ul .fa:before, ul .fas:before {
+        font-size: 20px;
     }
 }
 @media (max-width: 1300px) {
@@ -1286,22 +1319,6 @@ dir {
 @media (max-width: 966px) {
     a.plone-btn.plone-btn-success {
         font-size: 0px;
-    }
-    .fa-chart-pie:before {
-        content: "\f200";
-        font-size: 20px;
-    }
-    .fa-calendar-check:before {
-        content: "\f274";
-        font-size: 20px;
-    }
-    .fa-file-alt:before {
-        content: "\f15c";
-        font-size: 20px;
-    }
-    .fa-tachometer-alt:before {
-        content: "\f3fd";
-        font-size: 20px;
     }
     #content {
         margin-top: 0px;
