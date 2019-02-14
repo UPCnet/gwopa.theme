@@ -5,10 +5,14 @@
        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
+ 
+  <!-- Include the backend theme -->
+  <!-- <xi:include href="++theme++barceloneta/backend.xml" /> -->
+
   <theme href="index.html" />
-  <rules css:if-content="body.portaltype-workplan">
+<!--   <rules css:if-content="body.portaltype-workplan">
       <drop css:content="head script" />
-  </rules>
+  </rules> -->
 
   <notheme css:if-not-content="#visual-portal-wrapper" />
 
