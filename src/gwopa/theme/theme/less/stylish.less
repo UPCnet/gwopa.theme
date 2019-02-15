@@ -33,7 +33,6 @@ a.plone-btn.plone-btn-info,
 a.plone-btn.plone-btn-success {
     border-radius: 0px;
     padding: 15px;
-    margin: 1px 0px;
 }
 .fa:before {
     font-family: FontAwesome !important;
@@ -70,6 +69,8 @@ ul#sidenav-vertical {
     color: #00a9f3;
     font-weight: 600;
     font-size: 24px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .state-private {
     color: #ababab !important;
@@ -1157,9 +1158,6 @@ img.box-img {
 .box {
     width: 100%;
 }
-#edit-zone nav > ul a > span + span {
-    /*color: white;*/
-}
 .plone-toolbar-top #edit-zone nav > ul li.active ul {
     position: relative;
 }
@@ -1209,11 +1207,6 @@ dir {
 }
 .row .col-md-3 div {
     margin-bottom: 40px;
-}
-div#content-core img {
-    width: 20px;
-    height: auto;
-    margin-right: 10px;
 }
 #content-core a {
     border-bottom: 0px;
@@ -1268,7 +1261,8 @@ tr th {
     font-weight: 400;
     font-size: 14px;
 }
-tr.descripcion h4.titulocatplan {
+tr.descripcion#CC h4.titulocatplan,
+tr.descripcion#CCS h4.titulocatplan {
     width: 50%;
     text-align: left;
     margin: 0px 20px;
@@ -1291,7 +1285,7 @@ tr.descripcion h3.titulocatplan {
 .template-monitoring .CCS-planning,
 .template-monitoring .activity-planning,
 .template-monitoring .zone-planning,
-.template-monitoring .CCS-planning{
+.template-monitoring .CCS-planning {
     margin: 7px 0px 0px 30px !important;
 }
 tr.descripcion td {
@@ -1307,7 +1301,9 @@ tr.descripcion .panel-collapse .row h3 {
     font-weight: 500;
     margin-top: 0px;
 }
-#OTFD a, #OTAD a, #IndDim a {
+#OTFD a,
+#OTAD a,
+#IndDim a {
     padding: 20px !important;
 }
 .panel-collapse.collapse {
@@ -1323,6 +1319,39 @@ tr.descripcion td {
 }
 th.name {
     padding: 5px 20px !important;
+}
+.sidenav2 ul#sidenav-vertical a img {
+    width: 125px !important;
+    padding: 5px;
+}
+ul#sidenav-vertical {
+    background-color: white;
+}
+.sidenav2 ul#sidenav-vertical a img {
+    width: 125px !IMPORTANT;
+    padding: 5px 5px 0px 5px;
+}
+a.plone-btn.plone-btn-info,
+a.plone-btn.plone-btn-success {
+    border-radius: 0px;
+    padding: 15px;
+    margin: 0px 0px;
+    border-bottom: 1px solid #0a5272;
+}
+h4#activity {
+    margin: 8px 20px;
+}
+.template-login_failed .container .row .field,
+.template-logged_out .container .row .field,
+.template-login_form .container .row .field {
+    width: 100%;
+    float: left;
+    padding: 0px 20px;
+}
+.template-login_failed #content,
+.template-logged_out #content,
+.template-login_form #content {
+    background-color: transparent;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
