@@ -388,13 +388,6 @@ input#sso.context {
     margin: 10px 10px 0px 0px;
 }
 /* Templeate Monitoring */
-.template-monitoring .kpi-planning,
-.template-monitoring .CC-planning,
-.template-monitoring .CCS-planning,
-.template-monitoring .activity-planning,
-.template-monitoring .zone-planning {
-    margin: 5px 0px 0px 35px;
-}
 .template-monitoring .outcome-planning {
     margin: 5px 0px 0px 0px;
 }
@@ -535,10 +528,6 @@ input#sso.context {
         margin: 10px 0px 10px 0px;
         width: 100%;
     }
-    i#expandir {
-        float: right;
-        margin: 8px 20px;
-    }
     .template-monitoring .col-md-12.text-item-planning.collapse.in {
         border-bottom: 1px solid #ececec;
         padding-bottom: 20px;
@@ -557,13 +546,10 @@ input#sso.context {
 i#crearnueva {
     float: left;
 }
-i#expandir {
-    float: right;
-    margin: 8px 20px;
-}
 .text-item-planning {
     font-size: 16px;
     margin-top: 10px;
+    font-weight: 400 !important;
 }
 .output-group-secondary {
     float: right;
@@ -607,8 +593,8 @@ h3.titulocatplan {
 h4.titulocatplan {
     margin: 3px 20px;
     float: left;
-    padding: 2px 0px;
-    font-size: 18px;
+    padding: 5px 0px;
+    font-size: 16px;
     color: #3e677c;
     font-weight: 600;
 }
@@ -916,11 +902,6 @@ a.tablink {
     display: block;
     padding: 10px 20px 10px 20px;
 }
-td .row .col-sm-12 h3 {
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
 .text-item-planning .col-sm-12 .col-sm-6 {
     text-align: left;
 }
@@ -1216,8 +1197,8 @@ h2 {
 ul,
 menu,
 dir {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .col-md-7 .col-md-12 {
     margin-bottom: 20px;
@@ -1230,7 +1211,7 @@ dir {
     margin-bottom: 40px;
 }
 div#content-core img {
-    width: auto;
+    width: 20px;
     height: auto;
     margin-right: 10px;
 }
@@ -1242,17 +1223,106 @@ div#content-core img {
     width: 100%;
 }
 #search-results-wrapper .link-category {
-    display: inline;
-    margin: 10px;
-    padding: 10px 20px;
+    display: block;
     font-size: 14px;
     font-weight: 600;
     color: #636363;
     border-radius: 4px;
     text-align: left;
-    background-color: #dedede;
-    margin-top: 10px;
     text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.content.result {
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    padding: 5px 20px;
+}
+.col-xs-12.col-sm-11 .row .col-md-6 ul li,
+.col-xs-12.col-sm-11 .row .col-md-3 ul li,
+.col-xs-12.col-sm-11 .row .col-md-8 ul li {
+    width: 47.5%;
+    float: left;
+    margin-right: 2.5%;
+    padding: 5px 20px;
+    background-color: #f3f3f3;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+a.link-category {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    font-weight: 400;
+}
+td .row .col-sm-12 h3 {
+    font-weight: 500;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+div#furexp {
+    padding: 0px;
+}
+tr th {
+    font-weight: 400;
+    font-size: 14px;
+}
+tr.descripcion h4.titulocatplan {
+    width: 50%;
+    text-align: left;
+    margin: 0px 20px;
+    float: left;
+    padding: 3px 0px 0px 0px;
+    font-size: 16px;
+    color: #3e677c;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+tr.descripcion h3.titulocatplan {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    width: 90%;
+    color: #565656;
+}
+.template-monitoring .kpi-planning,
+.template-monitoring .CC-planning,
+.template-monitoring .CCS-planning,
+.template-monitoring .activity-planning,
+.template-monitoring .zone-planning,
+.template-monitoring .CCS-planning{
+    margin: 7px 0px 0px 30px !important;
+}
+tr.descripcion td {
+    padding: 10px 20px !important;
+}
+i#expandir {
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+tr.descripcion .panel-collapse .row h3 {
+    font-size: 13px !important;
+    font-weight: 500;
+    margin-top: 0px;
+}
+#OTFD a, #OTAD a, #IndDim a {
+    padding: 20px !important;
+}
+.panel-collapse.collapse {
+    padding: 5px;
+}
+tr.descripcion td {
+    padding: 10px 40px !important;
+}
+#OTFD.panel-collapse.collapse,
+#OTAD.panel-collapse.collapse,
+#IndDim.panel-collapse.collapse {
+    padding: 0px 20px 0px 0px;
+}
+th.name {
+    padding: 5px 20px !important;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1272,7 +1342,7 @@ div#content-core img {
         font-size: 12px;
     }
 }
-@media (max-width: 1430px){
+@media (max-width: 1430px) {
     .fa-chart-pie:before {
         content: "\f200";
         font-size: 20px;
@@ -1289,7 +1359,8 @@ div#content-core img {
         content: "\f3fd";
         font-size: 20px;
     }
-    ul .fa:before, ul .fas:before {
+    ul .fa:before,
+    ul .fas:before {
         font-size: 20px;
     }
 }

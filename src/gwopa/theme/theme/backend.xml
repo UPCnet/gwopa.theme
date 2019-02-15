@@ -30,6 +30,7 @@
 
   <!-- We don't want overlays -->
   <drop attributes="class" css:content="#edit-bar a.pat-plone-modal" />
+<!--   <drop css-content="#edit-zone" /> -->
 
   <!-- Cut down barceloneta without just for backend UI -->
   <rules css:if-not-content="body.viewpermission-view, body.viewpermission-none">
@@ -110,7 +111,7 @@
       <replace css:theme="#column1-container">
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
           <aside id="portal-column-one">
-            <!-- <xsl:copy-of css:select="#portal-column-one > *" /> -->
+            <xsl:copy-of css:select="#portal-column-one > *" />
           </aside>
         </div>
       </replace>
