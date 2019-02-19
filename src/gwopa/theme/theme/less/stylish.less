@@ -395,9 +395,6 @@ input#sso.context {
 .template-monitoring td.last {
     border-right: 2px solid #ddd;
 }
-.template-monitoring .output-planning {
-    margin: 5px 0px 0px 35px;
-}
 .template-monitoring th.name {
     border-right: 2px solid #dddddd;
 }
@@ -408,6 +405,7 @@ input#sso.context {
 .template-monitoring .table > thead > tr > td,
 .template-monitoring .table > thead > tr > th {
     text-align: center;
+    border: 0px;
 }
 .template-monitoring th.thname {
     text-align: left !important;
@@ -469,9 +467,6 @@ input#sso.context {
     float: left;
     width: 100%;
     margin: 0px 0px 20px 0px;
-}
-.template-monitoring .col-md-12.text-item-planning.collapse.in {
-    padding-bottom: 20px;
 }
 @media (max-width: 992px) {
     .template-monitoring #Project,
@@ -549,7 +544,6 @@ i#crearnueva {
 }
 .text-item-planning {
     font-size: 16px;
-    margin-top: 10px;
     font-weight: 400 !important;
 }
 .output-group-secondary {
@@ -921,12 +915,6 @@ textarea.current {
     width: 60px;
     min-width: 0px;
 }
-#mainobstacle {
-    padding-left: 0px;
-}
-#mainsupfac {
-    padding-right: 0px;
-}
 tr.descripcion select {
     margin-bottom: 15px;
 }
@@ -934,7 +922,7 @@ tr.descripcion select {
     float: right;
     margin-right: 0px;
     margin-bottom: 0px;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
 }
 tr.descripcion h3 {
@@ -955,7 +943,7 @@ article#content .col-lg-3 {
     text-align: left;
     white-space: nowrap;
     padding: 15px;
-    font-size: 14px;
+    font-size: 13px;
     background-color: #0a5272;
     float: none;
     bottom: 0px;
@@ -993,9 +981,6 @@ a.plone-btn.plone-btn-info {
 }
 .leaflet-left {
     z-index: 0 !important;
-}
-.plone-toolbar-top #edit-zone nav > ul {
-    float: left;
 }
 .plone-toolbar-top.plone-toolbar-expanded #edit-zone nav > ul > li {
     width: inherit;
@@ -1086,9 +1071,6 @@ select[size] {
     width: auto;
     float: left;
 }
-.plone-toolbar-top #edit-zone nav {
-    padding-left: 70px;
-}
 .plone-toolbar-top #edit-zone .plone-toolbar-container {
     width: 90%;
     float: right;
@@ -1158,26 +1140,11 @@ img.box-img {
 .box {
     width: 100%;
 }
-.plone-toolbar-top #edit-zone nav > ul li.active ul {
-    position: relative;
-}
 .plone-toolbar-top #edit-zone ul#personal-bar-container {
     float: right;
 }
 .plone-toolbar-top #edit-zone ul#personal-bar-container li.active ul {
     right: 20px;
-}
-.link-category {
-    display: block;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #636363;
-    border-radius: 4px;
-    text-align: left;
-    background-color: #dedede;
-    margin-top: 10px;
-    text-transform: capitalize;
 }
 .col-md-2 h3 {
     margin-top: 20px;
@@ -1215,16 +1182,6 @@ dir {
 #search-filter .field {
     width: 100%;
 }
-#search-results-wrapper .link-category {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: #636363;
-    border-radius: 4px;
-    text-align: left;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-}
 .content.result {
     border-radius: 4px;
     background-color: #f3f3f3;
@@ -1241,21 +1198,12 @@ dir {
     margin-top: 6px;
     border-radius: 4px;
 }
-a.link-category {
-    padding: 10px;
-    border-radius: 4px;
-    background-color: #f3f3f3;
-    font-weight: 400;
-}
 td .row .col-sm-12 h3 {
     font-weight: 500;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 5px;
     font-size: 16px;
-}
-div#furexp {
-    padding: 0px;
 }
 tr th {
     font-weight: 400;
@@ -1280,13 +1228,14 @@ tr.descripcion h3.titulocatplan {
     width: 90%;
     color: #565656;
 }
+.template-monitoring .output-planning,
 .template-monitoring .kpi-planning,
 .template-monitoring .CC-planning,
 .template-monitoring .CCS-planning,
 .template-monitoring .activity-planning,
 .template-monitoring .zone-planning,
 .template-monitoring .CCS-planning {
-    margin: 7px 0px 0px 30px !important;
+    margin: 7px 0px 7px 30px !important;
 }
 tr.descripcion td {
     padding: 10px 20px !important;
@@ -1337,9 +1286,16 @@ a.plone-btn.plone-btn-success {
     padding: 15px;
     margin: 0px 0px;
     border-bottom: 1px solid #0a5272;
+    font-size: 13px;
 }
 h4#activity {
-    margin: 8px 20px;
+    margin: 4px 20px;
+}
+.plone-toolbar-top #edit-zone nav {
+    padding-left: 0px;
+}
+#furexp {
+    padding: 15px;
 }
 .template-login_failed .container .row .field,
 .template-logged_out .container .row .field,
@@ -1352,6 +1308,66 @@ h4#activity {
 .template-logged_out #content,
 .template-login_form #content {
     background-color: transparent;
+}
+#mainobstacle,
+#kpi,
+#mainsupfac {
+    padding-left: 0px;
+}
+p#rss-subscription img {
+    height: 15px;
+}
+.col-xs-12.col-sm-12 img,
+.has-table .col-xs-12.col-sm-12 img,
+img.box-img {
+    height: auto;
+    width: auto;
+}
+a.state-private {
+    margin: 8px;
+}
+.autotabs ol.searchResults {
+    padding: 0px;
+}
+ul .fa:before, ul .fas:before {
+    margin-right: 20px;
+}
+.col-xs-12.col-sm-11 .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+body#visual-portal-wrapper div.outer-wrapper container row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#search-results-wrapper .link-category {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #636363;
+    border-radius: 4px;
+    text-align: left;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.template-search #search-results-wrapper .link-category{
+    display: inline;
+}
+.template-search #search-results-wrapper a.link-category {
+    padding: 0px;
+    background-color: #ffffff;
+    text-decoration: underline;
+}
+tbody tr.descripcion {
+    background-color: #0a52720a;
+}
+.template-monitoring .col-md-12.text-item-planning.collapse.in{
+    padding: 0px 0px 0px 15px;
+    margin: 0px;
+}
+tr#contenido{
+
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1417,7 +1433,7 @@ h4#activity {
 }
 @media (min-width: 1200px) {
     .container {
-        width: 100%;
+        width: 100% !important;
     }
 }
 @media (max-width: 1000px) {
@@ -1878,4 +1894,8 @@ h4#activity {
     .sidenav {
         width: 13%;
     }
+}
+
+.container {
+    width: 100% !important;
 }
