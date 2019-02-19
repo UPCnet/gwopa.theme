@@ -406,6 +406,7 @@ input#sso.context {
 .template-monitoring .table > thead > tr > th {
     text-align: center;
     border: 0px;
+    vertical-align: middle;
 }
 .template-monitoring th.thname {
     text-align: left !important;
@@ -586,7 +587,7 @@ h3.titulocatplan {
     font-size: 20px;
 }
 h4.titulocatplan {
-    margin: 3px 20px;
+    margin: 5px 20px;
     float: left;
     padding: 5px 0px;
     font-size: 16px;
@@ -605,36 +606,36 @@ h4.titulocatplan {
 }
 .output-planning {
     background-color: #009dcf;
-    width: 100px;
+    width: 80px;
     margin: 5px 0px 0px 0px;
 }
 .kpi-planning {
     background-color: #274656;
-    width: 50px;
+    width: 45px;
     margin: 5px 0px 0px 20px;
 }
 .outcome-planning {
     background-color: #00ce04;
-    width: 100px;
+    width: 80px;
     margin: 5px 0px 0px 0px;
 }
 .CC-planning {
     background-color: #098200;
-    width: 50px;
+    width: 45px;
     margin: 5px 0px 0px 20px;
 }
 .CCS-planning {
     background-color: #ef9700;
-    width: 50px;
+    width: 45px;
 }
 .activity-planning {
     background-color: #00b4ce;
-    width: 100px;
+    width: 80px;
     margin: 5px 0px 0px 20px;
 }
 .zone-planning {
     background-color: #c34f4f;
-    width: 105px;
+    width: 85px;
     margin: 5px 0px 0px 20px;
 }
 .activity-planning,
@@ -646,9 +647,9 @@ h4.titulocatplan {
 .zone-planning {
     color: white;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
     float: left;
-    padding: 0px;
+    padding: 2px;
     font-weight: 600;
     border-radius: 4px;
 }
@@ -1238,7 +1239,7 @@ tr.descripcion h3.titulocatplan {
     margin: 7px 0px 7px 30px !important;
 }
 tr.descripcion td {
-    padding: 10px 20px !important;
+    padding: 2px 25px !important;
 }
 i#expandir {
     float: right;
@@ -1319,9 +1320,16 @@ p#rss-subscription img {
 }
 .col-xs-12.col-sm-12 img,
 .has-table .col-xs-12.col-sm-12 img,
-img.box-img {
-    height: auto;
+img.box-img{
     width: auto;
+    height: auto;
+}
+.template-homepage .col-xs-12.col-sm-12 img,
+.template-homepage .has-table .col-xs-12.col-sm-12 img,
+.template-homepage img.box-img{
+    object-fit: cover;
+    height: 275px;
+    width: 100%;
 }
 a.state-private {
     margin: 8px;
@@ -1366,8 +1374,22 @@ tbody tr.descripcion {
     padding: 0px 0px 0px 15px;
     margin: 0px;
 }
-tr#contenido{
-
+.sidenav2 .plone-btn-default {
+    color: #fff;
+    background-color: #0a5272;
+    border-color: #0a5272;
+    border-radius: 0px;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font-size: 13px;
+}
+.col-md-2 li {
+    margin-bottom: 10px !important;
+    margin-top: 10px;
+}
+.template-edit .col-xs-6.col-sm-3.sidebar-offcanvas {
+    margin-top: 15px;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
