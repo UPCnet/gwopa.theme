@@ -486,6 +486,10 @@ input#sso.context {
 form#search_projects {
     float: right;
 }
+.template-collaborating  .has-table .col-lg-3.col-md-6{
+    padding: 0px;
+}
+
 @media (max-width: 992px) {
     .template-monitoring #Project,
     .template-monitoring #Outcomes,
@@ -1073,10 +1077,7 @@ img.fullwidth {
 .col-xs-12.col-sm-12 {
     padding-top: 15px;
 }
-.formControls {
-    width: 100%;
-    float: left;
-}
+
 select[multiple],
 select[size] {
     height: auto;
@@ -1409,8 +1410,11 @@ tbody tr.descripcion {
 .template-edit .col-xs-6.col-sm-3.sidebar-offcanvas {
     margin-top: 15px;
 }
+.template-projectareas .col-xs-12.col-sm-12 img,
 .template-areas .col-xs-12.col-sm-12 img,
+.template-projectareas .has-table .col-xs-12.col-sm-12 img,
 .template-areas .has-table .col-xs-12.col-sm-12 img,
+.template-projectareas img.box-img,
 .template-areas img.box-img {
     object-fit: cover;
     height: 275px;
@@ -1974,3 +1978,5 @@ a.plone-btn.plone-btn-success,
 .container {
     width: 100% !important;
 }
+
+#form-widgets-image > span:nth-child(3) > a:nth-child(1) > img {display: none;}
