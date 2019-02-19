@@ -8,6 +8,15 @@ body {
     margin-left: 0px;
     margin-right: 0px;
 }
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h1 a:focus,
+h2 a:focus,
+h3 a:focus {
+    text-decoration: none;
+    border-bottom: none;
+}
 li {
     display: block;
 }
@@ -469,6 +478,14 @@ input#sso.context {
     width: 100%;
     margin: 0px 0px 20px 0px;
 }
+.plone-modal-dialog {
+    max-width: 900px;
+    margin: 0 auto !important;
+    top: 150px !important;
+}
+form#search_projects {
+    float: right;
+}
 @media (max-width: 992px) {
     .template-monitoring #Project,
     .template-monitoring #Outcomes,
@@ -929,8 +946,8 @@ tr.descripcion select {
 tr.descripcion h3 {
     text-align: left;
     margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 400;
 }
 article#content .col-lg-3 {
     width: 22%;
@@ -962,7 +979,8 @@ div.outer-wrapper {
 .plone-toolbar-top-default .container {
     width: 100%;
 }
-#sidebar.col-sm-1.sidebar-offcanvas {
+#sidebar.col-sm-1.sidebar-offcanvas,
+#sidebar.col-sm-2.sidebar-offcanvas {
     height: 100%;
     background-color: #0a5272;
     padding: 0px;
@@ -970,7 +988,6 @@ div.outer-wrapper {
     left: 0px;
     z-index: 1000;
     top: 50px;
-    width: 8.33333333%;
 }
 a.plone-btn.plone-btn-success,
 a.plone-btn.plone-btn-info {
@@ -987,8 +1004,8 @@ a.plone-btn.plone-btn-info {
     width: inherit;
     border-right: 1px solid #f1f1f1;
 }
+main#main-container .col-sm-10,
 main#main-container .col-sm-11 {
-    width: 91.66666667%;
     float: right;
 }
 article#content {
@@ -1199,7 +1216,8 @@ dir {
     margin-top: 6px;
     border-radius: 4px;
 }
-td .row .col-sm-12 h3 {
+#CC td .row .col-sm-12 h3,
+#CCS td .row .col-sm-12 h3 {
     font-weight: 500;
     text-align: left;
     margin-top: 5px;
@@ -1217,9 +1235,9 @@ tr.descripcion#CCS h4.titulocatplan {
     margin: 0px 20px;
     float: left;
     padding: 3px 0px 0px 0px;
-    font-size: 16px;
-    color: #3e677c;
-    font-weight: 600;
+    font-size: 15px;
+    color: #007bb1;
+    font-weight: 400;
     margin-top: 20px;
     margin-bottom: 12px;
 }
@@ -1243,12 +1261,12 @@ tr.descripcion td {
 }
 i#expandir {
     float: right;
-    margin-top: 20px;
+    margin-top: 18px;
     margin-bottom: 12px;
 }
 tr.descripcion .panel-collapse .row h3 {
-    font-size: 13px !important;
-    font-weight: 500;
+    font-size: 14px !important;
+    font-weight: 400;
     margin-top: 0px;
 }
 #OTFD a,
@@ -1287,7 +1305,7 @@ a.plone-btn.plone-btn-success {
     padding: 15px;
     margin: 0px 0px;
     border-bottom: 1px solid #0a5272;
-    font-size: 13px;
+    font-size: 16px;
 }
 h4#activity {
     margin: 4px 20px;
@@ -1296,7 +1314,7 @@ h4#activity {
     padding-left: 0px;
 }
 #furexp {
-    padding: 15px;
+    padding: 0px 15px 0px 0px;
 }
 .template-login_failed .container .row .field,
 .template-logged_out .container .row .field,
@@ -1320,13 +1338,13 @@ p#rss-subscription img {
 }
 .col-xs-12.col-sm-12 img,
 .has-table .col-xs-12.col-sm-12 img,
-img.box-img{
+img.box-img {
     width: auto;
     height: auto;
 }
 .template-homepage .col-xs-12.col-sm-12 img,
 .template-homepage .has-table .col-xs-12.col-sm-12 img,
-.template-homepage img.box-img{
+.template-homepage img.box-img {
     object-fit: cover;
     height: 275px;
     width: 100%;
@@ -1337,7 +1355,8 @@ a.state-private {
 .autotabs ol.searchResults {
     padding: 0px;
 }
-ul .fa:before, ul .fas:before {
+ul .fa:before,
+ul .fas:before {
     margin-right: 20px;
 }
 .col-xs-12.col-sm-11 .row {
@@ -1358,8 +1377,7 @@ body#visual-portal-wrapper div.outer-wrapper container row {
     text-transform: capitalize;
     margin-bottom: 10px;
 }
-
-.template-search #search-results-wrapper .link-category{
+.template-search #search-results-wrapper .link-category {
     display: inline;
 }
 .template-search #search-results-wrapper a.link-category {
@@ -1370,8 +1388,8 @@ body#visual-portal-wrapper div.outer-wrapper container row {
 tbody tr.descripcion {
     background-color: #0a52720a;
 }
-.template-monitoring .col-md-12.text-item-planning.collapse.in{
-    padding: 0px 0px 0px 15px;
+.template-monitoring .col-md-12.text-item-planning.collapse.in {
+    padding: 5px 0px 0px 15px;
     margin: 0px;
 }
 .sidenav2 .plone-btn-default {
@@ -1390,6 +1408,42 @@ tbody tr.descripcion {
 }
 .template-edit .col-xs-6.col-sm-3.sidebar-offcanvas {
     margin-top: 15px;
+}
+.template-areas .col-xs-12.col-sm-12 img,
+.template-areas .has-table .col-xs-12.col-sm-12 img,
+.template-areas img.box-img {
+    object-fit: cover;
+    height: 275px;
+    width: 100% !important;
+}
+.template-collaborating .col-xs-12.col-sm-12 img,
+.template-collaborating .has-table .col-xs-12.col-sm-12 img,
+.template-collaborating img.box-img {
+    object-fit: cover;
+    height: 275px;
+    width: 100%;
+}
+.card-body {
+    color: white;
+    position: absolute;
+    background-color: #06567aa8;
+    width: 100%;
+    bottom: 0px;
+    font-weight: 500;
+    padding: 5px 20px;
+    font-size: 15px;
+}
+.card-body a {
+    color: white;
+}
+tr#IA5 td {
+    padding: 0px 0px 0px 40px !important;
+}
+a.plone-btn.plone-btn-info,
+a.plone-btn.plone-btn-success,
+.sidenav2 .plone-btn-default {
+    font-weight: 600;
+    font-size: 16px
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1917,7 +1971,6 @@ tbody tr.descripcion {
         width: 13%;
     }
 }
-
 .container {
     width: 100% !important;
 }
