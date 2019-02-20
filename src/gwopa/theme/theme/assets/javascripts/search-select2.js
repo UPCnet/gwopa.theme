@@ -30,7 +30,7 @@ require([
 
     $("input.js-custom-data-ajax").select2({
       placeholder: placehd,
-      multiple: true,
+      multiple: false,
       maximumSelectionSize: 1,
       ajax: {
         url: ajax_url,
