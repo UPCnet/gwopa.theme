@@ -28,7 +28,7 @@ h2 {
 }
 .h3,
 h3 {
-    font-size: 20px;
+    font-size: 18px;
 }
 a {
     color: #00a9f3;
@@ -486,10 +486,9 @@ input#sso.context {
 form#search_projects {
     float: right;
 }
-.template-collaborating  .has-table .col-lg-3.col-md-6{
+.template-collaborating .has-table .col-lg-3.col-md-6 {
     padding: 0px;
 }
-
 @media (max-width: 992px) {
     .template-monitoring #Project,
     .template-monitoring #Outcomes,
@@ -1027,7 +1026,7 @@ article#content {
 }
 .box .card-body h4.card-title.top a {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
 }
 input.select2-input.select2-default {
@@ -1077,7 +1076,10 @@ img.fullwidth {
 .col-xs-12.col-sm-12 {
     padding-top: 15px;
 }
-
+.formControls {
+    width: 100%;
+    float: left;
+}
 select[multiple],
 select[size] {
     height: auto;
@@ -1236,7 +1238,7 @@ tr.descripcion#CCS h4.titulocatplan {
     margin: 0px 20px;
     float: left;
     padding: 3px 0px 0px 0px;
-    font-size: 15px;
+    font-size: 16px;
     color: #007bb1;
     font-weight: 400;
     margin-top: 20px;
@@ -1410,12 +1412,12 @@ tbody tr.descripcion {
 .template-edit .col-xs-6.col-sm-3.sidebar-offcanvas {
     margin-top: 15px;
 }
-.template-projectareas .col-xs-12.col-sm-12 img,
 .template-areas .col-xs-12.col-sm-12 img,
-.template-projectareas .has-table .col-xs-12.col-sm-12 img,
 .template-areas .has-table .col-xs-12.col-sm-12 img,
-.template-projectareas img.box-img,
-.template-areas img.box-img {
+.template-areas img.box-img,
+.template-projectareas .col-xs-12.col-sm-12 img,
+.template-projectareas .has-table .col-xs-12.col-sm-12 img,
+.template-projectareas img.box-img {
     object-fit: cover;
     height: 275px;
     width: 100% !important;
@@ -1448,6 +1450,18 @@ a.plone-btn.plone-btn-success,
 .sidenav2 .plone-btn-default {
     font-weight: 600;
     font-size: 16px
+}
+button.context.focus,
+button.context {
+    float: right;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-shadow: none;
+    background-image: none;
+    font-weight: 600;
+    border: none;
+    border-radius: 24px;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1500,9 +1514,6 @@ a.plone-btn.plone-btn-success,
     .container {
         width: 100%;
     }
-    a.plone-btn.plone-btn-info.active {
-        font-size: 0px;
-    }
     a.plone-btn.plone-btn-info,
     ul#portal-logout {
         font-size: 0px;
@@ -1526,6 +1537,14 @@ a.plone-btn.plone-btn-success,
     }
 }
 @media (max-width: 966px) {
+    #sidenav-vertical a.plone-btn.plone-btn-info.active {
+        font-size: 0px;
+    }
+    .sidenav2 ul#sidenav-vertical a img {
+        width: 60px !IMPORTANT;
+        padding: 10px 1px;
+        height: auto;
+    }
     a.plone-btn.plone-btn-success {
         font-size: 0px;
     }
@@ -1954,7 +1973,7 @@ a.plone-btn.plone-btn-success,
         height: 92%;
         padding-top: 0px;
         margin-top: 50px;
-        box-shadow: 6px 0px 7px #00000021;
+        box-shadow: 6px 0px 7px #9b464621;
     }
     .menuleft .fa:before {
         margin-top: 13px !important;
@@ -1979,4 +1998,8 @@ a.plone-btn.plone-btn-success,
     width: 100% !important;
 }
 
-#form-widgets-image > span:nth-child(3) > a:nth-child(1) > img {display: none;}
+@media (min-width: 1048px) {
+    #sidebar.col-sm-1.sidebar-offcanvas, #sidebar.col-sm-2.sidebar-offcanvas{
+         width: 16% !important;
+    }
+}
