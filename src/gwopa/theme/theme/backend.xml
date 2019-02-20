@@ -109,10 +109,10 @@
     <!-- Left column -->
     <rules css:if-content="#portal-column-one">
       <replace css:theme="#column1-container">
-        <div class="col-xs-6 col-sm-2 sidebar-offcanvas">
-<!--           <aside id="portal-column-one">
+        <div class="col-xs-6 col-sm-4 sidebar-offcanvas">
+          <aside id="portal-column-one">
             <xsl:copy-of css:select="#portal-column-one > *" />
-          </aside> -->
+          </aside>
         </div>
       </replace>
     </rules>
