@@ -225,6 +225,20 @@ p.bottom span:after {
     content: '\A';
     white-space: pre;
 }
+#portal-header {
+    margin-bottom: 20px;
+    width: 100% !important;
+    background-color: #fff;
+    color: white;
+    border-bottom: 1px solid #f1f1f1;
+    box-shadow: 0px 2px 6px 0px #cecece;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    margin-top: 0px;
+    padding: 10px 15px;
+}
 .sidenav {
     max-width: 250px;
     position: fixed;
@@ -356,6 +370,12 @@ input#sso.context {
     float: left;
     margin-top: -45px;
     margin-left: 50px;
+}
+#portal-header {
+    padding: 10px 20px 10px 20px;
+}
+#portal-header {
+    margin-top: 30px !important;
 }
 .sidenav {
     margin-top: 50px;
@@ -1517,9 +1537,8 @@ input#form-buttons-cancel {
         color: #cccccc;
         text-align: center;
         clear: both;
-        width: 84.3333% !important;
+        width: 100% !important;
         position: absolute;
-        right: 0px;
     }
     a.plone-btn.plone-btn-info.active {
         font-size: 12px;
@@ -1552,11 +1571,6 @@ input#form-buttons-cancel {
     }
 }
 @media (max-width: 1300px) {
-    article#content .col-lg-3 {
-        width: 100%;
-        margin: 20px 0px !important;
-        padding: 0px !important;
-    }
     li a.tablink {
         max-width: 180px;
     }
@@ -1583,191 +1597,6 @@ input#form-buttons-cancel {
         height: 90%;
     }
     ul.plone-toolbar-main span {
-        font-size: 0px;
-    }
-}
-@media (max-width: 966px) {
-    #sidenav-vertical a.plone-btn.plone-btn-info.active {
-        font-size: 0px;
-    }
-    .sidenav2 ul#sidenav-vertical a img {
-        width: 50px !IMPORTANT;
-        padding: 10px 1px;
-        height: auto;
-    }
-    a.plone-btn.plone-btn-success {
-        font-size: 0px;
-    }
-    #content {
-        margin-top: 0px;
-    }
-    input#form-buttons-cancel {
-        margin: 0px;
-        width: auto;
-    }
-    #portal-logout a {
-        font-size: 0px !important;
-    }
-    a.plone-btn.plone-btn-info {
-        font-size: 0px;
-    }
-    i.fa.fa-home:before {
-        font-size: 25px;
-        margin-left: -1px !important;
-    }
-    .menuleft a {
-        color: #004657;
-    }
-    .menuleft .fa:before {
-        margin-top: 4px !important;
-        float: left;
-        margin-left: 4px;
-    }
-    #content {
-        margin-bottom: 48px;
-        background-color: white;
-        padding: 30px;
-        border-radius: 4px;
-    }
-    .sidenav {
-        width: 8%;
-        height: 87%;
-        padding-top: 0px;
-        margin-top: 50px;
-        box-shadow: 6px 0px 7px #00000021;
-    }
-    .menuright img {
-        width: 125px;
-        float: left;
-        margin-left: 60px;
-        margin-top: -50px !important;
-    }
-}
-@media (min-width: 768px) {
-    a.plone-btn.plone-btn-info, ul#portal-logout{
-        font-size: 12px !important;
-    }
-    .col-xs-11.col-sm-10 {
-        margin-top: 20px !important;
-    }
-}
-@media (max-width: 768px) {
-    #portal-footer-wrapper {
-        width: 92% !important;
-        position: absolute;
-        right: 0px;
-    }
-    .col-md-12 {
-        padding: 0px;
-    }
-    input#form-buttons-cancel {
-        margin: 20px !important;
-        width: auto !important;
-    }
-    .context{
-        width: auto !Important;
-    }
-    .col-xs-12.col-sm-12 {
-        padding-left: 5px;
-        padding-right: 10px;
-    }
-    h1, h2, h3 {
-        margin: 40px 0px 20px 0px;
-        padding: 0px;
-    }
-    .col-xs-6 {
-        width: 100%;
-    }
-    button.context.focus, button.context, input.submit-widget {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .plone-modal-body .formControls {
-        margin-top: 30px;
-    }
-    .plone-modal-dialog {
-        top: 10% !important;
-    }
-    .plone-modal .plone-modal-dialog .plone-modal-body {
-        height: 400px;
-    }
-    .col-sm-1 {
-        width: 60px;
-    }
-    li.visible {
-        width: 100%;
-    }
-    .pagination-lg > li > a,
-    .pagination-lg > li > span {
-        padding: 10px 16px;
-        font-size: 18px;
-        width: 100%;
-    }
-    .documentDescription ul.pagination.pagination-lg {
-        margin: 20px 0px 0px 0px !important;
-    }
-    button.plone-btn-warning {
-        width: 100%;
-        margin-bottom: 2px;
-    }
-    .plone-btn-danger {
-        width: 100%;
-    }
-    ul.nav.nav-tabs {
-        margin-top: 20px;
-    }
-    li a.tablink {
-        max-width: 100%;
-        width: 100%;
-    }
-    .nav-tabs > li {
-        width: 100%;
-    }
-    .nav-tabs {
-        width: 100%;
-    }
-    .nav-tabs > li > a {
-        margin: 0px 0px 0px 0px;
-    }
-    .nav-tabs > li.active > a {
-        margin: 0px;
-    }
-    ul.plone-toolbar-main span {
-        font-size: 13px;
-    }
-    #edit-zone .plone-toolbar-logo,
-    .plone-toolbar-expanded #edit-zone .plone-toolbar-logo {
-        position: absolute;
-        left: -60px;
-        height: 45px;
-        margin-top: 15px;
-        border-radius: 40px;
-        width: 45px !important;
-        padding: 0px 10px;
-    }
-    /* Provisional Header Negro */
-    .plone-toolbar-top-expanded {
-        margin-top: 60px;
-        background-color: #f1f1f1;
-    }
-    .menuright img {
-        height: 60px;
-        float: left;
-        margin-left: 50px;
-        margin-top: -50px !important;
-    }
-    .sidenav {
-        height: 95%;
-        margin-top: 50px;
-        width: 8%;
-    }
-    #content {
-        margin-top: 0px;
-    }
-    .col-xs-12.col-sm-12 {
-        padding-top: 15px;
-    }
-    a.plone-btn.plone-btn-info, ul#portal-logout{
         font-size: 0px;
     }
 }
@@ -1801,22 +1630,13 @@ input#form-buttons-cancel {
         margin-top: 20px;
     }
     article#content .col-lg-3 {
-        width: 100%;
+        width: 49%;
         margin-left: 0.5%;
         margin-right: 0.5%;
         float: left;
     }
 }
 @media (max-width: 600px) {
-    article#content .col-lg-3 {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        float: left;
-    }
-    .has-table {
-        width: 100%;
-    }
     .col-md-12.groupgnr {
         padding: 0px;
     }
@@ -1929,6 +1749,11 @@ input#form-buttons-cancel {
         margin-left: auto;
         margin-right: auto;
     }
+    a.plone-btn.plone-btn-info,
+    a.plone-btn.plone-btn-success {
+        border-radius: 0px;
+        padding: 15px 0px 15px 17px;
+    }
     .pat-autotoc.autotabs .autotoc-section.active {
         margin-top: 20px;
     }
@@ -1943,6 +1768,20 @@ input#form-buttons-cancel {
         border-radius: 4px;
         margin-top: 8px;
     }
+    #portal-header {
+        margin-bottom: 20px;
+        width: 100% !important;
+        background-color: #fff;
+        color: white;
+        border-bottom: 1px solid #f1f1f1;
+        box-shadow: 0px 2px 6px 0px #cecece;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        margin-top: 0px;
+        padding: 10px 15px;
+    }
     div#mainnavigation-wrapper {
         margin-top: 60px !important;
     }
@@ -1952,7 +1791,7 @@ input#form-buttons-cancel {
     a.plone-btn.plone-btn-info,
     a.plone-btn.plone-btn-success {
         border-radius: 0px;
-        padding: 15px 12px;
+        padding: 15px;
         margin: 1px 0px;
     }
     i.fa.fa-home:before {
@@ -1975,6 +1814,9 @@ input#form-buttons-cancel {
     }
     .bottom span {
         font-size: 18px;
+    }
+    h4 {
+        font-size: 22px;
     }
     h1,
     .documentFirstHeading {
