@@ -9,18 +9,18 @@ require([
     if (lang == 'es') {
       var placehd = 'Busca proyectos...';
       var moreprojects = 'Más proyectos...';
-      var projects_url = base + "search?portal_type=Project";
-      var ajax_url = base + "@search";
+      var projects_url = base + "/@search?portal_type=Project";
+      var ajax_url = base + "/@search";
     } else if (lang == 'fr') {
       var placehd = 'Search projects...';
       var moreprojects = 'More projects...';
-      var projects_url = base + "search?portal_type=Project";
-      var ajax_url = base + "@search";
+      var projects_url = base + "/@search?portal_type=Project";
+      var ajax_url = base + "/@search";
     } else {
       var placehd = 'Search projects...';
       var moreprojects = 'More projects...';
-      var projects_url = base + "search?portal_type=Project";
-      var ajax_url = base + "@search";
+      var projects_url = base + "/@search?portal_type=Project";
+      var ajax_url = base + "/@search";
     }
     if ( $("input.js-custom-data-ajax.show-more-projects").length > 0 ) {
       var show_more_projects = true;
