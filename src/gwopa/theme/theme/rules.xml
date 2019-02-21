@@ -78,10 +78,10 @@
     <replace css:theme="#content-container" method="raw">
 
       <xsl:variable name="central">
-        <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
-        <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-10</xsl:if>
-        <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-10</xsl:if>
-        <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-11 col-sm-6</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-11 col-sm-10</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-11 col-sm-10</xsl:if>
+        <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-11 col-sm-12</xsl:if>
       </xsl:variable>
 
       <div class="{$central}">
@@ -104,7 +104,7 @@
     <!-- Left column -->
     <rules css:if-content="#portal-column-one">
       <replace css:theme="#column1-container">
-          <div id="sidebar" class="col-xs-6 col-sm-2 sidebar-offcanvas">
+          <div id="sidebar" class="col-xs-1 col-sm-2 sidebar-offcanvas">
             <aside id="portal-column-one">
                 <xsl:copy-of css:select="#portal-column-one > *" />
             </aside>
