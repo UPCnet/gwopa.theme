@@ -225,20 +225,6 @@ p.bottom span:after {
     content: '\A';
     white-space: pre;
 }
-#portal-header {
-    margin-bottom: 20px;
-    width: 100% !important;
-    background-color: #fff;
-    color: white;
-    border-bottom: 1px solid #f1f1f1;
-    box-shadow: 0px 2px 6px 0px #cecece;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-    margin-top: 0px;
-    padding: 10px 15px;
-}
 .sidenav {
     max-width: 250px;
     position: fixed;
@@ -370,12 +356,6 @@ input#sso.context {
     float: left;
     margin-top: -45px;
     margin-left: 50px;
-}
-#portal-header {
-    padding: 10px 20px 10px 20px;
-}
-#portal-header {
-    margin-top: 30px !important;
 }
 .sidenav {
     margin-top: 50px;
@@ -988,6 +968,7 @@ div.outer-wrapper {
     left: 0px;
     z-index: 1000;
     top: 50px;
+    min-width: 50px;
 }
 a.plone-btn.plone-btn-success,
 a.plone-btn.plone-btn-info {
@@ -1536,8 +1517,9 @@ input#form-buttons-cancel {
         color: #cccccc;
         text-align: center;
         clear: both;
-        width: 100% !important;
+        width: 84.3333% !important;
         position: absolute;
+        right: 0px;
     }
     a.plone-btn.plone-btn-info.active {
         font-size: 12px;
@@ -1570,6 +1552,11 @@ input#form-buttons-cancel {
     }
 }
 @media (max-width: 1300px) {
+    article#content .col-lg-3 {
+        width: 100%;
+        margin: 20px 0px !important;
+        padding: 0px !important;
+    }
     li a.tablink {
         max-width: 180px;
     }
@@ -1582,7 +1569,6 @@ input#form-buttons-cancel {
     }
 }
 @media (min-width: 1200px) {
-
     .container {
         width: 100% !important;
     }
@@ -1591,9 +1577,6 @@ input#form-buttons-cancel {
     .col-xs-11 {
         width: 91.66666667%;
         float: right;
-    }
-    a.plone-btn.plone-btn-info, ul#portal-logout{
-        font-size: 0px;
     }
     .sidenav {
         width: 16%;
@@ -1640,20 +1623,6 @@ input#form-buttons-cancel {
         float: left;
         margin-left: 4px;
     }
-    #portal-header {
-        margin-bottom: 20px;
-        width: 100% !important;
-        background-color: #fff;
-        color: white;
-        border-bottom: 1px solid #f1f1f1;
-        box-shadow: 0px 6px 6px 0px #0000002e;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        z-index: 1;
-        margin-top: 0px;
-        padding: 10px 15px;
-    }
     #content {
         margin-bottom: 48px;
         background-color: white;
@@ -1674,7 +1643,54 @@ input#form-buttons-cancel {
         margin-top: -50px !important;
     }
 }
-@media (max-width: 769px) {
+@media (min-width: 768px) {
+    a.plone-btn.plone-btn-info, ul#portal-logout{
+        font-size: 12px !important;
+    }
+    .col-xs-11.col-sm-10 {
+        margin-top: 20px !important;
+    }
+}
+@media (max-width: 768px) {
+    #portal-footer-wrapper {
+        width: 92% !important;
+        position: absolute;
+        right: 0px;
+    }
+    .col-md-12 {
+        padding: 0px;
+    }
+    input#form-buttons-cancel {
+        margin: 20px !important;
+        width: auto !important;
+    }
+    .context{
+        width: auto !Important;
+    }
+    .col-xs-12.col-sm-12 {
+        padding-left: 5px;
+        padding-right: 10px;
+    }
+    h1, h2, h3 {
+        margin: 40px 0px 20px 0px;
+        padding: 0px;
+    }
+    .col-xs-6 {
+        width: 100%;
+    }
+    button.context.focus, button.context, input.submit-widget {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .plone-modal-body .formControls {
+        margin-top: 30px;
+    }
+    .plone-modal-dialog {
+        top: 10% !important;
+    }
+    .plone-modal .plone-modal-dialog .plone-modal-body {
+        height: 400px;
+    }
     .col-sm-1 {
         width: 60px;
     }
@@ -1740,10 +1756,6 @@ input#form-buttons-cancel {
         margin-left: 50px;
         margin-top: -50px !important;
     }
-    #portal-header {
-        padding: 10px 20px 10px 20px;
-        margin-top: 0px !important;
-    }
     .sidenav {
         height: 95%;
         margin-top: 50px;
@@ -1752,11 +1764,11 @@ input#form-buttons-cancel {
     #content {
         margin-top: 0px;
     }
-    #portal-header {
-        height: 50px;
-    }
     .col-xs-12.col-sm-12 {
         padding-top: 15px;
+    }
+    a.plone-btn.plone-btn-info, ul#portal-logout{
+        font-size: 0px;
     }
 }
 @media (max-width: 650px) {
@@ -1789,13 +1801,22 @@ input#form-buttons-cancel {
         margin-top: 20px;
     }
     article#content .col-lg-3 {
-        width: 49%;
+        width: 100%;
         margin-left: 0.5%;
         margin-right: 0.5%;
         float: left;
     }
 }
 @media (max-width: 600px) {
+    article#content .col-lg-3 {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        float: left;
+    }
+    .has-table {
+        width: 100%;
+    }
     .col-md-12.groupgnr {
         padding: 0px;
     }
@@ -1908,12 +1929,6 @@ input#form-buttons-cancel {
         margin-left: auto;
         margin-right: auto;
     }
-    a.plone-btn.plone-btn-info,
-    a.plone-btn.plone-btn-success {
-        border-radius: 0px;
-        padding: 15px 0px 15px 17px;
-        margin: 1px 0px;
-    }
     .pat-autotoc.autotabs .autotoc-section.active {
         margin-top: 20px;
     }
@@ -1928,20 +1943,6 @@ input#form-buttons-cancel {
         border-radius: 4px;
         margin-top: 8px;
     }
-    #portal-header {
-        margin-bottom: 20px;
-        width: 100% !important;
-        background-color: #fff;
-        color: white;
-        border-bottom: 1px solid #f1f1f1;
-        box-shadow: 0px 2px 6px 0px #cecece;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        z-index: 1;
-        margin-top: 0px;
-        padding: 10px 15px;
-    }
     div#mainnavigation-wrapper {
         margin-top: 60px !important;
     }
@@ -1951,7 +1952,7 @@ input#form-buttons-cancel {
     a.plone-btn.plone-btn-info,
     a.plone-btn.plone-btn-success {
         border-radius: 0px;
-        padding: 15px;
+        padding: 15px 12px;
         margin: 1px 0px;
     }
     i.fa.fa-home:before {
@@ -1974,9 +1975,6 @@ input#form-buttons-cancel {
     }
     .bottom span {
         font-size: 18px;
-    }
-    h4 {
-        font-size: 22px;
     }
     h1,
     .documentFirstHeading {
@@ -2010,6 +2008,11 @@ input#form-buttons-cancel {
         border-radius: 32px !important;
         margin-top: 5px;
         padding: 0px 13px;
+    }
+}
+@media (min-width: 600px){
+    .col-xs-11.col-sm-10 {
+        margin-top: 75px;
     }
 }
 @media (max-width: 480px) {
