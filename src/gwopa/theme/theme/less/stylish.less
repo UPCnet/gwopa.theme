@@ -1606,11 +1606,6 @@ input#form-buttons-cancel {
     #sidenav-vertical a.plone-btn.plone-btn-info.active {
         font-size: 0px;
     }
-    .sidenav2 ul#sidenav-vertical a img {
-        width: 50px !IMPORTANT;
-        padding: 10px 1px;
-        height: auto;
-    }
     a.plone-btn.plone-btn-success {
         font-size: 0px;
     }
@@ -1682,8 +1677,13 @@ input#form-buttons-cancel {
     }
 }
 @media (max-width: 766px) {
-    .sidenav2 ul#sidenav-vertical a img{
-        background: url('../ulearn_comunitats@2x.png') no-repeat;
+    .sidenav2 ul#sidenav-vertical a img {
+        width: 50px !IMPORTANT;
+        padding: 10px 1px;
+        height: auto;
+    }
+    main#main-container .col-xs-11.col-sm-10 {
+        margin-top: 75px;
     }
     .col-xs-11 {
         width: 91.6%;
@@ -1812,6 +1812,9 @@ input#form-buttons-cancel {
     }
 }
 @media (max-width: 601px) {
+    main#main-container .col-xs-11.col-sm-10 {
+        margin-top: 20px;
+    }
     .col-xs-11.col-sm-10 {
         margin-top: 20px;
     }
@@ -2074,5 +2077,22 @@ input#form-buttons-cancel {
     #sidebar.col-sm-1.sidebar-offcanvas,
     #sidebar.col-sm-2.sidebar-offcanvas {
         width: 16% !important;
+    }
+}
+
+@media (max-width: 766px) {
+.sidenav2 ul#sidenav-vertical .logo{
+      height: auto;
+      width: auto;
+      background: url('++theme++gwopa.theme/assets/images/logo_gotas.png') no-repeat !important;
+      -webkit-background-size: 100%;
+      -moz-background-size: 100%;
+      -o-background-size: 100%;
+      background-size: 100%;
+    margin-left: 8px;
+    padding-bottom: 0px;
+    }
+    .sidenav2 ul#sidenav-vertical a img{
+        filter: opacity(0);
     }
 }
