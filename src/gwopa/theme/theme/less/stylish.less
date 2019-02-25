@@ -4,37 +4,11 @@ body {
     background-color: #f1f1f1;
     font-weight: 400;
 }
-body {
-    padding: 0px;
+.h3, h3 {
+    font-size: 20px;
 }
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-h1 a:hover,
-h2 a:hover,
-h3 a:hover,
-h1 a:focus,
-h2 a:focus,
-h3 a:focus {
-    text-decoration: none;
-    border-bottom: none;
-}
-li {
-    display: block;
-}
-h2 {
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 22px;
-    margin-bottom: 15px;
-}
-.h3,
-h3 {
+h4.titulocatplan {
     font-size: 18px;
-}
-h4{
-    font-size: 16px;
 }
 a {
     color: #00a9f3;
@@ -44,21 +18,38 @@ a {
     font-size: 16px;
     text-transform: capitalize;
 }
+div.outer-wrapper {
+    margin-left: 13%;
+}
 a.plone-btn.plone-btn-info,
 a.plone-btn.plone-btn-success {
     border-radius: 0px;
     padding: 15px;
+    margin: 1px 0px;
 }
 .fa:before {
     font-family: FontAwesome !important;
+    font-size: 20px;
     font-weight: 300;
     margin-right: 0px;
-    font-size: 20px;
 }
 .plone-btn-info,
 a.plone-btn.plone-btn-success {
     background-color: #007bb1;
     border-color: transparent;
+}
+br {
+    display: none;
+}
+#portal-logout {
+    padding-top: 5px;
+    float: right;
+    bottom: 10px;
+    position: absolute;
+    left: 15px;
+}
+#portal-logout i.fa.fa-sign-out {
+    margin-top: 20px;
 }
 a.plone-btn.plone-btn-success:hover {
     background-color: #31b0d5;
@@ -79,13 +70,11 @@ ul#sidenav-vertical {
 }
 .documentFirstHeading {
     padding-bottom: 9px;
-    margin: 10px 0 10px 0;
+    margin: 0 0 10px;
     border-bottom: none;
     color: #00a9f3;
     font-weight: 600;
-    font-size: 24px;
-    padding-left: 0px;
-    padding-right: 0px;
+    font-size: 30px;
 }
 .state-private {
     color: #ababab !important;
@@ -97,12 +86,11 @@ ul#sidenav-vertical {
     color: #fff;
     background-color: #007bb1;
     border-color: #00608a;
-    padding: 7px 18px;
+    padding: 10px 30px;
+    border-radius: 6px;
     box-shadow: none !important;
     float: right;
     margin-bottom: 25px;
-    font-weight: 400;
-    font-size: 14px;
 }
 .documentDescription {
     font-size: 16px;
@@ -121,18 +109,17 @@ table {
 h1,
 h2,
 h3 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+input#form-buttons-cancel:hover {
+    background-color: #eee;
 }
 input#form-buttons-cancel {
     background-color: white;
     padding: 10px 20px 10px 20px;
     border-radius: 4px;
     margin: 0px 20px;
-    font-weight: 400;
-}
-input#form-buttons-save {
-    padding: 10px 20px 10px 20px;
 }
 select[multiple],
 select[size] {
@@ -225,6 +212,9 @@ p.bottom span:after {
     content: '\A';
     white-space: pre;
 }
+p.card-text.bottom {
+    margin-bottom: 30px;
+}
 #portal-header {
     margin-bottom: 20px;
     width: 100% !important;
@@ -234,6 +224,7 @@ p.bottom span:after {
     box-shadow: 0px 2px 6px 0px #cecece;
     position: fixed;
     top: 0px;
+    height: 65px;
     left: 0px;
     z-index: 1;
     margin-top: 0px;
@@ -253,6 +244,16 @@ p.bottom span:after {
     margin-top: 65px;
     box-shadow: 6px 0px 7px #00000021;
 }
+.plone-toolbar-top-default .container {
+    width: 94%;
+}
+.col-xs-12.col-sm-12 img {
+    max-width: 100%;
+    height: auto !important;
+}
+#portal-logout li {
+    width: 100%;
+}
 .pat-autotoc.autotabs,
 .autotabs {
     border: none;
@@ -269,7 +270,11 @@ p.bottom span:after {
     background: #005880;
 }
 .plone-toolbar-top-expanded {
-    margin-top: 60px;
+    margin-top: 100px;
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 .select2-container .select2-choice {
     background-color: none;
@@ -283,8 +288,15 @@ p.bottom span:after {
 .img200 {
     width: auto;
 }
+.select2-container {
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+}
 .pat-leaflet.map.leaflet-container.leaflet-touch.leaflet-retina.leaflet-fade-anim {
     margin-bottom: 20px;
+}
+.documentDescription ul.pagination.pagination-lg {
+    margin: 40px 0px 0px 0px !important;
 }
 #ModalCreateKPIZone .form-group {
     position: relative;
@@ -294,17 +306,31 @@ p.bottom span:after {
 }
 .modal-body {
     position: relative;
-    padding: 0px!important;
+    padding: 15px;
 }
 .modal-body#NewKPI {
     height: 500px;
     overflow-y: scroll;
+}
+.modal-body#NewActivity {
+    height: 635px;
+}
+.modal-body#New {
+    height: 550px;
 }
 #content .col-xs-12.col-sm-12 {
     padding: 0px 10px 0px 0px;
 }
 .has-table .row .col-xs-12.col-sm-12,
 .col-lg-3.col-md-4.col-sm-6 {
+    padding: 0px;
+}
+article#content {
+    float: left;
+    width: 100%;
+    right: 0px;
+}
+body {
     padding: 0px;
 }
 .plone-toolbar-left-expanded {
@@ -353,7 +379,7 @@ input#sso.context {
 }
 /* Provisional Header Negro */
 .plone-toolbar-top-expanded {
-    margin-top: 60px;
+    margin-top: 100px;
     background-color: #f1f1f1;
 }
 #edit-zone .plone-toolbar-logo,
@@ -374,12 +400,20 @@ input#sso.context {
 #portal-header {
     padding: 10px 20px 10px 20px;
 }
+div.outer-wrapper {
+    margin-left: 13%;
+    margin-top: 160px !important;
+}
 #portal-header {
-    margin-top: 30px !important;
+    margin-top: 50px !important;
 }
 .sidenav {
-    margin-top: 50px;
+    height: 88%;
+    margin-top: 115px;
     box-shadow: 6px 0px 7px #00000021;
+}
+.menuleft .fa:before {
+    font-size: 24px !important;
 }
 .nav-tabs > li.active > a {
     border-left: 1px solid #ececec !important;
@@ -396,11 +430,21 @@ input#sso.context {
     margin: 10px 10px 0px 0px;
 }
 /* Templeate Monitoring */
+.template-monitoring .kpi-planning,
+.template-monitoring .CC-planning,
+.template-monitoring .CCS-planning,
+.template-monitoring .activity-planning,
+.template-monitoring .zone-planning {
+    margin: 5px 0px 0px 35px;
+}
 .template-monitoring .outcome-planning {
     margin: 5px 0px 0px 0px;
 }
 .template-monitoring td.last {
     border-right: 2px solid #ddd;
+}
+.template-monitoring .output-planning {
+    margin: 5px 0px 0px 35px;
 }
 .template-monitoring th.name {
     border-right: 2px solid #dddddd;
@@ -412,8 +456,6 @@ input#sso.context {
 .template-monitoring .table > thead > tr > td,
 .template-monitoring .table > thead > tr > th {
     text-align: center;
-    border: 0px;
-    vertical-align: middle;
 }
 .template-monitoring th.thname {
     text-align: left !important;
@@ -476,15 +518,8 @@ input#sso.context {
     width: 100%;
     margin: 0px 0px 20px 0px;
 }
-.plone-modal-dialog {
-    max-width: 900px;
-    margin: 0 auto !important;
-}
-form#search_projects {
-    float: right;
-}
-.template-collaborating .has-table .col-lg-3.col-md-6 {
-    padding: 0px;
+.template-monitoring .col-md-12.text-item-planning.collapse.in {
+    padding-bottom: 20px;
 }
 @media (max-width: 992px) {
     .template-monitoring #Project,
@@ -542,12 +577,17 @@ form#search_projects {
         margin: 10px 0px 10px 0px;
         width: 100%;
     }
+    i#expandir {
+        float: right;
+        margin: 8px 20px;
+    }
     .template-monitoring .col-md-12.text-item-planning.collapse.in {
         border-bottom: 1px solid #ececec;
         padding-bottom: 20px;
         margin-top: 0px;
     }
 }
+
 .fa-plus-circle:before {
     content: "\f055";
     color: #274656;
@@ -560,9 +600,13 @@ form#search_projects {
 i#crearnueva {
     float: left;
 }
+i#expandir {
+    float: right;
+    margin: 8px 20px;
+}
 .text-item-planning {
     font-size: 16px;
-    font-weight: 400 !important;
+    margin-top: 10px;
 }
 .output-group-secondary {
     float: right;
@@ -604,10 +648,10 @@ h3.titulocatplan {
     font-size: 20px;
 }
 h4.titulocatplan {
-    margin: 5px 20px;
+    margin: 3px 20px;
     float: left;
-    padding: 5px 0px;
-    font-size: 16px;
+    padding: 2px 0px;
+    font-size: 20px;
     color: #3e677c;
     font-weight: 600;
 }
@@ -623,36 +667,36 @@ h4.titulocatplan {
 }
 .output-planning {
     background-color: #009dcf;
-    width: 80px;
+    width: 100px;
     margin: 5px 0px 0px 0px;
 }
 .kpi-planning {
     background-color: #274656;
-    width: 45px;
+    width: 50px;
     margin: 5px 0px 0px 20px;
 }
 .outcome-planning {
     background-color: #00ce04;
-    width: 80px;
+    width: 100px;
     margin: 5px 0px 0px 0px;
 }
 .CC-planning {
     background-color: #098200;
-    width: 45px;
+    width: 50px;
     margin: 5px 0px 0px 20px;
 }
 .CCS-planning {
     background-color: #ef9700;
-    width: 45px;
+    width: 50px;
 }
 .activity-planning {
     background-color: #00b4ce;
-    width: 80px;
+    width: 100px;
     margin: 5px 0px 0px 20px;
 }
 .zone-planning {
     background-color: #c34f4f;
-    width: 85px;
+    width: 105px;
     margin: 5px 0px 0px 20px;
 }
 .activity-planning,
@@ -664,9 +708,9 @@ h4.titulocatplan {
 .zone-planning {
     color: white;
     text-align: center;
-    font-size: 13px;
+    font-size: 18px;
     float: left;
-    padding: 2px;
+    padding: 0px;
     font-weight: 600;
     border-radius: 4px;
 }
@@ -748,7 +792,7 @@ button.btn.btn-default {
     color: white;
     font-weight: 600;
     width: 90px;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
 }
 button.btn.btn-default:hover {
@@ -756,8 +800,7 @@ button.btn.btn-default:hover {
 }
 .modal-footer {
     border-top: none;
-    padding: 22px;
-    margin-top: 30px;
+    padding: 30px;
 }
 button.btn.btn-default:active {
     color: white;
@@ -915,6 +958,11 @@ a.tablink {
     display: block;
     padding: 10px 20px 10px 20px;
 }
+td .row .col-sm-12 h3 {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
 .text-item-planning .col-sm-12 .col-sm-6 {
     text-align: left;
 }
@@ -933,604 +981,25 @@ textarea.current {
     width: 60px;
     min-width: 0px;
 }
+#mainobstacle {
+    padding-left: 0px;
+}
+#mainsupfac {
+    padding-right: 0px;
+}
 tr.descripcion select {
     margin-bottom: 15px;
 }
 .template-monitoring button.btn.btn-default {
     float: right;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    font-size: 16px;
+    margin-right: 15px;
+    margin-bottom: 10px;
 }
 tr.descripcion h3 {
     text-align: left;
     margin-top: 20px;
-    font-size: 15px;
-    font-weight: 400;
-}
-article#content .col-lg-3 {
-    width: 22%;
-    margin-left: 1.5%;
-    margin-right: 1.5%;
-    margin-bottom: 2.5%;
-}
-#portal-logout {
-    position: relative;
-    width: 100%;
-    text-align: left;
-    white-space: nowrap;
-    padding: 15px;
-    font-size: 13px;
-    background-color: #0a5272;
-    float: none;
-    bottom: 0px;
-    left: 0px;
-}
-#portal-logout a {
-    color: white;
-}
-a.plone-btn.plone-btn-info.active {
-    width: 100%;
-}
-div.outer-wrapper {
-    margin-left: 0px;
-}
-.plone-toolbar-top-default .container {
-    width: 100%;
-}
-#sidebar.col-sm-1.sidebar-offcanvas,
-#sidebar.col-sm-2.sidebar-offcanvas {
-    height: 100%;
-    background-color: #0a5272;
-    padding: 0px;
-    position: fixed;
-    left: 0px;
-    z-index: 1000;
-    top: 50px;
-    min-width: 50px;
-}
-a.plone-btn.plone-btn-success,
-a.plone-btn.plone-btn-info {
-    text-align: left;
-    width: 100%;
-}
-.col-xs-12.col-sm-12 img {
-    height: auto;
-}
-.leaflet-left {
-    z-index: 0 !important;
-}
-.plone-toolbar-top.plone-toolbar-expanded #edit-zone nav > ul > li {
-    width: inherit;
-    border-right: 1px solid #f1f1f1;
-}
-main#main-container .col-sm-10,
-main#main-container .col-sm-11 {
-    float: right;
-}
-.box .card-body {
-    color: white;
-    position: absolute;
-    background-color: #06567aa8;
-    width: 100%;
-    bottom: 0px;
-    font-weight: 500;
-    padding: 5px 20px;
-    font-size: 15px;
-}
-.box .card-body h4.card-title.top a {
-    color: white;
     font-size: 16px;
-    font-weight: 600;
-}
-input.select2-input.select2-default {
-    font-weight: 400;
-    font-size: 16px;
-    padding: 5px 10px 0px 10px;
-}
-.select2-container .select2-choice {
-    background-image: none;
-}
-a.select2-choice {
-    padding: 5px 12px !important;
-    height: 34px !important;
-}
-textarea {
-    min-height: 2em !important;
-}
-#form-widgets-wop_platform {
-    width: 100% !important;
-}
-.pattern-pickadate-wrapper .pattern-pickadate-date-wrapper {
-    width: 90%;
-}
-button.btn.btn-xs.btn-info.pattern-pickadate-now {
-    width: 9%;
-}
-.field {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.pat-select2 {
-    width: 100%;
-}
-.has-table .col-xs-12.col-sm-12 img {
-    height: auto;
-    width: 100%;
-}
-img.fullwidth {
-    width: 100% !important;
-    height: auto !important;
-}
-.col-xs-12.col-sm-12 {
-    padding-top: 15px;
-}
-.formControls {
-    width: 100%;
-    float: left;
-}
-select[multiple],
-select[size] {
-    height: auto;
-    min-width: 22em;
-}
-#content-core a {
-    border-bottom: 0px;
-}
-.pattern-pickadate-wrapper .pattern-pickadate-date-wrapper {
-    width: auto;
-    float: left;
-}
-.plone-toolbar-top #edit-zone .plone-toolbar-container {
-    width: 90%;
-    float: right;
-    margin-right: 20px;
-}
-p.card-text.bottom {
-    margin-bottom: 5px;
-}
-#formfield-form-widgets-image img {
-    height: 20px;
-    width: 20px;
-}
-.select2-container a {
-    border-bottom: 1px solid #cccccc !important;
-}
-.pattern-relateditems-container .dropdown-menu,
-.pat-structure .dropdown-menu,
-.pat-structure .pattern-relateditems-container .dropdown-menu,
-.pattern-relateditems-container .pat-structure .dropdown-menu {
-    position: relative;
-    display: none;
-    float: none;
-    width: 100%;
-}
-button.favorites.dropdown-toggle,
-button.recentlyUsed.dropdown-toggle.btn.btn-primary {
-    min-width: 100%;
-}
-.pull-right {
-    float: right;
-    margin: 0px 0px 0px 5px;
-}
-.pat-leaflet.map.leaflet-container.leaflet-fade-anim {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.pattern-relateditems-container .toolbar .controls {
-    position: absolute;
-    right: 0px;
-}
-h1.documentFirstHeading a {
-    float: right;
-}
-.pagination {
-    margin: 10px;
-}
-a.btn_remove {
-    margin-right: 10px;
-}
-.pattern-relateditems-container .table-bordered,
-.pat-structure .table-bordered,
-.pat-structure .pattern-relateditems-container .table-bordered,
-.pattern-relateditems-container .pat-structure .table-bordered {
-    border: none;
-}
-article#content .col-lg-3,
-.col-lg-3.col-md-6 {
-    display: flex;
-    flex-flow: row nowrap;
-}
-.col-xs-12.col-sm-12 img,
-.has-table .col-xs-12.col-sm-12 img,
-img.box-img {
-    object-fit: cover;
-    height: 275px;
-}
-.box {
-    width: 100%;
-}
-.plone-toolbar-top #edit-zone ul#personal-bar-container {
-    float: right;
-}
-.plone-toolbar-top #edit-zone ul#personal-bar-container li.active ul {
-    right: 20px;
-}
-.col-md-2 h3 {
-    margin-top: 20px;
-}
-h1,
-h2 {
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 22px;
-    margin-bottom: 15px;
-}
-.col-xs-12.col-sm-11 .row {
-    margin-bottom: 15px;
-}
-ul,
-menu,
-dir {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.col-md-7 .col-md-12 {
-    margin-bottom: 20px;
-}
-.row .row .col-md-12 .col-md-6 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.row .col-md-3 div {
-    margin-bottom: 40px;
-}
-#content-core a {
-    border-bottom: 0px;
-    width: max-content;
-}
-#search-filter .field {
-    width: 100%;
-}
-.content.result {
-    border-radius: 4px;
-    background-color: #f3f3f3;
-    padding: 5px 20px;
-}
-.col-xs-12.col-sm-11 .row .col-md-6 ul li,
-.col-xs-12.col-sm-11 .row .col-md-3 ul li,
-.col-xs-12.col-sm-11 .row .col-md-8 ul li {
-    width: 47.5%;
-    float: left;
-    margin-right: 2.5%;
-    padding: 5px 20px;
-    background-color: #f3f3f3;
-    margin-top: 6px;
-    border-radius: 4px;
-}
-#CC td .row .col-sm-12 h3,
-#CCS td .row .col-sm-12 h3 {
-    font-weight: 500;
-    text-align: left;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-tr th {
-    font-weight: 400;
-    font-size: 14px;
-}
-tr.descripcion#CC h4.titulocatplan,
-tr.descripcion#CCS h4.titulocatplan {
-    width: 50%;
-    text-align: left;
-    margin: 0px 20px;
-    float: left;
-    padding: 3px 0px 0px 0px;
-    font-size: 16px;
-    color: #007bb1;
-    font-weight: 400;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-tr.descripcion h3.titulocatplan {
-    margin-top: 20px;
-    margin-bottom: 12px;
-    width: 90%;
-    color: #565656;
-}
-.template-monitoring .output-planning,
-.template-monitoring .kpi-planning,
-.template-monitoring .CC-planning,
-.template-monitoring .CCS-planning,
-.template-monitoring .activity-planning,
-.template-monitoring .zone-planning,
-.template-monitoring .CCS-planning {
-    margin: 7px 0px 7px 30px !important;
-}
-tr.descripcion td {
-    padding: 2px 25px !important;
-}
-i#expandir {
-    float: right;
-    margin-top: 18px;
-    margin-bottom: 12px;
-}
-tr.descripcion .panel-collapse .row h3 {
-    font-size: 14px !important;
-    font-weight: 400;
-    margin-top: 0px;
-}
-#OTFD a,
-#OTAD a,
-#IndDim a {
-    padding: 20px !important;
-}
-.panel-collapse.collapse {
-    padding: 5px;
-}
-tr.descripcion td {
-    padding: 10px 40px !important;
-}
-#OTFD.panel-collapse.collapse,
-#OTAD.panel-collapse.collapse,
-#IndDim.panel-collapse.collapse {
-    padding: 0px 20px 0px 0px;
-}
-th.name {
-    padding: 5px 20px !important;
-}
-.sidenav2 ul#sidenav-vertical a img {
-    width: 125px !important;
-    padding: 5px;
-}
-ul#sidenav-vertical {
-    background-color: white;
-}
-.sidenav2 ul#sidenav-vertical a img {
-    width: 125px !IMPORTANT;
-    padding: 5px 5px 0px 5px;
-}
-a.plone-btn.plone-btn-info,
-a.plone-btn.plone-btn-success {
-    border-radius: 0px;
-    padding: 15px;
-    margin: 0px 0px;
-    border-bottom: 1px solid #0a5272;
-    font-size: 16px;
-}
-h4#activity {
-    margin: 4px 20px;
-}
-.plone-toolbar-top #edit-zone nav {
-    padding-left: 0px;
-}
-#furexp {
-    padding: 0px 15px 0px 0px;
-}
-.template-login_failed #content,
-.template-logged_out #content,
-.template-login_form #content {
-    background-color: transparent;
-}
-#mainobstacle,
-#kpi,
-#mainsupfac {
-    padding-left: 0px;
-}
-p#rss-subscription img {
-    height: 15px;
-}
-.col-xs-12.col-sm-12 img,
-.has-table .col-xs-12.col-sm-12 img,
-img.box-img {
-    width: auto;
-    height: auto;
-}
-.template-homepage .col-xs-12.col-sm-12 img,
-.template-homepage .has-table .col-xs-12.col-sm-12 img,
-.template-homepage img.box-img {
-    object-fit: cover;
-    height: 275px;
-    width: 100%;
-}
-a.state-private {
-    margin: 8px;
-}
-.autotabs ol.searchResults {
-    padding: 0px;
-}
-ul .fa:before,
-ul .fas:before {
-    margin-right: 20px;
-}
-.col-xs-12.col-sm-11 .row {
-    margin-right: 0px;
-    margin-left: 0px;
-}
-body#visual-portal-wrapper div.outer-wrapper container row {
-    margin-right: 0px;
-    margin-left: 0px;
-}
-#search-results-wrapper .link-category {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: #636363;
-    border-radius: 4px;
-    text-align: left;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-}
-.template-search #search-results-wrapper .link-category {
-    display: inline;
-}
-.template-search #search-results-wrapper a.link-category {
-    padding: 0px;
-    background-color: #ffffff;
-    text-decoration: underline;
-}
-tbody tr.descripcion {
-    background-color: #0a52720a;
-}
-.template-monitoring .col-md-12.text-item-planning.collapse.in {
-    padding: 5px 0px 0px 15px;
-    margin: 0px;
-}
-.sidenav2 .plone-btn-default {
-    color: #fff;
-    background-color: #0a5272;
-    border-color: #0a5272;
-    border-radius: 0px;
-    width: 100%;
-    text-align: left;
-    padding: 15px;
-    font-size: 13px;
-}
-.col-md-2 li {
-    margin-bottom: 10px !important;
-    margin-top: 10px;
-}
-.template-edit .col-xs-6.col-sm-3.sidebar-offcanvas {
-    margin-top: 15px;
-}
-.template-areas .col-xs-12.col-sm-12 img,
-.template-areas .has-table .col-xs-12.col-sm-12 img,
-.template-areas img.box-img,
-.template-projectareas .col-xs-12.col-sm-12 img,
-.template-projectareas .has-table .col-xs-12.col-sm-12 img,
-.template-projectareas img.box-img {
-    object-fit: cover;
-    height: 275px;
-    width: 100% !important;
-}
-.template-collaborating .col-xs-12.col-sm-12 img,
-.template-collaborating .has-table .col-xs-12.col-sm-12 img,
-.template-collaborating img.box-img {
-    object-fit: cover;
-    height: 275px;
-    width: 100%;
-}
-.card-body {
-    color: white;
-    position: absolute;
-    background-color: #06567aa8;
-    width: 100%;
-    bottom: 0px;
-    font-weight: 500;
-    padding: 5px 20px;
-    font-size: 15px;
-}
-.card-body a {
-    color: white;
-}
-tr#IA5 td {
-    padding: 0px 0px 0px 40px !important;
-}
-a.plone-btn.plone-btn-info,
-a.plone-btn.plone-btn-success,
-.sidenav2 .plone-btn-default {
-    font-weight: 600;
-    font-size: 16px
-}
-button.context.focus,
-button.context,
-input.submit-widget {
-    float: right;
-    margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    text-shadow: none;
-    background-image: none;
-    font-weight: 600;
-    border: none;
-    border-radius: 24px;
-}
-table.calendari td,
-table.calendari th {
-    padding: 4px !important;
-}
-header.portlet-header h3 {
-    text-align: center;
-    margin: 10px auto 10px auto !important;
-    float: left;
-}
-div#membersBlock h1,
-div#calendarBlock h1,
-div#filesBlock h1,
-div#membersBlock h2,
-div#calendarBlock h2,
-div#filesBlock h2 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-article#content {
-    float: left;
-    width: 100%;
-    right: 0px;
-    margin-left: 0px;
-}
-.template-view .outer-wrapper article#content .row-fluid.has-table .col-lg-3.col-md-6 {
-    padding: 0px;
-}
-.template-view .col-xs-12.col-sm-12 img,
-.template-view .has-table .col-xs-12.col-sm-12 img,
-.template-view img.box-img {
-    margin-bottom: 20px;
-    object-fit: cover;
-    height: 275px !important;
-}
-.container {
-    width: 100% !important;
-}
-.comment.replyTreeLevel0 {
-    margin-top: 0px;
-}
-.discussion .comment {
-    margin-top: 75px;
-}
-.template-view .col-xs-12.col-sm-12 img.defaultuserimg {
-    height: 40px !important;
-    width: 40px !important;
-    margin-top: 31px;
-
-}
-.discussion.showCommenterImage {
-    padding: 20px;
-    background-color: white;
-}
-input.destructive {
-    margin-right: auto;
-    margin-top: 0px;
-    text-shadow: none;
-    background-image: none;
-    font-weight: 600;
-    border: none;
-    border-radius: 24px;
-}
-.reply {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 40px;
-}
-.row .reply .field {
-    width: 100%;
-}
-.template-profile .photo.col-md-12 img {
-    width: 100%;
-    height: auto;
-}
-.replyTreeLevel0 {
-    margin-top: 10px !important;
-}
-input#form-buttons-cancel {
-    background-color: white;
-    padding: 10px 20px 10px 20px;
-    border-radius: 20px;
-    margin: 0px 20px;
-    font-weight: 400;
-    border: 1px solid #a6a6a6;
+    font-weight: bold;
 }
 @media (max-width: 1500px) {
     #portal-footer-wrapper {
@@ -1542,15 +1011,43 @@ input#form-buttons-cancel {
         width: 100% !important;
         position: absolute;
     }
-    a.plone-btn.plone-btn-info.active {
-        font-size: 12px;
-    }
-    a.plone-btn.plone-btn-info,
-    ul#portal-logout {
-        font-size: 12px;
+    div.outer-wrapper {
+        margin-left: 11%;
     }
 }
-@media (max-width: 1430px) {
+@media (max-width: 1300px) {
+    li a.tablink {
+        max-width: 180px;
+    }
+    .sidenav {
+        height: 95%;
+        width: 15%;
+    }
+    div.outer-wrapper {
+        margin-left: 16%;
+    }
+    .container {
+        width: 100%;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (max-width: 1000px) {
+    .sidenav {
+        width: 16%;
+        height: 90%;
+    }
+    ul.plone-toolbar-main span {
+        font-size: 0px;
+    }
+}
+@media (max-width: 966px) {
+    a.plone-btn.plone-btn-success {
+        font-size: 0px;
+    }
     .fa-chart-pie:before {
         content: "\f200";
         font-size: 20px;
@@ -1567,48 +1064,6 @@ input#form-buttons-cancel {
         content: "\f3fd";
         font-size: 20px;
     }
-    ul .fa:before,
-    ul .fas:before {
-        font-size: 20px;
-    }
-}
-@media (max-width: 1300px) {
-    li a.tablink {
-        max-width: 180px;
-    }
-    .sidenav {
-        height: 95%;
-        width: 15%;
-    }
-    .container {
-        width: 100%;
-    }
-}
-@media (min-width: 1200px) {
-    .container {
-        width: 100% !important;
-    }
-}
-@media (max-width: 1000px) {
-    .col-xs-11 {
-        width: 84%%;
-        float: right;
-    }
-    .sidenav {
-        width: 16%;
-        height: 90%;
-    }
-    ul.plone-toolbar-main span {
-        font-size: 0px;
-    }
-}
-@media (max-width: 966px) {
-    #sidenav-vertical a.plone-btn.plone-btn-info.active {
-        font-size: 0px;
-    }
-    a.plone-btn.plone-btn-success {
-        font-size: 0px;
-    }
     #content {
         margin-top: 0px;
     }
@@ -1622,6 +1077,10 @@ input#form-buttons-cancel {
     a.plone-btn.plone-btn-info {
         font-size: 0px;
     }
+    ul .fa:before,
+    ul .fas:before {
+        font-size: 20px;
+    }
     i.fa.fa-home:before {
         font-size: 25px;
         margin-left: -1px !important;
@@ -1634,6 +1093,9 @@ input#form-buttons-cancel {
         float: left;
         margin-left: 4px;
     }
+    .plone-toolbar-top-default .container {
+        width: 625px;
+    }
     #portal-header {
         margin-bottom: 20px;
         width: 100% !important;
@@ -1643,6 +1105,7 @@ input#form-buttons-cancel {
         box-shadow: 0px 6px 6px 0px #0000002e;
         position: fixed;
         top: 0px;
+        height: 65px;
         left: 0px;
         z-index: 1;
         margin-top: 0px;
@@ -1654,11 +1117,17 @@ input#form-buttons-cancel {
         padding: 30px;
         border-radius: 4px;
     }
+    .plone-toolbar-top-default .container {
+        width: 100%;
+    }
+    div.outer-wrapper {
+        margin-left: 8%;
+    }
     .sidenav {
         width: 8%;
         height: 87%;
         padding-top: 0px;
-        margin-top: 50px;
+        margin-top: 115px;
         box-shadow: 6px 0px 7px #00000021;
     }
     .menuright img {
@@ -1668,30 +1137,7 @@ input#form-buttons-cancel {
         margin-top: -50px !important;
     }
 }
-@media (min-width: 766px) {
-    a.plone-btn.plone-btn-info, ul#portal-logout{
-        font-size: 12px !important;
-    }
-    .col-xs-11.col-sm-10 {
-        margin-top: 20px !important;
-    }
-}
-@media (max-width: 766px) {
-    .sidenav2 ul#sidenav-vertical a img {
-        width: 50px !IMPORTANT;
-        padding: 10px 1px;
-        height: auto;
-    }
-    main#main-container .col-xs-11.col-sm-10 {
-        margin-top: 75px;
-    }
-    .col-xs-11 {
-        width: 91.6%;
-        float: right;
-    }
-    .col-sm-1 {
-        width: 60px;
-    }
+@media (max-width: 769px) {
     li.visible {
         width: 100%;
     }
@@ -1738,13 +1184,17 @@ input#form-buttons-cancel {
         position: absolute;
         left: -60px;
         height: 45px;
+        margin-top: 15px;
         border-radius: 40px;
         width: 45px !important;
         padding: 0px 10px;
     }
+    div.outer-wrapper {
+        margin-top: 30px !important;
+    }
     /* Provisional Header Negro */
     .plone-toolbar-top-expanded {
-        margin-top: 60px;
+        margin-top: 100px;
         background-color: #f1f1f1;
     }
     .menuright img {
@@ -1755,31 +1205,28 @@ input#form-buttons-cancel {
     }
     #portal-header {
         padding: 10px 20px 10px 20px;
+    }
+    #portal-header {
         margin-top: 0px !important;
     }
     .sidenav {
         height: 95%;
-        margin-top: 50px;
+        margin-top: 65px;
         width: 8%;
     }
+    .menuleft .fa:before {
+        font-size: 24px !important;
+    }
+    /* Provisional Header Negro */
     #content {
         margin-top: 0px;
     }
-    #portal-header {
-        height: 50px;
-    }
-    .col-xs-12.col-sm-12 {
-        padding-top: 15px;
-    }
-    a.plone-btn.plone-btn-info, ul#portal-logout{
-        font-size: 0px;
+    div.outer-wrapper {
+        margin-left: 8%;
+        margin-top: 100px !important;
     }
 }
 @media (max-width: 650px) {
-    .col-xs-12.col-sm-11 {
-        width: 90%;
-        margin-left: 4.5%;
-    }
     #edit-zone .plone-toolbar-logo,
     .plone-toolbar-expanded #edit-zone .plone-toolbar-logo {
         position: absolute;
@@ -1793,31 +1240,25 @@ input#form-buttons-cancel {
     ul.plone-toolbar-main span {
         font-size: 13px;
     }
+    article#content {
+        margin-top: 80px;
+    }
     .menuright img {
         margin-top: -52px;
     }
     .sidenav {
         width: 9%;
-        margin-top: 50px;
+        margin-top: 65px;
         height: 93%;
+    }
+    div.outer-wrapper {
+        margin-top: 30px !important;
     }
     #content {
         margin-top: 20px;
     }
-    article#content .col-lg-3 {
-        width: 49%;
-        margin-left: 0.5%;
-        margin-right: 0.5%;
-        float: left;
-    }
 }
-@media (max-width: 601px) {
-    main#main-container .col-xs-11.col-sm-10 {
-        margin-top: 20px;
-    }
-    .col-xs-11.col-sm-10 {
-        margin-top: 20px;
-    }
+@media (max-width: 600px) {
     .col-md-12.groupgnr {
         padding: 0px;
     }
@@ -1836,6 +1277,9 @@ input#form-buttons-cancel {
         margin: 0px;
         width: 100%;
     }
+    div.outer-wrapper {
+        margin-left: 20%;
+    }
     .box img {
         width: 100%;
         height: 100%;
@@ -1853,8 +1297,15 @@ input#form-buttons-cancel {
     .autotabs {
         padding: 0;
     }
+    div.outer-wrapper {
+        margin-left: 14%;
+    }
     a.plone-btn.plone-btn-info {
         font-size: 0px;
+    }
+    ul .fa:before,
+    ul .fas:before {
+        font-size: 20px;
     }
     .documentFirstHeading {
         font-size: 20px;
@@ -1934,6 +1385,7 @@ input#form-buttons-cancel {
     a.plone-btn.plone-btn-success {
         border-radius: 0px;
         padding: 15px 0px 15px 17px;
+        margin: 1px 0px;
     }
     .pat-autotoc.autotabs .autotoc-section.active {
         margin-top: 20px;
@@ -1958,13 +1410,14 @@ input#form-buttons-cancel {
         box-shadow: 0px 2px 6px 0px #cecece;
         position: fixed;
         top: 0px;
+        height: 65px;
         left: 0px;
         z-index: 1;
         margin-top: 0px;
         padding: 10px 15px;
     }
     div#mainnavigation-wrapper {
-        margin-top: 60px !important;
+        margin-top: 75px !important;
     }
     i.fa.fa-home:before {
         font-size: 25px;
@@ -1973,6 +1426,7 @@ input#form-buttons-cancel {
     a.plone-btn.plone-btn-success {
         border-radius: 0px;
         padding: 15px;
+        margin: 1px 0px;
     }
     i.fa.fa-home:before {
         font-size: 25px;
@@ -1980,6 +1434,11 @@ input#form-buttons-cancel {
     }
     .menuleft a {
         color: #004657;
+    }
+    .menuleft .fa:before {
+        margin-top: 15px !important;
+        float: left;
+        margin-left: 4px;
     }
     h1 span {
         color: #9a9a9a !important;
@@ -1989,8 +1448,11 @@ input#form-buttons-cancel {
         width: 9%;
         height: 93%;
         padding-top: 0px;
-        margin-top: 50px;
+        margin-top: 65px;
         box-shadow: 6px 0px 7px #00000021;
+    }
+    div.outer-wrapper {
+        margin-left: 9%;
     }
     .bottom span {
         font-size: 18px;
@@ -2009,7 +1471,7 @@ input#form-buttons-cancel {
         margin-left: 40px;
     }
     .menuleft .fa:before {
-        margin-top: 15px !important;
+        margin-top: 3px !important;
         float: left;
         margin-left: 4px;
     }
@@ -2025,10 +1487,11 @@ input#form-buttons-cancel {
     .plone-toolbar-expanded #edit-zone .plone-toolbar-logo {
         position: absolute;
         left: -60px;
-        width: 40px !important;
-        height: 40px;
+        width: 45px !important;
+        height: 45px;
         border-radius: 32px !important;
-        padding: 0px 13px;
+        margin-top: 10px;
+        padding: 1px 17px;
     }
 }
 @media (max-width: 480px) {
@@ -2051,8 +1514,8 @@ input#form-buttons-cancel {
         width: 13%;
         height: 92%;
         padding-top: 0px;
-        margin-top: 50px;
-        box-shadow: 6px 0px 7px #9b464621;
+        margin-top: 65px;
+        box-shadow: 6px 0px 7px #00000021;
     }
     .menuleft .fa:before {
         margin-top: 13px !important;
@@ -2063,6 +1526,10 @@ input#form-buttons-cancel {
         margin-left: 0px;
         margin-right: -10px;
     }
+    .col-xs-12.col-sm-12 img {
+        width: 100%;
+        height: auto !important;
+    }
 }
 @media (max-width: 360px) {
     a.plone-btn.plone-btn-info,
@@ -2071,28 +1538,5 @@ input#form-buttons-cancel {
     }
     .sidenav {
         width: 13%;
-    }
-}
-@media (min-width: 1048px) {
-    #sidebar.col-sm-1.sidebar-offcanvas,
-    #sidebar.col-sm-2.sidebar-offcanvas {
-        width: 16% !important;
-    }
-}
-
-@media (max-width: 766px) {
-.sidenav2 ul#sidenav-vertical .logo{
-      height: auto;
-      width: auto;
-      background: url('++theme++gwopa.theme/assets/images/logo_gotas.png') no-repeat !important;
-      -webkit-background-size: 100%;
-      -moz-background-size: 100%;
-      -o-background-size: 100%;
-      background-size: 100%;
-    margin-left: 8px;
-    padding-bottom: 0px;
-    }
-    .sidenav2 ul#sidenav-vertical a img{
-        filter: opacity(0);
     }
 }
