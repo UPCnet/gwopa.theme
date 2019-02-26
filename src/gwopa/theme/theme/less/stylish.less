@@ -83,7 +83,7 @@ ul#sidenav-vertical {
   border-bottom: none;
   color: #00a9f3;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -1102,8 +1102,12 @@ h1,
 h2 {
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 22px;
   margin-bottom: 15px;
+}
+h2 {
+  font-size: 20px;
+  padding: 0px;
+  margin-top: 20px;
 }
 .col-xs-12.col-sm-11 .row {
   margin-bottom: 15px;
@@ -1228,7 +1232,9 @@ ul#sidenav-vertical {
   padding: 5px 5px 0px 5px;
 }
 a.plone-btn.plone-btn-info,
-a.plone-btn.plone-btn-success {
+a.plone-btn.plone-btn-success,
+.sidenav2 .plone-btn-default {
+  font-weight: 600;
   border-radius: 0px;
   padding: 15px;
   margin: 0px 0px;
@@ -1360,12 +1366,6 @@ tbody tr.descripcion {
 .card-body a {
   color: white;
 }
-a.plone-btn.plone-btn-info,
-a.plone-btn.plone-btn-success,
-.sidenav2 .plone-btn-default {
-  font-weight: 600;
-  font-size: 16px
-}
 button.context.focus,
 button.context,
 input.submit-widget {
@@ -1463,7 +1463,7 @@ input#form-buttons-cancel {
   border: 1px solid #a6a6a6;
 }
 tr.descripcion a[aria-expanded="false"] - tr#contenido {
-    display: none;
+  display: none;
 }
 @media (max-width: 1500px) {
   #portal-footer-wrapper {
@@ -1554,7 +1554,8 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   .template-monitoring .col-md-12.text-item-planning.collapse.in {
     border-bottom: 0px;
   }
-  .template-monitoring tr.descripcion, .template-monitoring td.descripcion {
+  .template-monitoring tr.descripcion,
+  .template-monitoring td.descripcion {
     display: table-row;
     float: none;
   }
@@ -1729,7 +1730,8 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
 @media (min-width: 766px) {
   a.plone-btn.plone-btn-info,
   ul#portal-logout {
-    font-size: 12px !important;
+    font-size: 15px !important;
+    overflow: hidden;
   }
   .col-xs-11.col-sm-10 {
     margin-top: 20px !important;
