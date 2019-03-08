@@ -25,12 +25,11 @@
     -->
 
   <!-- Toolbar -->
-  <before css:theme-children="body" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
-  <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
+<!--   <before css:theme-children="body" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
+  <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" /> -->
 
   <!-- We don't want overlays -->
   <drop attributes="class" css:content="#edit-bar a.pat-plone-modal" />
-<!--   <drop css-content="#edit-zone" /> -->
 
   <!-- Cut down barceloneta without just for backend UI -->
   <rules css:if-not-content="body.viewpermission-view, body.viewpermission-none">
@@ -84,8 +83,8 @@
     <replace css:theme="#content-container" method="raw">
       <xsl:variable name="central">
         <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
-        <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-8</xsl:if>
-        <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-8</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-9</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-9</xsl:if>
         <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
       </xsl:variable>
       <div class="{$central}">
@@ -99,8 +98,7 @@
            <xsl:copy-of css:select="#viewlet-below-content" />
           </div>
         </footer>
-      </div>
-      <!--/row-->
+      </div><!--/row-->
     </replace>
 
     <!-- Alert message -->
@@ -109,7 +107,7 @@
     <!-- Left column -->
     <rules css:if-content="#portal-column-one">
       <replace css:theme="#column1-container">
-        <div class="col-xs-6 col-sm-4 sidebar-offcanvas">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
           <aside id="portal-column-one">
             <xsl:copy-of css:select="#portal-column-one > *" />
           </aside>
@@ -120,10 +118,10 @@
     <!-- Right column -->
     <rules css:if-content="#portal-column-two">
       <replace css:theme="#column2-container">
-        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" role="complementary">
-<!--           <aside id="portal-column-two">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
+          <aside id="portal-column-two">
             <xsl:copy-of css:select="#portal-column-two > *" />
-          </aside> -->
+          </aside>
         </div>
       </replace>
     </rules>
