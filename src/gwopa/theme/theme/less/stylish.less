@@ -39,6 +39,11 @@ h4 {
 a {
   color: #00a9f3;
 }
+.sidenav a {
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
+}
 a.plone-btn.plone-btn-info,
 a.plone-btn.plone-btn-success {
   border-radius: 0px;
@@ -79,8 +84,8 @@ ul#sidenav-vertical {
   color: #00a9f3;
   font-weight: 600;
   font-size: 22px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .state-private {
   color: #ababab !important;
@@ -104,6 +109,8 @@ ul#sidenav-vertical {
   font-weight: 400;
   color: #696969;
   margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 input[type="checkbox"] {
   margin: 5px 5px 0 0;
@@ -129,7 +136,11 @@ input#form-buttons-cancel {
 input#form-buttons-save {
   padding: 10px 20px 10px 20px;
 }
-
+select[multiple],
+select[size] {
+  height: auto;
+  min-width: 32em;
+}
 .plone-modal .plone-modal-dialog .plone-modal-header,
 .plone-modal .plone-modal-dialog .plone-modal-body,
 .plone-modal .plone-modal-dialog .plone-modal-footer {
@@ -229,6 +240,20 @@ p.bottom span:after {
   z-index: 1;
   margin-top: 0px;
   padding: 10px 15px;
+}
+.sidenav {
+  max-width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #004657;
+  overflow-x: hidden;
+  width: 13%;
+  height: 94%;
+  padding-top: 0px;
+  margin-top: 65px;
+  box-shadow: 6px 0px 7px #00000021;
 }
 .pat-autotoc.autotabs,
 .autotabs {
@@ -353,6 +378,10 @@ input#sso.context {
 }
 #portal-header {
   margin-top: 30px !important;
+}
+.sidenav {
+  margin-top: 50px;
+  box-shadow: 6px 0px 7px #00000021;
 }
 .nav-tabs > li.active > a {
   border-left: 1px solid #ececec !important;
@@ -919,6 +948,7 @@ a.plone-btn.plone-btn-info {
 main#main-container .col-sm-10,
 main#main-container .col-sm-11 {
   float: right;
+  min-height: 90vh !important;
 }
 .box .card-body {
   color: white;
@@ -981,7 +1011,11 @@ img.fullwidth {
   width: 100%;
   float: left;
 }
-
+select[multiple],
+select[size] {
+  height: auto;
+  min-width: 22em;
+}
 #content-core a {
   border-bottom: 0px;
 }
@@ -1434,6 +1468,100 @@ input#form-buttons-cancel {
 tr.descripcion a[aria-expanded="false"] - tr#contenido {
   display: none;
 }
+body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img,
+body#visual-portal-wrapper.template-view .has-table .col-xs-12.col-sm-12 img,
+body#visual-portal-wrapper.template-view img.box-img {
+  object-fit: cover;
+  height: 175px !important;
+  width: 100%;
+}
+body#visual-portal-wrapper.template-view .col-md-3 .col-lg-12.col-md-12 {
+  padding: 0px;
+}
+body#visual-portal-wrapper.template-view .row .col-md-3 div {
+  margin-bottom: 20px;
+}
+.col-md-2.documentFirstHeading.focus.context {
+  float: right !important;
+}
+body#visual-portal-wrapper.template-view .col-md-9 .row .col-md-2 {
+  padding: 0px;
+}
+body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img.fullwidth {
+  object-fit: cover;
+  height: 154px !important;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.col-xs-12.col-sm-12 .row .col-md-6 h2 {
+  margin-top: 0px;
+}
+.col-xs-12.col-sm-12 .row .col-md-4 h2 {
+  margin-top: 0px;
+}
+button.context.focus {
+  margin-left: 20px;
+}
+.link-category {
+  display: inline;
+  padding: 0.2em 1.6em 0.3em;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #00547a;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 14px;
+  background-color: #b6efff;
+  margin-right: 7px;
+  margin-left: 7px;
+}
+body#visual-portal-wrapper.template-view .row .col-md-3 div {
+  margin-bottom: 10px;
+}
+footer.row {
+  margin-bottom: 20px;
+}
+.outer-wrapper .col-xs-11.col-sm-10 .col-md-9 .row .col-md-12 {
+  width: 100%;
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.outer-wrapper .col-xs-11.col-sm-10 .col-md-9 .row .col-md-6 {
+  padding-left: 0px;
+}
+h1,
+h2,
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#edit-zone {
+  box-shadow: 0px 2px 6px 0px #00000045;
+}
+.buttonbudget {
+  background-color: #40d0fa;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td{
+  border: 1px solid #e5e5e500;
+}
+table > thead > tr > th {
+  border-bottom: 1px solid #e2e2e2;
+}
+table {
+    border: 0px solid #e5e5e5;
+}
+
+
+
+
 @media (max-width: 1500px) {
   #portal-footer-wrapper {
     padding: 30px 15px;
@@ -1478,6 +1606,10 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   li a.tablink {
     max-width: 180px;
   }
+  .sidenav {
+    height: 95%;
+    width: 15%;
+  }
   .container {
     width: 100%;
   }
@@ -1494,6 +1626,20 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (max-width: 1000px) {
+  article#content .row .col-md-3,
+  article#content .row .col-md-9 {
+    padding: 0px;
+  }
+  .buttonbudget {
+    float: right;
+    background-color: #007dac;
+    padding: 12px;
+    font-size: 15px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
   article#content .col-lg-3 {
     width: 100%;
     margin-left: 0;
@@ -1504,6 +1650,10 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     width: 84%;
     float: right;
   }
+  .sidenav {
+    width: 16%;
+    height: 90%;
+  }
   ul.plone-toolbar-main span {
     font-size: 0px;
   }
@@ -1512,6 +1662,9 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (max-width: 992px) {
+  .paddingleft20 {
+    padding-left: 12px !important;
+  }
   .template-monitoring .col-md-12.text-item-planning.collapse.in {
     border-bottom: 0px;
   }
@@ -1613,6 +1766,22 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (max-width: 966px) {
+  .input-group-btn {
+    float: left;
+    width: 100%;
+  }
+  #searchform .input-group input.searchPage.btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .col-md-6 {
+    margin-top: 20px;
+  }
+  main#main-container .col-xs-11.col-sm-10 {
+    width: calc(100% - 200px);
+    float: right !important;
+    padding: 0px;
+  }
   .template-personal-information article#content {
     width: 100%;
     right: 0px;
@@ -1674,6 +1843,13 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     padding: 30px;
     border-radius: 4px;
   }
+  .sidenav {
+    width: 8%;
+    height: 87%;
+    padding-top: 0px;
+    margin-top: 50px;
+    box-shadow: 6px 0px 7px #00000021;
+  }
   .menuright img {
     width: 125px;
     float: left;
@@ -1682,6 +1858,9 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (min-width: 766px) {
+  #sidebar.col-sm-2 {
+    width: 25%;
+  }
   a.plone-btn.plone-btn-info,
   ul#portal-logout {
     font-size: 15px !important;
@@ -1692,6 +1871,30 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (max-width: 766px) {
+  .plone-toolbar-expanded #edit-zone {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    left: 0px;
+    z-index: 3000;
+  }
+  #portal-footer-wrapper {
+    width: calc(100% - 50px) !important;
+    position: absolute;
+    right: 0px;
+  }
+  #sidebar.col-sm-1.sidebar-offcanvas,
+  #sidebar.col-sm-2.sidebar-offcanvas {
+    top: 0px;
+    min-width: 50px;
+    padding-top: 50px;
+  }
+  main#main-container .col-xs-11.col-sm-10 {
+    width: calc(100% - 45px);
+    padding: 0px;
+    float: right !important;
+    padding: 0px;
+  }
   #edit-zone .plone-toolbar-logo img,
   .plone-toolbar-expanded #edit-zone .plone-toolbar-logo img {
     margin-top: 10px;
@@ -1776,6 +1979,11 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     padding: 10px 20px 10px 20px;
     margin-top: 0px !important;
   }
+  .sidenav {
+    height: 95%;
+    margin-top: 50px;
+    width: 8%;
+  }
   #content {
     margin-top: 0px;
   }
@@ -1807,6 +2015,17 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
 }
 @media (max-width: 650px) {
+  h1.documentFirstHeading a {
+    width: 100%;
+  }
+  #s2id_autogen1 {
+    width: 100% !important;
+  }
+  .col-md-6 {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   a.plone-toolbar-logo {
     top: -5px;
   }
@@ -1822,13 +2041,14 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     font-weight: 600;
     border: none;
     border-radius: 24px;
-    width: auto;
+    width: 100%;
   }
   .has-table {
     width: 100%;
   }
   .row .col-md-12 {
     padding: 0px;
+    margin-top: 20px;
   }
   .col-md-6 .row .col-md-6 {
     padding: 0px;
@@ -1853,6 +2073,11 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
   .menuright img {
     margin-top: -52px;
+  }
+  .sidenav {
+    width: 9%;
+    margin-top: 50px;
+    height: 93%;
   }
   #content {
     margin-top: 20px;
@@ -1885,9 +2110,6 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     float: left;
     margin: 10px 0px 10px -5px;
   }
-  article#content {
-    margin-top: 0px;
-  }
   input#form-buttons-cancel {
     margin: 0px;
     width: 100%;
@@ -1919,6 +2141,9 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     float: none;
     font-size: 14px;
     padding: 8px;
+  }
+  .sidenav a {
+    font-size: 0px;
   }
   .has-table {
     overflow: scroll !important;
@@ -1959,7 +2184,11 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     color: rgba(0, 0, 0, 0.5);
     margin: 15px;
   }
- 
+  select[multiple],
+  select[size] {
+    height: auto;
+    min-width: 200px !important;
+  }
   .plone-modal-wrapper table > tbody > tr > td {
     width: 100% !important;
     float: left;
@@ -2012,8 +2241,8 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     margin-top: 0px;
     padding: 10px 15px;
   }
-  div#mainnavigation-wrapper {
-    margin-top: 60px !important;
+  #mainnavigation-wrapper {
+    margin-top: 50px !important;
   }
   i.fa.fa-home:before {
     font-size: 25px;
@@ -2033,6 +2262,13 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   h1 span {
     color: #9a9a9a !important;
     font-size: 22px;
+  }
+  .sidenav {
+    width: 9%;
+    height: 93%;
+    padding-top: 0px;
+    margin-top: 50px;
+    box-shadow: 6px 0px 7px #00000021;
   }
   .bottom span {
     font-size: 18px;
@@ -2069,6 +2305,24 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     border-radius: 32px !important;
     padding: 0px 13px;
   }
+  ul#personal-bar-container {
+    margin-top: 50px !important;
+  }
+  h1,
+  .documentFirstHeading {
+    font-size: 16px;
+    padding: 0px;
+  }
+  article .row .row {
+    margin-right: 0px;
+  }
+  #content .row .row .col-md-10 {
+    padding: 0px;
+  }
+  article#content {
+    margin-top: 0px;
+    padding: 18px 20px;
+  }
 }
 @media (max-width: 480px) {
   a.plone-btn.plone-btn-info,
@@ -2086,6 +2340,13 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
     float: left;
     margin-left: 4px;
   }
+  .sidenav {
+    width: 13%;
+    height: 92%;
+    padding-top: 0px;
+    margin-top: 50px;
+    box-shadow: 6px 0px 7px #9b464621;
+  }
   .menuleft .fa:before {
     margin-top: 13px !important;
     float: left;
@@ -2093,12 +2354,15 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
   }
   .row {
     margin-left: 0px;
-    margin-right: -10px;
+    margin-right: 0px;
   }
 }
 @media (max-width: 360px) {
   a.plone-btn.plone-btn-info,
   a.plone-btn.plone-btn-success {
     padding: 8px 12px;
+  }
+  .sidenav {
+    width: 13%;
   }
 }
