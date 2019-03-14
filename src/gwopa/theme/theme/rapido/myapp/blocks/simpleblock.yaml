@@ -1,0 +1,11 @@
+target: ajax
+elements:
+    result: BASIC
+    do_something:
+        type: ACTION
+        label: Do something
+
+view:
+  id: my-custom-view
+  with_theme: true
+
