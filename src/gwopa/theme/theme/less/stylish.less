@@ -516,7 +516,7 @@ h3#ia {
   float: left;
   width: 100%;
 }
-h3.titulocatplan {
+h3.titulocatplan { 
   margin: 0px 20px;
   float: left;
   padding: 2px 0px;
@@ -946,16 +946,6 @@ main#main-container .col-sm-10,
 main#main-container .col-sm-11 {
   float: right;
   min-height: 90vh !important;
-}
-.box .card-body {
-  color: white;
-  position: absolute;
-  background-color: #06567aa8;
-  width: 100%;
-  bottom: 0px;
-  font-weight: 500;
-  padding: 5px 20px;
-  font-size: 15px;
 }
 .box .card-body h4.card-title.top a {
   color: white;
@@ -1648,21 +1638,21 @@ h4.titulocatplan {
 }
 button.context.focus {
     margin-left: 20px;
-    margin-top: 10px;
 }
 tr th {
     font-size: 14px;
     font-weight: 600;
 }
-
+.card-body2 h4 {
+    color: #ffffff;
+}
 /* alternativa más logalto para el overview del proyecto */
 .box {
-    border: 1px solid #dadada;
     border-radius: 4px;
 }
 .box .card-body2 {
     color: #595959;
-    background-color: white;
+    background-color: #f3f3f3;
     width: 100%;
     bottom: 0px;
     font-weight: 500;
@@ -1687,13 +1677,13 @@ p.card-text.bottom {
     padding-right: 20px;
 }
 .box .card-body {
-    color: #717171;
+    color: #fff;
     position: absolute;
-    background-color: #ffffff;
+  background-color: #0a5272ba;
     width: 100%;
     bottom: 0px;
     font-weight: 500;
-    padding: 0px 15px;
+    padding: 5px 15px;
     font-size: 15px;
 }
 .card-body p.card-text.bottom{
@@ -1712,12 +1702,14 @@ a p.card-text-top {
     font-weight: 500;
     font-size: 16px;
 }
-body#visual-portal-wrapper.template-view .row .col-md-3 div {
-    margin-bottom: 0px;
-    background-color: #007bb199;
+
+.template-homepage .row .col-md-3 div {
     border-radius: 0px;
     margin: 0px;
     border: 0px;
+    position: absolute;
+    background-color: #0a5272ba;
+    font-weight: 600;
 }
 article#content .col-lg-3 {
     width: 23%;
@@ -1730,10 +1722,41 @@ article#content .col-lg-3 {
   position: absolute;
     z-index: 1;
 }
+tr th {
+    color: #3e677c !important;
+}
+form#search_projects {
+    float: right;
+    margin-right: 20px;
+}
+
+td, th, table {
+    padding: 7px 10px 7px 20px;
+}
+.buttonbudget {
+    background-color: #ffffff !important;
+    color: #0a5272;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.col-xs-12.col-sm-12 .row .col-md-6 h2, .col-md-9 .row h2 {
+    margin-top: 0px;
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 18PX;
+}
+body#visual-portal-wrapper.template-view .row .col-md-3 div {
+    background-color: #fff;
+}
+#calendarBlock, #membersBlock, #filesBlock {
+    margin-bottom: 40px !important;
+}
+.col-md-3 .col-lg-12.col-md-12 .box .card-body{
+  background-color: #0a5272a8 !important;
+}
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
     width: 25%;
-  }
+  } 
 }
 @media (max-width: 1500px) {
   #portal-footer-wrapper {
