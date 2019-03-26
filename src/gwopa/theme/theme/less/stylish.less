@@ -78,14 +78,14 @@ ul#sidenav-vertical {
   border-radius: 4px;
 }
 .documentFirstHeading {
-  padding-bottom: 9px;
-  margin: 10px 0 10px 0;
+  padding-bottom: 0pc;
+  margin: 10px 0px 5px 0px;
   border-bottom: none;
   color: #00a9f3;
   font-weight: 600;
   font-size: 22px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .state-private {
   color: #ababab !important;
@@ -200,6 +200,9 @@ input.pattern-pickadate-date.picker__input.picker__input--active,
   background-color: white;
 }
 span.label {
+  font-weight: 400;
+}
+label {
   font-weight: 400;
 }
 .pattern-relateditems-container .toolbar {
@@ -439,7 +442,7 @@ input#sso.context {
   height: 14px;
   width: 14px;
   border-radius: 50px;
-  margin-top: 12px;
+  margin-top: 5px;
   position: absolute;
 }
 .template-monitoring .template-monitoring td.date-a {
@@ -516,7 +519,7 @@ h3#ia {
   float: left;
   width: 100%;
 }
-h3.titulocatplan { 
+h3.titulocatplan {
   margin: 0px 20px;
   float: left;
   padding: 2px 0px;
@@ -539,14 +542,6 @@ h3.titulocatplan {
   border-radius: 32px;
   float: left;
   font-size: 20px;
-}
-h4.titulocatplan {
-  margin: 5px 20px;
-  float: left;
-  padding: 5px 0px;
-  font-size: 16px;
-  color: #3e677c;
-  font-weight: 600;
 }
 .outcome-group {
   background-color: #f6f5f5;
@@ -1147,9 +1142,9 @@ dir {
   font-size: 16px;
 }
 tr th {
-    font-weight: 400;
-    font-size: 14px;
-    color: #0a5272;
+  font-weight: 400;
+  font-size: 14px;
+  color: #0a5272;
 }
 tr.descripcion#CC h4.titulocatplan,
 tr.descripcion#CCS h4.titulocatplan {
@@ -1157,12 +1152,18 @@ tr.descripcion#CCS h4.titulocatplan {
   text-align: left;
   margin: 0px 20px;
   float: left;
-  padding: 3px 0px 0px 0px;
+  padding: 0px;
   font-size: 16px;
   color: #007bb1;
   font-weight: 400;
-  margin-top: 20px;
-  margin-bottom: 12px;
+}
+h4.titulocatplan {
+  float: left;
+  color: #3e677c;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+  font-size: 15px;
 }
 tr.descripcion h3.titulocatplan {
   margin-top: 20px;
@@ -1177,7 +1178,7 @@ tr.descripcion h3.titulocatplan {
 .template-monitoring .activity-planning,
 .template-monitoring .zone-planning,
 .template-monitoring .CCS-planning {
-  margin: 7px 0px 7px 30px !important;
+  margin: 0px 0px 0px 30px !important
 }
 i#expandir {
   float: right;
@@ -1230,7 +1231,7 @@ a.plone-btn.plone-btn-success,
   font-size: 16px;
 }
 h4#activity {
-  margin: 4px 20px;
+  margin: 0px 20px;
 }
 .plone-toolbar-top #edit-zone nav {
   padding-left: 0px;
@@ -1352,8 +1353,8 @@ tbody tr.descripcion {
   font-size: 15px;
 }
 .card-body a {
-    color: white;
-    font-size: 14px;
+  color: white;
+  font-size: 14px;
 }
 button.context.focus,
 button.context,
@@ -1504,8 +1505,8 @@ body#visual-portal-wrapper.template-view .row .col-md-3 div {
   margin-bottom: 0px;
 }
 body#visual-portal-wrapper.template-view .col-md-3 .col-lg-12.col-md-12 {
-    padding: 0px;
-    margin-bottom: 10px;
+  padding: 0px;
+  margin-bottom: 10px;
 }
 footer.row {
   margin-bottom: 20px;
@@ -1515,9 +1516,9 @@ footer.row {
   padding: 0px;
 }
 tr th {
-    font-weight: 400;
-    font-size: 12px;
-    color: grey;
+  font-weight: 400;
+  font-size: 12px;
+  color: grey;
 }
 .outer-wrapper .col-xs-11.col-sm-10 .col-md-9 .row .col-md-6 {
   padding-left: 0px;
@@ -1539,224 +1540,235 @@ table > tbody > tr > th,
 table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
-table > tfoot > tr > td{
+table > tfoot > tr > td {
   border: 1px solid #e5e5e500;
 }
 table > thead > tr > th {
   border-bottom: 1px solid #e2e2e2;
 }
 table {
-    border: 0px solid #e5e5e5;
+  border: 0px solid #e5e5e5;
 }
 .box .card-body2 {
-    color: white;
-    background-color: #06567aa8;
-    width: 100%;
-    bottom: 0px;
-    font-weight: 500;
-    padding: 5px 20px;
-    font-size: 15px;
-    min-height: 145px;
+  color: white;
+  background-color: #06567aa8;
+  width: 100%;
+  bottom: 0px;
+  font-weight: 500;
+  padding: 5px 20px;
+  font-size: 15px;
+  min-height: 145px;
 }
 .has-table h2 {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 a p.card-text-top {
-    position: absolute;
-    height: 100%;
-  padding: 20px;
+  position: absolute;
+  height: 100%;
+  background-color: #007bb199;
+  padding: 20px 15px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  width: 100%;
 }
 .box {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 h3 a i.fa.fa-remove {
-    float: right;
+  float: right;
 }
 h3 a i.fas.fa-edit {
-    float: right;
+  float: right;
 }
 h3 a i.fas.fa-plus-square {
-    color: #00a9f3;
+  color: #00a9f3;
 }
-.dropdown-menu>li>a {
-    display: block;
-    padding: 0px 10px;
-    clear: both;
-    line-height: 1.42857143;
-    color: #274656;
-    font-size: 16px;
-    white-space: nowrap;
-    font-weight: 500;
+.dropdown-menu > li > a {
+  display: block;
+  padding: 0px 10px;
+  clear: both;
+  line-height: 1.42857143;
+  color: #274656;
+  font-size: 16px;
+  white-space: nowrap;
+  font-weight: 500;
 }
 .information.object span {
-    font-weight: 400;
+  font-weight: 400;
 }
 .information.object {
-    float: right;
-    padding: 0px;
-    margin-top: 8px;
-    color: #3e677c;
-    width: auto;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
+  float: right;
+  padding: 0px;
+  color: #3e677c;
+  width: auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
 }
 .contentt {
-    float: left;
+  float: left;
 }
 div#mu {
-    width: 120px;
+  width: 120px;
   padding: 0px 5px;
 }
 div#target {
-    width: 80px;
+  width: 80px;
   padding: 0px 5px;
 }
 div#value {
-    width: 80px;
+  width: 80px;
   padding: 0px 5px;
 }
 div#bl {
-    width: 100px;
+  width: 100px;
   padding: 0px 5px;
 }
 #header {
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-h4.titulocatplan {
-    width:35%;
-    line-height: 22px;
-    text-align: left;
+  font-weight: 600;
+  margin-bottom: 0px;
 }
 .separator {
-    float: left;
-    font-weight: 700;
-    color: #bababa;
+  float: left;
+  font-weight: 700;
+  color: #bababa;
 }
 button.context.focus {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 tr th {
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 }
 .card-body2 h4 {
-    color: #ffffff;
+  color: #ffffff;
 }
 /* alternativa más logalto para el overview del proyecto */
 .box {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 .box .card-body2 {
-    color: #595959;
-    background-color: #f3f3f3;
-    width: 100%;
-    bottom: 0px;
-    font-weight: 500;
-    padding: 5px 15px;
-    font-size: 15px;
+  color: #595959;
+  background-color: #f3f3f3;
+  width: 100%;
+  bottom: 0px;
+  font-weight: 500;
+  padding: 5px 15px;
+  font-size: 15px;
   min-height: 130px;
 }
 p.card-text.bottom {
-    border-top: 1px solid #999;
-    padding-top: 10px;
-    font-size: 14px;
-    font-weight: 400;
+  border-top: 1px solid #999;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
 }
 .card-body2 h4 {
-    font-size: 15px;
-    color: #007bb1;
-    font-weight: 500;
-    height: 70px;
+  font-size: 15px;
+  color: #007bb1;
+  font-weight: 500;
+  height: 70px;
 }
 .box .card-body.card-text.bottom span {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .box .card-body {
-    color: #fff;
-    position: absolute;
+  color: #fff;
+  position: absolute;
   background-color: #0a5272ba;
-    width: 100%;
-    bottom: 0px;
-    font-weight: 500;
-    padding: 5px 15px;
-    font-size: 15px;
+  width: 100%;
+  bottom: 0px;
+  font-weight: 500;
+  padding: 5px 15px;
+  font-size: 15px;
 }
-.card-body p.card-text.bottom{
+.card-body p.card-text.bottom {
   border-top: 0px;
 }
 .col-xs-12.col-sm-12 .col-lg-4.col-md-4.col-sm-6,
-.col-xs-12.col-sm-12 .col-lg-3.col-md-4.col-sm-6{
-    margin-top: 20px;
+.col-xs-12.col-sm-12 .col-lg-3.col-md-4.col-sm-6 {
+  margin-top: 20px;
 }
-a p.card-text-top {
-    position: absolute;
-    height: 100%;
-    background-color: #007bb199;
-    padding: 20px 15px;
-    color: white;
-    font-weight: 500;
-    font-size: 16px;
-}
-
 .template-homepage .row .col-md-3 div {
-    border-radius: 0px;
-    margin: 0px;
-    border: 0px;
-    position: absolute;
-    background-color: #0a5272ba;
-    font-weight: 600;
+  border-radius: 0px;
+  margin: 0px;
+  border: 0px;
+  position: absolute;
+  background-color: #0a5272ba;
+  font-weight: 600;
 }
 article#content .col-lg-3 {
-    width: 23%;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-bottom: 1%;
-    margin-top: 1%;
+  width: 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
 }
-.card-body{
+.card-body {
   position: absolute;
-    z-index: 1;
+  z-index: 1;
 }
 tr th {
-    color: #3e677c !important;
+  color: #3e677c !important;
 }
 form#search_projects {
-    float: right;
-    margin-right: 20px;
+  float: right;
+  margin-right: 20px;
 }
-
-td, th, table {
-    padding: 7px 10px 7px 20px;
+td,
+th,
+table {
+  padding: 7px 10px 7px 20px;
 }
 .buttonbudget {
-    background-color: #ffffff !important;
-    color: #0a5272;
-    font-weight: bold;
-    margin-top: 20px;
+  background-color: #ffffff !important;
+  color: #0a5272;
+  font-weight: bold;
+  margin-top: 20px;
 }
-.col-xs-12.col-sm-12 .row .col-md-6 h2, .col-md-9 .row h2 {
-    margin-top: 0px;
-    FONT-WEIGHT: 600;
-    FONT-SIZE: 18PX;
+.col-xs-12.col-sm-12 .row .col-md-6 h2,
+.col-md-9 .row h2 {
+  margin-top: 0px;
+  FONT-WEIGHT: 600;
+  FONT-SIZE: 18PX;
 }
 body#visual-portal-wrapper.template-view .row .col-md-3 div {
-    background-color: #fff;
+  background-color: #fff;
 }
-#calendarBlock, #membersBlock, #filesBlock {
-    margin-bottom: 40px !important;
+#calendarBlock,
+#membersBlock,
+#filesBlock {
+  margin-bottom: 40px !important;
 }
-.col-md-3 .col-lg-12.col-md-12 .box .card-body{
+.col-md-3 .col-lg-12.col-md-12 .box .card-body {
   background-color: #0a5272a8 !important;
+}
+button.context.focus {
+  float: right;
+  position: relative;
+  margin-top: 15px;
+}
+.fa-edit:before,
+.fa-trash-alt:before {
+  color: #31b0d5;
+}
+.template-monitoring .table > tbody > tr > td {
+  vertical-align: top !important;
+}
+li {
+  margin: 10px 0px;
+}
+.template-monitoring .table > tbody > tr > td {
+    vertical-align: top !important;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
     width: 25%;
-  } 
+  }
 }
 @media (max-width: 1500px) {
   #portal-footer-wrapper {
