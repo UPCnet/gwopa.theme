@@ -15,6 +15,8 @@
       <div id="content-core">
         <metal:login define-macro="login"
           tal:define="auth nocall:context/acl_users/credentials_cookie_auth|context/cookie_authentication|nothing;
+          portal_state context/@@plone_portal_state;
+          portal_url portal_state/portal_url;
           isURLInPortal nocall:context/portal_url/isURLInPortal;
           login_template_ids python:'login login_success login_password login_failed login_form logged_in logout logged_out registered mail_password mail_password_form register require_login member_search_results pwreset_finish localhost'.split();
           came_from request/came_from|request/HTTP_REFERER|nothing;
@@ -58,7 +60,7 @@
             <div>
               <span id="main-header" class="sr-only">GWOPA</span>
               <span aria-hidden="true" role="presentation">
-                  <img class="center" id="image_login" src="++theme++gwopa.theme/assets/images/login-image.png" alt="Logo"/>
+                  <img class="center" id="image_login" tal:attributes="src string:${portal_url}/++theme++gwopa.theme/assets/images/login-image.png" alt="Logo"/>
               </span>
               <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                 class="pat-formautofocus"
