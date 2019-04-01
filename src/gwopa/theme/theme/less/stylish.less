@@ -419,7 +419,7 @@ input#sso.context {
 .template-monitoring th.thname {
   text-align: left !important;
 }
-.template-monitoring .col-md-12.text-item-planning.collapse.in {
+.template-monitoring .col-md-12.text-item-planning {
   text-align: left;
 }
 .template-monitoring td.current {
@@ -555,22 +555,22 @@ h3.titulocatplan {
 .output-planning {
   background-color: #009dcf;
   width: 80px;
-  margin: 5px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .kpi-planning {
   background-color: #274656;
   width: 45px;
-  margin: 5px 0px 0px 20px;
+  margin: 0px 0px 0px 20px;
 }
 .outcome-planning {
   background-color: #00ce04;
   width: 80px;
-  margin: 5px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .CC-planning {
   background-color: #098200;
   width: 45px;
-  margin: 5px 0px 0px 20px;
+  margin: 0px 0px 0px 20px;
 }
 .CCS-planning {
   background-color: #ef9700;
@@ -579,12 +579,12 @@ h3.titulocatplan {
 .activity-planning {
   background-color: #00b4ce;
   width: 80px;
-  margin: 5px 0px 0px 20px;
+  margin: 0px 0px 0px 20px;
 }
 .zone-planning {
   background-color: #c34f4f;
   width: 85px;
-  margin: 5px 0px 0px 20px;
+  margin: 0px 0px 0px 20px;
 }
 .activity-planning,
 .output-planning,
@@ -850,7 +850,7 @@ a.tablink {
   text-align: left;
 }
 .template-monitoring .CCS-planning {
-  margin: 5px 0px 0px 90px !important;
+  margin: 0px 0px 0px 90px !important;
 }
 textarea.form-control {
   height: 34px;
@@ -1306,7 +1306,7 @@ body#visual-portal-wrapper div.outer-wrapper container row {
 tbody tr.descripcion {
   background-color: #0a52720a;
 }
-.template-monitoring .col-md-12.text-item-planning.collapse.in {
+.template-monitoring .col-md-12.text-item-planning {
   padding: 5px 0px 0px 15px;
   margin: 0px;
 }
@@ -1622,11 +1622,11 @@ div#target {
   padding: 0px 5px;
 }
 div#value {
-  width: 80px;
+  width: 90px;
   padding: 0px 5px;
 }
 div#bl {
-  width: 100px;
+  width: 110px;
   padding: 0px 5px;
 }
 #header {
@@ -1761,6 +1761,31 @@ button.context.focus {
 li {
   margin: 10px 0px;
 }
+
+/*cambios 1/4/2019 */
+.tabla_nombre {
+    border-bottom: 1px solid #595959;
+}
+.tabla_hilera {
+    position: relative;
+}
+#actions {
+    width: 60px;
+    padding: 0px 5px;
+}
+#nextupdate {
+    width: 120px;
+    padding: 0px 5px;
+}
+.col-md-12.text-item-planning {
+    padding: 15px 0px;
+}
+.tabla_cabecera {
+    border-bottom: 2px solid #dddddd;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
     width: 25%;
@@ -1872,7 +1897,7 @@ li {
   .paddingleft20 {
     padding-left: 12px !important;
   }
-  .template-monitoring .col-md-12.text-item-planning.collapse.in {
+  .template-monitoring .col-md-12.text-item-planning {
     border-bottom: 0px;
   }
   .template-monitoring tr.descripcion,
@@ -1924,7 +1949,7 @@ li {
     margin: 10px 0px 10px 0px;
     width: 90%;
   }
-  .template-monitoring .col-md-12.text-item-planning.collapse.in {
+  .template-monitoring .col-md-12.text-item-planning {
     padding-bottom: 20px;
     margin-top: 0px;
   }
@@ -2591,4 +2616,9 @@ input[type="password"],
 textarea,
 select {
     width: 98%;
+}
+
+
+ul.item {
+  float: left;
 }
