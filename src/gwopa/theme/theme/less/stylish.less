@@ -1801,6 +1801,8 @@ select {
   float: left;
   padding: 2px 20px;
   font-size: 18px;
+  font-weight: 600;
+    margin-left: 20px;
 }
 .btn-group,
 .btn-group-vertical {
@@ -1871,7 +1873,19 @@ li#contentview-folderContents,
 li#portal-personaltools{
   margin: 0px;
 }
-.tabla_hilera .tabla_info .fa-plus-circle:before {
+.fa-edit:before, .fa-trash-alt:before {
+    color: #0a5272;
+}
+span.actualDate {
+    font-weight: 600;
+}
+.LSBox input.searchField {
+    margin-right: 25px;
+    width: 330px;
+    float: right;
+    padding: 10px;
+}
+.tabla_hilera .block_content .fa-plus-circle:before {
     content: "\f055";
     color: #274656;
     border-radius: 32px;
@@ -1879,12 +1893,12 @@ li#portal-personaltools{
     font-size: 15px;
     margin-top: 5px;
     cursor: pointer;
-    left: 0px !important;
+    top: -1px;
     position: absolute;
-    top: 0px;
+    left: 0px;
 }
-.fa-edit:before, .fa-trash-alt:before {
-    color: #0a5272;
+.Output-planning.indent-item {
+    margin-left: 40px;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
