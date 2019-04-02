@@ -552,7 +552,7 @@ h3.titulocatplan {
   margin-left: 15px;
   width: 100%;
 }
-.output-planning {
+.Output-planning {
   background-color: #009dcf;
   width: 80px;
   margin: 0px 0px 0px 0px;
@@ -576,7 +576,7 @@ h3.titulocatplan {
   background-color: #ef9700;
   width: 45px;
 }
-.activity-planning {
+.Activity-planning {
   background-color: #00b4ce;
   width: 80px;
   margin: 0px 0px 0px 20px;
@@ -586,8 +586,8 @@ h3.titulocatplan {
   width: 85px;
   margin: 0px 0px 0px 20px;
 }
-.activity-planning,
-.output-planning,
+.Activity-planning,
+.Output-planning,
 .kpi-planning,
 .outcome-planning,
 .CC-planning,
@@ -610,22 +610,22 @@ h3.titulocatplan {
   height: 5px;
   margin-top: 25px;
 }
-.modal a.activity-planning {
+.modal a.ctivity-planning {
   width: 45%;
   margin: 8px 2%;
   padding: 6px;
   left: 10px;
   position: absolute;
 }
-.modal a.activity-planning:hover {
+.modal a.Activity-planning:hover {
   background-color: #00adc5;
   color: #ffffff;
 }
-.modal a.output-planning:hover {
+.modal a.Output-planning:hover {
   color: #ffffff;
   background-color: #008ebb;
 }
-.modal a.output-planning {
+.modal a.Output-planning {
   width: 45%;
   margin: 8px 2%;
   padding: 6px;
@@ -1173,11 +1173,11 @@ tr.descripcion h3.titulocatplan {
   width: 90%;
   color: #565656;
 }
-.template-monitoring .output-planning,
+.template-monitoring .Output-planning,
 .template-monitoring .kpi-planning,
 .template-monitoring .CC-planning,
 .template-monitoring .CCS-planning,
-.template-monitoring .activity-planning,
+.template-monitoring .Activity-planning,
 .template-monitoring .zone-planning,
 .template-monitoring .CCS-planning {
   margin: 0px 0px 0px 30px !important
@@ -1788,6 +1788,15 @@ td.contibutioncentered,
 {
   text-align: right;
 }
+/*.form-control,*/
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 98%;
+}
 .titleRowPlanning {
   float: left;
   padding: 2px 20px;
@@ -1833,8 +1842,6 @@ a {
   font-size: 15px;
   margin-top: 5px;
   cursor: pointer;
-  left: 0px !important;
-  position: absolute;
   top: 0px;
 }
 .output-planning {
@@ -1875,6 +1882,9 @@ li#portal-personaltools{
     left: 0px !important;
     position: absolute;
     top: 0px;
+}
+.fa-edit:before, .fa-trash-alt:before {
+    color: #0a5272;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
@@ -2043,11 +2053,11 @@ li#portal-personaltools{
     padding-bottom: 20px;
     margin-top: 0px;
   }
-  .template-monitoring .output-planning,
+  .template-monitoring .Output-planning,
   .template-monitoring .kpi-planning,
   .template-monitoring .CC-planning,
   .template-monitoring .CCS-planning,
-  .template-monitoring .activity-planning,
+  .template-monitoring .Activity-planning,
   .template-monitoring .zone-planning,
   .template-monitoring .CCS-planning {
     margin: 8px 0px 0px 20px !important;
@@ -2691,8 +2701,4 @@ li#portal-personaltools{
   .sidenav {
     width: 13%;
   }
-}
-
-.indent-item {
-  margin-left: 40px;
 }
