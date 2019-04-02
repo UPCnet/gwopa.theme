@@ -1157,15 +1157,15 @@ tr.descripcion#CCS h4.titulocatplan {
   font-weight: 400;
 }
 h4.titulocatplan {
-    float: left;
-    color: #3e677c;
-    font-weight: 600;
-    line-height: 22px;
-    text-align: left;
-    margin-top: 0px;
-    font-size: 15px;
-    margin-bottom: 0px;
-    margin-left: 20px;
+  float: left;
+  color: #3e677c;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+  margin-top: 0px;
+  font-size: 15px;
+  margin-bottom: 0px;
+  margin-left: 20px;
 }
 tr.descripcion h3.titulocatplan {
   margin-top: 20px;
@@ -1761,78 +1761,110 @@ button.context.focus {
 li {
   margin: 10px 0px;
 }
-
 /*cambios 1/4/2019 */
 .tabla_nombre {
-    border-bottom: 1px solid #595959;
+  border-bottom: 1px solid #595959;
 }
 .tabla_hilera {
-    position: relative;
+  position: relative;
 }
 #actions {
-    width: 60px;
-    padding: 0px 5px;
+  width: 60px;
+  padding: 0px 5px;
 }
 #nextupdate {
-    width: 120px;
-    padding: 0px 5px;
+  width: 120px;
+  padding: 0px 5px;
 }
 .col-md-12.text-item-planning.collapse.in {
-    padding: 15px 0px;
+  padding: 15px 0px;
 }
 ul.item {
-    padding-left: 0px;
-    float: left;
+  padding-left: 0px;
+  float: left;
 }
-th.contibutioncentered, td.contibutioncentered,  {
-    text-align: right;
-}
-/*.form-control,*/
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
-    width: 98%;
+th.contibutioncentered,
+td.contibutioncentered,
+{
+  text-align: right;
 }
 .titleRowPlanning {
-    float: left;
-    padding: 2px 20px;
-    font-size: 18px;
+  float: left;
+  padding: 2px 20px;
+  font-size: 18px;
 }
-.btn-group, .btn-group-vertical {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    float: left;
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
 }
 .tabla_cabecera {
-    border-bottom: 2px solid #dddddd;
-    padding-bottom: 0px;
-    padding-top: 35px;
+  border-bottom: 2px solid #dddddd;
+  padding-bottom: 0px;
+  padding-top: 35px;
   float: left;
-  width:100%;
+  width: 100%;
 }
 .contentt a.pat-plone-modal {
-    padding: 0px;
+  padding: 0px;
 }
 .block_sub_indicators {
-    margin-top: 5px;
-    float: left;
-    width: 100%;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  float: left;
+  width: 100%;
+  margin-bottom: 5px;
 }
 a {
-    text-decoration: none !important;
-    cursor: pointer;
+  text-decoration: none !important;
+  cursor: pointer;
 }
 .col-md-12.text-item-planning {
-    margin-top: 20px;
-    margin-bottom: 5px;
-  padding:0px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 0px;
 }
 .fa-plus-circle:before {
+  content: "\f055";
+  color: #274656;
+  border-radius: 32px;
+  float: left;
+  font-size: 15px;
+  margin-top: 5px;
+  cursor: pointer;
+  left: 0px !important;
+  position: absolute;
+  top: 0px;
+}
+.output-planning {
+  margin: 0px 0px 0px 20px;
+}
+.block_sub_indicators a.pat-plone-modal {
+  padding: 10px;
+  padding-left: 20px;
+  color: #3e677c;
+  font-size: 16px;
+  font-weight: 600;
+}
+.plone-btn-sm {
+  margin-left: 20px;
+}
+.contentt a.pat-plone-modal {
+  padding: 0px;
+}
+li#contentview-folderContents {
+  margin: 0px;
+}
+li#contentview-view,
+li#contentview-edit,
+li#contentview-local_roles,
+li#contentview-settings,
+li#contentview-folderContents,
+li#portal-personaltools{
+  margin: 0px;
+}
+.tabla_hilera .tabla_info .fa-plus-circle:before {
     content: "\f055";
     color: #274656;
     border-radius: 32px;
@@ -1843,22 +1875,6 @@ a {
     left: 0px !important;
     position: absolute;
     top: 0px;
-}
-.output-planning {
-    margin: 0px 0px 0px 20px;
-}
-.block_sub_indicators a.pat-plone-modal {
-    padding: 10px;
-    padding-left: 20px;
-    color: #3e677c;
-    font-size: 16px;
-    font-weight: 600;
-}
-.plone-btn-sm {
-    margin-left: 20px;
-}
-.contentt a.pat-plone-modal {
-    padding: 0px;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
@@ -2675,4 +2691,8 @@ a {
   .sidenav {
     width: 13%;
   }
+}
+
+.indent-item {
+  margin-left: 40px;
 }
