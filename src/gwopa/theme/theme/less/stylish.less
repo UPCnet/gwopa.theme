@@ -477,10 +477,6 @@ input#sso.context {
   width: 100%;
   margin: 0px 0px 20px 0px;
 }
-.plone-modal-dialog {
-  max-width: 900px;
-  margin: 0 auto !important;
-}
 form#search_projects {
   float: right;
 }
@@ -600,6 +596,7 @@ h3.titulocatplan {
   padding: 2px;
   font-weight: 600;
   border-radius: 4px;
+  margin-left: 20px;
 }
 .panel-group {
   margin-bottom: 0px;
@@ -622,6 +619,10 @@ h3.titulocatplan {
   color: #ffffff;
 }
 .modal a.Output-planning:hover {
+  color: #ffffff;
+  background-color: #008ebb;
+}
+.Output-planning {
   color: #ffffff;
   background-color: #008ebb;
 }
@@ -1795,14 +1796,14 @@ input[type="email"],
 input[type="password"],
 textarea,
 select {
-  width: 98%;
+  width: 100%;
 }
 .titleRowPlanning {
   float: left;
   padding: 2px 20px;
   font-size: 18px;
   font-weight: 600;
-    margin-left: 20px;
+    margin-left: 0px;
 }
 .btn-group,
 .btn-group-vertical {
@@ -1812,11 +1813,11 @@ select {
   float: left;
 }
 .tabla_cabecera {
-  border-bottom: 2px solid #dddddd;
-  padding-bottom: 0px;
-  padding-top: 35px;
-  float: left;
-  width: 100%;
+    border-bottom: 2px solid #dddddd;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    float: left;
+    width: 100%;
 }
 .contentt a.pat-plone-modal {
   padding: 0px;
@@ -1879,13 +1880,12 @@ li#portal-personaltools{
 span.actualDate {
     font-weight: 600;
 }
-/*
 .LSBox input.searchField {
     margin-right: 25px;
     width: 330px;
     float: right;
     padding: 10px;
-}*/
+}
 .tabla_hilera .block_content .fa-plus-circle:before {
     content: "\f055";
     color: #274656;
@@ -1900,6 +1900,169 @@ span.actualDate {
 }
 .Output-planning.indent-item {
     margin-left: 40px;
+}
+.tabla_contenido_items {
+    float: left;
+    margin-bottom: 30px;
+  width: 100%;
+}
+.tab-content.clearfix, .tab-content.container, .tab-content.container-fluid, .tab-content.row, .tab-content#edit-zone.plone-toolbar-top .plone-toolbar-container, .tab-content.plone-modal .plone-modal-content, .tab-content.plone-nav, .tab-content.plone-navbar, .tab-content.plone-navbar-collapse {
+    padding: 20px;
+    border-radius: 0px 10px 10px 10px;
+    background-color: white;
+}
+.container .nav-pills>li>a {
+    border-radius: 0px;
+    background-color: #cacaca;
+    color: white;
+  border-radius: 8px 8px 0px 0px;
+}
+.nav-pills li a[aria-expanded="true"] {
+    background-color: #337ab7 !important;
+}
+.container .nav-pills>li>a:hover {
+    background-color: #053449;
+}
+.container .nav-pills>li>a:visited {
+    border-radius: 0px;
+    color: white;
+}
+.container .nav-pills>li {
+    font-size: 16px;
+    font-weight: 600;
+}
+ul.nav.nav-pills li {
+    margin-bottom: 0px;
+    margin-right: 10px;
+    width: 300px;
+    margin-right: 20px;
+}
+.tabla_cuerpo {
+    padding-left: 20px;
+}
+.field {
+    float: left;
+    width: 100%;
+}
+div#formfield-form-widgets-start,
+div#formfield-form-widgets-currency,
+div#formfield-form-widgets-end{
+    width: 50%;
+}
+div#formfield-form-widgets-budget{
+  width: 80%;
+}
+div#formfield-form-widgets-currency {
+    width: 18%;
+    float: right;
+}
+.plone-modal .plone-modal-dialog .plone-modal-header, .plone-modal .plone-modal-dialog .plone-modal-body, .plone-modal .plone-modal-dialog .plone-modal-footer {
+    float: left;
+    width: 100%;
+}
+
+.plone-modal-dialog {
+  max-width: 900px;
+  margin: 0 auto !important;
+    top: inherit !important;
+}
+span#form-widgets-currency {
+    MARGIN-TOP: 8PX;
+}
+.LSBox input.searchField,
+button.center-btn.focus,
+button.center-btn{
+    float: right;
+    margin: 0px 20px;
+  border-radius: 10px;
+}
+button.center-btn.focus, button.center-btn {
+    margin-left: 15px !important;
+    border: 0px;
+    color: #666;
+    background-color: white;
+    padding: 7px;
+    width: 100%;
+}
+.LSBox input.searchField, button.center-btn.focus, button.center-btn {
+    margin: 0px 20px;
+    border-radius: 10px;
+}
+button.searchbtn {
+    float: left;
+    border-radius: 10px;
+    color: #77797b;
+    padding: 7px;
+    box-shadow: 0px 0px;
+    border: 0px;
+    width: 100%;
+    text-align: left;
+}
+.center-btn {
+    width: 140px;
+}
+input.searchField.focus {
+    float: left;
+}
+.search.global {
+    background-color: #e3e3e3;
+    padding: 15px;
+    border-radius: 2px;
+    width: 97.3%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+}
+.col-md-12.search.global .col-md-8{
+  padding-left: 0px;
+}
+.LSBox input.searchField, button.center-btn.focus, button.center-btn {
+    margin: 0px;
+    border-radius: 10px;
+    float: right;
+}
+button.searchbtn:hover {
+    background-color: transparent;
+  color: #333;
+}
+.center-btn:hover {
+    background-color: #fafafa;
+  color: #333;
+}
+.search.global .col-md-2 {
+    padding: 0px;
+}
+.nav-pills li a[aria-expanded="true"]{
+    background-color: #ffffff !important;
+    color: #555 !important;
+    background-color: transparent!important;
+}
+.template-planning article#content,
+.template-monitoring article#content{
+    padding: 0px;
+    background-color: #f1f1f1;
+}
+.pagination-lg>li>a, .pagination-lg>li>span {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 0px;
+}
+ul.pagination.pagination-lg {
+  margin-top: 20px !important;
+    margin-right: 20px !important;
+}
+.template-planning .col-xs-12.col-sm-12,
+.template-monitoring .col-xs-12.col-sm-12{
+    padding: 0px;
+}
+ul.nav.nav-pills li.active a {
+    background-color: white !important;
+    color: #4d4d4d;
+}
+article#content li.active {
+    border-radius: 8px 8px 0px 0px !important;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
