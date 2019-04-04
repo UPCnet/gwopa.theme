@@ -1157,17 +1157,6 @@ tr.descripcion#CCS h4.titulocatplan {
   color: #007bb1;
   font-weight: 400;
 }
-h4.titulocatplan {
-  float: left;
-  color: #3e677c;
-  font-weight: 600;
-  line-height: 22px;
-  text-align: left;
-  margin-top: 0px;
-  font-size: 15px;
-  margin-bottom: 0px;
-  margin-left: 20px;
-}
 tr.descripcion h3.titulocatplan {
   margin-top: 20px;
   margin-bottom: 12px;
@@ -1823,10 +1812,11 @@ select {
   padding: 0px;
 }
 .block_sub_indicators {
-  margin-top: 5px;
-  float: left;
-  width: 100%;
-  margin-bottom: 5px;
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-left: 20px;
 }
 a {
   text-decoration: none !important;
@@ -1882,7 +1872,6 @@ span.actualDate {
 }
 .LSBox input.searchField {
     margin-right: 25px;
-    width: 330px;
     float: right;
     padding: 10px;
 }
@@ -1897,9 +1886,6 @@ span.actualDate {
     top: -1px;
     position: absolute;
     left: 0px;
-}
-.Output-planning.indent-item {
-    margin-left: 40px;
 }
 .tabla_contenido_items {
     float: left;
@@ -2041,7 +2027,7 @@ button.searchbtn:hover {
 .template-planning article#content,
 .template-monitoring article#content{
     padding: 0px;
-    background-color: #f1f1f1;
+    background-color: transparent;
 }
 .pagination-lg>li>a, .pagination-lg>li>span {
     padding: 10px 20px;
@@ -2063,6 +2049,32 @@ ul.nav.nav-pills li.active a {
 }
 article#content li.active {
     border-radius: 8px 8px 0px 0px !important;
+}
+div#total {
+    padding: 0px 5px;
+    float: left;
+    width: calc(100% - 515px);
+    text-align: left;
+}
+#header {
+    font-weight: 600;
+    margin-bottom: 0px;
+    width: 100%;
+}
+.block_sub_indicators .contentt#total {
+    padding-left: 0px;
+}
+h4.titulocatplan {
+    float: left;
+    color: #3e677c;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    margin-top: 0px;
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    width: 85%;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
