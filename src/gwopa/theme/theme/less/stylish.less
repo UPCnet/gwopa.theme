@@ -76,7 +76,6 @@ ul#sidenav-vertical {
 }
 #content {
   margin-bottom: 48px;
-  background-color: white;
   padding: 30px;
   border-radius: 4px;
 }
@@ -1038,9 +1037,6 @@ button.recentlyUsed.dropdown-toggle.btn.btn-primary {
   position: absolute;
   right: 0px;
 }
-.pagination {
-  margin: 10px;
-}
 a.btn_remove {
   margin-right: 10px;
 }
@@ -1370,6 +1366,7 @@ article#content {
   width: 100%;
   right: 0px;
   margin-left: 0px;
+  background-color: white;
 }
 .template-view .outer-wrapper article#content .row-fluid.has-table .col-lg-3.col-md-6 {
   padding: 0px;
@@ -1902,9 +1899,9 @@ span.actualDate {
 }
 ul.nav.nav-pills li {
     margin-bottom: 0px;
-    margin-right: 10px;
-    width: 300px;
+    width: 185px;
     margin-right: 20px;
+    float: left;
 }
 .tabla_cuerpo {
     padding-left: 20px;
@@ -1980,6 +1977,8 @@ input.searchField.focus {
     width: 99.3%;
     margin-top: 1%;
     margin-bottom: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
 }
 .col-md-12.search.global .col-md-8{
   padding-left: 0px;
@@ -2008,16 +2007,13 @@ button.searchbtn:hover {
 .template-planning article#content,
 .template-monitoring article#content{
     padding: 0px;
+    background-color: transparent;
 }
 .pagination-lg>li>a, .pagination-lg>li>span {
     padding: 8px 20px;
     font-size: 14px;
     font-weight: 600;
     margin-right: 0px;
-}
-ul.pagination.pagination-lg {
-  margin-top: 20px !important;
-    margin-right: 20px !important;
 }
 .template-planning .col-xs-12.col-sm-12,
 .template-monitoring .col-xs-12.col-sm-12{
@@ -2044,18 +2040,6 @@ div#total {
 .block_sub_indicators .contentt#total {
     padding-left: 0px;
 }
-h4.titulocatplan {
-    float: left;
-    color: #3e677c;
-    font-weight: 600;
-    line-height: 22px;
-    text-align: left;
-    margin-top: 0px;
-    font-size: 15px;
-    margin-bottom: 0px;
-    margin-left: 20px;
-    width: 85%;
-}
 #content .container {
     margin-right: auto;
     margin-left: auto;
@@ -2066,6 +2050,7 @@ h4.titulocatplan {
 }
 ul .fa:before, ul .fas:before {
     margin-right: 10px;
+  font-size: 16px;
 }
 .row #content .has-table {
     margin: 0px -15px;
@@ -2087,6 +2072,62 @@ tr.admin-partner {
     margin-top: 5px;
     margin-bottom: 5px;
     float: left;
+}
+h4.titulocatplan {
+    float: left;
+    color: #3e677c;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    margin-top: 0px;
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    width: auto;
+}
+body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img {
+    object-fit: cover;
+    height: 40px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#portal-footer-wrapper {
+    background-color: #ffffff;
+}
+body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 .box img {
+    height: 80px !important;
+}
+.template-view .box .card-body {
+    background-color: #0a5272a8 !important;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    font-weight: 500;
+    padding: 5px 15px;
+    font-size: 15px;
+    bottom: 10px;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 4px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+.container #main-container .col-sm-11 {
+    width: 88% !important;
+}
+.template-planning #content {
+    background-color: transparent;
+}
+div#total {
+    padding: 0px 5px;
+    float: left;
+    width: calc(100% - 650px);
+    text-align: left;
+}
+div#unit {
+    width: 100px;
+    padding: 0px 5px;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
@@ -2456,9 +2497,6 @@ tr.admin-partner {
     padding: 10px 16px;
     font-size: 18px;
     width: 100%;
-  }
-  .documentDescription ul.pagination.pagination-lg {
-    margin: 20px 0px 0px 0px !important;
   }
   button.plone-btn-warning {
     width: 100%;
@@ -2903,4 +2941,9 @@ tr.admin-partner {
   .sidenav {
     width: 13%;
   }
+}
+
+
+.template-planning.pagination {
+  margin: 0px !important;
 }
