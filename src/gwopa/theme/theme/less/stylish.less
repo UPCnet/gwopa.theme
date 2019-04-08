@@ -303,7 +303,7 @@ p.bottom span:after {
   overflow-y: scroll;
 }
 #content .col-xs-12.col-sm-12 {
-  padding: 0px 10px 0px 0px;
+  padding: 0px 15px;
 }
 .has-table .row .col-xs-12.col-sm-12,
 .col-lg-3.col-md-4.col-sm-6 {
@@ -1571,9 +1571,6 @@ h3 a i.fas.fa-plus-square {
   white-space: nowrap;
   font-weight: 500;
 }
-.information.object span {
-  font-weight: 400;
-}
 .information.object {
     padding: 0px;
     color: #3e677c;
@@ -1903,7 +1900,7 @@ li#portal-personaltools{
 }
 ul.nav.nav-pills li {
     margin-bottom: 0px;
-    width: 185px;
+    width: 280px;
     margin-right: 20px;
     float: left;
 }
@@ -2016,14 +2013,16 @@ button.searchbtn:hover {
     background-color: transparent;
 }
 .pagination-lg>li>a, .pagination-lg>li>span {
-    padding: 8px 20px;
-    font-size: 14px;
+    padding: 8px 20px !important;
+    font-size: 14px !important;
     font-weight: 600;
-    margin-right: 0px;
+    margin: 0px !important;
+    font-size: 14px;
+    line-height: 1.3333333;
 }
 ul.pagination.pagination-lg {
-  margin-top: 20px !important;
-    margin-right: 20px !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .template-planning .col-xs-12.col-sm-12,
 .template-monitoring .col-xs-12.col-sm-12{
@@ -2057,10 +2056,6 @@ div#total {
 }
 .col-sm-10 {
     width: 88%;
-}
-ul .fa:before, ul .fas:before {
-    margin-right: 10px;
-  font-size: 16px;
 }
 .row #content .has-table {
     margin: 0px -15px;
@@ -2122,6 +2117,18 @@ body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 .box img {
 }
 .container #main-container .col-sm-11 {
     width: 88% !important;
+}
+.btn-group.open ul.dropdown-menu {
+    padding: 5px;
+}
+.information.object span {
+    font-weight: 500;
+    font-size: 16px;
+}
+ul .fa:before, ul .fas:before {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 12px !important;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
