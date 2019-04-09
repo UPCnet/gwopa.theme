@@ -11,8 +11,8 @@ body {
     padding-left: 5px;
 }
 .row {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 h1 a:hover,
 h2 a:hover,
@@ -550,12 +550,10 @@ h3.titulocatplan {
 }
 .CC-planning {
   background-color: #098200;
-  width: 45px;
   margin: 0px 0px 0px 20px;
 }
 .CCS-planning {
   background-color: #ef9700;
-  width: 45px;
 }
 .Activity-planning {
   background-color: #00b4ce;
@@ -564,11 +562,11 @@ h3.titulocatplan {
 }
 .Activity-planning,
 .Output-planning,
-.kpi-planning,
+.OutcomeKPI-planning,
 .outcome-planning,
 .CC-planning,
 .CCS-planning,
-.zone-planning {
+.OutcomeZONE-planning {
   color: white;
   text-align: center;
   font-size: 12px;
@@ -674,7 +672,7 @@ button.btn.btn-default:hover {
 button.btn.btn-default:active {
   color: white;
 }
-.modal a.kpi-planning {
+.modal a.OutcomeKPI-planning {
   width: 45%;
   margin: 8px 2%;
   padding: 6px;
@@ -682,15 +680,15 @@ button.btn.btn-default:active {
   position: absolute;
   text-decoration: none !important;
 }
-.modal a.kpi-planning:hover {
+.modal a.OutcomeKPI-planning:hover {
   background-color: #1f3744;
   color: #ffffff;
 }
-.modal a.zone-planning:hover {
+.modal a.OutcomeZONE-planning:hover {
   color: #ffffff;
   background-color: #a94646;
 }
-.modal a.zone-planning {
+.modal a.OutcomeZONE-planning {
   width: 45%;
   margin: 8px 2%;
   padding: 6px;
@@ -732,7 +730,6 @@ button.btn.ADDNEW .fa-plus-circle:before {
   cursor: pointer;
 }
 .modal a.CC-planning {
-  width: 45%;
   margin: 8px 2%;
   padding: 6px;
   left: 10px;
@@ -747,7 +744,6 @@ button.btn.ADDNEW .fa-plus-circle:before {
   background-color: #e08e00;
 }
 .modal a.CCS-planning {
-  width: 45%;
   margin: 8px 2%;
   padding: 6px;
   position: absolute;
@@ -1144,11 +1140,11 @@ tr.descripcion h3.titulocatplan {
   color: #565656;
 }
 .template-monitoring .Output-planning,
-.template-monitoring .kpi-planning,
+.template-monitoring .OutcomeKPI-planning,
 .template-monitoring .CC-planning,
 .template-monitoring .CCS-planning,
 .template-monitoring .Activity-planning,
-.template-monitoring .zone-planning,
+.template-monitoring .OutcomeZONE-planning,
 .template-monitoring .CCS-planning {
   margin: 0px 0px 0px 30px !important
 }
@@ -2149,12 +2145,12 @@ div#resp li {
     float: left;
     text-align: left;
 }
-.kpi-planning {
+.OutcomeKPI-planning {
     background-color: #274656;
     width: 100px;
     margin: 0px 0px 0px 20px;
 }
-.zone-planning {
+.OutcomeZONE-planning {
     background-color: #c34f4f;
     width: 100px;
     margin: 0px 0px 0px 20px;
@@ -2332,11 +2328,11 @@ div#resp li {
     margin-top: 0px;
   }
   .template-monitoring .Output-planning,
-  .template-monitoring .kpi-planning,
+  .template-monitoring .OutcomeKPI-planning,
   .template-monitoring .CC-planning,
   .template-monitoring .CCS-planning,
   .template-monitoring .Activity-planning,
-  .template-monitoring .zone-planning,
+  .template-monitoring .OutcomeZONE-planning,
   .template-monitoring .CCS-planning {
     margin: 8px 0px 0px 20px !important;
   }
