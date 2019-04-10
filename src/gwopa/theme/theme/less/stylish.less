@@ -6,6 +6,9 @@ body {
   padding: 0px;
   color: #4d4d4d !important;
 }
+textarea {
+    font-size: 14px;
+}
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
     padding-right: 5px;
     padding-left: 5px;
@@ -22,6 +25,11 @@ h2 a:focus,
 h3 a:focus {
   text-decoration: none;
   border-bottom: none;
+}
+h1 a,
+h2 a,
+h3 a{
+  padding-left: 5px;
 }
 li {
   display: block;
@@ -77,18 +85,8 @@ ul#sidenav-vertical {
 #content {
   margin-bottom: 48px;
   background-color: white;
-  padding: 30px;
+  padding: 15px;
   border-radius: 4px;
-}
-.documentFirstHeading {
-  padding-bottom: 0pc;
-  margin: 10px 0px 5px 0px;
-  border-bottom: none;
-  color: #00a9f3;
-  font-weight: 600;
-  font-size: 22px;
-  padding-left: 0px;
-  padding-right: 0px;
 }
 .state-private {
   color: #ababab !important;
@@ -390,6 +388,9 @@ input#sso.context {
   margin: 10px 10px 0px 0px;
 }
 /* Templeate Monitoring */
+.template-monitoring .outcome-planning {
+  margin: 5px 0px 0px 0px;
+}
 .template-monitoring td.last {
   border-right: 2px solid #ddd;
 }
@@ -454,8 +455,9 @@ input#sso.context {
   width: 100%;
 }
 .template-monitoring h3.titulocatplan {
-  width: 90%;
-  margin: 0px;
+    width: calc(100% - 25px);
+    float: left;
+    margin-left: 5px;
 }
 .template-monitoring h3#oc {
   margin-bottom: 20PX;
@@ -548,12 +550,9 @@ h3.titulocatplan {
   width: 80px;
   margin: 0px 0px 0px 0px;
 }
-.CC-planning {
-  background-color: #098200;
-  margin: 0px 0px 0px 20px;
-}
 .CCS-planning {
   background-color: #ef9700;
+  width: 45px;
 }
 .Activity-planning {
   background-color: #00b4ce;
@@ -562,10 +561,11 @@ h3.titulocatplan {
 }
 .Activity-planning,
 .Output-planning,
+.kpi-planning,
 .OutcomeKPI-planning,
 .outcome-planning,
-.CC-planning,
 .CCS-planning,
+.zone-planning, 
 .OutcomeZONE-planning {
   color: white;
   text-align: center;
@@ -730,6 +730,7 @@ button.btn.ADDNEW .fa-plus-circle:before {
   cursor: pointer;
 }
 .modal a.CC-planning {
+  width: 45%;
   margin: 8px 2%;
   padding: 6px;
   left: 10px;
@@ -744,6 +745,7 @@ button.btn.ADDNEW .fa-plus-circle:before {
   background-color: #e08e00;
 }
 .modal a.CCS-planning {
+  width: 45%;
   margin: 8px 2%;
   padding: 6px;
   position: absolute;
@@ -848,8 +850,7 @@ tr.descripcion select {
   float: right;
   margin-right: 0px;
   margin-bottom: 0px;
-  margin-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 tr.descripcion h3 {
   text-align: left;
@@ -935,9 +936,6 @@ a.select2-choice {
   padding: 5px 12px !important;
   height: 34px !important;
 }
-/*textarea {
-  min-height: 2em !important;
-}*/
 #form-widgets-wop_platform {
   width: 100% !important;
 }
@@ -1144,7 +1142,7 @@ tr.descripcion h3.titulocatplan {
 .template-monitoring .CC-planning,
 .template-monitoring .CCS-planning,
 .template-monitoring .Activity-planning,
-.template-monitoring .OutcomeZONE-planning,
+7 .template-monitoring .OutcomeZONE-planning,
 .template-monitoring .CCS-planning {
   margin: 0px 0px 0px 30px !important
 }
@@ -1163,9 +1161,6 @@ tr.descripcion .panel-collapse .row h3 {
 #IndDim a {
   padding: 20px !important;
 }
-.panel-collapse.collapse {
-  padding: 5px;
-}
 tr.descripcion td {
   padding: 5px 10px !important;
 }
@@ -1173,6 +1168,9 @@ tr.descripcion td {
 #OTAD.panel-collapse.collapse,
 #IndDim.panel-collapse.collapse {
   padding: 0px 20px 0px 0px;
+}
+.panel-collapse.collapse {
+    padding: 0px;
 }
 th.name {
   padding: 5px 20px !important;
@@ -1744,15 +1742,18 @@ input[type="password"],
 textarea,
 select {
   width: 100%;
+  margin-bottom: 10px;
 }
 .titleRowPlanning {
-  float: left;
-  padding: 2px 20px;
-  font-size: 18px;
-  font-weight: 600;
-    margin-left: 0px;
+    padding: 2px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 20px;
 }
-.btn-group,
+a.titleRowPlanning {
+  color: #3e677c !important;
+}
+  .btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
@@ -1847,8 +1848,8 @@ li#portal-personaltools{
 }
 .tabla_contenido_items {
     float: left;
-    margin-bottom: 30px;
   width: 100%;
+    margin-bottom: 0px;
 }
 .tab-content.clearfix, .tab-content.container, .tab-content.container-fluid, .tab-content.row, .tab-content#edit-zone.plone-toolbar-top .plone-toolbar-container, .tab-content.plone-modal .plone-modal-content, .tab-content.plone-nav, .tab-content.plone-navbar, .tab-content.plone-navbar-collapse {
     padding: 20px 10px;
@@ -1950,13 +1951,6 @@ button.searchbtn {
 input.searchField.focus {
     float: left;
 }
-.search.global {
-    background-color: #e3e3e3;
-    padding: 15px;
-    border-radius: 2px;
-    width: 99.3%;
-    margin-top: 1%;
-}
 .col-md-12.search.global .col-md-8{
   padding-left: 0px;
 }
@@ -2009,10 +2003,16 @@ ul.nav.nav-pills li.active a {
 article#content li.active {
     border-radius: 8px 8px 0px 0px !important;
 }
-div#total {
+#project #total {
     padding: 0px 5px;
     float: left;
     width: calc(100% - 645px);
+    text-align: left;
+}
+#outcomes #total {
+    padding: 0px 5px;
+    float: left;
+    width: calc(100% - 760px);
     text-align: left;
 }
 #header {
@@ -2102,7 +2102,7 @@ body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 .box img {
 ul .fa:before, ul .fas:before {
     font-size: 16px !important;
 }
-.col-xs-11.col-sm-11 .col-xs-12.col-sm-12 {
+.template-homepage .col-xs-11.col-sm-11 .col-xs-12.col-sm-12 {
     padding: 10px !important;
 }
 .template-planning .documentDescription {
@@ -2145,12 +2145,12 @@ div#resp li {
     float: left;
     text-align: left;
 }
-.OutcomeKPI-planning {
+.kpi-planning {
     background-color: #274656;
     width: 100px;
     margin: 0px 0px 0px 20px;
 }
-.OutcomeZONE-planning {
+.zone-planning {
     background-color: #c34f4f;
     width: 100px;
     margin: 0px 0px 0px 20px;
@@ -2160,6 +2160,90 @@ div#resp li {
     margin-left: 10px;
     margin-right: 10px;
 }
+.CC-planning {
+    background-color: #098200;
+    width: 125px;
+}
+.sidenav2 i {
+    width: 20px !important;
+    text-align: left;
+}
+#content {
+    margin-bottom: 48px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 4px;
+}
+.has-table .col-xs-12.col-sm-12 {
+  padding: 0px !important;
+}
+.documentFirstHeading {
+    padding-bottom: 0pc;
+    margin: 10px 0px 5px 0px;
+    border-bottom: none;
+    color: #00a9f3;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0px 0px 0px 10px !important;
+}
+.search.global {
+    background-color: #e3e3e3;
+    padding: 15px;
+    border-radius: 2px;
+    width: -webkit-fill-available;
+    margin-top: 1%;
+    margin: 15px 15px 0px 15px;
+}
+.descripcion h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+#contenido h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+.btn {
+    padding: 4px 8px;
+}
+#contenido .col-md-12.text-item-planning {
+    margin-bottom: 40px;
+    margin-top: 5px;
+    padding: 0px 5px 0px 30px;
+}
+#contenido .text-item-planning .descripcion a h3.titulocatplan {
+    font-weight: 500 !important;
+    color: #007bb1;
+    font-size: 15px !important;
+    margin-bottom: 10px;
+}
+#outcomes #total {
+    padding: 0px 5px;
+    float: left;
+    width: calc(100% - 645px);
+    text-align: left;
+}
+.tabla_cuerpo i#expandir {
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+div#total h4#activity {
+    width: auto !important;
+}
+#OTFD h4.titulocatplan,
+#OTAD h4.titulocatplan,
+#IndDim h4.titulocatplan {
+    margin-left: 5px;
+}
+#OTFD a, #OTAD a, #IndDim a {
+    padding: 10px 20px !important;
+    width: calc(100% - 10px) !important;
+    float: left;
+}
+#OTFDMissionStrategy .row, #OTFD .row, #OTAD .row, #IndDim .row {
+    padding: 0px 20px;
+}
+
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
     width: 25%;
