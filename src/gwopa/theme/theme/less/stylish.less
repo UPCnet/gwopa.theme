@@ -536,32 +536,6 @@ h3.titulocatplan {
   margin-left: 15px;
   width: 100%;
 }
-.OutcomeKPI-planning{
-  background-color: #cf001d;
-  width: 100px;
-  margin: 0px 0px 0px 0px;  
-  margin-left: 30px;
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    float: left;
-    padding: 2px;
-    font-weight: normal;
-    border-radius: 4px;
-}
-.OutcomeZONE-planning{
-  background-color: #3a3e92;
-  width: 100px;
-  margin: 0px 0px 0px 0px;  
-  margin-left: 30px;
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    float: left;
-    padding: 2px;
-    font-weight: normal;
-    border-radius: 4px;
-}
 .Output-planning {
   background-color: #009dcf;
   width: 60px;
@@ -587,7 +561,7 @@ h3.titulocatplan {
 .OutcomeKPI-planning,
 .outcome-planning,
 .CCS-planning,
-.zone-planning, 
+.zone-planning,
 .OutcomeZONE-planning {
   color: white;
   text-align: center;
@@ -1924,8 +1898,8 @@ div#formfield-form-widgets-budget{
     width: 18%;
     float: right;
 }*/
-.plone-modal-header, 
-.plone-modal-body, 
+.plone-modal-header,
+.plone-modal-body,
 .plone-modal-footer {
     float: left;
     width: 100%;
@@ -2026,28 +2000,16 @@ ul.nav.nav-pills li.active a {
 article#content li.active {
     border-radius: 8px 8px 0px 0px !important;
 }
-.template-planning #outcomes #total {
+#project #total {
     padding: 0px 5px;
     float: left;
     width: calc(100% - 645px);
     text-align: left;
 }
-.template-planning #project #total {
+#outcomes #total {
     padding: 0px 5px;
     float: left;
-    width: calc(100% - 520px);
-    text-align: left;
-}
-.template-monitoring #project #total {
-    padding: 0px 5px;
-    float: left;
-    width: calc(100% - 645px);
-    text-align: left;
-}
-.template-monitoring #outcomes #total {
-    padding: 0px 5px;
-    float: left;
-    width: calc(100% - 645px);
+    width: calc(100% - 760px);
     text-align: left;
 }
 #header {
@@ -2257,7 +2219,7 @@ div#resp li {
     float: left;
     width: calc(100% - 50px);
 }
-.template-monitoring #total {
+#outcomes #total {
     padding: 0px 5px;
     float: left;
     width: calc(100% - 645px);
@@ -2346,8 +2308,6 @@ textarea#message-text {
     margin-bottom: 25px;
     position: fixed;
     height: 100%;
-    max-width: 1200px;
-    margin: 0px auto;
 }
 .modal-body {
     height: auto;
@@ -2356,9 +2316,6 @@ textarea#message-text {
 button#addButton {
     margin-top: 20px;
     margin-bottom: 20px;
-}
-.dropdown-menu li a i.fas.fa-plus-circle {
-    margin-right: 10px;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
