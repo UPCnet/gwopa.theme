@@ -432,7 +432,7 @@ input#sso.context {
   margin-top: 5px;
   position: absolute;
 }
-.template-monitoring .template-monitoring td.date-a {
+.template-monitoring td.date-a {
   color: #ff3737;
   font-weight: bold;
 }
@@ -1564,6 +1564,7 @@ h3 a i.fas.fa-edit {
 h3 a i.fas.fa-plus-square {
   color: #00a9f3;
 }
+
 .dropdown-menu > li > a {
   display: block;
   padding: 0px 10px;
@@ -1739,10 +1740,6 @@ li {
 .tabla_hilera {
   position: relative;
 }
-#actions {
-  width: 60px;
-  padding: 0px 5px;
-}
 #nextupdate {
   width: 120px;
   padding: 0px 5px;
@@ -1871,7 +1868,7 @@ li#portal-personaltools{
 .tabla_contenido_items {
   float: left;
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   margin-top: 0px;
 }
 .tab-content.clearfix, .tab-content.container, .tab-content.container-fluid, .tab-content.row, .tab-content#edit-zone.plone-toolbar-top .plone-toolbar-container, .tab-content.plone-modal .plone-modal-content, .tab-content.plone-nav, .tab-content.plone-navbar, .tab-content.plone-navbar-collapse {
@@ -2028,28 +2025,25 @@ ul.nav.nav-pills li.active a {
 article#content li.active {
     border-radius: 8px 8px 0px 0px !important;
 }
-.template-planning #outcomes #total {
-    padding: 0px 5px;
-    float: left;
-    width: calc(100% - 645px);
-    text-align: left;
-}
 .template-planning #project #total {
     padding: 0px 5px;
     float: left;
-    width: calc(100% - 520px);
+    width: calc(100% - 545px);
     text-align: left;
 }
-.template-monitoring #project #total {
-    padding: 0px 5px;
-    float: left;
-    width: calc(100% - 645px);
-    text-align: left;
+.template-monitoring #project #total{
+  width: calc(100% - 800px);
 }
 .template-monitoring #outcomes #total {
     padding: 0px 5px;
     float: left;
-    width: calc(100% - 645px);
+    width: calc(100% - 925px);
+    text-align: left;
+}
+.template-planning #outcomes #total {
+    width: calc(100% - 675px);
+  padding: 0px 5px;
+    float: left;
     text-align: left;
 }
 #header {
@@ -2157,7 +2151,7 @@ ul .fa:before, ul .fas:before {
     padding-left: 0;
     border-radius: 4px;
     float: right;
-    margin: 0px;
+    margin: 0px 0px 20px 0px !important;
 }
 .template-planning #content .container,
 .template-monitoring #content .container{
@@ -2231,7 +2225,7 @@ div#resp li {
     background-color: #e3e3e3;
     padding: 15px;
     border-radius: 2px;
-    width: -webkit-fill-available;
+    width: 100%;
     margin-top: 1%;
     margin: 15px 15px 0px 15px;
 }
@@ -2249,6 +2243,7 @@ div#resp li {
 #contenido .col-md-12.text-item-planning {
     margin-top: 5px;
     padding: 0px 5px 0px 30px;
+    margin-bottom: 20px;
 }
 #contenido .text-item-planning .descripcion a h3.titulocatplan {
     font-weight: 500 !important;
@@ -2330,18 +2325,18 @@ textarea#message-text {
     font-size: 20px!important;
 }
 .modal.fade.in{
-    width: -webkit-fill-available;
+    width: 100%;
     position: absolute;
     padding: 0px;
     top: 0;
-    max-width: -webkit-fill-available;
+    max-width: 100%;
     overflow: visible;
 }
 .modal.fade.in {
     overflow-y: scroll;
 }
 .modal.fade.in {
-    width: -webkit-fill-available;
+    width: 100%;
     padding: 20px;
     top: 0;
     margin-bottom: 25px;
@@ -2363,10 +2358,22 @@ button#addButton {
 }
 .paddingleft20 {
     padding-left: 20px !important;
+    padding: 10px;
 }
-#freq {
+#pyt, #comple, #pyv {
+    width: 150px;
+  padding: 0px 5px;
+}
+#nexupd, #freq{
+    width: 125px;
     padding: 0px 5px;
-    width: 120px;
+}
+#actions {
+    width: 85px;
+    padding: 0px 5px;
+}
+i.far.fa-calendar{
+  color: #274656;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
