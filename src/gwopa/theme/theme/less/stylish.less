@@ -9,6 +9,9 @@ body {
 textarea {
   font-size: 14px;
 }
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+  font-weight: 600;
+}
 .col-lg-1,
 .col-lg-10,
 .col-lg-11,
@@ -2011,7 +2014,7 @@ article#content li.active {
 .template-planning #project #total {
   padding: 0px 5px;
   float: left;
-  width: calc(100% - 590px);
+  width: calc(100% - 530px);
   text-align: left;
 }
 .template-monitoring #project #total {
@@ -2214,11 +2217,11 @@ div#resp li {
   padding: 0px 0px 0px 10px !important;
 }
 .search.global {
-  background-color: #e3e3e3;
-  padding: 10px;
-  border-radius: 2px;
-  width: 98%;
-  margin: 10px;
+    background-color: #e3e3e3;
+    padding: 10px;
+    border-radius: 2px;
+    width: -webkit-fill-available;
+    margin: 10px 10px 0px 10px;
 }
 .descripcion h3 {
   font-size: 14px;
@@ -2306,7 +2309,7 @@ textarea#message-text {
   top: inherit !important;
   padding: 0px;
   margin: 0px;
-  width: 100%;
+  width: 100% !important;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -2332,14 +2335,14 @@ textarea#message-text {
 }
 .modal.fade.in {
     width: 100%;
-    padding: 0px;
     position: fixed;
     height: 100%;
-    margin: auto;
+    padding: 25px !important;
     overflow-y: auto;
-    max-height: 850px;
     top: 0px;
-    max-width: 900px;
+    max-width: none !important;
+    margin: 0 auto !important;
+  max-height: 100% !important;
 }
 .modal-header{
     border-radius: 4px 4px 0px 0px;
@@ -2383,8 +2386,12 @@ button#addButton {
   width: 125px;
   padding: 0px 5px;
 }
-#actions {
+.template-monitoring #actions {
   width: 110px;
+  padding: 0px 5px;
+}
+#actions {
+  width: 65px;
   padding: 0px 5px;
 }
 i.far.fa-calendar, i.fas.fa-exclamation-triangle,i.far.fa-edit, i.far.fa-trash-alt {
@@ -2398,8 +2405,22 @@ i.far.fa-calendar, i.fas.fa-exclamation-triangle,i.far.fa-edit, i.far.fa-trash-a
 .tabla_hilera .block_content .col-md-12.text-item-planning .fa-plus-circle:before {
     position: relative;
 }
-ul.dropdown-menu a.pat-plone-modal {
+.dropdown-menu > li > a {
     padding: 0px 10px !important;
+}
+#total a.pat-plone-modal {
+    float: left;
+}
+.plone-modal-dialog, .modal-dialog {
+    top: 0px !important;
+    max-width: 1200px !important;
+    margin: 0px auto !important;
+}
+.btn-group.open ul.dropdown-menu li {
+    margin: 0px;
+}
+h1.documentFirstHeading i.far.fa-edit {
+    float: none;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
