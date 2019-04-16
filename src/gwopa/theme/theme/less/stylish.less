@@ -2158,7 +2158,7 @@ ul .fas:before {
   padding-left: 0;
   border-radius: 4px;
   float: right;
-  margin: 0px 0px 20px 0px !important;
+  margin: 0px !important;
 }
 .template-planning #content .container,
 .template-monitoring #content .container {
@@ -2298,9 +2298,6 @@ div#total h4#activity {
 .template-monitoring .CCS-planning,
 .template-monitoring .zone-planning {
   margin: 0px 0px 0px 30px !important
-}
-textarea#message-text {
-  min-height: 35px;
 }
 .CC-planning {
   background-color: #098200;
@@ -2448,6 +2445,35 @@ h1.documentFirstHeading i.far.fa-edit {
 }
 #total .btn-group i.fas.fa-plus-circle {
   position: absolute;
+  left: 10px;
+}
+.information.object ul.dropdown-menu li a {
+  margin-left: 20px;
+}
+.filacontenido {
+    display: flex;
+}
+.filacontenido h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.col-sm-2#value {
+    width: 16.6666% !important;
+}
+.col-sm-3#mainobst,
+.col-sm-3#maincontrfact {
+    width: 25%;
+    padding: 5px;
+}
+.col-sm-4#explprog{
+    padding:5px;
+}
+.col-sm-2#value{
+    padding:5px;
+}
+textarea#message-text {
+    height: 35px;
+    margin-bottom: 10px;
 }
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
@@ -2497,7 +2523,7 @@ h1.documentFirstHeading i.far.fa-edit {
 @media (max-width: 1300px) {
   div#total h4#activity {
     width: 100%!important;
-}
+  }
   .panel-collapse h4.titulocatplan {
     float: left;
     color: #31b0d5;
@@ -2526,7 +2552,8 @@ h1.documentFirstHeading i.far.fa-edit {
     width: 100%;
   }
   #OTFDMissionStrategy .row,
-  #OTFD .row, #OTAD .row,
+  #OTFD .row,
+  #OTAD .row,
   #IndDim .row {
     padding: 0px;
   }
