@@ -637,7 +637,7 @@ h3.titulocatplan {
   padding: 2px;
   font-weight: normal;
   border-radius: 4px;
-  margin-left: 25px;
+  margin-left: 10px;
 }
 .panel-group {
   margin-bottom: 0px;
@@ -1762,6 +1762,12 @@ select {
   font-weight: 600;
   margin-left: 20px;
 }
+.titleRowMonitoring {
+  padding: 2px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 5px;
+}
 a.titleRowPlanning {
   color: #3e677c !important;
 }
@@ -2021,27 +2027,33 @@ ul.nav.nav-pills li.active a {
 article#content li.active {
   border-radius: 8px 8px 0px 0px !important;
 }
+
 .template-planning #project #total {
   padding: 0px 5px;
   float: left;
   width: calc(100% - 530px);
   text-align: left;
 }
-.template-monitoring #project #total {
-  width: calc(100% - 830px);
+
+.template-planning #outcomes #total {
+  width: calc(100% - 640px);
+  padding: 0px 5px;
+  float: left;
+  text-align: left;
 }
+
+
+.template-monitoring #project #total {
+  width: calc(100% - 400px);
+}
+
 .template-monitoring #outcomes #total {
   padding: 0px 5px;
   float: left;
-  width: calc(100% - 950px);
+  width: calc(100% - 630px);
   text-align: left;
 }
-.template-planning #outcomes #total {
-  width: calc(100% - 695px);
-  padding: 0px 5px;
-  float: left;
-  text-align: left;
-}
+
 #header {
   font-weight: 600;
   margin-bottom: 0px;
@@ -2148,8 +2160,6 @@ ul .fas:before {
   font-size: 16px;
   font-weight: 400;
   color: #696969;
-  float: right;
-  text-align: right !important;
   margin: 0px;
 }
 .template-planning .pagination,
@@ -2297,7 +2307,7 @@ div#total h4#activity {
 .template-monitoring .OutcomeZONE-planning,
 .template-monitoring .CCS-planning,
 .template-monitoring .zone-planning {
-  margin: 0px 0px 0px 30px !important
+  margin: 0px 0px 0px 5px;
 }
 textarea#message-text {
   min-height: 35px;
@@ -2388,20 +2398,15 @@ button#addButton {
 #pyt,
 #comple,
 #pyv {
-  width: 150px;
+  width: 125px;
   padding: 0px 5px;
 }
 #nexupd,
 #freq {
-  width: 125px;
-  padding: 0px 5px;
-}
-.template-monitoring #actions {
-  width: 110px;
+  width: 120px;
   padding: 0px 5px;
 }
 #actions {
-  width: 65px;
   padding: 0px 5px;
 }
 i.far.fa-calendar,
@@ -2480,11 +2485,6 @@ textarea#message-text {
 .col-sm-6#conforfurplan,
 .col-sm-6#explcontrlimfac{
     padding:5px;
-}
-#outcomes .col-md-12.text-item-planning {
-    margin-top: 5px;
-    padding: 0px 5px 0px 10px;
-    margin-bottom: 20px;
 }
 li#plone-contentmenu-factories,
 li#contentview-history,
@@ -3397,4 +3397,35 @@ li#plone-contentmenu-workflow{
   .sidenav {
     width: 13%;
   }
+}
+div.Output-planning.first-level {
+  margin-left: 24px;
+}
+
+div.Output-planning.second-level {
+  margin-left: 30px;
+}
+
+.itemStatus {
+  float: left;
+}
+
+.addCapacity .btn-group i.fas.fa-plus-circle {
+  left: 0px !important;
+}
+
+.titleCollapse {
+  float:right;
+  padding-top: 10px !important;
+  margin-top: -20px !important;
+  margin-bottom: 20px !important;
+}
+
+.dateNumbers {
+  color: #337ab7;
+  font-weight: 600;
+}
+
+.h2Project {
+  font-weight: 600;
 }
