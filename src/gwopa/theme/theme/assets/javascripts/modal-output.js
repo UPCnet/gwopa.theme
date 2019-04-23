@@ -122,8 +122,9 @@ require([
     $("#addTargetValueButton").click(function () {
       let idnum = counter + 1;
       if(counter>=numPhases){
-          alert(
-            'Sorry, but this output only accepts ' + numPhases + ' target values.');
+        swal('Not allowed!',
+             'Sorry, but this output only accepts ' + numPhases + ' target values.',
+             'warning');
       }
       else {
         let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
@@ -155,8 +156,8 @@ require([
       var params = {};
       params.item = item;
       swal({
-        title: "Confirm Delete?",
-        text: 'You are about to delete ' + item_type + ': ' + item_title,
+        title: "Confirm delete " + item_type + "?",
+        text: item_title,
         icon: "warning",
         buttons: true,
         dangerMode: true,
