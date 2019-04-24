@@ -6,8 +6,8 @@ require([
     // Configure/customize these variables.
     var showChar = 390;  // How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = '<i class="fa fa-plus-circle"></i>';
-    var lesstext = '<i class="fa fa-minus-circle"></i>';
+    var moretext = '<i class="fa fa-plus"></i><span> Show more</span>';
+    var lesstext = '<i class="fa fa-minus"></i><span> Show less</span>';
 
 
     $('.more').each(function() {
