@@ -1,7 +1,7 @@
 html,
 body {
   font-family: 'Open Sans', sans-serif !important;
-  background-color: #f1f1f1;
+  background-color: #f1f1f1 !important;
   font-weight: 400;
   padding: 0px;
   color: #4d4d4d !important;
@@ -215,19 +215,19 @@ select[size] {
 .pat-autotoc.autotabs .autotoc-nav,
 .autotabs .autotoc-nav {
   border: none;
-  background: none;
+  padding-left: 5px;
 }
-.autotoc-nav a.active {
-  border: none !important;
-  border-bottom: 4px solid #007bb1 !important;
-  color: #007bb1 !important;
-  margin-bottom: 20px !important;
-  font-weight: bold !Important;
-}
-.autotoc-nav a {
-  border: none !important;
-  color: #666666 !important;
-}
+// .autotoc-nav a.active {
+//   border: none !important;
+//   border-bottom: 4px solid #007bb1 !important;
+//   color: #007bb1 !important;
+//   margin-bottom: 20px !important;
+//   font-weight: bold !Important;
+// }
+// .autotoc-nav a {
+//   border: none !important;
+//   color: #666666 !important;
+// }
 .select2-container .select2-choice > .select2-chosen {
   margin-right: 33px;
 }
@@ -1874,31 +1874,30 @@ li#portal-personaltools {
   border-radius: 0px 10px 10px 10px;
   background-color: white;
 }
-.container .nav-pills > li > a {
-  border-radius: 0px;
-  background-color: #cacaca;
-  color: white;
-  border-radius: 8px 8px 0px 0px;
+a.autotoc-level-1 {
+  margin-bottom: 0px !important;
+  width: 28rem;
+  margin-right: 20px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  background-color: #cacaca !important;
+  color: white !important;
+  border-radius: 8px 8px 0px 0px !important;
+  border-bottom-width: 0px !important;
+  padding: 10px 15px !important;
 }
-.nav-pills li a[aria-expanded="true"] {
-  background-color: #337ab7 !important;
+a.autotoc-level-1:hover {
+  background-color: #053449 !important;
 }
-.container .nav-pills > li > a:hover {
-  background-color: #053449;
+a.autotoc-level-1.active{
+  border: none !important;
+  background-color: white !important;
+  color: #4d4d4d !important;
 }
-.container .nav-pills > li > a:visited {
-  border-radius: 0px;
-  color: white;
-}
-.container .nav-pills > li {
-  font-size: 16px;
-  font-weight: 600;
-}
-ul.nav.nav-pills li {
-  margin-bottom: 0px;
-  width: 280px;
-  margin-right: 20px;
-  float: left;
+.pat-autotoc.autotabs .autotoc-section.active {
+  padding: 20px 10px;
+  border-radius: 0px 10px 10px 10px;
+  display: block;
 }
 .tabla_cuerpo {
   padding-left: 20px;
@@ -2019,10 +2018,6 @@ ul.pagination.pagination-lg {
 .template-planning .col-xs-12.col-sm-12,
 .template-monitoring .col-xs-12.col-sm-12 {
   padding: 0px;
-}
-ul.nav.nav-pills li.active a {
-  background-color: white !important;
-  color: #4d4d4d;
 }
 article#content li.active {
   border-radius: 8px 8px 0px 0px !important;
@@ -3435,4 +3430,3 @@ div.Output-planning.second-level {
 .part2 {
     display: table-cell;
 }
-
