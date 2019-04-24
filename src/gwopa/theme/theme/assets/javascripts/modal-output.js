@@ -188,38 +188,38 @@ require([
       });
     });
   });
-  $(".notexpand").hide();
+  $(".expandItem").hide();
   $("#expandAllProjectTab").hide()
   $(".tabla_cuerpo").slideDown()
 
   $("#expandAllProjectTab").click(function(){
     $(".tabla_cuerpo").slideDown()
-    $(".expand").parent().parent().parent().slideDown();
-    $(".expand").hide();
-    $(".notexpand").show();
+    $(".expandItem").parent().parent().parent().slideDown();
+    $(".expandItem").hide();
+    $(".collapseItem").show();
     $("#expandAllProjectTab").hide();
     $("#collapseAllProjectTab").show();
   })
 
   $("#collapseAllProjectTab").click(function(){
     $(".tabla_cuerpo").slideUp()
-    $(".notexpand").slideUp();
-    $(".notexpand").hide();
-    $(".expand").show();
+    $(".collapseItem").slideUp();
+    $(".collapseItem").hide();
+    $(".expandItem").show();
     $("#expandAllProjectTab").show();
     $("#collapseAllProjectTab").hide();
   })
 
-  $(".expand").click(function () {
-    $(".expand").hide();
-    $(".notexpand").show();
+  $(".collapseItem").click(function () {
+    $(".expandItem").hide();
+    $(".collapseItem").show();
     $header = $(this);
     $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
   });
 
-  $(".notexpand").click(function () {
-    $(".notexpand").hide();
-    $(".expand").show();
+  $(".expandItem").click(function () {
+    $(".collapseItem").hide();
+    $(".expandItem").show();
     $header = $(this);
     $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
   });
