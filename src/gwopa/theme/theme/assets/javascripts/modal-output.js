@@ -110,6 +110,9 @@ require([
   $(document).ready(function() {
     let counter = 1;
     let numPhases = $('#totalPhases').text();
+    if (numPhases === "1") {
+      $("#addTargetValueButton").hide();
+    };
     fetch('api-getPhases')
     .then(response => {
         return response.json()
@@ -129,10 +132,10 @@ require([
       else {
         let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
         newTextBoxDiv.after().html(
-        '<div class="row"><div class="col-md-6">' +
+        '<div class="row"><div class="col-md-6" style="margin-top:0px;">' +
         '<label for="message-text" class="control-label"> Target value </label>' +
         '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
-        '<div class="col-md-6">' +
+        '<div class="col-md-6" style="margin:0px 0px 10px 0px;">' +
         '<label for="message-text" class="control-label"> Target date </label>' +
         '<input class="form-control" id="target-date-' + idnum + '" readonly/></div></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
