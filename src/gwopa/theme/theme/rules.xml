@@ -61,7 +61,7 @@
       <!-- <before content="/html/head/script" theme-children="/html/head" /> -->
           <!-- ... before your own scripts -->
           <after css:theme-children="html head">
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/sweetalert.min.js"></script>
           </after>
           <before theme="/html/body">
               <xsl:apply-templates select="/html/head/script" />
