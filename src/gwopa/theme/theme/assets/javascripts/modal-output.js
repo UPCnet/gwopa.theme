@@ -10,9 +10,9 @@ require([
      validate: function(value) {
        if (!value) return 'Required value';
      },
-     success: function(){
-           location.reload();
-     },
+     // success: function(){
+     //       location.reload();
+     // },
   });
 
   $(".close").click(function() {
