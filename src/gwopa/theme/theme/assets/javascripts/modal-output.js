@@ -198,6 +198,7 @@ require([
 
   $(".expandItem").hide();
   $("#expandAllProjectTab").hide();
+  $("#expandAllOutcomeTab").hide();
   $(".tabla_cuerpo").slideDown();
 
   $("#expandAllProjectTab").click(function(){
@@ -216,6 +217,24 @@ require([
     $(".expandItem").show();
     $("#expandAllProjectTab").show();
     $("#collapseAllProjectTab").hide();
+  });
+
+  $("#expandAllOutcomeTab").click(function(){
+    $(".tabla_cuerpo").slideDown()
+    $(".expandItem").parent().parent().parent().slideDown();
+    $(".expandItem").hide();
+    $(".collapseItem").show();
+    $("#expandAllOutcomeTab").hide();
+    $("#collapseAllOutcomeTab").show();
+  });
+
+  $("#collapseAllOutcomeTab").click(function(){
+    $(".tabla_cuerpo").slideUp()
+    $(".collapseItem").slideUp();
+    $(".collapseItem").hide();
+    $(".expandItem").show();
+    $("#expandAllOutcomeTab").show();
+    $("#collapseAllOutcomeTab").hide();
   });
 
   $(".collapseItem").click(function () {
