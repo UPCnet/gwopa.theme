@@ -2,7 +2,8 @@ require([
   'expect',
   'jquery'
 ], function(expect, $) {
-
+  // $.fn.editable.defaults.mode = 'inline';
+  $('.editable').editable();
   $(".close").click(function() {
     location.reload();
   });
