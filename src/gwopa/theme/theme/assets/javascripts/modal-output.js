@@ -3,7 +3,18 @@ require([
   'jquery'
 ], function(expect, $) {
   // $.fn.editable.defaults.mode = 'inline';
-  $('.editable').editable();
+  $('.editable').editable({
+     inputclass: function(e, f) {
+       $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
+     },
+     validate: function(value) {
+       if (!value) return 'Required value';
+     },
+     success: function(){
+           location.reload();
+     },
+  });
+
   $(".close").click(function() {
     location.reload();
   });
