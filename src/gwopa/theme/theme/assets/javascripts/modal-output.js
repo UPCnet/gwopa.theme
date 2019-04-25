@@ -3,88 +3,97 @@ require([
   'jquery'
 ], function(expect, $) {
 
-  $("#out-title").select2({
-    dropdownParent: $('#modalOutput'),
-    maximumSelectionSize: 1,
-    ajax: {
-      url: '@@api-getOutputs',
-      dataType: 'json',
-      quietMillis: 250,
-      cache: true,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      results: function (data) {
-        var res = [];
-        var len = data.length;
-        for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-        }
-        return { results: res };
-      }
-    },
-  });
-  $("#out-unit").select2({
-    dropdownParent: $('#modalOutput'),
-    maximumSelectionSize: 1,
-    ajax: {
-      url: '@@api-getUnits',
-      dataType: 'json',
-      quietMillis: 250,
-      cache: true,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      results: function (data) {
-        var res = [];
-        var len = data.length;
-        for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-        }
-        return { results: res };
-      }
-    },
-  });
-  $("#out-frequency").select2({
-    dropdownParent: $('#modalOutput'),
-    maximumSelectionSize: 1,
-    ajax: {
-      url: '@@api-getFrequency',
-      dataType: 'json',
-      quietMillis: 250,
-      cache: true,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      results: function (data) {
-        var res = [];
-        var len = data.length;
-        for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-        }
-        return { results: res };
-      }
-    },
-  });
   $(".close").click(function() {
     location.reload();
   });
   $(".form-buttons-cancel").click(function() {
     location.reload();
   });
+
   $("a.afegirOutput").click(function() {
     var myVal = $(this).data('val');
-     $('#modalOutput').find(".modal-url").text(myVal);
+      $('#modalOutput').find(".modal-url").text(myVal);
+      $("#out-title").select2({
+        dropdownParent: $('#modalOutput'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: '@@api-getOutputs',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#out-unit").select2({
+        dropdownParent: $('#modalOutput'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: '@@api-getUnits',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#out-frequency").select2({
+        dropdownParent: $('#modalOutput'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: '@@api-getFrequency',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+
+    fetch('../api-getPhases')
+    .then(function(response) { return response.json();})
+    .then(function(data) {
+        let end_date = data[0].gwopa_year_phases[0].end;
+        $('#target-date-1').val(end_date);
+    });
   });
+  
   $('#createOutputFromModal').click(function(e){
     e.preventDefault();
     var params = {};
@@ -98,6 +107,10 @@ require([
     params.item_means = $('#out-means').val()
     params.item_risks = $('#out-risks').val()
     params.item_responsible = $('#out-responsible').val()
+    params.item_target1 = $('#target-value-1').val()
+    params.item_target2 = $('#target-value-2').val()
+    params.item_target3 = $('#target-value-3').val()
+    params.item_target4 = $('#target-value-4').val()
     $.ajax({
       url: '@@createElement',
       method: 'POST',
@@ -112,15 +125,8 @@ require([
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
       $("#addTargetValueButton").hide();
-    };
-    fetch('api-getPhases')
-    .then(response => {
-        return response.json()
-    })
-    .then(data => {
-        let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1').val(end_date);
-    })
+    }
+
 
     $("#addTargetValueButton").click(function () {
       let idnum = counter + 1;
@@ -140,14 +146,12 @@ require([
         '<input class="form-control" id="target-date-' + idnum + '" readonly/></div></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
       }
-      fetch('api-getPhases')
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
+      fetch('../api-getPhases')
+      .then(function(response) { return response.json();})
+      .then(function(data) {
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
           $('#target-date-' + (idnum) + '').val(end_date);
-      })
+      });
       counter++;
     });
 
@@ -191,9 +195,10 @@ require([
       });
     });
   });
+
   $(".expandItem").hide();
-  $("#expandAllProjectTab").hide()
-  $(".tabla_cuerpo").slideDown()
+  $("#expandAllProjectTab").hide();
+  $(".tabla_cuerpo").slideDown();
 
   $("#expandAllProjectTab").click(function(){
     $(".tabla_cuerpo").slideDown()
@@ -202,7 +207,7 @@ require([
     $(".collapseItem").show();
     $("#expandAllProjectTab").hide();
     $("#collapseAllProjectTab").show();
-  })
+  });
 
   $("#collapseAllProjectTab").click(function(){
     $(".tabla_cuerpo").slideUp()
@@ -211,7 +216,7 @@ require([
     $(".expandItem").show();
     $("#expandAllProjectTab").show();
     $("#collapseAllProjectTab").hide();
-  })
+  });
 
   $(".collapseItem").click(function () {
     $(".expandItem").hide();
