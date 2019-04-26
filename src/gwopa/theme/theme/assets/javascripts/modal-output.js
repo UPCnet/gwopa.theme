@@ -115,6 +115,9 @@ require([
       swal("Completion date must be filled out", "warning");
       return false;
     }
+    else {
+      return true;
+    }
   }
 
   $('#createOutputFromModal').click(function(e){
