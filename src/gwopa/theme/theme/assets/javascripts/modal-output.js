@@ -106,30 +106,46 @@ require([
     });
   });
 
+  function validateForm() {
+    if ($('#out-title').val() == "") {
+      swal("Title must be filled out", "warning");
+      return false;
+    }
+    else if ($('#out-datetimepicker').val() == "") {
+      swal("Completion date must be filled out", "warning");
+      return false;
+    }
+  }
+
   $('#createOutputFromModal').click(function(e){
-    e.preventDefault();
-    var params = {};
-    params.item_title = $('#out-title').val()
-    params.item_path = $('#modalPath').html()
-    params.item_description = $('#out-description').val()
-    params.item_baseline = $('#out-baseline').val()
-    params.item_date = $('#out-datetimepicker').val()
-    params.item_unit = $('#out-unit').val()
-    params.item_frequency = $('#out-frequency').val()
-    params.item_means = $('#out-means').val()
-    params.item_risks = $('#out-risks').val()
-    params.item_responsible = $('#out-responsible').val()
-    params.item_target1 = $('#target-value-1').val()
-    params.item_target2 = $('#target-value-2').val()
-    params.item_target3 = $('#target-value-3').val()
-    params.item_target4 = $('#target-value-4').val()
-    $.ajax({
-      url: '@@createElement',
-      method: 'POST',
-      data: params,
-      success: function(resp)
-        { if(resp) {location.reload();}}
-    });
+    if (validateForm()) {
+      e.preventDefault();
+      var params = {};
+      params.item_title = $('#out-title').val()
+      params.item_path = $('#modalPath').html()
+      params.item_description = $('#out-description').val()
+      params.item_baseline = $('#out-baseline').val()
+      params.item_date = $('#out-datetimepicker').val()
+      params.item_unit = $('#out-unit').val()
+      params.item_frequency = $('#out-frequency').val()
+      params.item_means = $('#out-means').val()
+      params.item_risks = $('#out-risks').val()
+      params.item_responsible = $('#out-responsible').val()
+      params.item_target1 = $('#target-value-1').val()
+      params.item_target2 = $('#target-value-2').val()
+      params.item_target3 = $('#target-value-3').val()
+      params.item_target4 = $('#target-value-4').val()
+      $.ajax({
+        url: '@@createElement',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+          { if(resp) {location.reload();}}
+      });
+    }
+    else {
+      return false;
+    }
   });
 
   $(document).ready(function() {
