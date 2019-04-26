@@ -98,14 +98,14 @@ require([
         },
       });
 
-    fetch('../api-getPhases')
+    fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
         $('#target-date-1').val(end_date);
     });
   });
-  
+
   $('#createOutputFromModal').click(function(e){
     e.preventDefault();
     var params = {};
@@ -158,7 +158,7 @@ require([
         '<input class="form-control" id="target-date-' + idnum + '" readonly/></div></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
       }
-      fetch('../api-getPhases')
+      fetch('api-getPhases')
       .then(function(response) { return response.json();})
       .then(function(data) {
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
