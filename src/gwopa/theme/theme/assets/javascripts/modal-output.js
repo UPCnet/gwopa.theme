@@ -102,17 +102,25 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1').val(end_date);
+        $('#target-date-1').html(end_date);
     });
   });
 
   function validateForm() {
     if ($('#out-title').val() == "") {
-      swal("Title must be filled out", "warning");
+      swal("Title is missing", '', "warning");
       return false;
     }
     else if ($('#out-datetimepicker').val() == "") {
-      swal("Completion date must be filled out", "warning");
+      swal('Completion date is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#out-unit').val() == "") {
+      swal('Measuring unit is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#out-frequency').val() == "") {
+      swal('Measuring frequency is missing', '', 'warning');
       return false;
     }
     else {
@@ -174,14 +182,14 @@ require([
         '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-md-6" style="margin:0px 0px 10px 0px;">' +
         '<label for="message-text" class="control-label"> Target date </label>' +
-        '<input class="form-control" id="target-date-' + idnum + '" readonly/></div></div>');
+        '<p style="padding: 6px 12px;" id="target-date-' + idnum + '" ></p></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
       }
       fetch('api-getPhases')
       .then(function(response) { return response.json();})
       .then(function(data) {
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
-          $('#target-date-' + (idnum) + '').val(end_date);
+          $('#target-date-' + (idnum) + '').html(end_date);
       });
       counter++;
     });
