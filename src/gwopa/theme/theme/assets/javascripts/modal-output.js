@@ -29,7 +29,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getOutputs',
+          url: 'api-getOutputs',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -53,7 +53,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getUnits',
+          url: 'api-getUnits',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -77,7 +77,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getFrequency',
+          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -113,7 +113,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getOutputs',
+          url: 'api-getOutputs',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -137,7 +137,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getUnits',
+          url: 'api-getUnits',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -161,7 +161,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: '@@api-getFrequency',
+          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -264,7 +264,7 @@ require([
       params.item_target9 = $('#target-value-9').val()
       params.item_target10 = $('#target-value-10').val()
       $.ajax({
-        url: '@@createElement',
+        url: 'createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -302,7 +302,7 @@ require([
       params.item_target9 = $('#kpitarget-value-9').val()
       params.item_target10 = $('#kpitarget-value-10').val()
       $.ajax({
-        url: '@@createElement',
+        url: 'createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -377,7 +377,7 @@ require([
       .then((willDelete) => {
         if (willDelete) {
           $.ajax({
-            url: '@@removeElement',
+            url: 'removeElement',
             method: 'POST',
             data: params,
             success: function(resp)
