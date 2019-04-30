@@ -3,6 +3,7 @@ require([
   'jquery'
 ], function(expect, $) {
   // $.fn.editable.defaults.mode = 'inline';
+  let counter = 1;
   $('.editable').editable({
      inputclass: function(e, f) {
        $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
@@ -10,16 +11,23 @@ require([
      validate: function(value) {
        if (!value) return 'Required value';
      },
-     // success: function(){
-     //       location.reload();
-     // },
   });
 
   $(".close").click(function() {
-    location.reload();
+    $("#toClearActivity").trigger('reset');
+    $("#toClearOutput").trigger('reset');
+    $("#toClearKPI").trigger('reset');
+    $("#toClearKPIZone").trigger('reset');
+    $('.toDelete').remove();
+    counter = 1;
   });
   $(".button-cancel").click(function() {
-    location.reload();
+    $("#toClearActivity").trigger('reset');
+    $("#toClearOutput").trigger('reset');
+    $("#toClearKPI").trigger('reset');
+    $("#toClearKPIZone").trigger('reset');
+    $('.toDelete').remove();
+    counter = 1;
   });
 
   $("a.afegirOutput").click(function() {
@@ -190,6 +198,24 @@ require([
     });
   });
 
+  function validateFormOutput() {
+    if ($('#out-title').val() == "") {
+      swal("Title is missing", '', "warning");
+      return false;
+    }
+    else if ($('#out-datetimepicker').val() == "") {
+      swal('Completion date is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#out-unit').val() == "") {
+      swal('Measuring unit is missing', '', 'warning');
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   function validateFormKPI() {
     if ($('#kpi-title').val() == "") {
       swal("Title is missing", '', "warning");
@@ -216,26 +242,8 @@ require([
     }
   }
 
-  function validateForm() {
-    if ($('#out-title').val() == "") {
-      swal("Title is missing", '', "warning");
-      return false;
-    }
-    else if ($('#out-datetimepicker').val() == "") {
-      swal('Completion date is missing', '', 'warning');
-      return false;
-    }
-    else if ($('#out-unit').val() == "") {
-      swal('Measuring unit is missing', '', 'warning');
-      return false;
-    }
-    else {
-      return true;
-    }
-  }
-
   $('#createOutputFromModal').click(function(e){
-    if (validateForm()) {
+    if (validateFormOutput()) {
       e.preventDefault();
       var params = {};
       params.item_title = $('#out-title').val()
@@ -311,14 +319,12 @@ require([
   });
 
   $(document).ready(function() {
-    let counter = 1;
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
-      $("#addTargetValueButton, #KPIaddTargetValueButton").hide();
+      $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
     }
 
-
-    $("#addTargetValueButton, #KPIaddTargetValueButton").click(function () {
+    $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
       let idnum = counter + 1;
       if(counter>=numPhases){
         swal('Not allowed!',
@@ -326,23 +332,23 @@ require([
              'warning');
       }
       else {
-        let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
+        let  newTextBoxDiv = $(document.createElement('div'));
+        newTextBoxDiv.attr("id", 'TextBoxDiv' + idnum);
+        newTextBoxDiv.attr("class", "toDelete" );
         newTextBoxDiv.after().html(
         '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '' +
         '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
-        '' +
         '<p style="padding: 6px 12px;" id="target-date-' + idnum + '" ></p></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
 
-        let newTextBoxDivKPI = $(document.createElement('div')).attr("id", 'KPITextBoxDiv' + idnum);
+        let newTextBoxDivKPI = $(document.createElement('div'));
+        newTextBoxDivKPI.attr("id", 'KPITextBoxDiv' + idnum);
+        newTextBoxDivKPI.attr("class", "toDelete" );
         newTextBoxDivKPI.after().html(
         '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '' +
         '<input type="text" class="form-control" id="kpi-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
-        '' +
         '<p style="padding: 6px 12px;" id="kpi-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPITextBoxesGroup");
       }
@@ -399,7 +405,7 @@ require([
 
   $(".expandItem").hide();
   $(".expandOutcome").hide();
-    $("#expandAllProjectTab").hide();
+  $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
   $(".tabla_cuerpo").slideDown();
 
