@@ -329,20 +329,20 @@ require([
         let newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + idnum);
         newTextBoxDiv.after().html(
         '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '<label for="message-text" class="control-label"> Target value </label>' +
+        '' +
         '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
-        '<label for="message-text" class="control-label"> Target date </label>' +
+        '' +
         '<p style="padding: 6px 12px;" id="target-date-' + idnum + '" ></p></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
 
         let newTextBoxDivKPI = $(document.createElement('div')).attr("id", 'KPITextBoxDiv' + idnum);
         newTextBoxDivKPI.after().html(
         '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '<label for="message-text" class="control-label"> Target value </label>' +
+        '' +
         '<input type="text" class="form-control" id="kpi-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
-        '<label for="message-text" class="control-label"> Target date </label>' +
+        '' +
         '<p style="padding: 6px 12px;" id="kpi-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPITextBoxesGroup");
       }
