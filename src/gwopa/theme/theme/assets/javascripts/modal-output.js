@@ -229,10 +229,6 @@ require([
       swal('Measuring unit is missing', '', 'warning');
       return false;
     }
-    else if ($('#out-frequency').val() == "") {
-      swal('Measuring frequency is missing', '', 'warning');
-      return false;
-    }
     else {
       return true;
     }
