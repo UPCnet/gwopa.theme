@@ -316,6 +316,32 @@ require([
       return true;
     }
   }
+  // Validate fields KPIZone
+  function validateFormKPIZone() {
+    if ($('#kpizone-title').val() == "") {
+      swal("Title is missing", '', "warning");
+      return false;
+    }
+    else if ($('#kpizone-baseline').val() == "") {
+      swal('Baseline value is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#kpizone-datetimepicker').val() == "") {
+      swal('Baseline date is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#kpizone-unit').val() == "") {
+      swal('Measuring unit is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#kpizone-frequency').val() == "") {
+      swal('Measuring frequency is missing', '', 'warning');
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
   // Create Output
   $('#createOutputFromModal').click(function(e){
     if (validateFormOutput()) {
@@ -392,7 +418,44 @@ require([
       return false;
     }
   });
-
+  // Create KPIZone
+  $('#createKPIZoneFromModal').click(function(e){
+    if (validateFormKPIZone()) {
+      e.preventDefault();
+      var params = {};
+      params.item_title = $('#kpizone-title').val()
+      params.item_path = $('#KPIZonePath').html()
+      params.item_type = 'OutcomeKPIZone'
+      params.item_description = $('#kpizone-description').val()
+      params.item_baseline = $('#kpizone-baseline').val()
+      params.item_date = $('#kpizone-datetimepicker').val()
+      params.item_unit = $('#kpizone-unit').val()
+      params.item_frequency = $('#kpizone-frequency').val()
+      params.item_means = $('#kpizone-means').val()
+      params.item_risks = $('#kpizone-risks').val()
+      params.item_responsible = $('#kpizone-responsible').val()
+      params.item_target1 = $('#kpizonetarget-value-1').val()
+      params.item_target2 = $('#kpizonetarget-value-2').val()
+      params.item_target3 = $('#kpizonetarget-value-3').val()
+      params.item_target4 = $('#kpizonetarget-value-4').val()
+      params.item_target5 = $('#kpizonetarget-value-5').val()
+      params.item_target6 = $('#kpizonetarget-value-6').val()
+      params.item_target7 = $('#kpizonetarget-value-7').val()
+      params.item_target8 = $('#kpizonetarget-value-8').val()
+      params.item_target9 = $('#kpizonetarget-value-9').val()
+      params.item_target10 = $('#kpizonetarget-value-10').val()
+      $.ajax({
+        url: 'createElement',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+          { if(resp) {location.reload();}}
+      });
+    }
+    else {
+      return false;
+    }
+  });
   $(document).ready(function() {
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
@@ -442,6 +505,7 @@ require([
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
           $('#target-date-' + (idnum) + '').html(end_date);
           $('#kpi-target-date-' + (idnum) + '').html(end_date);
+          $('#kpizone-target-date-' + (idnum) + '').html(end_date);
       });
       counter++;
     });
