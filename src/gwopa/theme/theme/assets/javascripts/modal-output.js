@@ -3,7 +3,9 @@ require([
   'jquery'
 ], function(expect, $) {
   // $.fn.editable.defaults.mode = 'inline';
+
   let counter = 1;
+  // Target Value editabble field
   $('.editable').editable({
      inputclass: function(e, f) {
        $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
@@ -12,8 +14,8 @@ require([
        if (!value) return 'Required value';
      },
   });
-
-  $(".close").click(function() {
+  // Click on close & cancel clears fields
+  $(".close, .button-cancel").click(function() {
     $("#toClearActivity").trigger('reset');
     $("#toClearOutput").trigger('reset');
     $("#toClearKPI").trigger('reset');
@@ -21,15 +23,7 @@ require([
     $('.toDelete').remove();
     counter = 1;
   });
-  $(".button-cancel").click(function() {
-    $("#toClearActivity").trigger('reset');
-    $("#toClearOutput").trigger('reset');
-    $("#toClearKPI").trigger('reset');
-    $("#toClearKPIZone").trigger('reset');
-    $('.toDelete').remove();
-    counter = 1;
-  });
-
+  // AfegirOutput
   $("a.afegirOutput").click(function() {
     var myVal = $(this).data('val');
       $('#modalOutput').find(".modal-url").text(myVal);
@@ -105,7 +99,6 @@ require([
           }
         },
       });
-
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -113,9 +106,9 @@ require([
         $('#target-date-1').html(end_date);
     });
   });
-
+  // afegirKPI
   $("a.afegirKPI").click(function() {
-      var myVal = $(this).data('val');
+    var myVal = $(this).data('val');
       $('#modalKPI').find(".modal-url").text(myVal);
       $("#kpi-title").select2({
         dropdownParent: $('#modalKPI'),
@@ -189,15 +182,97 @@ require([
           }
         },
       });
-
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1, #kpi-target-date-1').html(end_date);
+        $('#kpi-target-date-1').html(end_date);
     });
   });
-
+  // afegirKPI ZONE
+  $("a.afegirKPIZone").click(function() {
+    var myVal = $(this).data('val');
+      $('#modalKPIZone').find(".modal-url").text(myVal);
+      $("#kpizone-title").select2({
+        dropdownParent: $('#modalKPI'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getOutputs',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#kpizone-unit").select2({
+        dropdownParent: $('#modalKPI'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getUnits',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#kpizone-frequency").select2({
+        dropdownParent: $('#modalKPI'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getFrequency',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+    fetch('api-getPhases')
+    .then(function(response) { return response.json();})
+    .then(function(data) {
+        let end_date = data[0].gwopa_year_phases[0].end;
+        $('#kpizone-target-date-1').html(end_date);
+    });
+  });
+  // Validate fields Output
   function validateFormOutput() {
     if ($('#out-title').val() == "") {
       swal("Title is missing", '', "warning");
@@ -215,7 +290,7 @@ require([
       return true;
     }
   }
-
+  // Validate fields KPI
   function validateFormKPI() {
     if ($('#kpi-title').val() == "") {
       swal("Title is missing", '', "warning");
@@ -241,7 +316,7 @@ require([
       return true;
     }
   }
-
+  // Create Output
   $('#createOutputFromModal').click(function(e){
     if (validateFormOutput()) {
       e.preventDefault();
@@ -279,7 +354,7 @@ require([
       return false;
     }
   });
-
+  // Create KPI
   $('#createKPIFromModal').click(function(e){
     if (validateFormKPI()) {
       e.preventDefault();
@@ -323,7 +398,6 @@ require([
     if (numPhases === "1") {
       $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
     }
-
     $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
       let idnum = counter + 1;
       if(counter>=numPhases){
@@ -351,6 +425,16 @@ require([
         '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpi-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPITextBoxesGroup");
+
+        let newTextBoxDivKPIZone = $(document.createElement('div'));
+        newTextBoxDivKPIZone.attr("id", 'KPIZoneTextBoxDiv' + idnum);
+        newTextBoxDivKPIZone.attr("class", "toDelete" );
+        newTextBoxDivKPIZone.after().html(
+        '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
+        '<input type="text" class="form-control" id="kpizone-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
+        '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
+        '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
+        newTextBoxDivKPI.appendTo("#KPIZoneTextBoxesGroup");
       }
       fetch('api-getPhases')
       .then(function(response) { return response.json();})
@@ -361,7 +445,7 @@ require([
       });
       counter++;
     });
-
+    // Delete element on click button
     $('.btn-delete').on('click', function(e) {
       e.preventDefault();
       item = $(this).attr('data-url')
