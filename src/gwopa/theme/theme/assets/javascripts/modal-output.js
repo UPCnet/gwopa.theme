@@ -199,7 +199,7 @@ require([
     var myVal = $(this).data('val');
       $('#modalKPIZone').find(".modal-url").text(myVal);
       $("#kpizone-title").select2({
-        dropdownParent: $('#modalKPI'),
+        dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
           url: 'api-getOutputs',
@@ -223,7 +223,7 @@ require([
         },
       });
       $("#kpizone-unit").select2({
-        dropdownParent: $('#modalKPI'),
+        dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
           url: 'api-getUnits',
@@ -247,7 +247,7 @@ require([
         },
       });
       $("#kpizone-frequency").select2({
-        dropdownParent: $('#modalKPI'),
+        dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
           url: 'api-getFrequency',
@@ -481,6 +481,7 @@ require([
       params.item_frequency = $('#kpizone-frequency').val()
       params.item_means = $('#kpizone-means').val()
       params.item_risks = $('#kpizone-risks').val()
+      params.item_zone = $('#kpizone-zone').val()
       params.item_responsible = $('#kpizone-responsible').val()
       params.item_target1 = $('#kpizonetarget-value-1').val()
       params.item_target2 = $('#kpizonetarget-value-2').val()
@@ -545,7 +546,7 @@ require([
         '<input type="text" class="form-control" id="kpizone-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
         '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
-        newTextBoxDivKPI.appendTo("#KPIZoneTextBoxesGroup");
+        newTextBoxDivKPIZone.appendTo("#KPIZoneTextBoxesGroup");
       }
       fetch('api-getPhases')
       .then(function(response) { return response.json();})
