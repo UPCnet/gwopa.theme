@@ -430,6 +430,15 @@ input#sso.context {
 }
 .nav-tabs > li > a {
   margin: 10px 10px 0px 0px;
+  background-color: #cacaca;
+  font-size: 16px;
+  border-radius: 8px 8px 0px;
+  color: white;
+  margin-right: 20px !important;
+}
+.nav > li > a:hover {
+  background-color: #053449 !important;
+  color: white !important;
 }
 /* Templeate Monitoring */
 .template-monitoring .outcome-planning {
@@ -886,18 +895,22 @@ a.tablink {
   border: none !important;
 }
 .nav-tabs {
-  border-bottom: none;
+  border-bottom: none!important;
 }
 .nav > li > a {
   position: relative;
   display: block;
   padding: 10px;
+  font-weight: 600;
+  width: 250px;
 }
 .text-item-planning .col-sm-12 .col-sm-6 {
   text-align: left;
 }
+#modalActivity textarea.form-control,
 #modalOutput textarea.form-control,
-#modalKPI textarea.form-control {
+#modalKPI textarea.form-control,
+#modalKPIZone textarea.form-control {
   height: 34px;
   min-height: 34px;
   margin-bottom: 15px;
@@ -1743,7 +1756,7 @@ button.context.focus {
 }
 li {
   display: block;
-  margin: 10px 0px;
+  /*margin: 10px 0px;*/
 }
 .tabla_nombre {
   border-bottom: 1px solid #595959;
@@ -1878,6 +1891,8 @@ li#portal-personaltools {
   width: 100%;
   margin-bottom: 20px;
   margin-top: 0px;
+  background-color: white;
+  padding: 50px 15px 15px 15px;
 }
 .tab-content.clearfix,
 .tab-content.container,
@@ -2038,9 +2053,6 @@ ul.pagination.pagination-lg {
 .template-monitoring .col-xs-12.col-sm-12 {
   padding: 0px;
 }
-article#content li.active {
-  border-radius: 8px 8px 0px 0px !important;
-}
 
 .template-planning #project #total {
   padding: 0px 5px;
@@ -2055,7 +2067,6 @@ article#content li.active {
   float: left;
   text-align: left;
 }
-
 
 .template-monitoring #project #total {
   width: calc(100% - 400px);
@@ -2262,8 +2273,8 @@ div#resp li {
   background-color: #e3e3e3;
   padding: 10px;
   border-radius: 2px;
-  width: -webkit-stretch;
-  margin: 10px 10px 0px 10px;
+  margin: 10px 6px 0px 6px;
+  height: 55px;
 }
 .descripcion h3 {
   font-size: 14px;
@@ -2517,15 +2528,6 @@ li#plone-contentmenu-workflow{
   }
 }
 @media (max-width: 1500px) {
-  #portal-footer-wrapper {
-    padding: 30px 15px;
-    background-color: #2e3133;
-    color: #cccccc;
-    text-align: center;
-    clear: both;
-    width: 100% !important;
-    position: absolute;
-  }
   a.plone-btn.plone-btn-info.active {
     font-size: 12px;
   }
@@ -2919,11 +2921,6 @@ li#plone-contentmenu-workflow{
     height: 50px;
     left: 0px;
     z-index: 3000;
-  }
-  #portal-footer-wrapper {
-    width: calc(100% - 50px) !important;
-    position: absolute;
-    right: 0px;
   }
   #sidebar.col-sm-1.sidebar-offcanvas,
   #sidebar.col-sm-2.sidebar-offcanvas {
@@ -3504,7 +3501,7 @@ i.fa.fa-chevron-down,
     transform: translateY(-22em) perspective(600px) rotateX(0deg) !important;
 }
 
-#modalActivity textarea.form-control {
-  height: 14px;
+.outer-wrapper {
+  position: relative;
+  min-height: 75vh;
 }
-

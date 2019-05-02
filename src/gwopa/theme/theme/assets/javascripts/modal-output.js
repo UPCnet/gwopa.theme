@@ -23,6 +23,11 @@ require([
     $('.toDelete').remove();
     counter = 1;
   });
+  // Afegir Activity
+  $("a.afegirActivity").click(function() {
+    var myVal = $(this).data('val');
+      $('#modalActivity').find(".modal-url").text(myVal);
+  });
   // AfegirOutput
   $("a.afegirOutput").click(function() {
     var myVal = $(this).data('val');
@@ -272,6 +277,24 @@ require([
         $('#kpizone-target-date-1').html(end_date);
     });
   });
+  // Validate fields Activity
+  function validateFormActivity() {
+    if ($('#act-title').val() == "") {
+      swal("Title is missing", '', "warning");
+      return false;
+    }
+    else if ($('#act-start').val() == "") {
+      swal('Starting date is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#act-end').val() == "") {
+      swal('Completion date is missing', '', 'warning');
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
   // Validate fields Output
   function validateFormOutput() {
     if ($('#out-title').val() == "") {
@@ -342,19 +365,44 @@ require([
       return true;
     }
   }
+  // Create Activity
+  $('#createActivityFromModal').click(function(e){
+    if (validateFormActivity()) {
+      e.preventDefault();
+      var params = {};
+      params.item_type = 'Activity'
+      params.item_path = $('#ActivityPath').html()
+      params.item_title = $('#act-title').val()
+      params.item_description = $('#act-description').val()
+      params.item_initialdescription = $('#act-initialdescription').val()
+      params.item_start = $('#act-start').val()
+      params.item_end = $('#act-end').val()
+      params.item_budget = $('#act-budget').val()
+      params.item_risks = $('#act-risks').val()
+      params.item_responsible = $('#act-responsible').val()
+      $.ajax({
+        url: 'createElement',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+          { if(resp) {location.reload();}}
+      });
+    }
+    else {
+      return false;
+    }
+  });
   // Create Output
   $('#createOutputFromModal').click(function(e){
     if (validateFormOutput()) {
       e.preventDefault();
       var params = {};
-      params.item_title = $('#out-title').val()
-      params.item_path = $('#OutputPath').html()
       params.item_type = 'Output'
+      params.item_path = $('#OutputPath').html()
+      params.item_title = $('#out-title').val()
       params.item_description = $('#out-description').val()
-      params.item_baseline = $('#out-baseline').val()
       params.item_date = $('#out-datetimepicker').val()
       params.item_unit = $('#out-unit').val()
-      params.item_frequency = $('#out-frequency').val()
       params.item_means = $('#out-means').val()
       params.item_risks = $('#out-risks').val()
       params.item_responsible = $('#out-responsible').val()
@@ -385,9 +433,9 @@ require([
     if (validateFormKPI()) {
       e.preventDefault();
       var params = {};
-      params.item_title = $('#kpi-title').val()
-      params.item_path = $('#KPIPath').html()
       params.item_type = 'OutcomeKPI'
+      params.item_path = $('#KPIPath').html()
+      params.item_title = $('#kpi-title').val()
       params.item_description = $('#kpi-description').val()
       params.item_baseline = $('#kpi-baseline').val()
       params.item_date = $('#kpi-datetimepicker').val()
@@ -423,9 +471,9 @@ require([
     if (validateFormKPIZone()) {
       e.preventDefault();
       var params = {};
-      params.item_title = $('#kpizone-title').val()
+      params.item_type = 'OutcomeZONE'
       params.item_path = $('#KPIZonePath').html()
-      params.item_type = 'OutcomeKPIZone'
+      params.item_title = $('#kpizone-title').val()
       params.item_description = $('#kpizone-description').val()
       params.item_baseline = $('#kpizone-baseline').val()
       params.item_date = $('#kpizone-datetimepicker').val()
@@ -473,9 +521,9 @@ require([
         newTextBoxDiv.attr("id", 'TextBoxDiv' + idnum);
         newTextBoxDiv.attr("class", "toDelete" );
         newTextBoxDiv.after().html(
-        '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
+        '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
         '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
-        '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
+        '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="target-date-' + idnum + '" ></p></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
 
@@ -483,9 +531,9 @@ require([
         newTextBoxDivKPI.attr("id", 'KPITextBoxDiv' + idnum);
         newTextBoxDivKPI.attr("class", "toDelete" );
         newTextBoxDivKPI.after().html(
-        '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
+        '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
         '<input type="text" class="form-control" id="kpi-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
-        '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
+        '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpi-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPITextBoxesGroup");
 
@@ -493,9 +541,9 @@ require([
         newTextBoxDivKPIZone.attr("id", 'KPIZoneTextBoxDiv' + idnum);
         newTextBoxDivKPIZone.attr("class", "toDelete" );
         newTextBoxDivKPIZone.after().html(
-        '<div class="row"><div class="col-md-6" style="margin-top:0px; padding-left:0px;">' +
+        '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
         '<input type="text" class="form-control" id="kpizone-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
-        '<div class="col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
+        '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPIZoneTextBoxesGroup");
       }
