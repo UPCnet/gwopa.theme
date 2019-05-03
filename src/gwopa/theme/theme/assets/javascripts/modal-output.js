@@ -21,6 +21,7 @@ require([
     $("#toClearKPI").trigger('reset');
     $("#toClearKPIZone").trigger('reset');
     $('.toDelete').remove();
+    $("#s2id_act-responsible").val(null).trigger('change');
     counter = 1;
   });
   // Afegir Activity
@@ -372,6 +373,7 @@ require([
       var params = {};
       params.item_type = 'Activity'
       params.item_path = $('#ActivityPath').html()
+      params.item_hidden_project_currency = $('#act-hidden-project-currency').html()
       params.item_title = $('#act-title').val()
       params.item_description = $('#act-description').val()
       params.item_initialdescription = $('#act-initialdescription').val()

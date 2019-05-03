@@ -1812,7 +1812,7 @@ a.titleRowPlanning {
 .tabla_cabecera {
   border-bottom: 2px solid #dddddd;
   padding-bottom: 0px;
-  padding-top: 0px;
+  padding-top: 10px;
   float: left;
   width: 100%;
 }
@@ -1965,7 +1965,7 @@ div#formfield-form-widgets-budget {
   width: 100%;
 }
 span#form-widgets-currency {
-  margin-top: 8PX;
+  margin-top: 8px;
 }
 .LSBox input.searchField,
 button.center-btn.focus,
@@ -3504,4 +3504,35 @@ i.fa.fa-chevron-down,
 .outer-wrapper {
   position: relative;
   min-height: 75vh;
+}
+
+.nav-tabs > li.active > a:hover {
+  background-color: white!important;
+  color: #555 !important;
+}
+
+textarea#form-widgets-description,
+textarea#form-widgets-initial_situation,
+textarea#form-widgets-means,
+textarea#form-widgets-risks
+{
+    min-height: 0px!important;
+}
+
+div#formfield-form-widgets-budget {
+  float: left;
+}
+
+div#formfield-form-widgets-currency {
+  float: center;
+}
+
+div#formfield-form-widgets-currency_incash,
+div#formfield-form-widgets-currency_inkind {
+    width: 4%;
+}
+
+div#formfield-form-widgets-incash,
+div#formfield-form-widgets-inkind {
+    width: 96%;
 }
