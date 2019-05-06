@@ -32,7 +32,11 @@ require([
   // AfegirOutput
   $("a.afegirOutput").click(function() {
     var myVal = $(this).data('val');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
       $('#modalOutput').find(".modal-url").text(myVal);
+      $('#modalOutput').find(".modal-start").text(myValStart);
+      $('#modalOutput').find(".modal-end").text(myValEnd);
       $("#out-title").select2({
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
