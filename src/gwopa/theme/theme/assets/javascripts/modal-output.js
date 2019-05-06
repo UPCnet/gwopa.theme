@@ -525,7 +525,7 @@ require([
         newTextBoxDiv.attr("class", "toDelete" );
         newTextBoxDiv.after().html(
         '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '<input type="text" class="form-control" id="target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
+        '<input type="text" class="form-control" id="target-value-' + idnum + '"/></div>' +
         '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="target-date-' + idnum + '" ></p></div>');
         newTextBoxDiv.appendTo("#TextBoxesGroup");
@@ -535,7 +535,7 @@ require([
         newTextBoxDivKPI.attr("class", "toDelete" );
         newTextBoxDivKPI.after().html(
         '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '<input type="text" class="form-control" id="kpi-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
+        '<input type="text" class="form-control" id="kpi-target-value-' + idnum + '"/></div>' +
         '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpi-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPI.appendTo("#KPITextBoxesGroup");
@@ -545,7 +545,7 @@ require([
         newTextBoxDivKPIZone.attr("class", "toDelete" );
         newTextBoxDivKPIZone.after().html(
         '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
-        '<input type="text" class="form-control" id="kpizone-target-value-' + idnum + '" i18n:attributes="placeholder value_for_date" placeholder="Indicate the target value for this date"/></div>' +
+        '<input type="text" class="form-control" id="kpizone-target-value-' + idnum + '"/></div>' +
         '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPIZone.appendTo("#KPIZoneTextBoxesGroup");
