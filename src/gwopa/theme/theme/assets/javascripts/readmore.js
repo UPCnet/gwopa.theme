@@ -5,9 +5,9 @@ require([
   $(document).ready(function() {
     // Configure/customize these variables.
     var showChar = 390;  // How many characters are shown by default
-    var ellipsestext = "...";
-
     var lang = $('html').attr('lang');
+    var fullcontent = "";
+    var lesscontent = "";
 
     if (lang == 'es') {
       var moretext = '<i class="fa fa-plus"></i><span> Leer más</span>';
@@ -22,32 +22,27 @@ require([
 
 
     $('.more').each(function() {
-        var content = $(this).html();
-        if(content.length > showChar) {
+      fullcontent = $(this).html();
+      if(fullcontent.length > showChar) {
+        var little_text = fullcontent.substr(0, showChar);
+        var extra_text = '<p>' + fullcontent.substr(showChar, fullcontent.length - showChar);
+        lesscontent = little_text + '<span class="moreellipses">...</span></p><span class="morecontent"><span>' + extra_text +
+        '</span></span><a href="#" class="morelink less">' + moretext + '</a>';
 
-            var little_text = content.substr(0, showChar);
-            var extra_text = content.substr(showChar, content.length - showChar);
-            var html = little_text + '<span class="moreellipses">' + ellipsestext +
-            '&nbsp;</span><span class="morecontent"><span>' + extra_text +
-            '<a href="#" class="morelink less">' + moretext + '</a>' +
-            '</span></span>';
-
-            $(this).html(html);
-            $(".morelink").prev().toggle();
-        }
-
+        $(this).html(lesscontent);
+      }
     });
 
     $(".morelink").click(function(){
-        if($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(lesstext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(moretext);
-        }
-        $(this).prev().toggle();
-        return false;
+      if($(this).hasClass("less")) {
+        $(this).removeClass("less");
+        $(this).html(lesstext);
+      } else {
+        $(this).addClass("less");
+        $(this).html(moretext);
+      }
+      $(this).prev().toggle();
+      return false;
     });
   });
 });
