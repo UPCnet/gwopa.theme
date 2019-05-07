@@ -14,7 +14,11 @@ require([
        if (!value) return 'Required value';
      },
   });
+
   // Click on close & cancel clears fields
+    $(".close.output, .button-cancel.output").click(function() {
+    location.reload();
+  });
   $(".close, .button-cancel").click(function() {
     $("#toClearActivity").trigger('reset');
     $("#toClearOutput").trigger('reset');
@@ -27,7 +31,11 @@ require([
   // Afegir Activity
   $("a.afegirActivity").click(function() {
     var myVal = $(this).data('val');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
       $('#modalActivity').find(".modal-url").text(myVal);
+      $('#modalActivity').find(".modal-start").text(myValStart);
+      $('#modalActivity').find(".modal-end").text(myValEnd);
   });
   // AfegirOutput
   $("a.afegirOutput").click(function() {
@@ -37,6 +45,18 @@ require([
       $('#modalOutput').find(".modal-url").text(myVal);
       $('#modalOutput').find(".modal-start").text(myValStart);
       $('#modalOutput').find(".modal-end").text(myValEnd);
+      $('#out-datetimepicker').pickadate({
+        min: new Date(myValStart),
+        max: new Date(myValEnd),
+        clear: '',
+        close: '',
+        today: '',
+        selectYears: true,
+        selectMonths: true,
+        klass: {
+          input: 'picker__input__datetime',
+        },
+      })
       $("#out-title").select2({
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
@@ -119,7 +139,11 @@ require([
   // afegirKPI
   $("a.afegirKPI").click(function() {
     var myVal = $(this).data('val');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
       $('#modalKPI').find(".modal-url").text(myVal);
+      $('#modalKPI').find(".modal-start").text(myValStart);
+      $('#modalKPI').find(".modal-end").text(myValEnd);
       $("#kpi-title").select2({
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
@@ -202,7 +226,11 @@ require([
   // afegirKPI ZONE
   $("a.afegirKPIZone").click(function() {
     var myVal = $(this).data('val');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
       $('#modalKPIZone').find(".modal-url").text(myVal);
+      $('#modalKPIZone').find(".modal-start").text(myValStart);
+      $('#modalKPIZone').find(".modal-end").text(myValEnd);
       $("#kpizone-title").select2({
         dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
@@ -308,6 +336,10 @@ require([
     }
     else if ($('#out-datetimepicker').val() == "") {
       swal('Completion date is missing', '', 'warning');
+      return false;
+    }
+    else if ($('#datetimepicker2').val() == "") {
+      swal('Date is missing', '', 'warning');
       return false;
     }
     else if ($('#out-unit').val() == "") {
