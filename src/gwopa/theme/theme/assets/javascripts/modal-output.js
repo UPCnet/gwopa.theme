@@ -61,7 +61,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getOutputs',
+          url: 'api-getOutputs',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -85,7 +85,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getUnits',
+          url: 'api-getUnits',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -109,7 +109,7 @@ require([
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getFrequency',
+          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -129,7 +129,7 @@ require([
           }
         },
       });
-    fetch('api/api-getPhases')
+    fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
@@ -148,7 +148,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getOutputs',
+          url: 'api-getOutcomes',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -172,7 +172,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getUnits',
+          url: 'api-getUnits',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -196,7 +196,7 @@ require([
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getFrequency',
+          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -216,7 +216,7 @@ require([
           }
         },
       });
-    fetch('api/api-getPhases')
+    fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
@@ -235,7 +235,7 @@ require([
         dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getOutputs',
+          url: 'api-getOutcomes',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -259,7 +259,7 @@ require([
         dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getUnits',
+          url: 'api-getUnits',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -283,7 +283,7 @@ require([
         dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
         ajax: {
-          url: 'api/api-getFrequency',
+          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,
@@ -303,7 +303,7 @@ require([
           }
         },
       });
-    fetch('api/api-getPhases')
+    fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
@@ -316,6 +316,7 @@ require([
     end_date = $('#act-end').val()
     start = Date.parse(start_date)
     end = Date.parse(end_date)
+
     if (start>end) { 
       swal("Please provide valid dates", 'The start date must begin before the completion date', "warning");
       return false;
@@ -324,12 +325,12 @@ require([
       swal("Please fill in the required fields", 'The title field is missing', "warning");
       return false;
     }
-    else if (start == "") {
+    else if ($('#act-start').val() == "") {
       swal('Please fill in the required fields', 'The starting date field is missing', 'warning');
       return false;
     }
-    else if (end == "") {
-      swal('Pleasefill in the required fields', 'The completion date field is missing', 'warning');
+    else if ($('#act-end').val() == "") {
+      swal('Please fill in the required fields', 'The completion date field is missing', 'warning');
       return false;
     }
     else {
@@ -357,23 +358,23 @@ require([
   // Validate fields KPI
   function validateFormKPI() {
     if ($('#kpi-title').val() == "") {
-      swal("Title is missing", '', "warning");
+      swal('Please fill in the required fields', "The title field is missing", "warning");
       return false;
     }
     else if ($('#kpi-baseline').val() == "") {
-      swal('Baseline value is missing', '', 'warning');
+      swal('Please fill in the required fields', 'The baseline value is missing', 'warning');
       return false;
     }
     else if ($('#kpi-datetimepicker').val() == "") {
-      swal('Baseline date is missing', '', 'warning');
+      swal('Please fill in the required fields', 'The Baseline date is missing', 'warning');
       return false;
     }
     else if ($('#kpi-unit').val() == "") {
-      swal('Measuring unit is missing', '', 'warning');
+      swal('Please fill in the required fields', 'The measuring unit field is missing', 'warning');
       return false;
     }
     else if ($('#kpi-frequency').val() == "") {
-      swal('Measuring frequency is missing', '', 'warning');
+      swal('Please fill in the required fields', 'The measuring frequency field is missing', 'warning');
       return false;
     }
     else {
@@ -383,23 +384,23 @@ require([
   // Validate fields KPIZone
   function validateFormKPIZone() {
     if ($('#kpizone-title').val() == "") {
-      swal("Title is missing", '', "warning");
+      swal('Please fill in the required fields', "Title is missing", "warning");
       return false;
     }
     else if ($('#kpizone-baseline').val() == "") {
-      swal('Baseline value is missing', '', 'warning');
+      swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
       return false;
     }
     else if ($('#kpizone-datetimepicker').val() == "") {
-      swal('Baseline date is missing', '', 'warning');
+      swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
       return false;
     }
     else if ($('#kpizone-unit').val() == "") {
-      swal('Measuring unit is missing', '', 'warning');
+      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
       return false;
     }
     else if ($('#kpizone-frequency').val() == "") {
-      swal('Measuring frequency is missing', '', 'warning');
+      swal('Please fill in the required fields', 'Measuring frequency is missing', 'warning');
       return false;
     }
     else {
@@ -424,8 +425,10 @@ require([
       params.item_budget = $('#act-budget').val()
       params.item_risks = $('#act-risks').val()
       params.item_responsible = $('#act-responsible').val()
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/planning"))
       $.ajax({
-        url: 'createElement',
+        url: project_path + '/createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -460,8 +463,10 @@ require([
       params.item_target8 = $('#target-value-8').val()
       params.item_target9 = $('#target-value-9').val()
       params.item_target10 = $('#target-value-10').val()
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/planning"))
       $.ajax({
-        url: 'createElement',
+        url: project_path + '/createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -498,8 +503,10 @@ require([
       params.item_target8 = $('#kpitarget-value-8').val()
       params.item_target9 = $('#kpitarget-value-9').val()
       params.item_target10 = $('#kpitarget-value-10').val()
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/planning"))
       $.ajax({
-        url: 'createElement',
+        url: project_path + '/createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -537,8 +544,10 @@ require([
       params.item_target8 = $('#kpizonetarget-value-8').val()
       params.item_target9 = $('#kpizonetarget-value-9').val()
       params.item_target10 = $('#kpizonetarget-value-10').val()
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/planning"))
       $.ajax({
-        url: 'createElement',
+        url: project_path + '/createElement',
         method: 'POST',
         data: params,
         success: function(resp)
@@ -592,7 +601,7 @@ require([
         '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPIZone.appendTo("#KPIZoneTextBoxesGroup");
       }
-      fetch('api/api-getPhases')
+      fetch('api-getPhases')
       .then(function(response) { return response.json();})
       .then(function(data) {
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
@@ -619,8 +628,10 @@ require([
       })
       .then((willDelete) => {
         if (willDelete) {
+          url = window.location.href;
+          project_path = url.substring(0, url.lastIndexOf("/planning"))
           $.ajax({
-            url: 'removeElement',
+            url: project_path + '/removeElement',
             method: 'POST',
             data: params,
             success: function(resp)
