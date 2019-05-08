@@ -3,7 +3,6 @@ require([
   'jquery'
 ], function(expect, $) {
   // $.fn.editable.defaults.mode = 'inline';
-
   let counter = 1;
   // Target Value editabble field
   $('.editable').editable({
@@ -14,11 +13,12 @@ require([
        if (!value) return 'Required value';
      },
   });
-
   // Click on close & cancel clears fields
-    $(".close.output, .button-cancel.output").click(function() {
+  // On output, we need to reload, to get again the date values
+  $(".close.output, .button-cancel.output").click(function() {
     location.reload();
   });
+  // On the other modals, reload is not needed
   $(".close, .button-cancel").click(function() {
     $("#toClearActivity").trigger('reset');
     $("#toClearOutput").trigger('reset');
@@ -28,7 +28,7 @@ require([
     $("#s2id_act-responsible").val(null).trigger('change');
     counter = 1;
   });
-  // Afegir Activity
+  // AfegirActivity
   $("a.afegirActivity").click(function() {
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
@@ -37,7 +37,7 @@ require([
       $('#modalActivity').find(".modal-start").text(myValStart);
       $('#modalActivity').find(".modal-end").text(myValEnd);
   });
-  // AfegirOutput
+  // AfegirOutput (custom datepicker)
   $("a.afegirOutput").click(function() {
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
@@ -312,16 +312,24 @@ require([
   });
   // Validate fields Activity
   function validateFormActivity() {
-    if ($('#act-title').val() == "") {
-      swal("Title is missing", '', "warning");
+    start_date = $('#act-start').val()
+    end_date = $('#act-end').val()
+    start = Date.parse(start_date)
+    end = Date.parse(end_date)
+    if (start>end) { 
+      swal("Please provide valid dates", 'The start date must begin before the completion date', "warning");
+      return false;
+    }
+    else if ($('#act-title').val() == "") {
+      swal("Please fill in the required fields", 'The title field is missing', "warning");
       return false;
     }
     else if ($('#act-start').val() == "") {
-      swal('Starting date is missing', '', 'warning');
+      swal('Please fill in the required fields', 'The starting date field is missing', 'warning');
       return false;
     }
     else if ($('#act-end').val() == "") {
-      swal('Completion date is missing', '', 'warning');
+      swal('Pleasefill in the required fields', 'The completion date field is missing', 'warning');
       return false;
     }
     else {
