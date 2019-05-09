@@ -317,7 +317,7 @@ require([
     start = Date.parse(start_date)
     end = Date.parse(end_date)
 
-    if (start>end) { 
+    if (start>end) {
       swal("Please provide valid dates", 'The start date must begin before the completion date', "warning");
       return false;
     }
@@ -558,6 +558,7 @@ require([
       return false;
     }
   });
+
   $(document).ready(function() {
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
@@ -655,59 +656,26 @@ require([
     });
   });
 
-  $(".expandItem").hide();
-  $(".expandOutcome").hide();
+  // $(".expandItem").hide();
+  // $(".expandOutcome").hide();
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
-  $(".tabla_cuerpo").slideDown();
+  $('[id^="tb-"]').slideDown();
 
-  $("#expandAllProjectTab").click(function(){
-    $(".tabla_cuerpo").slideDown()
-    $(".expandItem").parent().parent().parent().slideDown();
-    $(".expandItem").hide();
-    $(".collapseItem").show();
-    $("#expandAllProjectTab").hide();
-    $("#collapseAllProjectTab").show();
+  $(".collapseWA").on('click', function(e) {
+    if (e.target.classList[2] == "collapseWA") {
+      $(this).parent().parent().next().hide();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
+    }
+    else {
+      $(this).parent().parent().next().show();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
+    }
   });
 
-  $("#collapseAllProjectTab").click(function(){
-    $(".tabla_cuerpo").slideUp()
-    $(".collapseItem").slideUp();
-    $(".collapseItem").hide();
-    $(".expandItem").show();
-    $("#expandAllProjectTab").show();
-    $("#collapseAllProjectTab").hide();
-  });
 
-  $("#expandAllOutcomeTab").click(function(){
-    $(".tabla_cuerpo").slideDown()
-    $(".expandItem").parent().parent().parent().slideDown();
-    $(".expandItem").hide();
-    $(".collapseItem").show();
-    $("#expandAllOutcomeTab").hide();
-    $("#collapseAllOutcomeTab").show();
-  });
-
-  $("#collapseAllOutcomeTab").click(function(){
-    $(".tabla_cuerpo").slideUp()
-    $(".collapseItem").slideUp();
-    $(".collapseItem").hide();
-    $(".expandItem").show();
-    $("#expandAllOutcomeTab").show();
-    $("#collapseAllOutcomeTab").hide();
-  });
-
-  $(".collapseItem").click(function () {
-    $(".expandItem").hide();
-    $(".collapseItem").show();
-    $header = $(this);
-    $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
-  });
-
-  $(".expandItem").click(function () {
-    $(".collapseItem").hide();
-    $(".expandItem").show();
-    $header = $(this);
-    $header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(500);
-  });
 });
