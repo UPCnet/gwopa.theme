@@ -3,20 +3,21 @@ require([
   'jquery'
 ], function(expect, $) {
 
-  $('.updateActivityMonitoring').click(function(e){
+  $("[id$='-updateActivityMonitoring']").click(function(e){
     e.preventDefault();
+    var id = '#' + e.target.classList[0] + "-";
     var params = {};
     params.item_type = 'Activity';
     params.year = $('#year').html();
-    params.path = $('#path').html();
-    params.progress = $('#value').val();
-    params.explanation = $('#explanation').val();
-    params.obstacles = $('#obstacles').val();
-    params.contributing = $('#contributing').val();
-    params.consideration = $('#consideration').val();
-    params.limiting = $('#limiting').val();
+    params.path = $(id + 'path').html();
+    params.progress = $(id + 'progress').val();
+    params.explanation = $(id + 'explanation').val();
+    params.obstacles = $(id + 'obstacles option:selected').text();
+    params.contributing = $(id + 'contributing option:selected').text();
+    params.consideration = $(id + 'consideration').val();
+    params.limiting = $(id + 'limiting').val();
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/monitoring"))
+    project_path = url.substring(0, url.lastIndexOf("/monitoring"));
     $.ajax({
       url: project_path + '/updateElement',
       method: 'POST',
@@ -26,7 +27,7 @@ require([
       });
     });
 
-  $('.updateOutputMonitoring').click(function(e){
+  $("[id$='-updateOutputMonitoring']").click(function(e){
     e.preventDefault();
     var params = {};
     params.item_type = 'Output';
