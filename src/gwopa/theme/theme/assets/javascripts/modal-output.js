@@ -659,7 +659,6 @@ require([
   $(".tabla_cuerpo").hide();
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
-  //$('[id^="tb-"]').slideDown();
 
   $(".expandWA").on('click', function(e) {
     if (e.target.classList[2] == "collapseWA") {

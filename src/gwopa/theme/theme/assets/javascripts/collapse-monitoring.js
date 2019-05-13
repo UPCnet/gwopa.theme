@@ -76,57 +76,89 @@ require([
     });
 
   $(document).ready(function() {
-    $(".expand").hide();
-    $(".expandOutcome").hide();
-    $("#expandAllProjectTab").hide();
+    $(".tabla_cuerpo").hide();
     $("#collapseAllProjectTab").hide();
+    $("#collapseAllOutcomeTab").hide();
+    $("#expandAllProjectTab").hide();
     $("#expandAllOutcomeTab").hide();
-    // $(".tabla_cuerpo").slideDown()
+
 
     $("#expandAllOutcomeTab").click(function(){
       $(".tabla_cuerpo").slideDown()
-      $(".expand").parent().parent().parent().slideDown();
-      $(".expand").hide();
-      $(".notexpand").show();
+      $(".expandWA").parent().parent().parent().slideDown();
+      $(".expandWA").hide();
+      $(".collapseWA").show();
       $("#expandAllOutcomeTab").hide();
       $("#collapseAllOutcomeTab").show();
     })
 
     $("#collapseAllOutcomeTab").click(function(){
       $(".tabla_cuerpo").slideUp()
-      $(".notexpand").slideUp();
-      $(".notexpand").hide();
-      $(".expand").show();
+      $(".collapseWA").slideUp();
+      $(".collapseWA").hide();
+      $(".expandWA").show();
       $("#expandAllOutcomeTab").show();
       $("#collapseAllOutcomeTab").hide();
     })
 
-    $(".expand").click(function () {
-      header = $(this);
-      header.find('.expand').hide()
-      header.find('.notexpand').show()
-      header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(50);
+    $(".expandWA").on('click', function(e) {
+      if (e.target.classList[2] == "collapseWA") {
+        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
+      }
+      else {
+        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
+      }
     });
 
-    $(".notexpand").click(function () {
-      header = $(this);
-      header.find('.notexpand').hide();
-      header.find('.expand').show();
-      header.parent().parent().parent().parent().parent().find('.tabla_cuerpo').slideToggle(50);
+    $(".expandAct").on('click', function(e) {
+      if (e.target.classList[2] == "collapseAct") {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-up expandAct");
+      }
+      else {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-down collapseAct");
+      }
     });
 
-    $(".expandOutcome").click(function () {
-      header = $(this);
-      header.find('.expand').hide();
-      header.find('.notexpand').show();
-      header.parent().parent().parent().find('.tabla_cuerpo').slideToggle(50);
+    $(".expandUP").on('click', function(e) {
+      if (e.target.classList[2] == "collapseUP") {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-up expandUP");
+      }
+      else {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-down collapseUP");
+      }
     });
 
-    $(".notexpandOutcome").click(function () {
-      header = $(this);
-      header.find('.notexpand').hide();
-      header.find('.expand').show();
-      header.parent().parent().parent().find('.tabla_cuerpo').slideToggle(50);
+    $(".expandOutcome").on('click', function(e) {
+      if (e.target.classList[2] == "collapseOutcome") {
+        $(this).parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-up expandOutcome");
+      }
+      else {
+        $(this).parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-down collapseOutcome");
+      }
     });
   });
 });
