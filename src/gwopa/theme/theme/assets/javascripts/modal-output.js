@@ -656,26 +656,54 @@ require([
     });
   });
 
-  // $(".expandItem").hide();
-  // $(".expandOutcome").hide();
+  $(".tabla_cuerpo").hide();
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
-  $('[id^="tb-"]').slideDown();
+  //$('[id^="tb-"]').slideDown();
 
-  $(".collapseWA").on('click', function(e) {
+  $(".expandWA").on('click', function(e) {
     if (e.target.classList[2] == "collapseWA") {
-      $(this).parent().parent().next().hide();
+      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
       var thisItem = $(this)[0].id;
       var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
     }
     else {
-      $(this).parent().parent().next().show();
+      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
       var thisItem = $(this)[0].id;
       var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
     }
   });
 
+  $(".expandUP").on('click', function(e) {
+    if (e.target.classList[2] == "collapseUP") {
+      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-up expandUP");
+    }
+    else {
+      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-down collapseUP");
+    }
+  });
+
+  $(".expandUC").on('click', function(e) {
+    if (e.target.classList[2] == "collapseUC") {
+      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-up expandUC");
+    }
+    else {
+      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "fas fa-chevron-down collapseUC");
+    }
+  });
 
 });
