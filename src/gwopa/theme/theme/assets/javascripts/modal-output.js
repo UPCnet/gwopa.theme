@@ -560,6 +560,18 @@ require([
   });
 
   $(document).ready(function() {
+    $("#out-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: window.location.pathname + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
       $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
