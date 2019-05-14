@@ -16,6 +16,11 @@ require([
     params.contributing = $(id + 'contributing option:selected').text();
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
+    if (params.progress || params.explanation || params.consideration || params.limiting) {
+      params.updated = true;
+    } else {
+      params.updated = false;
+    }
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"));
     $.ajax({
@@ -40,6 +45,11 @@ require([
     params.contributing = $(id + 'contributing option:selected').text();
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
+    if (params.progress || params.explanation || params.consideration || params.limiting) {
+      params.updated = true;
+    } else {
+      params.updated = false;
+    }
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"))
     $.ajax({
@@ -64,6 +74,11 @@ require([
     params.contributing = $(id + 'contributing option:selected').text();
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
+    if (params.progress || params.explanation || params.consideration || params.limiting) {
+      params.updated = true;
+    } else {
+      params.updated = false;
+    }
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"))
     $.ajax({
@@ -128,6 +143,21 @@ require([
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "fas fa-chevron-down collapseAct");
+      }
+    });
+
+    $(".expandOut").on('click', function(e) {
+      if (e.target.classList[2] == "collapseOut") {
+        $(this).parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-up expandOut");
+      }
+      else {
+        $(this).parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "fas fa-chevron-down collapseOut");
       }
     });
 
