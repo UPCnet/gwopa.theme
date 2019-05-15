@@ -558,6 +558,52 @@ require([
       return false;
     }
   });
+  // Add Output title
+  $('#add-output').keypress(function(e){
+    if(e.which == 13) {
+      var params = {};
+      params.item_title = e.target.value
+      var url = window.location.href;
+      var project_path = url.substring(0, url.lastIndexOf("/planning"))
+      $.ajax({
+        url: project_path + '/addTitleOutput',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+              {
+                if(resp) {
+                  swal("Added", "The output title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  })
+                }
+              }
+      });
+    }
+  });
+  // Add KPI title
+  $('#add-KPI').keypress(function(e){
+    if(e.which == 13) {
+      var params = {};
+      params.item_title = e.target.value
+      var url = window.location.href;
+      var project_path = url.substring(0, url.lastIndexOf("/planning"))
+      $.ajax({
+        url: project_path + '/addTitleKPI',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+              {
+                if(resp) {
+                  swal("Added", "The KPI title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  })
+                }
+              }
+      });
+    }
+  });
 
   $(document).ready(function() {
     $("#out-responsible").select2({
@@ -665,6 +711,10 @@ require([
           })
         }
       });
+    });
+    $("#addOutputTitle, #addKPITitle").click(function () {
+      $("#addBox").show();
+      $(this).hide();
     });
   });
 
