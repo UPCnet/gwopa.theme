@@ -133,13 +133,13 @@ require([
 
     $(".expandAct").on('click', function(e) {
       if (e.target.classList[2] == "collapseAct") {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        $(this).parent().nextAll(".tabla_cuerpo").hide();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "fas fa-chevron-up expandAct");
       }
       else {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        $(this).parent().nextAll(".tabla_cuerpo").show();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "fas fa-chevron-down collapseAct");
