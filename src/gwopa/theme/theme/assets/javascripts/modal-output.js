@@ -722,6 +722,36 @@ require([
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
 
+  $(".expPlWA").on('click', function(e) {
+    if (e.target.classList[0] == "colPlWA") {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "expPlWA");
+    }
+    else {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "colPlWA");
+    }
+  });
+
+  $(".expPlUP").on('click', function(e) {
+    if (e.target.classList[0] == "colPlUP") {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "expPlUP");
+    }
+    else {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+      var thisItem = $(this)[0].id;
+      var selectorItem = '#' + thisItem;
+      $(selectorItem).attr("class", "colPlUP");
+    }
+  });
+
   $(".expandWA").on('click', function(e) {
     if (e.target.classList[2] == "collapseWA") {
       $(this).parent().parent().nextAll(".tabla_cuerpo").hide();

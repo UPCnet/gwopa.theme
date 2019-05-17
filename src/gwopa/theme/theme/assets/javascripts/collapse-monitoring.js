@@ -116,6 +116,81 @@ require([
       $("#collapseAllOutcomeTab").hide();
     })
 
+    $(".expMoWA").on('click', function(e) {
+      if (e.target.classList[0] == "colMoWA") {
+        $(this).parent().parent().parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "expMoWA");
+      }
+      else {
+        $(this).parent().parent().parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "colMoWA");
+      }
+    });
+
+    $(".expMoUP").on('click', function(e) {
+      if (e.target.classList[0] == "colMoUP") {
+        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "expMoUP");
+      }
+      else {
+        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "colMoUP");
+      }
+    });
+
+    $(".expMoAct").on('click', function(e) {
+      if (e.target.classList[1] == "colMoAct") {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "titulocatplan expMoAct");
+      }
+      else {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "titulocatplan colMoAct");
+      }
+    });
+
+    $(".expMoOut").on('click', function(e) {
+      if (e.target.classList[2] == "colMoOut") {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "part2 titulocatplan expMoOut");
+      }
+      else {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "part2 titulocatplan colMoOut");
+      }
+    });
+
+    $(".expMoUPItem").on('click', function(e) {
+      if (e.target.classList[1] == "colMoUPItem") {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "titulocatplan expMoUPItem");
+      }
+      else {
+        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        var thisItem = $(this)[0].id;
+        var selectorItem = '#' + thisItem;
+        $(selectorItem).attr("class", "titulocatplan colMoUPItem");
+      }
+    });
+
     $(".expandWA").on('click', function(e) {
       if (e.target.classList[2] == "collapseWA") {
         $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
