@@ -148,13 +148,13 @@ require([
 
     $(".expMoAct").on('click', function(e) {
       if (e.target.classList[1] == "colMoAct") {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "titulocatplan expMoAct");
       }
       else {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "titulocatplan colMoAct");
@@ -162,29 +162,29 @@ require([
     });
 
     $(".expMoOut").on('click', function(e) {
-      if (e.target.classList[2] == "colMoOut") {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+      if (e.target.classList[1] == "colMoOut") {
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "part2 titulocatplan expMoOut");
+        $(selectorItem).attr("class", "titulocatplan expMoOut");
       }
       else {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "part2 titulocatplan colMoOut");
+        $(selectorItem).attr("class", "titulocatplan colMoOut");
       }
     });
 
     $(".expMoUPItem").on('click', function(e) {
       if (e.target.classList[1] == "colMoUPItem") {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "titulocatplan expMoUPItem");
       }
       else {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
+        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
         var thisItem = $(this)[0].id;
         var selectorItem = '#' + thisItem;
         $(selectorItem).attr("class", "titulocatplan colMoUPItem");

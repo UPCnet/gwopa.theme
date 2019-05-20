@@ -1628,21 +1628,46 @@ h3 a i.fas.fa-plus-square {
 .contentt {
   float: left;
 }
+.template-planning #project #total {
+  width: calc(100% - 52rem);
+  float: left;
+  text-align: left;
+  margin-top: -5px;
+}
+.template-planning #outcomes #total {
+  width: calc(100% - 52rem);
+  float: left;
+  text-align: left;
+  margin-top: -5px;
+}
+.template-monitoring #project #total {
+  width: calc(100% - 52rem);
+  margin-top: -5px;
+}
+.template-monitoring #outcomes #total {
+  width: calc(100% - 40rem);
+  margin-top: -5px;
+}
 div#mu {
-  width: 120px;
-  padding: 0px 5px;
+  width: 12rem;
 }
 div#target {
-  width: 100px;
-  padding: 0px 5px;
+  width: 10rem;
 }
 div#value {
-  width: 125px;
-  padding: 0px 5px;
+  width: 12rem;
 }
 div#bl {
-  width: 110px;
-  padding: 0px 5px;
+  width: 10rem;
+}
+div#unit {
+  width: 12rem;
+}
+div#resp {
+  width: 10rem;
+}
+div#resp li {
+  margin: 0px 0px 10px 0px;
 }
 #header {
   font-weight: 600;
@@ -1861,6 +1886,12 @@ a {
   padding-left: 20px;
   margin-top: 10px;
 }
+.block_sub_indicators .contentt#total {
+  padding-left: 0px;
+}
+.block_sub_indicators .information {
+  margin: 0px;
+}
 .plone-btn-sm {
   margin-left: 20px;
 }
@@ -2067,36 +2098,10 @@ ul.pagination.pagination-lg {
 .template-monitoring .col-xs-12.col-sm-12 {
   padding: 0px;
 }
-
-.template-planning #project #total {
-  width: calc(100% - 52rem);
-  padding: 0px 5px;
-  float: left;
-  text-align: left;
-}
-
-.template-planning #outcomes #total {
-  width: calc(100% - 52rem);
-  padding: 0px 5px;
-  float: left;
-  text-align: left;
-}
-
-.template-monitoring #project #total {
-  width: calc(100% - 52rem);
-}
-
-.template-monitoring #outcomes #total {
-  width: calc(100% - 400px);
-}
-
 #header {
   font-weight: 600;
   margin-bottom: 0px;
   width: 100%;
-}
-.block_sub_indicators .contentt#total {
-  padding-left: 0px;
 }
 #content .container {
   margin-right: auto;
@@ -2126,6 +2131,9 @@ tr.admin-partner {
 #content span.tags {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+h5.titulocatplan {
+  color: #3e677c;
 }
 h4.titulocatplan {
   float: left;
@@ -2225,15 +2233,6 @@ ul .fas:before {
   float: right;
   padding: 0px;
   width: 100%;
-}
-div#unit {
-  width: 120px;
-}
-div#resp {
-  width: 105px;
-}
-div#resp li {
-  margin: 0px 0px 10px 0px;
 }
 .titulo.ia {
   width: 100%;
@@ -2438,16 +2437,11 @@ button#addButton {
 #pyt,
 #comple,
 #pyv {
-  width: 125px;
-  padding: 0px 5px;
+  width: 12rem;
 }
 #nexupd,
 #freq {
-  width: 120px;
-  padding: 0px 5px;
-}
-#actions {
-  padding: 0px 5px;
+  width: 12rem;
 }
 i.far.fa-calendar,
 i.fas.fa-exclamation-triangle,
@@ -2483,9 +2477,6 @@ h1.documentFirstHeading i.far.fa-edit {
 }
 .contentt a.pat-plone-modal i.fa.fa-plus-circle {
   position: absolute;
-}
-.block_sub_indicators .information {
-  margin: 0px;
 }
 .plone-modal .plone-modal-content,
 .modal-dialog {
@@ -2922,6 +2913,29 @@ li#plone-contentmenu-workflow{
   }
   .col-xs-11.col-sm-10 {
     margin-top: 20px !important;
+  }
+}
+@media (max-width: 768px) {
+  .template-planning #project #total {
+    width: auto;
+  }
+  div#mu {
+    width: 9rem;
+  }
+  div#target {
+    width: 6rem;
+  }
+  div#value {
+    width: 9rem;
+  }
+  div#bl {
+    width: 7rem;
+  }
+  div#unit {
+    width: 9rem;
+  }
+  div#resp {
+    width: 9rem;
   }
 }
 @media (max-width: 766px) {
@@ -3456,12 +3470,11 @@ div.Output-planning.second-level {
 }
 
 .part0 {
-    width: 15px;
     display: table-cell;
     vertical-align: middle;
 }
 .part1{
-    width: 100px;
+    width: 8rem;
     display: table-cell;
     vertical-align: middle;
  }
