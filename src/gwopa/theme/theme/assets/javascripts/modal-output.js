@@ -478,45 +478,45 @@ require([
     }
   });
   // Create KPI
-  $('#createKPIFromModal').click(function(e){
-    if (validateFormKPI()) {
-      e.preventDefault();
-      var params = {};
-      params.item_type = 'OutcomeKPI'
-      params.item_path = $('#KPIPath').html()
-      params.item_title = $('#kpi-title').val()
-      params.item_description = $('#kpi-description').val()
-      params.item_baseline = $('#kpi-baseline').val()
-      params.item_date = $('#kpi-datetimepicker').val()
-      params.item_unit = $('#kpi-unit').val()
-      params.item_frequency = $('#kpi-frequency').val()
-      params.item_means = $('#kpi-means').val()
-      params.item_risks = $('#kpi-risks').val()
-      params.item_responsible = $('#kpi-responsible').val()
-      params.item_target1 = $('#kpitarget-value-1').val()
-      params.item_target2 = $('#kpitarget-value-2').val()
-      params.item_target3 = $('#kpitarget-value-3').val()
-      params.item_target4 = $('#kpitarget-value-4').val()
-      params.item_target5 = $('#kpitarget-value-5').val()
-      params.item_target6 = $('#kpitarget-value-6').val()
-      params.item_target7 = $('#kpitarget-value-7').val()
-      params.item_target8 = $('#kpitarget-value-8').val()
-      params.item_target9 = $('#kpitarget-value-9').val()
-      params.item_target10 = $('#kpitarget-value-10').val()
-      url = window.location.href;
-      project_path = url.substring(0, url.lastIndexOf("/planning"))
-      $.ajax({
-        url: project_path + '/createElement',
-        method: 'POST',
-        data: params,
-        success: function(resp)
-          { if(resp) {location.reload();}}
-      });
-    }
-    else {
-      return false;
-    }
-  });
+  // $('#createKPIFromModal').click(function(e){
+  //   if (validateFormKPI()) {
+  //     e.preventDefault();
+  //     var params = {};
+  //     params.item_type = 'OutcomeKPI'
+  //     params.item_path = $('#KPIPath').html()
+  //     params.item_title = $('#kpi-title').val()
+  //     params.item_description = $('#kpi-description').val()
+  //     params.item_baseline = $('#kpi-baseline').val()
+  //     params.item_date = $('#kpi-datetimepicker').val()
+  //     params.item_unit = $('#kpi-unit').val()
+  //     params.item_frequency = $('#kpi-frequency').val()
+  //     params.item_means = $('#kpi-means').val()
+  //     params.item_risks = $('#kpi-risks').val()
+  //     params.item_responsible = $('#kpi-responsible').val()
+  //     params.item_target1 = $('#kpitarget-value-1').val()
+  //     params.item_target2 = $('#kpitarget-value-2').val()
+  //     params.item_target3 = $('#kpitarget-value-3').val()
+  //     params.item_target4 = $('#kpitarget-value-4').val()
+  //     params.item_target5 = $('#kpitarget-value-5').val()
+  //     params.item_target6 = $('#kpitarget-value-6').val()
+  //     params.item_target7 = $('#kpitarget-value-7').val()
+  //     params.item_target8 = $('#kpitarget-value-8').val()
+  //     params.item_target9 = $('#kpitarget-value-9').val()
+  //     params.item_target10 = $('#kpitarget-value-10').val()
+  //     url = window.location.href;
+  //     project_path = url.substring(0, url.lastIndexOf("/planning"))
+  //     $.ajax({
+  //       url: project_path + '/createElement',
+  //       method: 'POST',
+  //       data: params,
+  //       success: function(resp)
+  //         { if(resp) {location.reload();}}
+  //     });
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // });
   // Create KPIZone
   $('#createKPIZoneFromModal').click(function(e){
     if (validateFormKPIZone()) {
