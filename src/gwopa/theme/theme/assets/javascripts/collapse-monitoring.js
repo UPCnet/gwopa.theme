@@ -12,8 +12,19 @@ require([
     params.path = $(id + 'path').html();
     params.progress = $(id + 'progress').val();
     params.explanation = $(id + 'explanation').val();
-    params.obstacles = $(id + 'obstacles option:selected').text();
-    params.contributing = $(id + 'contributing option:selected').text();
+
+    params.obstacles = "";
+    temp = [];
+    var idSelect2Obs = '#s2id_' + e.target.classList[0] + '-activity-obs';
+    $(idSelect2Obs).select2('data').map(obj => temp.push(obj.id));
+    params.obstacles = temp.join(',');
+
+    params.contributing = "";
+    temp = [];
+    var idSelect2Contrib = '#s2id_' + e.target.classList[0] + '-activity-contrib';
+    $(idSelect2Contrib).select2('data').map(obj => temp.push(obj.id));
+    params.contributing = temp.join(',');
+
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
     if (params.progress || params.explanation || params.consideration || params.limiting) {
@@ -41,8 +52,19 @@ require([
     params.path = $(id + 'path').html();
     params.progress = $(id + 'progress').val();
     params.explanation = $(id + 'explanation').val();
-    params.obstacles = $(id + 'obstacles option:selected').text();
-    params.contributing = $(id + 'contributing option:selected').text();
+
+    params.obstacles = "";
+    temp = [];
+    var idSelect2Obs = '#s2id_' + e.target.classList[0] + '-output-obs';
+    $(idSelect2Obs).select2('data').map(obj => temp.push(obj.id));
+    params.obstacles = temp.join(',');
+
+    params.contributing = "";
+    temp = [];
+    var idSelect2Contrib = '#s2id_' + e.target.classList[0] + '-output-contrib';
+    $(idSelect2Contrib).select2('data').map(obj => temp.push(obj.id));
+    params.contributing = temp.join(',');
+
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
     if (params.progress || params.explanation || params.consideration || params.limiting) {
@@ -70,10 +92,19 @@ require([
     params.path = $(id + 'path').html();
     params.progress = $(id + 'progress').val();
     params.explanation = $(id + 'explanation').val();
-    params.obstacles = [];
-    $('#s2id_obs-title').select2('data').map(obj => params.obstacles.push(obj.id));
-    params.contributing = [];
-    $('#s2id_contrib-title').select2('data').map(obj => params.obstacles.push(obj.id));
+
+    params.obstacles = "";
+    temp = [];
+    var idSelect2Obs = '#s2id_' + e.target.classList[0] + '-kpi-obs';
+    $(idSelect2Obs).select2('data').map(obj => temp.push(obj.id));
+    params.obstacles = temp.join(',');
+
+    params.contributing = "";
+    temp = [];
+    var idSelect2Contrib = '#s2id_' + e.target.classList[0] + '-kpi-contrib';
+    $(idSelect2Contrib).select2('data').map(obj => temp.push(obj.id));
+    params.contributing = temp.join(',');
+
     params.consideration = $(id + 'consideration').val();
     params.limiting = $(id + 'limiting').val();
     if (params.progress || params.explanation || params.consideration || params.limiting) {
@@ -92,7 +123,7 @@ require([
       });
     });
 
-  $("#obs-title").select2({
+  $("[id$='-activity-obs").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -115,8 +146,17 @@ require([
         return { results: res };
       }
     },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
   });
-  $("#contrib-title").select2({
+  $("[id$='-activity-contrib").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -139,19 +179,176 @@ require([
         return { results: res };
       }
     },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("[id$='-output-obs").select2({
+    dropdownParent: $('#updateKPI'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainObstacles',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("[id$='-output-contrib").select2({
+    dropdownParent: $('#updateKPI'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainContributing',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("[id$='-kpi-obs").select2({
+    dropdownParent: $('#updateKPI'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainObstacles',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("[id$='-kpi-contrib").select2({
+    dropdownParent: $('#updateKPI'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainContributing',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
   });
 
-  $("#addObstacleTitle").click(function () {
-    $("#addObstacles").show();
+  $("[id$='-addObstacleActivity").click(function () {
+    $("[id$='-addObstaclesActivity").show();
     $(this).hide();
   });
-  $("#addContributingTitle").click(function () {
-    $("#addContributing").show();
+  $("[id$='-addContributingActivity").click(function () {
+    $("[id$='-addContributingsActivity").show();
+    $(this).hide();
+  });
+  $("[id$='-addObstacleOutput").click(function () {
+    $("[id$='-addObstaclesOutput").show();
+    $(this).hide();
+  });
+  $("[id$='-addContributingOutput").click(function () {
+    $("[id$='-addContributingsOutput").show();
+    $(this).hide();
+  });
+  $("[id$='-addObstacleKPI").click(function () {
+    $("[id$='-addObstaclesKPI").show();
+    $(this).hide();
+  });
+  $("[id$='-addContributingKPI").click(function () {
+    $("[id$='-addContributingsKPI").show();
     $(this).hide();
   });
 
   // Add Main Obstacles title
-  $('#add-obs').keypress(function(e){
+  $("[id$='-add-obs").keypress(function(e){
     if(e.which == 13) {
       var params = {};
       params.item_title = e.target.value
@@ -162,19 +359,19 @@ require([
         method: 'POST',
         data: params,
         success: function(resp)
-              {
-                if(resp) {
-                  swal("Added", "The obstacle title has been added", "success", {
-                    buttons: false,
-                    timer: 4000,
-                  })
-                }
-              }
+          {
+            if(resp) {
+              swal("Added", "The obstacle title has been added", "success", {
+                buttons: false,
+                timer: 4000,
+              })
+            }
+          }
       });
     }
   });
   // Add Main Obstacles title
-  $('#add-contrib').keypress(function(e){
+  $("[id$='-add-contrib").keypress(function(e){
     if(e.which == 13) {
       var params = {};
       params.item_title = e.target.value
@@ -185,14 +382,14 @@ require([
         method: 'POST',
         data: params,
         success: function(resp)
-              {
-                if(resp) {
-                  swal("Added", "The contributing factor title has been added", "success", {
-                    buttons: false,
-                    timer: 4000,
-                  })
-                }
-              }
+          {
+            if(resp) {
+              swal("Added", "The contributing factor title has been added", "success", {
+                buttons: false,
+                timer: 4000,
+              })
+            }
+          }
       });
     }
   });

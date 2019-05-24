@@ -31,18 +31,25 @@ div#s2id_kpizone-unit,
 div#s2id_out-frequency,
 div#s2id_kpi-frequency,
 div#s2id_kpizone-frequency,
-div#s2id_obs-title,
-div#s2id_contrib-title,
 div#s2id_autogen1
 {
    width: 100%;
 }
-#s2id_obs-title, #s2id_contrib-title {
+div[id$='-activity-obs'], div[id$='-activity-contrib'], div[id$='-output-obs'],
+div[id$='-output-contrib'], div[id$='-kpi-obs'], div[id$='-kpi-contrib'] {
   margin-bottom: 0px !important;
   padding: 0px !important;
 }
-#addObstacleTitle, #addContributingTitle {
+div[id$='-addObstacleActivity'], div[id$='-addObstacleOutput'], div[id$='-addObstacleKPI'],
+div[id$='-addContributingActivity'], div[id$='-addContributingOutput'], div[id$='-addContributingKPI'] {
   font-size: 12px;
+}
+div[id$='-addBox'], div[id$='-addObstaclesActivity'], div[id$='-addObstaclesOutput'], div[id$='-addObstaclesKPI'],
+div[id$='-addContributingsActivity'], div[id$='-addContributingsOutput'], div[id$='-addContributingsKPI'] {
+  display: none;
+}
+#addKPITitle {
+  padding-bottom: 7px!important;
 }
 .fa-trash-alt:before, .fa-edit:before { font-size: 15px;}
 ul.select2-choices {
