@@ -1467,9 +1467,6 @@ input#form-buttons-cancel {
   font-weight: 400;
   border: 1px solid #a6a6a6;
 }
-tr.descripcion a[aria-expanded="false"] - tr#contenido {
-  display: none;
-}
 body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img,
 body#visual-portal-wrapper.template-view .has-table .col-xs-12.col-sm-12 img,
 body#visual-portal-wrapper.template-view img.box-img {
@@ -1627,7 +1624,7 @@ h3 a i.fas.fa-plus-square {
   margin-top: -5px;
 }
 .template-monitoring #project #total {
-  width: calc(100% - 49rem);
+  width: calc(100% - 45rem);
   margin-top: -5px;
 }
 .template-monitoring #outcomes #total {
@@ -2123,7 +2120,7 @@ tr.admin-partner {
 h5.titulocatplan {
   color: #3e677c;
 }
-h5.titulocatplan.expMOUPItem, h5.titulocatplan.expMoOut, h5.titulocatplan.expMoAct {
+h5.titulocatplan.expMoUPItem, h5.titulocatplan.expMoOut, h5.titulocatplan.expMoAct {
   cursor: pointer;
 }
 h4.titulocatplan {
@@ -2280,17 +2277,15 @@ ul .fas:before {
   font-size: 14px;
   font-weight: 400;
 }
-#contenido h3 {
-  font-size: 14px;
-  font-weight: 400;
-}
 .btn {
   padding: 4px 8px;
 }
-#contenido .col-md-12.text-item-planning {
-  margin-top: 5px;
-  padding: 0px 5px 0px 30px;
-  margin-bottom: 20px;
+#contenido div {
+  padding-top: 2px;
+}
+#contenido h3 {
+  font-size: 14px;
+  font-weight: 400;
 }
 #contenido .text-item-planning .descripcion a h3.titulocatplan {
   font-weight: 500 !important;
@@ -2299,6 +2294,9 @@ ul .fas:before {
   margin-bottom: 10px;
   float: left;
   width: calc(100% - 50px);
+}
+tr.descripcion a[aria-expanded="false"] - tr#contenido {
+  display: none;
 }
 .template-monitoring #total {
   padding: 0px 5px;
@@ -2432,7 +2430,7 @@ button#addButton {
 }
 #nexupd,
 #freq {
-  width: 12rem;
+  width: 9rem;
 }
 i.far.fa-calendar,
 i.fas.fa-exclamation-triangle,
@@ -2613,19 +2611,8 @@ li#plone-contentmenu-workflow{
   .template-monitoring h3.titulocatplan {
     margin-left: 0px;
   }
-  #contenido .col-md-12.text-item-planning {
-    margin-top: 5px;
-    padding: 0px 0px 0px 5px;
-    margin-bottom: 20px;
-  }
   h4#activity {
     margin: 0px;
-  }
-  .tabla_contenido_items {
-/*    float: left;
-    width: 1250px;
-    margin-bottom: 20px;
-    margin-top: 0px;*/
   }
   .tab-content.clearfix {
     overflow-x: scroll;
@@ -3491,37 +3478,23 @@ i.fa.fa-chevron-down,
 .collapse_expand {
   color: #557c95;
 }
-#contenido div {
-    padding: 5px;
-}
-
 .pattern-pickadate-wrapper .pattern-pickadate-date-wrapper .picker__input {
   width: 330px;
 }
-
 .text_left {
   text-align: left;
 }
-
 .text_center {
   text-align: center;
 }
-
-/*.template-planning textarea,
-.template-planning textarea.form-control {
-  min-height: 34px!important;
-}*/
-
 #modalActivity .picker--opened .picker__holder {
     -webkit-transform: translateY(-22em) perspective(600px) rotateX(0deg) !important;
     transform: translateY(-22em) perspective(600px) rotateX(0deg) !important;
 }
-
 .outer-wrapper {
   position: relative;
   min-height: 75vh;
 }
-
 .nav-tabs > li.active > a:hover {
   background-color: white!important;
   color: #555 !important;
