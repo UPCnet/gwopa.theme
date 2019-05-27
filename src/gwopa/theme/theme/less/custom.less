@@ -44,7 +44,7 @@ div[id$='-addObstacleActivity'], div[id$='-addObstacleOutput'], div[id$='-addObs
 div[id$='-addContributingActivity'], div[id$='-addContributingOutput'], div[id$='-addContributingKPI'] {
   font-size: 12px;
 }
-div[id$='-addBox'], div[id$='-addObstaclesActivity'], div[id$='-addObstaclesOutput'], div[id$='-addObstaclesKPI'],
+div[id$='addBox'], div[id$='-addObstaclesActivity'], div[id$='-addObstaclesOutput'], div[id$='-addObstaclesKPI'],
 div[id$='-addContributingsActivity'], div[id$='-addContributingsOutput'], div[id$='-addContributingsKPI'] {
   display: none;
 }
@@ -72,10 +72,17 @@ ul.select2-choices {
 .people-control {
   display: block;
 }
-#done{
+.dot {
+  margin-right: 4px;
   font-size: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+#done {
+  color: #31b0d5;
+}
+#todo {
+  color: #f49200;
 }
 #formfield-form-widgets-startplanned,
 #formfield-form-widgets-startactual,
@@ -576,10 +583,6 @@ input#out-datetimepicker {
 .legend {
     color: #aaa;
     font-weight: 600;
-}
-.dot {
-  color: #0e9c14;
-  margin-right: 4px;
 }
 // .parent {
 //   display: flex;
