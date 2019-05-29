@@ -129,6 +129,30 @@ require([
           }
         },
       });
+      $("#capacity-title").select2({
+        dropdownParent: $('#modalCapacity'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getOutputs',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -310,6 +334,93 @@ require([
         $('#kpizone-target-date-1').html(end_date);
     });
   });
+  // afegirCAPACITY
+  $("a.afegirCAPACITY").click(function() {
+    var myVal = $(this).data('val');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
+      $('#modalCapacity').find(".modal-url").text(myVal);
+      $('#modalCapacity').find(".modal-start").text(myValStart);
+      $('#modalCapacity').find(".modal-end").text(myValEnd);
+      $("#capacity-title").select2({
+        dropdownParent: $('#modalCapacity'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getOutcomes',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#capacity-unit").select2({
+        dropdownParent: $('#modalCapacity'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getUnits',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+      $("#capacity-frequency").select2({
+        dropdownParent: $('#modalCapacity'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getFrequency',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+      });
+    fetch('api-getPhases')
+    .then(function(response) { return response.json();})
+    .then(function(data) {
+        let end_date = data[0].gwopa_year_phases[0].end;
+        $('#capacity-target-date-1').html(end_date);
+    });
+  });
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val()
@@ -401,6 +512,16 @@ require([
     }
     else if ($('#kpizone-frequency').val() == "") {
       swal('Please fill in the required fields', 'Measuring frequency is missing', 'warning');
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  // Validate fields Capacity
+  function validateFormCapacity() {
+    if ($('#capacity-title').val() == "") {
+      swal('Please fill in the required fields', "Title is missing", "warning");
       return false;
     }
     else {
@@ -558,6 +679,45 @@ require([
       return false;
     }
   });
+  // Create Capacity
+  $('#createCapacityFromModal').click(function(e){
+    if (validateFormCapacity()) {
+      e.preventDefault();
+      var params = {};
+      params.item_type = 'OutcomeCC'
+      params.item_path = $('#CapacityPath').html()
+      params.item_title = $('#capacity-title').val()
+      params.item_description = $('#capacity-description').val()
+      params.item_baseline = $('#capacity-baseline').val()
+      params.item_date = $('#capacity-datetimepicker').val()
+      params.item_unit = $('#capacity-unit').val()
+      params.item_frequency = $('#capacity-frequency').val()
+      params.item_means = $('#capacity-means').val()
+      params.item_risks = $('#capacity-risks').val()
+      params.item_target1 = $('#capacitytarget-value-1').val()
+      params.item_target2 = $('#capacitytarget-value-2').val()
+      params.item_target3 = $('#capacitytarget-value-3').val()
+      params.item_target4 = $('#capacitytarget-value-4').val()
+      params.item_target5 = $('#capacitytarget-value-5').val()
+      params.item_target6 = $('#capacitytarget-value-6').val()
+      params.item_target7 = $('#capacitytarget-value-7').val()
+      params.item_target8 = $('#capacitytarget-value-8').val()
+      params.item_target9 = $('#capacitytarget-value-9').val()
+      params.item_target10 = $('#capacitytarget-value-10').val()
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/planning"))
+      $.ajax({
+        url: project_path + '/createElement',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+          { if(resp) {location.reload();}}
+      });
+    }
+    else {
+      return false;
+    }
+  });
   // Add Output title
   $('#add-output').keypress(function(e){
     if(e.which == 13) {
@@ -605,6 +765,30 @@ require([
     }
   });
 
+  // Add CAPACITY title
+  $('#add-CAPACITY').keypress(function(e){
+    if(e.which == 13) {
+      var params = {};
+      params.item_title = e.target.value
+      var url = window.location.href;
+      var project_path = url.substring(0, url.lastIndexOf("/planning"))
+      $.ajax({
+        url: project_path + '/addTitleCAPACITY',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+              {
+                if(resp) {
+                  swal("Added", "The CAPACITY title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  })
+                }
+              }
+      });
+    }
+  });
+
   $(document).ready(function() {
     $("#out-responsible").select2({
       placeholder: "Search Users",
@@ -620,9 +804,9 @@ require([
 
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
-      $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
+      $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton, #CapacityaddTargetValueButton").hide();
     }
-    $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
+    $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton, #CapacityaddTargetValueButton").click(function () {
       let idnum = counter + 1;
       if(counter>=numPhases){
         swal('Not allowed!',
@@ -659,6 +843,16 @@ require([
         '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
         '<p style="padding: 6px 12px;" id="kpizone-target-date-' + idnum + '" ></p></div>');
         newTextBoxDivKPIZone.appendTo("#KPIZoneTextBoxesGroup");
+
+        let newTextBoxDivCapacity = $(document.createElement('div'));
+        newTextBoxDivCapacity.attr("id", 'CapacityTextBoxDiv' + idnum);
+        newTextBoxDivCapacity.attr("class", "toDelete" );
+        newTextBoxDivCapacity.after().html(
+        '<div class="row"><div class="col-xs-6 col-md-6" style="margin-top:0px; padding-left:0px;">' +
+        '<input type="text" class="form-control" id="capacity-target-value-' + idnum + '"/></div>' +
+        '<div class="col-xs-6 col-md-6" style="margin:0px 0px 10px 0px; padding-right:0px;">' +
+        '<p style="padding: 6px 12px;" id="capacity-target-date-' + idnum + '" ></p></div>');
+        newTextBoxDivCapacity.appendTo("#CapacityTextBoxesGroup");
       }
       fetch('api-getPhases')
       .then(function(response) { return response.json();})
@@ -667,6 +861,7 @@ require([
           $('#target-date-' + (idnum) + '').html(end_date);
           $('#kpi-target-date-' + (idnum) + '').html(end_date);
           $('#kpizone-target-date-' + (idnum) + '').html(end_date);
+          $('#capacity-target-date-' + (idnum) + '').html(end_date);
       });
       counter++;
     });
