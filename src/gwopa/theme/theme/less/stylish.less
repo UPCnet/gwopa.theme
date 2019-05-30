@@ -656,14 +656,9 @@ h3.titulocatplan {
   padding: 2px;
   border-radius: 4px;
 }
-:root {
-  --yellow: #ffc600;
-}
 .cc_container {
   display: grid;
   grid-gap: 5px;
-  //grid-template-columns: repeat(auto-fill, minmax(57px, 1fr));
-  //grid-template-columns: repeat(14, 1fr);
   grid-template-columns: repeat(6, 1fr);
   grid-auto-columns: auto;
 }
@@ -678,18 +673,86 @@ h3.titulocatplan {
   grid-column-start: 1;
 }
 .item {
-  /* We center the contents of these items. You can also do this with flexbox too! */
   display: grid;
   justify-content: center;
   align-items: center;
-  border: 5px solid rgba(0, 0, 0, 0.03);
-  border-radius: 3px;
-  font-size: 15px;
-  background-color: var(--yellow);
+  border-radius: 10px;
+  font-size: 13px;
+  position: relative;
+  height: 50px;
 }
-.item p {
-  margin: 0 0 5px 0;
+.item.transformational {
+  color: #757575 !important;
+  border: 2px solid #757575;
 }
+.item.transactional {
+  color: #e38928 !important;
+  border: 2px solid #e38928;
+}
+.item.individual {
+  color: #005172 !important;
+  border: 2px solid #005172;
+}
+.item.other {
+  color: #000000 !important;
+  border: 2px solid #000000;
+}
+.item.transformational.selected{
+  color: #ffffff !important;
+  background-color: #757575;
+}
+.item.transactional.selected {
+  color: #ffffff !important;
+  background-color: #e38928;
+}
+.item.individual.selected {
+  color: #ffffff !important;
+  background-color: #005172;
+}
+.item.other.selected {
+  color: #ffffff !important;
+  background-color: #000000;
+}
+.item_image {
+  position: absolute;
+  width: 27%;
+  height: 100%;
+  img {
+    width: 32px !important;
+    height: 32px !important;
+    position: absolute;
+    left: 10px;
+    padding: 5px;
+    top: 0px;
+  }
+}
+.item_text {
+  position: absolute;
+  width: 71%;
+  float: right;
+  right: 0px;
+  span{
+    width: 80% !important;
+    font-weight: bold;
+  }
+}
+// .album {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-start;
+//   padding: 2px 5px;
+//   img {
+//     position: absolute;
+//     left: 7px;
+//     top: 6px;
+//     align-self: center;
+//     width: 32px !important;
+//     height: 32px !important;
+//   }
+//   span{
+//     text-align: center;
+//   }
+// }
 .panel-group {
   margin-bottom: 0px;
 }
