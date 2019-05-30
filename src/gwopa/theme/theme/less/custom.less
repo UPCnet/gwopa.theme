@@ -31,7 +31,13 @@ div#s2id_kpizone-unit,
 div#s2id_out-frequency,
 div#s2id_kpi-frequency,
 div#s2id_kpizone-frequency,
-div#s2id_autogen1
+div#s2id_autogen1,
+#s2id_map-status,
+#s2id_map-area,
+#s2id_map-program,
+#s2id_map-partner,
+#s2id_map-country,
+#s2id_map-platform
 {
    width: 100%;
 }
@@ -584,19 +590,34 @@ input#out-datetimepicker {
     color: #aaa;
     font-weight: 600;
 }
-// .parent {
-//   display: flex;
-//   justify-content: space-around;
-//   flex-flow: row wrap;
-//   align-items: stretch;
-// }
-// .b0 {
-//   border: 3px solid rgba(0,0,0,.2);
-// }
-// .b3 {
-//   flex-grow: 1 !important;
-//   border: 3px solid rgba(0,0,0,.2);
-// }
-// .projectType {
-//
-// }
+.pat-leaflet {
+  height: 600px;
+}
+
+.irs--sharp .irs-line {
+  background-color: #ccc !important;
+}
+
+.irs--sharp .irs-bar {
+  background-color: #367bb1 !important;
+}
+
+.irs--sharp .irs-handle {
+  background-color: #367bb1 !important;
+}
+
+.irs--sharp .irs-handle>i:first-child {
+  border-top-color: #367bb1 !important;
+}
+
+.irs--sharp .irs-min,.irs--sharp .irs-max {
+  background-color: #367bb1 !important;
+}
+
+.irs--sharp .irs-from,.irs--sharp .irs-to,.irs--sharp .irs-single {
+  background-color: #367bb1 !important;
+}
+
+.irs--sharp .irs-from:before,.irs--sharp .irs-to:before,.irs--sharp .irs-single:before {
+  border-top-color: #367bb1 !important;
+}
