@@ -719,80 +719,100 @@ require([
   });
 
   $(".tabla_cuerpo").hide();
+  $(".cc_container").hide();
+  $(".cc_container_others").hide();
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
 
+  $(".expPlCC").click(function (e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
+    if (e.target.classList[1] == "colPlCC") {
+      $(this).parent().parent().nextAll(".cc_container").hide();
+      $(this).parent().parent().nextAll(".cc_container_others").hide();
+      $(selectorItem).attr("class", "titulocatplan expPlCC");
+    }
+    else {
+      $(this).parent().parent().nextAll(".cc_container").show();
+      $(this).parent().parent().nextAll(".cc_container_others").show();
+      $(selectorItem).attr("class", "titulocatplan colPlCC");
+    }
+  });
+
   $(".expPlWA").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
     if (e.target.classList[0] == "colPlWA") {
       $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "expPlWA");
     }
     else {
       $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "colPlWA");
     }
   });
 
   $(".expPlUP").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
     if (e.target.classList[0] == "colPlUP") {
       $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "expPlUP");
     }
     else {
       $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "colPlUP");
     }
   });
 
+  $(".expPlUC").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
+    if (e.target.classList[0] == "colPlUC") {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
+      $(selectorItem).attr("class", "expPlUC");
+    }
+    else {
+      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
+      $(selectorItem).attr("class", "colPlUC");
+    }
+  });
+
   $(".expandWA").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
     if (e.target.classList[2] == "collapseWA") {
       $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
     }
     else {
       $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
     }
   });
 
   $(".expandUP").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
     if (e.target.classList[2] == "collapseUP") {
       $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-up expandUP");
     }
     else {
       $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-down collapseUP");
     }
   });
 
   $(".expandUC").on('click', function(e) {
+    var thisItem = $(this)[0].id;
+    var selectorItem = '#' + thisItem;
     if (e.target.classList[2] == "collapseUC") {
       $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-up expandUC");
     }
     else {
       $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      var thisItem = $(this)[0].id;
-      var selectorItem = '#' + thisItem;
       $(selectorItem).attr("class", "fas fa-chevron-down collapseUC");
     }
   });

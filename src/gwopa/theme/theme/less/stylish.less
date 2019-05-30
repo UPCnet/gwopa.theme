@@ -608,25 +608,24 @@ h3.titulocatplan {
 .OutcomeKPI-planning {
   background-color: #f39300;
   width: 100px;
-  // margin: 0px 0px 0px 0px;
-  // margin-left: 30px;
 }
 .OutcomeZONE-planning {
   background-color: #b23e91;
   width: 100px;
-  // margin: 0px 0px 0px 0px;
-  // margin-left: 30px;
 }
 .Output-planning {
   width: 60px;
   color: #ffffff;
   background-color: #006cb9;
-  //margin: 0px 0px 0px 20px;
 }
-.outcome-planning {
+// .outcome-planning {
+//   background-color: #00ce04;
+//   width: 80px;
+//   margin: 0px 0px 0px 0px;
+// }
+.OutcomeCC-planning {
   background-color: #00ce04;
-  width: 80px;
-  margin: 0px 0px 0px 0px;
+  width: 170px;
 }
 .CCS-planning {
   background-color: #ef9700;
@@ -635,13 +634,18 @@ h3.titulocatplan {
 .Activity-planning {
   background-color: #009de5;
   width: 60px;
-  //margin: 0px 0px 0px 20px;
+}
+.CC-planning {
+  background-color: #098200;
+  width: 160px;
 }
 .Activity-planning,
 .Output-planning,
 .kpi-planning,
 .OutcomeKPI-planning,
 .outcome-planning,
+.OutcomeCC-planning,
+.CC-planning,
 .CCS-planning,
 .zone-planning,
 .OutcomeZONE-planning {
@@ -651,7 +655,40 @@ h3.titulocatplan {
   float: left;
   padding: 2px;
   border-radius: 4px;
-  //margin-left: 10px;
+}
+:root {
+  --yellow: #ffc600;
+}
+.cc_container {
+  display: grid;
+  grid-gap: 5px;
+  //grid-template-columns: repeat(auto-fill, minmax(57px, 1fr));
+  //grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-columns: auto;
+}
+.cc_container_others {
+  padding-top: 5px !important;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-columns: auto;
+}
+.six, .twelve {
+  grid-column-start: 1;
+}
+.item {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 15px;
+  background-color: var(--yellow);
+}
+.item p {
+  margin: 0 0 5px 0;
 }
 .panel-group {
   margin-bottom: 0px;
@@ -1613,22 +1650,27 @@ h3 a i.fas.fa-plus-square {
 }
 .template-planning #project #total {
   width: calc(100% - 51rem);
-  float: left;
   text-align: left;
   margin-top: -5px;
 }
-.template-planning #outcomes #total {
+.template-planning #outcomesPerformance #total {
   width: calc(100% - 59rem);
-  float: left;
+  text-align: left;
+  margin-top: -5px;
+}
+.template-planning #outcomesCapacity #total {
+  width: calc(100% - 5rem);
   text-align: left;
   margin-top: -5px;
 }
 .template-monitoring #project #total {
   width: calc(100% - 50rem);
+  text-align: left;
   margin-top: -5px;
 }
 .template-monitoring #outcomes #total {
   width: calc(100% - 46rem);
+  text-align: left;
   margin-top: -5px;
 }
 #pyt,
@@ -2132,7 +2174,8 @@ tr.admin-partner {
 h5.titulocatplan {
   color: #3e677c;
 }
-h5.titulocatplan.expMoUPItem, h5.titulocatplan.expMoOut, h5.titulocatplan.expMoAct {
+h5.titulocatplan.expMoUPItem, h5.titulocatplan.expMoOut, h5.titulocatplan.expMoAct, h5.titulocatplan.expPlCC,
+h5.titulocatplan.colMoUPItem, h5.titulocatplan.colMoOut, h5.titulocatplan.colMoAct, h5.titulocatplan.colPlCC {
   cursor: pointer;
 }
 h4.titulocatplan {
@@ -2344,25 +2387,13 @@ div#total h4#activity {
 }
 // .template-monitoring .Output-planning,
 //.template-monitoring .OutcomeKPI-planning,
-.template-monitoring .CC-planning,
-.template-monitoring .CCS-planning,
+// .template-monitoring .CC-planning,
+// .template-monitoring .CCS-planning,
 // .template-monitoring .Activity-planning,
 //.template-monitoring .OutcomeZONE-planning,
 .template-monitoring .CCS-planning,
 .template-monitoring .zone-planning {
   margin: 0px 0px 0px 5px;
-}
-.CC-planning {
-  background-color: #098200;
-  width: 125px;
-  margin-left: 25px;
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  float: left;
-  padding: 2px;
-  font-weight: normal;
-  border-radius: 4px;
 }
 .modal-dialog {
   margin: 0 auto !important;
@@ -2600,8 +2631,8 @@ li#plone-contentmenu-workflow{
   }
   // .template-monitoring .Output-planning,
   //.template-monitoring .OutcomeKPI-planning,
-  .template-monitoring .CC-planning,
-  .template-monitoring .CCS-planning,
+  //.template-monitoring .CC-planning,
+  //.template-monitoring .CCS-planning,
   // .template-monitoring .Activity-planning,
   //.template-monitoring .OutcomeZONE-planning,
   .template-monitoring .CCS-planning,
@@ -2743,8 +2774,8 @@ li#plone-contentmenu-workflow{
   }
   // .template-monitoring .Output-planning,
   //.template-monitoring .OutcomeKPI-planning,
-  .template-monitoring .CC-planning,
-  .template-monitoring .CCS-planning,
+  //.template-monitoring .CC-planning,
+  //.template-monitoring .CCS-planning,
   // .template-monitoring .Activity-planning,
   //.template-monitoring .OutcomeZONE-planning,
   .template-monitoring .CCS-planning {
