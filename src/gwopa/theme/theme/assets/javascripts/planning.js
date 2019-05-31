@@ -718,11 +718,8 @@ require([
     });
   });
 
-  //$(".tabla_cuerpo").hide();
   $(".cc_container").hide();
   $(".cc_container_others").hide();
-  $("#expandAllProjectTab").hide();
-  $("#expandAllOutcomeTab").hide();
 
   $('.expandccs').click(function() {
     $(this).hide();

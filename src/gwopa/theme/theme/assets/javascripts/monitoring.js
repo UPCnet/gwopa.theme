@@ -404,179 +404,95 @@ require([
   });
 
   $(document).ready(function() {
-    $(".tabla_cuerpo").hide();
-    $("#collapseAllProjectTab").hide();
-    $("#collapseAllOutcomeTab").hide();
-    $("#expandAllProjectTab").hide();
-    $("#expandAllOutcomeTab").hide();
+    $(".monitoring_info").hide();
+    $(".cc_container").hide();
+    $(".cc_container_others").hide();
 
-
-    $("#expandAllOutcomeTab").click(function(){
-      $(".tabla_cuerpo").slideDown()
-      $(".expandWA").parent().parent().parent().slideDown();
-      $(".expandWA").hide();
-      $(".collapseWA").show();
-      $("#expandAllOutcomeTab").hide();
-      $("#collapseAllOutcomeTab").show();
-    })
-
-    $("#collapseAllOutcomeTab").click(function(){
-      $(".tabla_cuerpo").slideUp()
-      $(".collapseWA").slideUp();
-      $(".collapseWA").hide();
-      $(".expandWA").show();
-      $("#expandAllOutcomeTab").show();
-      $("#collapseAllOutcomeTab").hide();
-    })
-
-    $(".expMoWA").on('click', function(e) {
-      if (e.target.classList[0] == "colMoWA") {
-        $(this).parent().parent().parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "expMoWA");
-      }
-      else {
-        $(this).parent().parent().parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "colMoWA");
-      }
+    $('.expandWaMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandWaMo').show();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
     });
 
-    $(".expMoUP").on('click', function(e) {
-      if (e.target.classList[0] == "colMoUP") {
-        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "expMoUP");
-      }
-      else {
-        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "colMoUP");
-      }
+    $('.notexpandWaMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandWaMo').show();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
     });
 
-    $(".expMoAct").on('click', function(e) {
-      if (e.target.classList[1] == "colMoAct") {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan expMoAct");
-      }
-      else {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan colMoAct");
-      }
+    $('.expandActMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandActMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
     });
 
-    $(".expMoOut").on('click', function(e) {
-      if (e.target.classList[1] == "colMoOut") {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan expMoOut");
-      }
-      else {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan colMoOut");
-      }
+    $('.notexpandActMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandActMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
     });
 
-    $(".expMoUPItem").on('click', function(e) {
-      if (e.target.classList[1] == "colMoUPItem") {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan expMoUPItem");
-      }
-      else {
-        $(this).parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "titulocatplan colMoUPItem");
-      }
+    $('.expandOutMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandOutMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
     });
 
-    $(".expandWA").on('click', function(e) {
-      if (e.target.classList[2] == "collapseWA") {
-        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
-      }
-      else {
-        $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
-      }
+    $('.notexpandOutMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandOutMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
     });
 
-    $(".expandAct").on('click', function(e) {
-      if (e.target.classList[2] == "collapseAct") {
-        $(this).parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-up expandAct");
-      }
-      else {
-        $(this).parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-down collapseAct");
-      }
+    $('.expandPerMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandPerMo').show();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
     });
 
-    $(".expandOut").on('click', function(e) {
-      if (e.target.classList[2] == "collapseOut") {
-        $(this).parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-up expandOut");
-      }
-      else {
-        $(this).parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-down collapseOut");
-      }
+    $('.notexpandPerMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandPerMo').show();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
     });
 
-    $(".expandUP").on('click', function(e) {
-      if (e.target.classList[2] == "collapseUP") {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-up expandUP");
-      }
-      else {
-        $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-down collapseUP");
-      }
+    $('.expandKPIMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandKPIMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
     });
 
-    $(".expandOutcome").on('click', function(e) {
-      if (e.target.classList[2] == "collapseOutcome") {
-        $(this).parent().nextAll(".tabla_cuerpo").hide();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-up expandOutcome");
-      }
-      else {
-        $(this).parent().nextAll(".tabla_cuerpo").show();
-        var thisItem = $(this)[0].id;
-        var selectorItem = '#' + thisItem;
-        $(selectorItem).attr("class", "fas fa-chevron-down collapseOutcome");
-      }
+    $('.notexpandKPIMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandKPIMo').show();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
     });
+
+    $('.expandCapMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandCapMo').show();
+      $(this).parent().parent().parent().parent().next().slideDown();
+    });
+
+    $('.notexpandCapMo').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandCapMo').show();
+      $(this).parent().parent().parent().parent().next().slideUp();
+    });
+
+    $('.expandccs').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandccs').show();
+      $(this).parent().parent().parent().find('.cc_container').slideDown();
+      $(this).parent().parent().parent().find('.cc_container_others').slideDown();
+    });
+
+    $('.notexpandccs').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandccs').show();
+      $(this).parent().parent().parent().find('.cc_container').slideUp();
+      $(this).parent().parent().parent().find('.cc_container_others').slideUp();
+    });
+
   });
 });
