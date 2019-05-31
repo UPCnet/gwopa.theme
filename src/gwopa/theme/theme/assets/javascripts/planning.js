@@ -310,6 +310,13 @@ require([
         $('#kpizone-target-date-1').html(end_date);
     });
   });
+  // editOutcomeCC
+  $("a.editOutcomeCC").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomecc');
+    $('#modalEditOutcomeCC').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCC').find(".modal-url").text(myValUrl);
+  });
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val()
@@ -603,6 +610,28 @@ require([
               }
       });
     }
+  });
+
+  // Update Outcomecc Generic
+  $('#updateOutcomeCCFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.description = $('#outcomecc-description').val()
+    params.baseline = $('#outcomecc-baseline').val()
+    params.baseline_date = $('#outcomecc-baseline_date').val()
+    params.objective = $('#outcomecc-objective').val()
+    params.objective_date = $('#outcomecc-objective_date').val()
+    params.item_path = $('#OutcomeCCPath').html()
+    params.year = $('#OutcomeCCYear').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    $.ajax({
+      url: project_path + '/updateOutcomeCC',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
   });
 
   $(document).ready(function() {
