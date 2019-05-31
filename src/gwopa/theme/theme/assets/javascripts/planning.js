@@ -718,103 +718,59 @@ require([
     });
   });
 
-  $(".tabla_cuerpo").hide();
+  //$(".tabla_cuerpo").hide();
   $(".cc_container").hide();
   $(".cc_container_others").hide();
   $("#expandAllProjectTab").hide();
   $("#expandAllOutcomeTab").hide();
 
-  $(".expPlCC").click(function (e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[1] == "colPlCC") {
-      $(this).parent().parent().nextAll(".cc_container").hide();
-      $(this).parent().parent().nextAll(".cc_container_others").hide();
-      $(selectorItem).attr("class", "titulocatplan expPlCC");
-    }
-    else {
-      $(this).parent().parent().nextAll(".cc_container").show();
-      $(this).parent().parent().nextAll(".cc_container_others").show();
-      $(selectorItem).attr("class", "titulocatplan colPlCC");
-    }
+  $('.expandccs').click(function() {
+    $(this).hide();
+    $(this).parent().find('.notexpandccs').show();
+    $(this).parent().parent().parent().find('.cc_container').slideDown();
+    $(this).parent().parent().parent().find('.cc_container_others').slideDown();
   });
 
-  $(".expPlWA").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[0] == "colPlWA") {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "expPlWA");
-    }
-    else {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "colPlWA");
-    }
+  $('.notexpandccs').click(function() {
+    $(this).hide();
+    $(this).parent().find('.expandccs').show();
+    $(this).parent().parent().parent().find('.cc_container').slideUp();
+    $(this).parent().parent().parent().find('.cc_container_others').slideUp();
   });
 
-  $(".expPlUP").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[0] == "colPlUP") {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "expPlUP");
-    }
-    else {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "colPlUP");
-    }
+  $('.expandCapPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.notexpandCapPla').show();
+    $(this).parent().parent().parent().parent().next().slideDown();
   });
 
-  $(".expPlUC").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[0] == "colPlUC") {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "expPlUC");
-    }
-    else {
-      $(this).parent().parent().parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "colPlUC");
-    }
+  $('.notexpandCapPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.expandCapPla').show();
+    $(this).parent().parent().parent().parent().next().slideUp();
   });
 
-  $(".expandWA").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[2] == "collapseWA") {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "fas fa-chevron-up expandWA");
-    }
-    else {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "fas fa-chevron-down collapseWA");
-    }
+  $('.expandPerPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.notexpandPerPla').show();
+    $(this).parent().parent().parent().parent().next().slideDown();
   });
 
-  $(".expandUP").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[2] == "collapseUP") {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "fas fa-chevron-up expandUP");
-    }
-    else {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "fas fa-chevron-down collapseUP");
-    }
+  $('.notexpandPerPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.expandPerPla').show();
+    $(this).parent().parent().parent().parent().next().slideUp();
   });
 
-  $(".expandUC").on('click', function(e) {
-    var thisItem = $(this)[0].id;
-    var selectorItem = '#' + thisItem;
-    if (e.target.classList[2] == "collapseUC") {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").hide();
-      $(selectorItem).attr("class", "fas fa-chevron-up expandUC");
-    }
-    else {
-      $(this).parent().parent().nextAll(".tabla_cuerpo").show();
-      $(selectorItem).attr("class", "fas fa-chevron-down collapseUC");
-    }
+  $('.expandWaPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.notexpandWaPla').show();
+    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
   });
 
+  $('.notexpandWaPla').click(function() {
+    $(this).hide();
+    $(this).parent().find('.expandWaPla').show();
+    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+  });
 });

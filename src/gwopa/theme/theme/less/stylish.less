@@ -715,11 +715,16 @@ h3.titulocatplan {
 }
 .item_image {
   position: absolute;
-  width: 27%;
+  width: 20%;
   height: 100%;
   img {
-    width: 32px !important;
-    height: 32px !important;
+    // width: 32px !important;
+    // height: 32px !important;
+    max-height: 35px;
+    max-width: 35px;
+    margin-top: 4px;
+    width: 100% !important;
+    height: 100% !important;
     position: absolute;
     left: 10px;
     padding: 5px;
@@ -728,31 +733,14 @@ h3.titulocatplan {
 }
 .item_text {
   position: absolute;
-  width: 71%;
+  width: 75%;
   float: right;
   right: 0px;
   span{
-    width: 80% !important;
+    //width: 80% !important;
     font-weight: bold;
   }
 }
-// .album {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   padding: 2px 5px;
-//   img {
-//     position: absolute;
-//     left: 7px;
-//     top: 6px;
-//     align-self: center;
-//     width: 32px !important;
-//     height: 32px !important;
-//   }
-//   span{
-//     text-align: center;
-//   }
-// }
 .panel-group {
   margin-bottom: 0px;
 }
@@ -1717,7 +1705,7 @@ h3 a i.fas.fa-plus-square {
   margin-top: -5px;
 }
 .template-planning #outcomesPerformance #total {
-  width: calc(100% - 59rem);
+  width: calc(100% - 57rem);
   text-align: left;
   margin-top: -5px;
 }
@@ -1930,10 +1918,10 @@ select {
   margin-bottom: 10px;
 }
 .titleRowPlanning {
-  cursor: pointer;
+  //cursor: pointer;
   font-size: 18px;
   font-weight: 600;
-  margin-left: 20px;
+  //margin-left: 20px;
 }
 .titleRowMonitoring {
   cursor: pointer;
@@ -1949,7 +1937,7 @@ a.titleRowPlanning {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  float: left;
+  //float: left;
 }
 .tabla_cabecera {
   border-bottom: 2px solid #dddddd;
@@ -3556,6 +3544,12 @@ div.Output-planning.second-level {
 
 .label-2nd {
   padding-left: 10px;
+}
+.label-nopart0 {
+  padding-left: 24px;
+}
+.label-activity {
+  padding-left: 28px !important;
 }
 
 .center_span {
