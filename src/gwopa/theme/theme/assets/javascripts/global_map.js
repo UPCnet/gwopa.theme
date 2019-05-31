@@ -146,43 +146,8 @@ require([
           grid: false,
           min: 0,
           max: 1000,
-          from: 200,
-          to: 800,
+          from:0,
+          to: 1000,
           step: 100
     });
-    $("#updateMapValues").click(function(e){
-      e.preventDefault();
-      var params = {};
-      params.area = document.getElementById("map-area").value;
-      params.year= document.getElementById("map-area").value;
-      // params.obstacles = "";
-      // temp = [];
-      // var idSelect2Obs = '#s2id_' + e.target.classList[0] + '-output-obs';
-      // $(idSelect2Obs).select2('data').map(obj => temp.push(obj.id));
-      // params.obstacles = temp.join(',');
-
-      // params.contributing = "";
-      // temp = [];
-      // var idSelect2Contrib = '#s2id_' + e.target.classList[0] + '-output-contrib';
-      // $(idSelect2Contrib).select2('data').map(obj => temp.push(obj.id));
-      // params.contributing = temp.join(',');
-
-      // params.consideration = $(id + 'consideration').val();
-      // params.limiting = $(id + 'limiting').val();
-      // if (params.progress || params.explanation || params.consideration || params.limiting) {
-      //   params.updated = true;
-      // } else {
-      //   params.updated = false;
-      // }
-      // url = window.location.href;
-      // project_path = url.substring(0, url.lastIndexOf("/monitoring"))
-      // $.ajax({
-      //   url: project_path + '/updateElement',
-      //   method: 'POST',
-      //   data: params,
-      //   success: function(resp)
-      //     { if(resp) {location.reload();}}
-      //   });
-    });
-
 });
