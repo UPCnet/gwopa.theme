@@ -132,7 +132,7 @@ require([
       });
     });
 
-  $("[id$='-activity-obs").select2({
+  $("[id$='-activity-obs']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -165,7 +165,7 @@ require([
       $(element).trigger('change');
     },
   });
-  $("[id$='-activity-contrib").select2({
+  $("[id$='-activity-contrib']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -198,7 +198,7 @@ require([
       $(element).trigger('change');
     },
   });
-  $("[id$='-output-obs").select2({
+  $("[id$='-output-obs']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -231,7 +231,7 @@ require([
       $(element).trigger('change');
     },
   });
-  $("[id$='-output-contrib").select2({
+  $("[id$='-output-contrib']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -264,7 +264,7 @@ require([
       $(element).trigger('change');
     },
   });
-  $("[id$='-kpi-obs").select2({
+  $("[id$='-kpi-obs']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -297,7 +297,7 @@ require([
       $(element).trigger('change');
     },
   });
-  $("[id$='-kpi-contrib").select2({
+  $("[id$='-kpi-contrib']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
     ajax: {
@@ -331,33 +331,33 @@ require([
     },
   });
 
-  $("[id$='-addObstacleActivity").click(function () {
-    $("[id$='-addObstaclesActivity").show();
+  $("[id$='-addObstacleActivity']").click(function () {
+    $("[id$='-addObstaclesActivity']").show();
     $(this).hide();
   });
-  $("[id$='-addContributingActivity").click(function () {
-    $("[id$='-addContributingsActivity").show();
+  $("[id$='-addContributingActivity']").click(function () {
+    $("[id$='-addContributingsActivity']").show();
     $(this).hide();
   });
-  $("[id$='-addObstacleOutput").click(function () {
-    $("[id$='-addObstaclesOutput").show();
+  $("[id$='-addObstacleOutput']").click(function () {
+    $("[id$='-addObstaclesOutput']").show();
     $(this).hide();
   });
-  $("[id$='-addContributingOutput").click(function () {
-    $("[id$='-addContributingsOutput").show();
+  $("[id$='-addContributingOutput']").click(function () {
+    $("[id$='-addContributingsOutput']").show();
     $(this).hide();
   });
-  $("[id$='-addObstacleKPI").click(function () {
-    $("[id$='-addObstaclesKPI").show();
+  $("[id$='-addObstacleKPI']").click(function () {
+    $("[id$='-addObstaclesKPI']").show();
     $(this).hide();
   });
-  $("[id$='-addContributingKPI").click(function () {
-    $("[id$='-addContributingsKPI").show();
+  $("[id$='-addContributingKPI']").click(function () {
+    $("[id$='-addContributingsKPI']").show();
     $(this).hide();
   });
 
   // Add Main Obstacles title
-  $("[id$='-add-obs").keypress(function(e){
+  $("[id$='-add-obs']").keypress(function(e){
     if(e.which == 13) {
       var params = {};
       params.item_title = e.target.value
@@ -380,7 +380,7 @@ require([
     }
   });
   // Add Main Obstacles title
-  $("[id$='-add-contrib").keypress(function(e){
+  $("[id$='-add-contrib']").keypress(function(e){
     if(e.which == 13) {
       var params = {};
       params.item_title = e.target.value
