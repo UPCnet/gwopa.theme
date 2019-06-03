@@ -141,6 +141,29 @@ require([
         }
       },
     });
+    $("#map-kpi").select2({
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getProjectKPI',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
+    });
     $(".js-range-slider").ionRangeSlider({
           type: "double",
           skin: "sharp",
