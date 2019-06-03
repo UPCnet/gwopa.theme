@@ -310,6 +310,27 @@ require([
         $('#kpizone-target-date-1').html(end_date);
     });
   });
+  // editOutcomeCC
+  $("a.editOutcomeCC").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomecc');
+    var myValDescription = $(this).data('description');
+    var myValBaseValue = $(this).data('base-value');
+    var myValBaseDate = $(this).data('base-date');
+    var myValObjective = $(this).data('objective');
+    var myValObjectiveDate = $(this).data('objective-date');
+    $('#modalEditOutcomeCC').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCC').find(".modal-url").text(myValUrl);
+    $('#modalEditOutcomeCC').find("#outcomecc-description").text(myValDescription);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline").val(myValBaseValue);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").change();
+    $('#modalEditOutcomeCC').find("#outcomecc-objective").val(myValObjective);
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper input").prop('value', myValObjectiveDate);
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper div[aria-label='" + myValObjectiveDate + "']").trigger("click");
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper input").change();
+  });
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val()
@@ -603,6 +624,28 @@ require([
               }
       });
     }
+  });
+
+  // Update Outcomecc Generic
+  $('#updateOutcomeCCFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.description = $('#outcomecc-description').val()
+    params.baseline = $('#outcomecc-baseline').val()
+    params.baseline_date = $('#outcomecc-baseline_date').val()
+    params.objective = $('#outcomecc-objective').val()
+    params.objective_date = $('#outcomecc-objective_date').val()
+    params.item_path = $('#OutcomeCCPath').html()
+    params.year = $('#OutcomeCCYear').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    $.ajax({
+      url: project_path + '/updateOutcomeCC',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
   });
 
   $(document).ready(function() {
