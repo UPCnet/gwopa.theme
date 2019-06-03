@@ -1467,19 +1467,6 @@ tbody tr.descripcion {
   color: white;
   font-size: 14px;
 }
-button.context.focus,
-button.context,
-input.submit-widget {
-  float: right;
-  margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  text-shadow: none;
-  background-image: none;
-  font-weight: 600;
-  border: none;
-  border-radius: 24px;
-}
 table.calendari td,
 table.calendari th {
   padding: 4px !important;
@@ -1581,9 +1568,6 @@ body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img.fullwidth {
 }
 .col-xs-12.col-sm-12 .row .col-md-4 h2 {
   margin-top: 0px;
-}
-button.context.focus {
-  margin-left: 20px;
 }
 .link-category {
   display: inline;
@@ -1747,7 +1731,7 @@ div#bl {
   width: 10rem;
 }
 div#end {
-  width:12rem;
+  width: 12rem;
 }
 div#zone {
   width: 6rem;
@@ -1756,7 +1740,7 @@ div#unit {
   width: 12rem;
 }
 div#resp {
-  width: 10rem;
+  width: 11rem;
 }
 div#resp li {
   margin: 0px 0px 10px 0px;
@@ -1876,14 +1860,9 @@ body#visual-portal-wrapper.template-view .row .col-md-3 div {
 .col-md-3 .col-lg-12.col-md-12 .box .card-body {
   background-color: #0a5272a8 !important;
 }
-button.context.focus {
-  margin-left: 20px;
-  float: right;
-  position: relative;
-}
 .fa-edit:before,
 .fa-trash-alt:before {
-  color: #31b0d5;
+  color: #a7a7a7 !important
 }
 li {
   display: block;
@@ -1935,6 +1914,7 @@ a.titleRowPlanning {
   padding-top: 10px;
   float: left;
   width: 100%;
+  height: 100%;
 }
 a {
   text-decoration: none !important;
@@ -2573,6 +2553,15 @@ li#plone-contentmenu-workflow{
 .sidenav2 ul#sidenav-vertical li {
     margin: 0px;
 }
+button.context.focus,
+button.context,
+input.submit-widget {
+  text-shadow: none;
+  font-weight: 600;
+  border: none;
+  border-radius: 24px;
+  position: relative;
+}
 @media (max-width: 966px) and (min-width: 766px) {
   #sidebar.col-sm-2 {
     width: 25%;
@@ -2689,7 +2678,16 @@ li#plone-contentmenu-workflow{
     width: 100%;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  button.context.focus,
+  button.context,
+  input.submit-widget {
+    text-shadow: none;
+    border: none;
+    border-radius: 24px;
+    width: 8rem;
+    padding: 0px;
+  }
   body#visual-portal-wrapper.template-view .row .col-md-3 div {
     margin-bottom: 0px;
   }

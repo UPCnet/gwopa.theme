@@ -423,25 +423,25 @@ require([
     $('.expandActMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandActMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+      $(this).parent().parent().parent().nextAll("[id$='-expandA']").slideDown();
     });
 
     $('.notexpandActMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandActMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+      $(this).parent().parent().parent().nextAll("[id$='-expandA']").slideUp();
     });
 
     $('.expandOutMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandOutMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+      $(this).parent().parent().parent().nextAll("[id$='-expandO']").slideDown();
     });
 
     $('.notexpandOutMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandOutMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+      $(this).parent().parent().parent().nextAll("[id$='-expandO']").slideUp();
     });
 
     $('.expandPerMo').click(function() {
