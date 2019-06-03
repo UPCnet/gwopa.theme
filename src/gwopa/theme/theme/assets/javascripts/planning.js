@@ -314,8 +314,22 @@ require([
   $("a.editOutcomeCC").click(function() {
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urloutcomecc');
+    var myValDescription = $(this).data('description');
+    var myValBaseValue = $(this).data('base-value');
+    var myValBaseDate = $(this).data('base-date');
+    var myValObjective = $(this).data('objective');
+    var myValObjectiveDate = $(this).data('objective-date');
     $('#modalEditOutcomeCC').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCC').find(".modal-url").text(myValUrl);
+    $('#modalEditOutcomeCC').find("#outcomecc-description").text(myValDescription);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline").val(myValBaseValue);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
+    $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").change();
+    $('#modalEditOutcomeCC').find("#outcomecc-objective").val(myValObjective);
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper input").prop('value', myValObjectiveDate);
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper div[aria-label='" + myValObjectiveDate + "']").trigger("click");
+    $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper input").change();
   });
   // Validate fields Activity
   function validateFormActivity() {
