@@ -366,7 +366,12 @@ require([
         myData.addLayer(ci_data);
         myData.addTo(map);
     });
-
+    //possible colors 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
+    var cafeIcon = L.AwesomeMarkers.icon({
+        prefix: 'fa', //font awesome rather than bootstrap
+        markerColor: 'green', // see colors above
+        icon: 'dollar' //http://fortawesome.github.io/Font-Awesome/icons/
+    });
     $("#map_budget").change(function () {
         map.removeLayer(myData);
         myData.clearLayers();
@@ -381,10 +386,13 @@ require([
               layer.bindPopup(popupContent);
             },
             filter: function(feature, layer) {
-              if ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end)) {
-                  return feature.properties.total_budget;
-                }
+                  return ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end));
             },
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: cafeIcon
+                });
+            }
         });
         $.getJSON(url, function(data) {
                ci_data.addData(data);
