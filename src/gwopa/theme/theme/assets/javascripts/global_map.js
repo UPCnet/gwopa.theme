@@ -3,167 +3,6 @@ require([
   'jquery'
 ], function(expect, $) {
     L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.5.1/dist/images/'
-   $("#map-platform").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectWOPPlatform',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-program").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectWOPProgram',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-status").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectStatus',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-country").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectCountry',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-partner").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectPartners',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-area").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectWorkingArea',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
-    $("#map-kpi").select2({
-      maximumSelectionSize: 1,
-      ajax: {
-        url: 'api-getProjectKPI',
-        dataType: 'json',
-        quietMillis: 250,
-        cache: true,
-        transport: function(params){
-          params.beforeSend = function(request){
-            request.setRequestHeader("Accept", "application/json");
-          };
-          return $.ajax(params);
-        },
-        results: function (data) {
-          var res = [];
-          var len = data.length;
-          for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-          }
-          return { results: res };
-        }
-      },
-    });
     $(".js-range-slider").ionRangeSlider({
           type: "double",
           skin: "sharp",
@@ -175,249 +14,207 @@ require([
           step: 100
     })
 
-    var url = 'updatedMap.js';  //REST service
-    var map = L.map('map').setView([42.736424, -73.762713], 2);
-    var osm=new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
-        osm.addTo(map);
+    var url_all = 'updatedMap.js';
+    var url_closed = 'closedProjectsMap.json';
+    var url_open = 'openProjectsMap.json';
 
-/*    function forEachFeature(feature, layer) {
-      var popupContent =
-          "<a href=''>"+ feature.properties.title + "</a>" +
-          "<br/>Region: "+ feature.properties.country +
-          "<br/>Budget: "+ feature.properties.total_budget;
-      layer.bindPopup(popupContent);
-    }
-
-    // Null variable that will hold layer
-    var stateLayer = L.geoJson(null, {onEachFeature: forEachFeature});
-    $.getJSON(url, function(data) {
-          stateLayer.addData(data);
+    var map = L.map('map', {
+        center: [41.39, 2.15],
+        zoom: 2,
+        minZoom: 2,
+        maxZoom: 16,
+        zoomControl: true,
+        attributionControl: true,
+        fullscreenControl: true,
+        hoverToWake: false,
+        sleep: false,
     });
-    stateLayer.addTo(map);
-    // other layer?
-    var otherLayer = L.geoJson(null, {onEachFeature: forEachFeature});
-    $.getJSON(url, function(data) {
-          otherLayer.addData(data);
-    });
-    otherLayer.addTo(map);
 
-    // for Layer Control
+    L.control.scale().addTo(map);
+    map.dragging.enable();
+    map.touchZoom.enable();
+    map.doubleClickZoom.enable();
+    map.scrollWheelZoom.enable();
+    map.keyboard.enable();
+
+    var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
+    osm.addTo(map);
+
+    var openLayer = L.geoJson(null, {
+        pointToLayer: function (feature, latlng) {
+            return new L.CircleMarker(latlng, {radius: 8, 
+                                                fillOpacity: 1, 
+                                                color: 'black', 
+                                                fillColor: '#007BB0', 
+                                                weight: 1,});
+        },
+        onEachFeature: forEachFeature
+      }
+    );
+    $.getJSON(url_open, function(data) {
+          openLayer.addData(data);
+    });
+    openLayer.addTo(map);
+
+    var closedLayer = L.geoJson(null, {
+        pointToLayer: function (feature, latlng) {
+            return new L.CircleMarker(latlng, {radius: 8, 
+                                                fillOpacity: 1, 
+                                                color: 'black', 
+                                                fillColor: 'dimgray', 
+                                                weight: 1,});
+        },
+        onEachFeature: forEachFeature
+      }
+    );
+    $.getJSON(url_closed, function(data) {
+          closedLayer.addData(data);
+    });
+    closedLayer.addTo(map);
+
     var baseMaps = {
         "Projects": osm
     };
-
+    
     var overlayMaps = {
-        "Open":stateLayer,
-        "Closed":otherLayer,
-    };*/
+        "Open": openLayer,
+        "Closed": closedLayer
+    };
 
-    //Add layer control
-    /*L.control.layers(baseMaps, overlayMaps).addTo(map);*/
+    L.control.layers(baseMaps, overlayMaps,{
+      position: 'topright', // 'topleft', 'bottomleft', 'bottomright'
+      collapsed: false
+    }).addTo(map);
 
 
-  ////////////////////
-  var ci_data;
+    function forEachFeature(feature, layer) {
+      var popupContent =
+          "<a href=''>"+ feature.properties.title + "</a>" +
+          "<br/><strong>"+ feature.properties.country + "</strong>" +
+          "<br/>Total budget: "+ feature.properties.total_budget;
+      layer.bindPopup(popupContent);
+    }
 
-  //Initial Setup  with layer country No
-  ci_data = L.geoJson(null, {
+  //////////////////
+    var ci_data;
+    ci_data = L.geoJson(null, {
       onEachFeature: function (feature, layer) {
         var popupContent =
-            "<a href=''>"+ feature.properties.title + "</a>" +
+            feature.properties.popup +
             "<br/>Region: "+ feature.properties.country +
             "<br/>Budget: "+ feature.properties.total_budget;
         layer.bindPopup(popupContent);
       },
     });
-
-    $.getJSON(url, function(data) {
+    $.getJSON(url_all, function(data) {
        ci_data.addData(data);
     });
-
-    /// END Initial Setup
-
-    //Using a Layer Group to add/remove data from the map.
     var myData =  L.layerGroup([]);
-    myData.addLayer(ci_data);
-    myData.addTo(map);
+    // myData.addLayer(ci_data);
+    // myData.addTo(map);
 
-    $("#map-area").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-        shotresult = $("#map-area").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-                 return (feature.properties.areas == shotresult );
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-
-    $("#map-country").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-        shotresult = $("#map-country").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-                 return (feature.properties.country == shotresult );
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-
-    $("#map-platform").change(function () {
-      debugger;
-        map.removeLayer(myData);
-        myData.clearLayers();
-        shotresult = $("#map-platform").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-                 return (feature.properties.wop_platform == shotresult );
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-
-    $("#map-program").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-        shotresult = $("#map-program").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-              return (feature.properties.wop_program == shotresult );
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-
-    $("#map-partner").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-          shotresult = $("#map-partner").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-              if (feature.properties.partners != null) {
-                for (i=0; i<feature.properties.partners.length; i++) {
-                if (feature.properties.partners[i] == shotresult)
-                  return shotresult;
-                }
-              }
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-
-    $("#map-tags").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-        shotresult = $("#map-tags").val()
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-              if (feature.properties.tags != null) {
-                for (i=0; i<feature.properties.tags.length; i++) {
-                if (feature.properties.tags[i] == shotresult)
-                  return shotresult;
-                }
-              }
-            },
-        });
-        $.getJSON(url, function(data) {
-               ci_data.addData(data);
-        });
-        myData.addLayer(ci_data);
-        myData.addTo(map);
-    });
-    //possible colors 'red', 'darkred', 'orange', 'green', 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
-/*    var cafeIcon = L.AwesomeMarkers.icon({
-        prefix: 'fa', //font awesome rather than bootstrap
-        markerColor: 'green', // see colors above
-        icon: 'dollar' //http://fortawesome.github.io/Font-Awesome/icons/
-    });*/
-    $("#map_budget").change(function () {
-        map.removeLayer(myData);
-        myData.clearLayers();
-        budget_start = $("#map_budget").val().split(';')[0]
-        budget_end = $("#map_budget").val().split(';')[1]
-        ci_data = L.geoJson(null, {
-            onEachFeature: function (feature, layer) {
-              var popupContent =
-                  "<a href=''>"+ feature.properties.title + "</a>" +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
-            },
-            filter: function(feature, layer) {
-                  return ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end));
-            },
+    // $("#map_budget").change(function () {
+    //     map.removeLayer(myData);
+    //     myData.clearLayers();
+    //     budget_start = $("#map_budget").val().split(';')[0]
+    //     budget_end = $("#map_budget").val().split(';')[1]
+    //     ci_data = L.geoJson(null, {
+    //         onEachFeature: function (feature, layer) {
+    //           var popupContent =
+    //               feature.properties.popup +
+    //               "<br/>Region: "+ feature.properties.country +
+    //               "<br/>Budget: "+ feature.properties.total_budget;
+    //           layer.bindPopup(popupContent);
+    //         },
+    //         filter: function(feature, layer) {
+    //               return ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end));
+    //         },
             /*pointToLayer: function(feature, latlng) {
                 return L.marker(latlng, {
                     icon: cafeIcon
                 });
             }*/
+    //     });
+    //     $.getJSON(url_all, function(data) {
+    //            ci_data.addData(data);
+    //     });
+    //     myData.addLayer(ci_data);
+    //     myData.addTo(map);
+    // });
+
+    /// Here goes all the fields checking magic ///
+    function updateCheckboxStates(feature, layer) {
+      years = selected_year.split(',');
+      areas = selected_area.split(',');
+      countries = selected_country.split(',');
+      platforms = selected_platform.split(',');
+      programs = selected_program.split(',');
+      partners = selected_partner.split(',');
+      regions = selected_region.split(',');
+      kpis = selected_kpi.split(',');
+      tags = selected_tag.split(',');
+      budgets = selected_budget.split(',');
+      if (years != '') { hasYears = false; } else { hasYears = true }
+      if (areas != '') { hasAreas = false; } else { hasAreas = true }
+      if (countries != '') { hasCountries = false; } else { hasCountries = true }
+      if (platforms != '') { hasPlatforms = false; } else { hasPlatforms = true }
+      if (programs != '') { hasPrograms = false; } else { hasPrograms = true }
+      if (programs != '') { hasPrograms = false; } else { hasPrograms = true }
+      if (partners != '') { hasPartners = false; } else { hasPartners = true }
+      if (regions != '') { hasRegions = false; } else { hasRegions = true }
+      if (kpis != '') { hasKPIS = false; } else { hasKPIS = true }
+      if (tags != '') { hasTags = false; } else { hasTags = true}
+
+      // for(var i=0; i<years.length; i++)
+      //   if ((feature.properties.years).indexOf(years[i]) > -1) hasYears = true;
+
+      for(var i=0; i<areas.length; i++)
+        if ((feature.properties.areas).indexOf(areas[i]) > -1) hasAreas = true;
+
+      for(var i=0; i<countries.length; i++)
+        if ((feature.properties.country).indexOf(countries[i]) > -1) hasCountries = true;
+
+      for(var i=0; i<platforms.length; i++)
+        if ((feature.properties.wop_platform).indexOf(platforms[i]) > -1) hasPlatforms = true;
+
+      for(var i=0; i<programs.length; i++)
+        if ((feature.properties.wop_program).indexOf(programs[i]) > -1) hasPrograms = true;
+
+      for(var i=0; i<partners.length; i++)
+        if ((feature.properties.partners).indexOf(partners[i]) > -1) hasPartners = true;
+
+      for(var i=0; i<tags.length; i++)
+        if ((feature.properties.tags).indexOf(tags[i]) > -1) hasTags = true;
+      
+      if (hasAreas & hasCountries & hasPlatforms & hasPrograms & hasPartners & hasTags) return true;
+    };
+
+    // Clicking the apply button filters the results ///
+    $('#applyfilters').click(function(){
+        selected_year = $("#map-year").val()
+        selected_area = $("#map-area").val()
+        selected_country = $("#map-country").val()
+        selected_platform = $("#map-platform").val()
+        selected_program = $("#map-program").val()
+        selected_partner = $("#map-partner").val()
+        selected_region = $("#map-region").val()
+        selected_kpi = $("#map-kpi").val()
+        selected_tag = $("#map-tags").val()
+        selected_budget = $("#map-budget").val()
+        map.removeLayer(myData);
+        myData.clearLayers();
+        ci_data = L.geoJson(null, {
+            onEachFeature: function (feature, layer) {
+              var popupContent =
+                  feature.properties.popup +
+                  "<br/>Region: "+ feature.properties.country +
+                  "<br/>Budget: "+ feature.properties.total_budget;
+              layer.bindPopup(popupContent);
+            },
+            filter: updateCheckboxStates,
         });
-        $.getJSON(url, function(data) {
+        $.getJSON(url_all, function(data) {
                ci_data.addData(data);
         });
         myData.addLayer(ci_data);
