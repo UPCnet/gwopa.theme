@@ -354,6 +354,13 @@ require([
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date + .pattern-pickadate-wrapper div[aria-label='" + myValObjectiveDate + "']").trigger("click");
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date + .pattern-pickadate-wrapper input").change();
   });
+    // editOutcomeCCS
+  $("a.addOutcomeCCS").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
+  });
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val()
@@ -694,6 +701,24 @@ require([
     });
   });
 
+
+ // Add Outcomeccs Specific
+  $('#addOutcomeCCSFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.item_title = $('#outcomeccs-title').val()
+    params.item_path = $('#OutcomeCCSPath').html()
+    params.year = $('#OutcomeCCSYear').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    $.ajax({
+      url: project_path + '/addOutcomeCCS',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
   $(document).ready(function() {
     $("#out-responsible").select2({
       placeholder: "Search Users",
