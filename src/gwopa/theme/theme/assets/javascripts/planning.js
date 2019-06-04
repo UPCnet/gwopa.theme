@@ -331,6 +331,36 @@ require([
     $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper div[aria-label='" + myValObjectiveDate + "']").trigger("click");
     $('#modalEditOutcomeCC').find("#outcomecc-objective_date + .pattern-pickadate-wrapper input").change();
   });
+  // editOutcomeCCS
+  $("a.editOutcomeCCS").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    var myValId = $(this).data('id_specific');
+    var myValDescription = $(this).data('description');
+    var myValBaseValue = $(this).data('base-value');
+    var myValBaseDate = $(this).data('base-date');
+    var myValObjective = $(this).data('objective');
+    var myValObjectiveDate = $(this).data('objective-date');
+    $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
+    $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper input").change();
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective").val(myValObjective);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date + .pattern-pickadate-wrapper input").prop('value', myValObjectiveDate);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date + .pattern-pickadate-wrapper div[aria-label='" + myValObjectiveDate + "']").trigger("click");
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date + .pattern-pickadate-wrapper input").change();
+  });
+    // editOutcomeCCS
+  $("a.addOutcomeCCS").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
+  });
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val()
@@ -648,6 +678,47 @@ require([
     });
   });
 
+  // Update Outcomeccs Specific
+  $('#updateOutcomeCCSFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.description = $('#outcomeccs-description').val()
+    params.baseline = $('#outcomeccs-baseline').val()
+    params.baseline_date = $('#outcomeccs-baseline_date').val()
+    params.objective = $('#outcomeccs-objective').val()
+    params.objective_date = $('#outcomeccs-objective_date').val()
+    params.item_path = $('#OutcomeCCSPath').html()
+    params.year = $('#OutcomeCCSYear').html()
+    params.id_specific = $('#idSpecific').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    $.ajax({
+      url: project_path + '/updateOutcomeCCS',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
+
+
+ // Add Outcomeccs Specific
+  $('#addOutcomeCCSFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.item_title = $('#outcomeccs-title').val()
+    params.item_path = $('#OutcomeCCSPath').html()
+    params.year = $('#OutcomeCCSYear').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    $.ajax({
+      url: project_path + '/addOutcomeCCS',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
   $(document).ready(function() {
     $("#out-responsible").select2({
       placeholder: "Search Users",
