@@ -62,6 +62,7 @@
           <!-- ... before your own scripts -->
           <after css:theme-children="html head">
             <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/sweetalert.min.js"></script>
+            <script type="text/javascript" src="++theme++gwopa.theme/assets/javascripts/apexcharts.js"></script>
           </after>
           <before theme="/html/body">
               <xsl:apply-templates select="/html/head/script" />

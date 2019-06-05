@@ -8,6 +8,9 @@ body {
 body:not(.userrole-anonymous){
   background-color: #f1f1f1 !important;
 }
+body.userrole-anonymous {
+  background: url(++theme++gwopa.theme/assets/images/login-background.jpg) no-repeat center center fixed;
+}
 textarea {
   font-size: 14px;
 }
@@ -653,13 +656,15 @@ h3.titulocatplan {
   display: flex;
 }
 .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 13vw;
   height: 5vh;
   left: 0px;
   padding: 0px;
   margin: 4px;
   text-align: center;
-  display: block;
   border-radius: 10px;
   font-size: 13px;
   position: relative;
@@ -680,7 +685,12 @@ h3.titulocatplan {
   color: #000000 !important;
   border: 2px solid #000000;
 }
-.item.transformational.selected{
+.item.basic {
+  color: #7f7f7f !important;
+  border: 2px solid #7f7f7f;
+}
+
+.item.transformational.selected {
   color: #ffffff !important;
   background-color: #757575;
 }
@@ -696,8 +706,33 @@ h3.titulocatplan {
   color: #ffffff !important;
   background-color: #000000;
 }
+.item.basic.verybad {
+  color: #ffffff !important;
+  background-color: #c77500;
+}
+.item.basic.bad {
+  color: #ffffff !important;
+  background-color: #f79c1d;
+}
+.item.basic.equal {
+  color: #ffffff !important;
+  background-color: #dcdcdc;
+}
+.item.basic.good {
+  color: #ffffff !important;
+  background-color: #498be8;
+}
+.item.basic.verygood {
+  color: #ffffff !important;
+  background-color: #064663;
+}
+.empty { background-color: #ffffff; color: #000000 !important; border: 1px solid #000;}
+.verybad { background-color: #c77500; color: #000000 !important;}
+.bad { background-color: #f79c1d; color: #000000 !important;}
+.equal { background-color: #dcdcdc; color: #000000 !important;}
+.good { background-color: #498be8;}
+.verygood { background-color: #064663;}
 .item_image {
-  position: absolute;
   width: 15%;
   left: 5px;
   height: 100%;
@@ -714,7 +749,6 @@ h3.titulocatplan {
   }
 }
 .item_text {
-  position: absolute;
   padding: 10px 0px;
   width: 80%;
   right: 0px;
@@ -2234,14 +2268,16 @@ ul .fas:before {
   padding: 10px !important;
 }
 .template-planning .documentDescription,
-.template-monitoring .documentDescription {
+.template-monitoring .documentDescription,
+.template-visualizating .documentDescription {
   font-size: 16px;
   font-weight: 400;
   color: #696969;
   margin: 0px;
 }
 .template-planning .pagination,
-.template-monitoring .pagination {
+.template-monitoring .pagination,
+.template-visualizating .pagination {
   display: inline-block;
   padding-left: 0;
   border-radius: 4px;
@@ -2249,17 +2285,37 @@ ul .fas:before {
   margin: 0px !important;
 }
 .template-planning #content .container,
-.template-monitoring #content .container {
+.template-monitoring #content .container,
+.template-visualizating #content .container {
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
   float: left;
 }
 .template-planning .block-nav,
-.template-monitoring .block-nav {
+.template-monitoring .block-nav,
+.template-visualizating .block-nav {
   float: right;
   padding: 0px;
   width: 100%;
+}
+body.userrole-anonymous {
+  background-position: 50% 50%;
+  background-size: cover;
+}
+body.template-default_error_message #portal-footer-wrapper {
+  width: 100% !important;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+body.template-default_error_message .col-xs-11 {
+  width: 100% !important;
+}
+body.template-default_error_message #content-core p {
+  white-space: pre-line;
+  margin: 10px;
+  font-size: 16px;
 }
 .titulo.ia {
   width: 100%;
@@ -2655,11 +2711,10 @@ input.submit-widget {
   }
   .item {
     width: 11vw;
-    height: 7vh;
+    max-height: 7vh;
     font-size: 11px;
   }
   .item_image {
-    position: absolute;
     width: 20%;
     left: 0px;
     height: 100%;
@@ -3444,7 +3499,6 @@ input.submit-widget {
     }
 	}
   .item_text {
-    position: absolute;
     width: 75%;
     float: right;
     right: 15px;
@@ -3603,4 +3657,36 @@ div#formfield-form-widgets-inkind {
   font-size: 12px;
   color: black;
   text-shadow: 2px 2px #fff;
+}
+
+.charts, .capacities {
+  display: flex;
+}
+
+#chartActivity, #chartOutput {
+  width: 50%;
+  margin: 1px 1px;
+  opacity: 0.9;
+}
+
+#timeline-chart .apexcharts-toolbar {
+  opacity: 1;
+  border: 0;
+}
+.bolder {
+  font-weight: 600;
+}
+.capacity-title {
+  font-weight: 600;
+  text-align: left;
+  font-size: 16px;
+}
+.legendBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.custom-legend {
+  margin: 5px;
+  width: 50px;
 }
