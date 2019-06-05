@@ -90,9 +90,7 @@ require([
 
     function forEachFeature(feature, layer) {
       var popupContent =
-          "<a href=''>"+ feature.properties.title + "</a>" +
-          "<br/><strong>"+ feature.properties.country + "</strong>" +
-          "<br/>Total budget: "+ feature.properties.total_budget;
+          "<a href=''>"+ feature.properties.title + "</a>"
       layer.bindPopup(popupContent);
     }
 
@@ -102,8 +100,7 @@ require([
       onEachFeature: function (feature, layer) {
         var popupContent =
             feature.properties.popup +
-            "<br/>Region: "+ feature.properties.country +
-            "<br/>Budget: "+ feature.properties.total_budget;
+            "<br/>Region: "+ feature.properties.country;
         layer.bindPopup(popupContent);
       },
     });
@@ -113,35 +110,6 @@ require([
     var myData =  L.layerGroup([]);
     // myData.addLayer(ci_data);
     // myData.addTo(map);
-
-    // $("#map_budget").change(function () {
-    //     map.removeLayer(myData);
-    //     myData.clearLayers();
-    //     budget_start = $("#map_budget").val().split(';')[0]
-    //     budget_end = $("#map_budget").val().split(';')[1]
-    //     ci_data = L.geoJson(null, {
-    //         onEachFeature: function (feature, layer) {
-    //           var popupContent =
-    //               feature.properties.popup +
-    //               "<br/>Region: "+ feature.properties.country +
-    //               "<br/>Budget: "+ feature.properties.total_budget;
-    //           layer.bindPopup(popupContent);
-    //         },
-    //         filter: function(feature, layer) {
-    //               return ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end));
-    //         },
-            /*pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {
-                    icon: cafeIcon
-                });
-            }*/
-    //     });
-    //     $.getJSON(url_all, function(data) {
-    //            ci_data.addData(data);
-    //     });
-    //     myData.addLayer(ci_data);
-    //     myData.addTo(map);
-    // });
 
     /// Here goes all the fields checking magic ///
     function updateCheckboxStates(feature, layer) {
@@ -153,7 +121,9 @@ require([
       partners = selected_partner.split(',');
       kpis = selected_kpi.split(',');
       tags = selected_tag.split(',');
-      budgets = selected_budget.split(',');
+      budget_start = selected_budget.split(';')[0];
+      budget_end = selected_budget.split(';')[1];
+
       if (years != '') { hasYears = false; } else { hasYears = true }
       if (areas != '') { hasAreas = false; } else { hasAreas = true }
       if (countries != '') { hasCountries = false; } else { hasCountries = true }
@@ -164,8 +134,8 @@ require([
       if (kpis != '') { hasKPIS = false; } else { hasKPIS = true }
       if (tags != '') { hasTags = false; } else { hasTags = true}
 
-      // for(var i=0; i<years.length; i++)
-      //   if ((feature.properties.years).indexOf(years[i]) > -1) hasYears = true;
+      for(var i=0; i<years.length; i++)
+        if ((feature.properties.years).indexOf(years[i]) > -1) hasYears = true;
 
       for(var i=0; i<areas.length; i++)
         if ((feature.properties.areas).indexOf(areas[i]) > -1) hasAreas = true;
@@ -182,10 +152,15 @@ require([
       for(var i=0; i<partners.length; i++)
         if ((feature.properties.partners).indexOf(partners[i]) > -1) hasPartners = true;
 
+      for(var i=0; i<kpis.length; i++)
+        if ((feature.properties.kpis).indexOf(kpis[i]) > -1) hasKPIS = true;
+
       for(var i=0; i<tags.length; i++)
         if ((feature.properties.tags).indexOf(tags[i]) > -1) hasTags = true;
 
-      if (hasAreas & hasCountries & hasPlatforms & hasPrograms & hasPartners & hasTags) return true;
+      budget = ((feature.properties.total_budget >= budget_start) & (feature.properties.total_budget <= budget_end))
+
+      if (hasYears & hasAreas & hasCountries & hasPlatforms & hasPrograms & hasPartners & hasKPIS & hasTags & budget) return true;
     };
 
     // Clicking the apply button filters the results ///
@@ -217,4 +192,10 @@ require([
         myData.addLayer(ci_data);
         myData.addTo(map);
     });
+
+     $('#clearfilters').click(function(){
+        myData.removeLayer(ci_data);
+        myData.addTo(map);
+    });
+
 });
