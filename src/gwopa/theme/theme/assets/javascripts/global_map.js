@@ -2,7 +2,6 @@ require([
   'expect',
   'jquery'
 ], function(expect, $) {
-    L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.5.1/dist/images/'
     $(".js-range-slider").ionRangeSlider({
           type: "double",
           skin: "sharp",
@@ -14,9 +13,10 @@ require([
           step: 100
     })
 
-    var url_all = 'updatedMap.js';
-    var url_closed = 'closedProjectsMap.json';
-    var url_open = 'openProjectsMap.json';
+    var url_all = 'allProjects.json';
+    var url_open = 'activeProjects.json';
+    var url_inactive = 'inactiveProjects.json';
+    L.Icon.Default.imagePath = '++theme++gwopa.theme/assets/images/'
 
     var map = L.map('map', {
         center: [41.39, 2.15],
@@ -43,10 +43,10 @@ require([
 
     var openLayer = L.geoJson(null, {
         pointToLayer: function (feature, latlng) {
-            return new L.CircleMarker(latlng, {radius: 8, 
-                                                fillOpacity: 1, 
-                                                color: 'black', 
-                                                fillColor: '#007BB0', 
+            return new L.CircleMarker(latlng, {radius: 6,
+                                                fillOpacity: 1,
+                                                color: 'black',
+                                                fillColor: '#007BB0',
                                                 weight: 1,});
         },
         onEachFeature: forEachFeature
@@ -57,29 +57,29 @@ require([
     });
     openLayer.addTo(map);
 
-    var closedLayer = L.geoJson(null, {
+    var inactiveLayer = L.geoJson(null, {
         pointToLayer: function (feature, latlng) {
-            return new L.CircleMarker(latlng, {radius: 8, 
-                                                fillOpacity: 1, 
-                                                color: 'black', 
-                                                fillColor: 'dimgray', 
+            return new L.CircleMarker(latlng, {radius: 6,
+                                                fillOpacity: 2,
+                                                color: 'black',
+                                                fillColor: '#b4b4b4',
                                                 weight: 1,});
         },
         onEachFeature: forEachFeature
       }
     );
-    $.getJSON(url_closed, function(data) {
-          closedLayer.addData(data);
+    $.getJSON(url_inactive, function(data) {
+          inactiveLayer.addData(data);
     });
-    closedLayer.addTo(map);
+    inactiveLayer.addTo(map);
 
     var baseMaps = {
         "Projects": osm
     };
-    
+
     var overlayMaps = {
-        "Open": openLayer,
-        "Closed": closedLayer
+        "Active": openLayer,
+        "Inactive": inactiveLayer,
     };
 
     L.control.layers(baseMaps, overlayMaps,{
@@ -151,7 +151,6 @@ require([
       platforms = selected_platform.split(',');
       programs = selected_program.split(',');
       partners = selected_partner.split(',');
-      regions = selected_region.split(',');
       kpis = selected_kpi.split(',');
       tags = selected_tag.split(',');
       budgets = selected_budget.split(',');
@@ -162,7 +161,6 @@ require([
       if (programs != '') { hasPrograms = false; } else { hasPrograms = true }
       if (programs != '') { hasPrograms = false; } else { hasPrograms = true }
       if (partners != '') { hasPartners = false; } else { hasPartners = true }
-      if (regions != '') { hasRegions = false; } else { hasRegions = true }
       if (kpis != '') { hasKPIS = false; } else { hasKPIS = true }
       if (tags != '') { hasTags = false; } else { hasTags = true}
 
@@ -186,7 +184,7 @@ require([
 
       for(var i=0; i<tags.length; i++)
         if ((feature.properties.tags).indexOf(tags[i]) > -1) hasTags = true;
-      
+
       if (hasAreas & hasCountries & hasPlatforms & hasPrograms & hasPartners & hasTags) return true;
     };
 
@@ -198,7 +196,6 @@ require([
         selected_platform = $("#map-platform").val()
         selected_program = $("#map-program").val()
         selected_partner = $("#map-partner").val()
-        selected_region = $("#map-region").val()
         selected_kpi = $("#map-kpi").val()
         selected_tag = $("#map-tags").val()
         selected_budget = $("#map-budget").val()
