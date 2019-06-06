@@ -403,6 +403,113 @@ require([
     }
   });
 
+  $("#outcomeccs-degree_changes").select2({
+        dropdownParent: $('#modalEditOutcomeCCS'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getDegree',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+  });
+
+  // editOutcomeCCS
+  $("a.editOutcomeCCS").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    var myValId = $(this).data('id_specific');
+    var myValDescription = $(this).data('description');
+    var myValBaseValue = $(this).data('base-value');
+    var myValBaseDate = $(this).data('base-date');
+    var myValObjective = $(this).data('objective');
+    var myValObjectiveDate = $(this).data('objective-date');
+    var myValDegree = $(this).data('degree-changes');
+    var myValContributing = $(this).data('contributing-factors');
+    var myValLimiting = $(this).data('limiting-factors');
+    var myValExplain = $(this).data('explain');
+    $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
+    $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date").prop('value', myValBaseDate)
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective").val(myValObjective);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date").prop('value', myValObjectiveDate);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-degree_changes").select2('data',{id: myValDegree, text: myValDegree});
+    $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").val(myValContributing);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-limiting_factors").val(myValLimiting);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-explain").val(myValExplain);
+  });
+
+    // addOutcomeCCS
+  $("a.addOutcomeCCS").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
+    $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
+  });
+
+    // Update Outcomeccs Specific
+  $('#updateOutcomeCCSFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.description = $('#outcomeccs-description').val()
+    params.baseline = $('#outcomeccs-baseline').val()
+    params.baseline_date = $('#outcomeccs-baseline_date').val()
+    params.objective = $('#outcomeccs-objective').val()
+    params.objective_date = $('#outcomeccs-objective_date').val()
+    params.degree_changes = $('#outcomeccs-degree_changes').val()
+    params.explain = $('#outcomeccs-explain').val()
+    params.contributing_factors = $('#outcomeccs-contributing_factors').val()
+    params.limiting_factors = $('#outcomeccs-limiting_factors').val()
+    params.item_path = $('#OutcomeCCSPath').html()
+    params.year = $('#OutcomeCCSYear').html()
+    params.id_specific = $('#idSpecific').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/monitoring"))
+    $.ajax({
+      url: project_path + '/updateOutcomeCCSMonitoring',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
+
+
+ // Add Outcomeccs Specific
+  $('#addOutcomeCCSMonitoringFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.item_title = $('#outcomeccs-title').val()
+    params.item_path = $('#OutcomeCCSPath').html()
+    params.year = $('#OutcomeCCSYear').html()
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/monitoring"))
+    $.ajax({
+      url: project_path + '/addOutcomeCCSMonitoring',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
+
   $(document).ready(function() {
     $(".monitoring_info").hide();
     $(".cc_container").hide();
