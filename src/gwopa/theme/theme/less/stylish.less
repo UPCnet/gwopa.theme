@@ -727,11 +727,23 @@ h3.titulocatplan {
   background-color: #064663;
 }
 .notset { background-color: #ffffff; color: #000000 !important; border: 1px solid #000;}
+i.notset {color: #ffffff !important; background-color: unset;}
+
 .verybad { background-color: #c77500; color: #000000 !important;}
+i.verybad {color: #c77500 !important; background-color: unset;}
+
 .bad { background-color: #f79c1d; color: #000000 !important;}
+i.bad {color: #f79c1d !important; background-color: unset;}
+
 .equal { background-color: #dcdcdc; color: #000000 !important;}
+i.equal {color: #dcdcdc !important; background-color: unset;}
+
 .good { background-color: #498be8;}
+i.good {color: #498be8 !important; background-color: unset;}
+
 .verygood { background-color: #064663;}
+i.verygood {color: #064663 !important; background-color: unset;}
+
 .item_image {
   width: 15%;
   left: 5px;
@@ -3660,7 +3672,7 @@ div#formfield-form-widgets-inkind {
   display: flex;
 }
 
-#chartActivity, #chartOutput {
+#graphicActivity, #graphicOutput {
   width: 50%;
   margin: 1px 1px;
   opacity: 0.9;
@@ -3687,4 +3699,7 @@ div#formfield-form-widgets-inkind {
 .custom-legend {
   margin: 5px;
   width: 50px;
+}
+#noInfo {
+  display: none;
 }
