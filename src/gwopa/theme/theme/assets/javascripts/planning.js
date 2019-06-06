@@ -105,30 +105,6 @@ require([
           }
         },
       });
-      $("#out-frequency").select2({
-        dropdownParent: $('#modalOutput'),
-        maximumSelectionSize: 1,
-        ajax: {
-          url: 'api-getFrequency',
-          dataType: 'json',
-          quietMillis: 250,
-          cache: true,
-          transport: function(params){
-            params.beforeSend = function(request){
-              request.setRequestHeader("Accept", "application/json");
-            };
-            return $.ajax(params);
-          },
-          results: function (data) {
-            var res = [];
-            var len = data.length;
-            for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-            }
-            return { results: res };
-          }
-        },
-      });
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -141,9 +117,12 @@ require([
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
     var myValEnd = $(this).data('end');
+    var myValfrequency = $(this).data('frequency');
+      $('#modalActivity').find(".modal-url").text(myVal);
       $('#modalKPI').find(".modal-url").text(myVal);
       $('#modalKPI').find(".modal-start").text(myValStart);
       $('#modalKPI').find(".modal-end").text(myValEnd);
+      $('#modalKPI').find(".modal-frequency").text(myValfrequency);
       $("#kpi-title").select2({
         dropdownParent: $('#modalKPI'),
         maximumSelectionSize: 1,
@@ -192,30 +171,6 @@ require([
           }
         },
       });
-      $("#kpi-frequency").select2({
-        dropdownParent: $('#modalKPI'),
-        maximumSelectionSize: 1,
-        ajax: {
-          url: 'api-getFrequency',
-          dataType: 'json',
-          quietMillis: 250,
-          cache: true,
-          transport: function(params){
-            params.beforeSend = function(request){
-              request.setRequestHeader("Accept", "application/json");
-            };
-            return $.ajax(params);
-          },
-          results: function (data) {
-            var res = [];
-            var len = data.length;
-            for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-            }
-            return { results: res };
-          }
-        },
-      });
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -228,9 +183,11 @@ require([
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
     var myValEnd = $(this).data('end');
+    var myValFrequency = $(this).data('frequency');
       $('#modalKPIZone').find(".modal-url").text(myVal);
       $('#modalKPIZone').find(".modal-start").text(myValStart);
       $('#modalKPIZone').find(".modal-end").text(myValEnd);
+      $('#modalKPIZone').find(".modal-frequency").text(myValFrequency);
       $("#kpizone-title").select2({
         dropdownParent: $('#modalKPIZone'),
         maximumSelectionSize: 1,
@@ -260,30 +217,6 @@ require([
         maximumSelectionSize: 1,
         ajax: {
           url: 'api-getUnits',
-          dataType: 'json',
-          quietMillis: 250,
-          cache: true,
-          transport: function(params){
-            params.beforeSend = function(request){
-              request.setRequestHeader("Accept", "application/json");
-            };
-            return $.ajax(params);
-          },
-          results: function (data) {
-            var res = [];
-            var len = data.length;
-            for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
-            }
-            return { results: res };
-          }
-        },
-      });
-      $("#kpizone-frequency").select2({
-        dropdownParent: $('#modalKPIZone'),
-        maximumSelectionSize: 1,
-        ajax: {
-          url: 'api-getFrequency',
           dataType: 'json',
           quietMillis: 250,
           cache: true,

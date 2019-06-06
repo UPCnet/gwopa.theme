@@ -85,19 +85,14 @@ require([
 
 
     function forEachFeature(feature, layer) {
-      var popupContent =
-          "<a href=''>"+ feature.properties.title + "</a>"
-      layer.bindPopup(popupContent);
+      layer.bindPopup(feature.properties.popup);
     }
 
   //////////////////
     var ci_data;
     ci_data = L.geoJson(null, {
       onEachFeature: function (feature, layer) {
-        var popupContent =
-            feature.properties.popup +
-            "<br/>Region: "+ feature.properties.country;
-        layer.bindPopup(popupContent);
+        layer.bindPopup(feature.properties.popup);
       },
     });
     $.getJSON(url_all, function(data) {
@@ -174,11 +169,7 @@ require([
         myData.clearLayers();
         ci_data = L.geoJson(null, {
             onEachFeature: function (feature, layer) {
-              var popupContent =
-                  feature.properties.popup +
-                  "<br/>Region: "+ feature.properties.country +
-                  "<br/>Budget: "+ feature.properties.total_budget;
-              layer.bindPopup(popupContent);
+              layer.bindPopup(feature.properties.popup);
             },
             filter: updateCheckboxStates,
         });
