@@ -62,7 +62,7 @@ require([
           },
           stroke: { width: 1,colors: ['#fff'] },
           series: values,
-          colors: ['#2E93fA', '#66DA26', '#546E7A', '#E91E63'],
+          colors: ['#00b2d7', '#66DA26', '#546E7A', '#E91E63'],
           xaxis: {
             labels: {
               show: false,
@@ -155,7 +155,7 @@ require([
           },
           stroke: { width: 1,colors: ['#fff'] },
           series: values,
-          colors: ['#2E93fA', '#66DA26', '#546E7A', '#E91E63'],
+          colors: ['#00b2d7', '#66DA26', '#546E7A', '#E91E63'],
           xaxis: {
             labels: {
               show: false,
