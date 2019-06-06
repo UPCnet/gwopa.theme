@@ -6,6 +6,7 @@ require([
                '1.2 Development of an improvemnet plan for sanitation, sewage and waste water treatment',
                '1.3 Capacity development program prepared',
                '1.4 Capacity development program prepared']
+  var data = [{ data: [80, 72, 64, 91], }]
 
   String.prototype.trunc = String.prototype.trunc ||
     function(n){
@@ -46,7 +47,7 @@ require([
       }
     },
     stroke: { width: 1,colors: ['#fff'] },
-    series: [{ data: [80, 72, 64, 91], }],
+    series: data,
     colors: ['#2E93fA', '#66DA26', '#546E7A', '#E91E63'],
     xaxis: {
       labels: {
@@ -165,13 +166,11 @@ require([
 
   $(document).ready(function() {
     //$('#selectWA').children("option:selected").val();
-    $('.visible').click(function() {
+    $('#1, #2, #3, #4, #5, #6, #7, #8, #9, #10').click(function() {
       let idDis = $('.disabled')[0] ? $('.disabled')[0].id : 0;
       $(`#${this.id}`).removeClass("visible");
       $(`#${this.id}`).addClass("disabled");
       $(`#${idDis}`).removeClass("disabled");
-      $(`#${idDis}`).addClass("visible");
-
     });
   });
 });
