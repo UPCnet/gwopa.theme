@@ -6,10 +6,6 @@ require([
           type: "double",
           skin: "sharp",
           grid: false,
-          min: 0,
-          max: 1000,
-          from:0,
-          to: 1000,
           step: 100
     })
 
