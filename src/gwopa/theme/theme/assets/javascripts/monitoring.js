@@ -298,7 +298,73 @@ require([
     },
   });
   $("[id$='-kpi-contrib']").select2({
-    dropdownParent: $('#updateKPI'),
+    dropdownParent: $('#modalEditOutcomeCCS'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainContributing',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("#outcomeccs-obstacles").select2({
+    dropdownParent: $('#modalEditOutcomeCCS'),
+    multiple: true,
+    ajax: {
+      url: 'api-getMainObstacles',
+      dataType: 'json',
+      quietMillis: 250,
+      cache: true,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      results: function (data) {
+        var res = [];
+        var len = data.length;
+        for (var i=0; i<len; i++) {
+          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+        }
+        return { results: res };
+      }
+    },
+    initSelection: function(element, callback) {
+      var savedData = $(element).val().split(',');
+      var preSelected = [];
+      for (i=0; i<savedData.length; i++) {
+        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
+      }
+      $(element).select2('data', preSelected);
+      $(element).trigger('change');
+    },
+  });
+  $("#outcomeccs-contributing_factors").select2({
+    dropdownParent: $('#modalEditOutcomeCCS'),
     multiple: true,
     ajax: {
       url: 'api-getMainContributing',
@@ -331,6 +397,56 @@ require([
     },
   });
 
+  $("#outcomeccs-contributed_project").select2({
+      dropdownParent: $('#modalEditOutcomeCCS'),
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getContributed',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
+  });
+
+  $("#outcomeccs-consensus").select2({
+      dropdownParent: $('#modalEditOutcomeCCS'),
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getConsensus',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
+  });
+
   $("[id$='-addObstacleActivity']").click(function () {
     $("[id$='-addObstaclesActivity']").show();
     $(this).hide();
@@ -353,6 +469,14 @@ require([
   });
   $("[id$='-addContributingKPI']").click(function () {
     $("[id$='-addContributingsKPI']").show();
+    $(this).hide();
+  });
+  $("[id$='-addObstacleOutcomeCC']").click(function () {
+    $("[id$='-addObstaclesOutcomeCC']").show();
+    $(this).hide();
+  });
+  $("[id$='-addContributingOutcomeCC']").click(function () {
+    $("[id$='-addContributingsOutcomeCC']").show();
     $(this).hide();
   });
 
@@ -439,9 +563,13 @@ require([
     var myValObjective = $(this).data('objective');
     var myValObjectiveDate = $(this).data('objective-date');
     var myValDegree = $(this).data('degree-changes');
+    var myValContributedProject = $(this).data('contributed-project');
     var myValContributing = $(this).data('contributing-factors');
+    var myValObstacles= $(this).data('obstacles');
     var myValLimiting = $(this).data('limiting-factors');
+    var myValConsensus = $(this).data('consensus');
     var myValExplain = $(this).data('explain');
+    var myValSelectedMonitoring = $(this).data('selected-monitoring');
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
     $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
@@ -451,9 +579,22 @@ require([
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective").val(myValObjective);
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date").prop('value', myValObjectiveDate);
     $('#modalEditOutcomeCCS').find("#outcomeccs-degree_changes").select2('data',{id: myValDegree, text: myValDegree});
-    $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").val(myValContributing);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-contributed_project").select2('data',{id: myValContributedProject, text: myValContributedProject});
+    if (myValContributing != ''){
+      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data',{id: myValContributing.split(','), text: myValContributing.split(',')});
+    }else{
+      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', '');
+    }
+
+    if (myValObstacles != ''){
+      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data',{id: myValObstacles.split(','), text: myValObstacles.split(',')});
+    }else{
+      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', '');
+    }
     $('#modalEditOutcomeCCS').find("#outcomeccs-limiting_factors").val(myValLimiting);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-consensus").select2('data',{id: myValConsensus, text: myValConsensus});
     $('#modalEditOutcomeCCS').find("#outcomeccs-explain").val(myValExplain);
+    $('#modalEditOutcomeCCS').find("#outcomeccs-selected_monitoring").val(myValSelectedMonitoring);
   });
 
     // addOutcomeCCS
@@ -463,6 +604,18 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
   });
+
+     // addOutcomeCCS
+  $("[id$='-update-stage']").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutcomeccs');
+    var myValStage = $(this).data('stage');
+    $('#modalUpdateStage').find(".modal-pk").text(myValYear);
+    $('#modalUpdateStage').find(".modal-url").text(myValUrl);
+    $('#modalUpdateStage').find(".modal-stage").text(myValStage);
+    $("#checkstage"+myValStage).prop('checked', true);
+  });
+
 
     // Update Outcomeccs Specific
   $('#updateOutcomeCCSFromModal').click(function(e){
@@ -474,12 +627,21 @@ require([
     params.objective = $('#outcomeccs-objective').val()
     params.objective_date = $('#outcomeccs-objective_date').val()
     params.degree_changes = $('#outcomeccs-degree_changes').val()
-    params.explain = $('#outcomeccs-explain').val()
+    params.contributed_project = $('#outcomeccs-contributed_project').val()
     params.contributing_factors = $('#outcomeccs-contributing_factors').val()
     params.limiting_factors = $('#outcomeccs-limiting_factors').val()
+    params.consensus = $('#outcomeccs-consensus').val()
+    params.explain = $('#outcomeccs-explain').val()
+    params.selected_monitoring = $('#outcomeccs-selected_monitoring').val()
     params.item_path = $('#OutcomeCCSPath').html()
     params.year = $('#OutcomeCCSYear').html()
     params.id_specific = $('#idSpecific').html()
+
+    params.obstacles = "";
+    temp = [];
+    $('#outcomeccs-obstacles').select2('data').map(obj => temp.push(obj.id));
+    params.obstacles = temp.join(',');
+
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"))
     $.ajax({
@@ -503,6 +665,24 @@ require([
     project_path = url.substring(0, url.lastIndexOf("/monitoring"))
     $.ajax({
       url: project_path + '/addOutcomeCCSMonitoring',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {location.reload();}}
+    });
+  });
+
+   // Update Stage OutcomeCC Monitoring
+  $('#updateStageMonitoringFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.item_path = $('#OutcomeCCSPathStage').html()
+    params.year = $('#OutcomeCCSYearStage').html();
+    params.stage = $('#StageRadio input[name=radio]:checked').val();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/monitoring"));
+    $.ajax({
+      url: project_path + '/updateStageMonitoring',
       method: 'POST',
       data: params,
       success: function(resp)
