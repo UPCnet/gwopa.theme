@@ -74,6 +74,8 @@ require([
             axisBorder: {
               show: false,
             },
+            min: 0,
+            max: 100,
             categories: titles,
           },
           yaxis: {
@@ -167,6 +169,8 @@ require([
             axisBorder: {
               show: false,
             },
+            min: 0,
+            max: 100,
             categories: titles,
           },
           yaxis: {
