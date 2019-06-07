@@ -494,7 +494,7 @@ require([
         success: function(resp)
           {
             if(resp) {
-              swal("Added", "The obstacle title has been added", "success", {
+              swal("Added", "Obstacle Title has been added", "success", {
                 buttons: false,
                 timer: 4000,
               })
@@ -517,7 +517,7 @@ require([
         success: function(resp)
           {
             if(resp) {
-              swal("Added", "The contributing factor title has been added", "success", {
+              swal("Added", "Contributing factor Title has been added", "success", {
                 buttons: false,
                 timer: 4000,
               })

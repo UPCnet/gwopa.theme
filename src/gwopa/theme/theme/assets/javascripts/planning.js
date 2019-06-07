@@ -302,19 +302,19 @@ require([
     end = Date.parse(end_date)
 
     if (start>end) {
-      swal("Please provide valid dates", 'The start date must begin before the completion date', "warning");
+      swal("Please provide valid dates", 'Start date must begin before Completion date', "warning");
       return false;
     }
     else if ($('#act-title').val() == "") {
-      swal("Please fill in the required fields", 'The title field is missing', "warning");
+      swal("Please fill in the required fields", 'Title is missing', "warning");
       return false;
     }
     else if ($('#act-start').val() == "") {
-      swal('Please fill in the required fields', 'The starting date field is missing', 'warning');
+      swal('Please fill in the required fields', 'Starting date is missing', 'warning');
       return false;
     }
     else if ($('#act-end').val() == "") {
-      swal('Please fill in the required fields', 'The completion date field is missing', 'warning');
+      swal('Please fill in the required fields', 'Completion date is missing', 'warning');
       return false;
     }
     else {
@@ -324,15 +324,15 @@ require([
   // Validate fields Output
   function validateFormOutput() {
     if ($('#out-title').val() == "") {
-      swal("Please fill in the required fields", "The title field is missing", "warning");
+      swal("Please fill in the required fields", "Title is missing", "warning");
       return false;
     }
     else if ($('#out-datetimepicker').val() == "") {
-      swal('Please fill in the required fields', 'The completion date field is missing', 'warning');
+      swal('Please fill in the required fields', 'Completion date is missing', 'warning');
       return false;
     }
     else if ($('#out-unit').val() == "") {
-      swal('Please fill in the required fields', 'The measuring unit field is missing', 'warning');
+      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
       return false;
     }
     else {
@@ -342,23 +342,23 @@ require([
   // Validate fields KPI
   function validateFormKPI() {
     if ($('#kpi-title').val() == "") {
-      swal('Please fill in the required fields', "The title field is missing", "warning");
+      swal('Please fill in the required fields', "Title is missing", "warning");
       return false;
     }
     else if ($('#kpi-baseline').val() == "") {
-      swal('Please fill in the required fields', 'The baseline value is missing', 'warning');
+      swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
       return false;
     }
     else if ($('#kpi-datetimepicker').val() == "") {
-      swal('Please fill in the required fields', 'The Baseline date is missing', 'warning');
+      swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
       return false;
     }
     else if ($('#kpi-unit').val() == "") {
-      swal('Please fill in the required fields', 'The measuring unit field is missing', 'warning');
+      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
       return false;
     }
     else if ($('#kpi-frequency').val() == "") {
-      swal('Please fill in the required fields', 'The measuring frequency field is missing', 'warning');
+      swal('Please fill in the required fields', 'The measuring frequency is missing', 'warning');
       return false;
     }
     else {
@@ -556,7 +556,7 @@ require([
         success: function(resp)
               {
                 if(resp) {
-                  swal("Added", "The output title has been added", "success", {
+                  swal("Added", "The Output Title has been added", "success", {
                     buttons: false,
                     timer: 2000,
                   })
@@ -579,7 +579,7 @@ require([
         success: function(resp)
               {
                 if(resp) {
-                  swal("Added", "The KPI title has been added", "success", {
+                  swal("Added", "The KPI Title has been added", "success", {
                     buttons: false,
                     timer: 2000,
                   })
