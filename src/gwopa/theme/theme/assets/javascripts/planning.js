@@ -726,7 +726,7 @@ require([
       var params = {};
       params.item = item;
       swal({
-        title: "Confirm delete " + item_type + "?",
+        title: "Delete " + item_type + "?",
         text: item_title,
         icon: "warning",
         buttons: true,
