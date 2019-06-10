@@ -12,15 +12,15 @@ require([
   // Validate fields Contributors
   function validateForm() {
     if ($('#partnerName').val() == "") {
-      swal("Partner name is missing", '', "warning");
+      swal("Contributor is missing", '', "warning");
       return false;
     }
     else if ($('#incash').val() == "") {
-      swal('Incash value is missing', '', 'warning');
+      swal('In-cash value is missing', '', 'warning');
       return false;
     }
     else if ($('#inkind').val() == "") {
-      swal('Inkind value is missing', '', 'warning');
+      swal('In-kind value is missing', '', 'warning');
       return false;
     }
     else {
