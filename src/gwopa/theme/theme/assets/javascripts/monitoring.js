@@ -712,87 +712,87 @@ require([
     $('.expandWaMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandWaMo').show();
-      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').show();
     });
 
     $('.notexpandWaMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandWaMo').show();
-      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').hide();
     });
 
     $('.expandActMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandActMo').show();
-      $(this).parent().parent().parent().nextAll("[id$='-expandA']").slideDown();
+      $(this).parent().parent().parent().nextAll("[id$='-expandA']").show();
     });
 
     $('.notexpandActMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandActMo').show();
-      $(this).parent().parent().parent().nextAll("[id$='-expandA']").slideUp();
+      $(this).parent().parent().parent().nextAll("[id$='-expandA']").hide();
     });
 
     $('.expandOutMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandOutMo').show();
-      $(this).parent().parent().parent().nextAll("[id$='-expandO']").slideDown();
+      $(this).parent().parent().parent().nextAll("[id$='-expandO']").show();
     });
 
     $('.notexpandOutMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandOutMo').show();
-      $(this).parent().parent().parent().nextAll("[id$='-expandO']").slideUp();
+      $(this).parent().parent().parent().nextAll("[id$='-expandO']").hide();
     });
 
     $('.expandPerMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandPerMo').show();
-      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').show();
     });
 
     $('.notexpandPerMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandPerMo').show();
-      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+      $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').hide();
     });
 
     $('.expandKPIMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandKPIMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').show();
     });
 
     $('.notexpandKPIMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandKPIMo').show();
-      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+      $(this).parent().parent().parent().nextAll('.tabla_cuerpo').hide();
     });
 
     $('.expandCapMo').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandCapMo').show();
-      $(this).parent().parent().parent().parent().next().slideDown();
+      $(this).parent().parent().parent().parent().nextAll().show();
     });
 
     $('.notexpandCapMo').click(function() {
       $(this).hide();
       $(this).parent().find('.expandCapMo').show();
-      $(this).parent().parent().parent().parent().next().slideUp();
+      $(this).parent().parent().parent().parent().nextAll().hide();
     });
 
     $('.expandccs').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandccs').show();
-      $(this).parent().parent().parent().find('.cc_container').slideDown();
-      $(this).parent().parent().parent().find('.cc_container_others').slideDown();
+      $(this).parent().parent().parent().find('.cc_container').show();
+      $(this).parent().parent().parent().find('.cc_container_others').show();
     });
 
     $('.notexpandccs').click(function() {
       $(this).hide();
       $(this).parent().find('.expandccs').show();
-      $(this).parent().parent().parent().find('.cc_container').slideUp();
-      $(this).parent().parent().parent().find('.cc_container_others').slideUp();
+      $(this).parent().parent().parent().find('.cc_container').hide();
+      $(this).parent().parent().parent().find('.cc_container_others').hide();
     });
 
   });

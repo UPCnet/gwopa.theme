@@ -791,50 +791,50 @@ require([
   $('.expandccs').click(function() {
     $(this).hide();
     $(this).parent().find('.notexpandccs').show();
-    $(this).parent().parent().parent().find('.cc_container').slideDown();
-    $(this).parent().parent().parent().find('.cc_container_others').slideDown();
+    $(this).parent().parent().parent().find('.cc_container').show();
+    $(this).parent().parent().parent().find('.cc_container_others').show();
   });
 
   $('.notexpandccs').click(function() {
     $(this).hide();
     $(this).parent().find('.expandccs').show();
-    $(this).parent().parent().parent().find('.cc_container').slideUp();
-    $(this).parent().parent().parent().find('.cc_container_others').slideUp();
+    $(this).parent().parent().parent().find('.cc_container').hide();
+    $(this).parent().parent().parent().find('.cc_container_others').hide();
   });
 
   $('.expandCapPla').click(function() {
     $(this).hide();
     $(this).parent().find('.notexpandCapPla').show();
-    $(this).parent().parent().parent().parent().next().slideDown();
+    $(this).parent().parent().parent().parent().next().show();
   });
 
   $('.notexpandCapPla').click(function() {
     $(this).hide();
     $(this).parent().find('.expandCapPla').show();
-    $(this).parent().parent().parent().parent().next().slideUp();
+    $(this).parent().parent().parent().parent().next().hide();
   });
 
   $('.expandPerPla').click(function() {
     $(this).hide();
     $(this).parent().find('.notexpandPerPla').show();
-    $(this).parent().parent().parent().parent().next().slideDown();
+    $(this).parent().parent().parent().parent().next().show();
   });
 
   $('.notexpandPerPla').click(function() {
     $(this).hide();
     $(this).parent().find('.expandPerPla').show();
-    $(this).parent().parent().parent().parent().next().slideUp();
+    $(this).parent().parent().parent().parent().next().hide();
   });
 
   $('.expandWaPla').click(function() {
     $(this).hide();
     $(this).parent().find('.notexpandWaPla').show();
-    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideDown();
+    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').show();
   });
 
   $('.notexpandWaPla').click(function() {
     $(this).hide();
     $(this).parent().find('.expandWaPla').show();
-    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').slideUp();
+    $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').hide();
   });
 });
