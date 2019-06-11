@@ -246,6 +246,41 @@ require([
         }
       }
     });
+    // $.ajax({
+    //   url: window.project_path + '/api-getCurrentStage',
+    //   method: 'GET',
+    //   data: params,
+    //   transport: function(params){
+    //     params.beforeSend = function(request){
+    //       request.setRequestHeader("Accept", "application/json");
+    //     };
+    //     return $.ajax(params);
+    //   },
+    //   success: function(resp) {
+    //     console.log(resp);
+    //     resp = JSON.parse(resp);
+    //     console.log(resp);
+    //     var specifics = resp[0];
+    //     for (var i=0; i < specifics.length; i++) {
+    //       $('#'+specifics[i].id).removeClass();
+    //       $('#'+specifics[i].id).addClass("item basic " + specifics[i].selected_monitoring);
+    //     }
+    //     var others = resp[1];
+    //     if (others.length > 0) {
+    //       $('#others').show();
+    //       $('.cuartafila').html('')
+    //       for (var i=0; i < others.length; i++) {
+    //         $('.cuartafila').append('<a id="' + others[i].id + '" class="item basic ' + others[i].selected_monitoring + '"><div class="item_image "><img alt="" title="" src="++theme++gwopa.theme/assets/images/w-others.png"></div><div class="item_text"><span>lalala</span></div></a>');
+    //         $('#'+others[i].id).removeClass();
+    //         $('#'+others[i].id).addClass("item basic " + others[i].selected_monitoring);
+    //         $('#'+others[i].id).children('.item_text').children().text(others[i].title_specific);
+    //       }
+    //     }
+    //     else {
+    //       $('#others').hide();
+    //     }
+    //   }
+    // });
   }
 
   function reDrawInfo() {
@@ -347,11 +382,29 @@ require([
         }
       }
     });
+    $.ajax({
+      url: window.project_path + '/api-getCurrentStage',
+      method: 'GET',
+      data: params,
+      transport: function(params){
+        params.beforeSend = function(request){
+          request.setRequestHeader("Accept", "application/json");
+        };
+        return $.ajax(params);
+      },
+      success: function(resp) {
+        for (var i=0; i < resp.length; i++) {
+          $('#'+resp[i].id).removeClass();
+          $('#'+resp[i].id).addClass(resp[i].state);
+        }
+      }
+    });
   }
 
   $(document).ready(function() {
     fillInfo();
 
+    // habilitar/deshabilitar ProjectYear en dashboard
     $('#1, #2, #3, #4, #5, #6, #7, #8, #9, #10').click(function() {
       let idDis = $('.disabled')[0] ? $('.disabled')[0].id : 0;
       $(`#${this.id}`).removeClass("visible");
