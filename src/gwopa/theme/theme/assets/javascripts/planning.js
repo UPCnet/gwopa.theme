@@ -312,10 +312,10 @@ require([
   });
   // Validate fields Activity
   function validateFormActivity() {
-    start_date = $('#act-start').val()
-    end_date = $('#act-end').val()
-    start = Date.parse(start_date)
-    end = Date.parse(end_date)
+    start_date = $('#act-start').val();
+    end_date = $('#act-end').val();
+    start = Date.parse(start_date);
+    end = Date.parse(end_date);
 
     if (start>end) {
       swal("Please provide valid dates", 'Start date must begin before Completion date', "warning");
@@ -412,21 +412,21 @@ require([
     if (validateFormActivity()) {
       e.preventDefault();
       var params = {};
-      params.item_type = 'Activity'
-      params.item_path = $('#ActivityPath').html()
-      params.item_project_start = $('.modal-start').html()
-      params.item_project_end = $('.modal-end').html()
-      params.item_hidden_project_currency = $('#act-hidden-project-currency').html()
-      params.item_title = $('#act-title').val()
-      params.item_description = $('#act-description').val()
-      params.item_initialdescription = $('#act-initialdescription').val()
-      params.item_start = $('#act-start').val()
-      params.item_end = $('#act-end').val()
-      params.item_budget = $('#act-budget').val()
-      params.item_risks = $('#act-risks').val()
-      params.item_responsible = $('#act-responsible').val()
+      params.item_type = 'Activity';
+      params.item_path = $('#ActivityPath').html();
+      params.item_project_start = $('.modal-start').html();
+      params.item_project_end = $('.modal-end').html();
+      params.item_hidden_project_currency = $('#act-hidden-project-currency').html();
+      params.item_title = $('#act-title').val();
+      params.item_description = $('#act-description').val();
+      params.item_initialdescription = $('#act-initialdescription').val();
+      params.item_start = $('#act-start').val();
+      params.item_end = $('#act-end').val();
+      params.item_budget = $('#act-budget').val();
+      params.item_risks = $('#act-risks').val();
+      params.item_responsible = $('#act-responsible').val();
       url = window.location.href;
-      project_path = url.substring(0, url.lastIndexOf("/planning"))
+      project_path = url.substring(0, url.lastIndexOf("/planning"));
       $.ajax({
         url: project_path + '/createElement',
         method: 'POST',
@@ -444,27 +444,27 @@ require([
     if (validateFormOutput()) {
       e.preventDefault();
       var params = {};
-      params.item_type = 'Output'
-      params.item_path = $('#OutputPath').html()
-      params.item_title = $('#out-title').val()
-      params.item_description = $('#out-description').val()
-      params.item_date = $('#out-datetimepicker').val()
-      params.item_unit = $('#out-unit').val()
-      params.item_means = $('#out-means').val()
-      params.item_risks = $('#out-risks').val()
-      params.item_responsible = $('#out-responsible').val()
-      params.item_target1 = $('#target-value-1').val()
-      params.item_target2 = $('#target-value-2').val()
-      params.item_target3 = $('#target-value-3').val()
-      params.item_target4 = $('#target-value-4').val()
-      params.item_target5 = $('#target-value-5').val()
-      params.item_target6 = $('#target-value-6').val()
-      params.item_target7 = $('#target-value-7').val()
-      params.item_target8 = $('#target-value-8').val()
-      params.item_target9 = $('#target-value-9').val()
-      params.item_target10 = $('#target-value-10').val()
+      params.item_type = 'Output';
+      params.item_path = $('#OutputPath').html();
+      params.item_title = $('#out-title').val();
+      params.item_description = $('#out-description').val();
+      params.item_date = $('#out-datetimepicker').val();
+      params.item_unit = $('#out-unit').val();
+      params.item_means = $('#out-means').val();
+      params.item_risks = $('#out-risks').val();
+      params.item_responsible = $('#out-responsible').val();
+      params.item_target1 = $('#target-value-1').val();
+      params.item_target2 = $('#target-value-2').val();
+      params.item_target3 = $('#target-value-3').val();
+      params.item_target4 = $('#target-value-4').val();
+      params.item_target5 = $('#target-value-5').val();
+      params.item_target6 = $('#target-value-6').val();
+      params.item_target7 = $('#target-value-7').val();
+      params.item_target8 = $('#target-value-8').val();
+      params.item_target9 = $('#target-value-9').val();
+      params.item_target10 = $('#target-value-10').val();
       url = window.location.href;
-      project_path = url.substring(0, url.lastIndexOf("/planning"))
+      project_path = url.substring(0, url.lastIndexOf("/planning"));
       $.ajax({
         url: project_path + '/createElement',
         method: 'POST',
@@ -522,30 +522,30 @@ require([
     if (validateFormKPIZone()) {
       e.preventDefault();
       var params = {};
-      params.item_type = 'OutcomeZONE'
-      params.item_path = $('#KPIZonePath').html()
-      params.item_title = $('#kpizone-title').val()
-      params.item_description = $('#kpizone-description').val()
-      params.item_baseline = $('#kpizone-baseline').val()
-      params.item_date = $('#kpizone-datetimepicker').val()
-      params.item_unit = $('#kpizone-unit').val()
-      params.item_frequency = $('#kpizone-frequency').val()
-      params.item_means = $('#kpizone-means').val()
-      params.item_risks = $('#kpizone-risks').val()
-      params.item_zone = $('#kpizone-zone').val()
-      params.item_responsible = $('#kpizone-responsible').val()
-      params.item_target1 = $('#kpizonetarget-value-1').val()
-      params.item_target2 = $('#kpizonetarget-value-2').val()
-      params.item_target3 = $('#kpizonetarget-value-3').val()
-      params.item_target4 = $('#kpizonetarget-value-4').val()
-      params.item_target5 = $('#kpizonetarget-value-5').val()
-      params.item_target6 = $('#kpizonetarget-value-6').val()
-      params.item_target7 = $('#kpizonetarget-value-7').val()
-      params.item_target8 = $('#kpizonetarget-value-8').val()
-      params.item_target9 = $('#kpizonetarget-value-9').val()
-      params.item_target10 = $('#kpizonetarget-value-10').val()
+      params.item_type = 'OutcomeZONE';
+      params.item_path = $('#KPIZonePath').html();
+      params.item_title = $('#kpizone-title').val();
+      params.item_description = $('#kpizone-description').val();
+      params.item_baseline = $('#kpizone-baseline').val();
+      params.item_date = $('#kpizone-datetimepicker').val();
+      params.item_unit = $('#kpizone-unit').val();
+      params.item_frequency = $('#kpizone-frequency').val();
+      params.item_means = $('#kpizone-means').val();
+      params.item_risks = $('#kpizone-risks').val();
+      params.item_zone = $('#kpizone-zone').val();
+      params.item_responsible = $('#kpizone-responsible').val();
+      params.item_target1 = $('#kpizonetarget-value-1').val();
+      params.item_target2 = $('#kpizonetarget-value-2').val();
+      params.item_target3 = $('#kpizonetarget-value-3').val();
+      params.item_target4 = $('#kpizonetarget-value-4').val();
+      params.item_target5 = $('#kpizonetarget-value-5').val();
+      params.item_target6 = $('#kpizonetarget-value-6').val();
+      params.item_target7 = $('#kpizonetarget-value-7').val();
+      params.item_target8 = $('#kpizonetarget-value-8').val();
+      params.item_target9 = $('#kpizonetarget-value-9').val();
+      params.item_target10 = $('#kpizonetarget-value-10').val();
       url = window.location.href;
-      project_path = url.substring(0, url.lastIndexOf("/planning"))
+      project_path = url.substring(0, url.lastIndexOf("/planning"));
       $.ajax({
         url: project_path + '/createElement',
         method: 'POST',
@@ -559,65 +559,65 @@ require([
     }
   });
   // Add Output title
-  $('#add-output').keypress(function(e){
-    if(e.which == 13) {
-      var params = {};
-      params.item_title = e.target.value
-      var url = window.location.href;
-      var project_path = url.substring(0, url.lastIndexOf("/planning"))
-      $.ajax({
-        url: project_path + '/addTitleOutput',
-        method: 'POST',
-        data: params,
-        success: function(resp)
-              {
-                if(resp) {
-                  swal("Added", "The Output Title has been added", "success", {
-                    buttons: false,
-                    timer: 2000,
-                  })
-                }
+  $('#add-output').click(function(e) {
+    var params = {};
+    params.item_title = $('#new-output').val();
+    var url = window.location.href;
+    var project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/addTitleOutput',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+            {
+              if(resp) {
+                swal("Added", "The Output Title has been added", "success", {
+                  buttons: false,
+                  timer: 2000,
+                });
+                $("#addOutputTitle").show();
+                $("#addBox").hide();
               }
-      });
-    }
+            }
+    });
   });
   // Add KPI title
-  $('#add-KPI').keypress(function(e){
-    if(e.which == 13) {
-      var params = {};
-      params.item_title = e.target.value
-      var url = window.location.href;
-      var project_path = url.substring(0, url.lastIndexOf("/planning"))
-      $.ajax({
-        url: project_path + '/addTitleKPI',
-        method: 'POST',
-        data: params,
-        success: function(resp)
-              {
-                if(resp) {
-                  swal("Added", "The KPI Title has been added", "success", {
-                    buttons: false,
-                    timer: 2000,
-                  })
-                }
+  $('#add-KPI').click(function(e) {
+    var params = {};
+    params.item_title = $('#new-kpi').val();
+    var url = window.location.href;
+    var project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/addTitleKPI',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+            {
+              if(resp) {
+                swal("Added", "The KPI Title has been added", "success", {
+                  buttons: false,
+                  timer: 2000,
+                });
+                $("#addKPITitle").show();
+                $("#kpiBox").hide();
               }
-      });
-    }
+            }
+    });
   });
 
   // Update Outcomecc Generic
   $('#updateOutcomeCCFromModal').click(function(e){
     e.preventDefault();
     var params = {};
-    params.description = $('#outcomecc-description').val()
-    params.baseline = $('#outcomecc-baseline').val()
-    params.baseline_date = $('#outcomecc-baseline_date').val()
-    params.objective = $('#outcomecc-objective').val()
-    params.objective_date = $('#outcomecc-objective_date').val()
-    params.item_path = $('#OutcomeCCPath').html()
-    params.year = $('#OutcomeCCYear').html()
+    params.description = $('#outcomecc-description').val();
+    params.baseline = $('#outcomecc-baseline').val();
+    params.baseline_date = $('#outcomecc-baseline_date').val();
+    params.objective = $('#outcomecc-objective').val();
+    params.objective_date = $('#outcomecc-objective_date').val();
+    params.item_path = $('#OutcomeCCPath').html();
+    params.year = $('#OutcomeCCYear').html();
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
       url: project_path + '/updateOutcomeCC',
       method: 'POST',
@@ -631,16 +631,16 @@ require([
   $('#updateOutcomeCCSFromModal').click(function(e){
     e.preventDefault();
     var params = {};
-    params.description = $('#outcomeccs-description').val()
-    params.baseline = $('#outcomeccs-baseline').val()
-    params.baseline_date = $('#outcomeccs-baseline_date').val()
-    params.objective = $('#outcomeccs-objective').val()
-    params.objective_date = $('#outcomeccs-objective_date').val()
-    params.item_path = $('#OutcomeCCSPath').html()
-    params.year = $('#OutcomeCCSYear').html()
-    params.id_specific = $('#idSpecific').html()
+    params.description = $('#outcomeccs-description').val();
+    params.baseline = $('#outcomeccs-baseline').val();
+    params.baseline_date = $('#outcomeccs-baseline_date').val();
+    params.objective = $('#outcomeccs-objective').val();
+    params.objective_date = $('#outcomeccs-objective_date').val();
+    params.item_path = $('#OutcomeCCSPath').html();
+    params.year = $('#OutcomeCCSYear').html();
+    params.id_specific = $('#idSpecific').html();
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
       url: project_path + '/updateOutcomeCCS',
       method: 'POST',
@@ -655,11 +655,11 @@ require([
   $('#addOutcomeCCSFromModal').click(function(e){
     e.preventDefault();
     var params = {};
-    params.item_title = $('#outcomeccs-title').val()
-    params.item_path = $('#OutcomeCCSPath').html()
-    params.year = $('#OutcomeCCSYear').html()
+    params.item_title = $('#outcomeccs-title').val();
+    params.item_path = $('#OutcomeCCSPath').html();
+    params.year = $('#OutcomeCCSYear').html();
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/planning"))
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
       url: project_path + '/addOutcomeCCS',
       method: 'POST',
@@ -687,13 +687,13 @@ require([
     }
     $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
       let idnum = counter + 1;
-      if(counter>=numPhases){
+      if (counter>=numPhases) {
         swal('Not allowed!',
              'Sorry, but only ' + numPhases + ' target values are accepted.',
              'warning');
       }
       else {
-        let  newTextBoxDiv = $(document.createElement('div'));
+        let newTextBoxDiv = $(document.createElement('div'));
         newTextBoxDiv.attr("id", 'TextBoxDiv' + idnum);
         newTextBoxDiv.attr("class", "toDelete" );
         newTextBoxDiv.after().html(
@@ -736,9 +736,9 @@ require([
     // Delete element on click button
     $('.btn-delete').on('click', function(e) {
       e.preventDefault();
-      item = $(this).attr('data-url')
-      item_type = $(this).attr('data-type')
-      item_title = $(this).attr('data-id')
+      item = $(this).attr('data-url');
+      item_type = $(this).attr('data-type');
+      item_title = $(this).attr('data-id');
       var params = {};
       params.item = item;
       swal({
@@ -751,7 +751,7 @@ require([
       .then((willDelete) => {
         if (willDelete) {
           url = window.location.href;
-          project_path = url.substring(0, url.lastIndexOf("/planning"))
+          project_path = url.substring(0, url.lastIndexOf("/planning"));
           $.ajax({
             url: project_path + '/removeElement',
             method: 'POST',
@@ -775,8 +775,12 @@ require([
         }
       });
     });
-    $("#addOutputTitle, #addKPITitle").click(function () {
+    $("#addOutputTitle, addKPITitle").click(function () {
       $("#addBox").show();
+      $(this).hide();
+    });
+    $("#addKPITitle").click(function () {
+      $("#kpiBox").show();
       $(this).hide();
     });
   });
