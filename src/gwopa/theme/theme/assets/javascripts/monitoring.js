@@ -630,42 +630,58 @@ require([
     $("#checkstage"+myValStage).prop('checked', true);
   });
 
+ // Validate fields Output
+  function validateFormOutcomeCCS() {
+    if ($('#outcomeccs-degree_changes').val() == "") {
+      swal("Please fill in the required fields", "Title is missing", "warning");
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 
     // Update Outcomeccs Specific
   $('#updateOutcomeCCSFromModal').click(function(e){
-    e.preventDefault();
-    var params = {};
-    params.description = $('#outcomeccs-description').val()
-    params.baseline = $('#outcomeccs-baseline').val()
-    params.baseline_date = $('#outcomeccs-baseline_date').val()
-    params.objective = $('#outcomeccs-objective').val()
-    params.objective_date = $('#outcomeccs-objective_date').val()
-    params.degree_changes = $('#outcomeccs-degree_changes').val()
-    params.contributed_project = $('#outcomeccs-contributed_project').val()
-    params.contributing_factors = $('#outcomeccs-contributing_factors').val()
-    params.consensus = $('#outcomeccs-consensus').val()
-    params.explain = $('#outcomeccs-explain').val()
-    params.selected_monitoring = $('#outcomeccs-selected_monitoring').val()
-    params.item_path = $('#OutcomeCCSPath').html()
-    params.year = $('#OutcomeCCSYear').html()
-    params.id_specific = $('#idSpecific').html()
+    if (validateFormOutcomeCCS()) {
+      e.preventDefault();
+      var params = {};
+      params.description = $('#outcomeccs-description').val()
+      params.baseline = $('#outcomeccs-baseline').val()
+      params.baseline_date = $('#outcomeccs-baseline_date').val()
+      params.objective = $('#outcomeccs-objective').val()
+      params.objective_date = $('#outcomeccs-objective_date').val()
+      params.degree_changes = $('#outcomeccs-degree_changes').val()
+      params.contributed_project = $('#outcomeccs-contributed_project').val()
+      params.contributing_factors = $('#outcomeccs-contributing_factors').val()
+      params.consensus = $('#outcomeccs-consensus').val()
+      params.explain = $('#outcomeccs-explain').val()
+      params.selected_monitoring = $('#outcomeccs-selected_monitoring').val()
+      params.item_path = $('#OutcomeCCSPath').html()
+      params.year = $('#OutcomeCCSYear').html()
+      params.id_specific = $('#idSpecific').html()
 
-    params.obstacles = "";
-    temp = [];
-    $('#outcomeccs-obstacles').select2('data').map(obj => temp.push(obj.id));
-    params.obstacles = temp.join(',');
+      params.obstacles = "";
+      temp = [];
+      $('#outcomeccs-obstacles').select2('data').map(obj => temp.push(obj.id));
+      params.obstacles = temp.join(',');
 
-    url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/monitoring"))
-    $.ajax({
-      url: project_path + '/updateOutcomeCCSMonitoring',
-      method: 'POST',
-      data: params,
-      success: function(resp)
-        { if(resp) { location.reload();
-                    }}
-    });
+      url = window.location.href;
+      project_path = url.substring(0, url.lastIndexOf("/monitoring"))
+      $.ajax({
+        url: project_path + '/updateOutcomeCCSMonitoring',
+        method: 'POST',
+        data: params,
+        success: function(resp)
+          { if(resp) { location.reload();
+                      }}
+      });
+    }
+    else{
+      return false;
+    }
   });
+
 
 
  // Add Outcomeccs Specific
