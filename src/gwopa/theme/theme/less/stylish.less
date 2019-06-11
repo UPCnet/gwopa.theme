@@ -3766,15 +3766,6 @@ div#formfield-form-widgets-inkind {
   overflow: hidden;
   color: white;
 }
-.past {
-  color: #fff;
-}
-.current {
-  color: #fff;
-}
-.future {
-  color: #7f7f7f;
-}
 .steps li {
   float: left;
   margin-left: 0;
@@ -3823,13 +3814,28 @@ div#formfield-form-widgets-inkind {
 /* Setup colors (both the background and the arrow) */
 
 /* Completed */
-.steps li { background-color:#1b7bb1; }
-.steps li::after { border-left-color: #1b7bb1; }
+.steps li.past {
+  color: #fff;
+  background-color:#1b7bb1;
+}
+.steps li::after {
+  border-left-color: #1b7bb1;
+}
 
 /* Current */
-.steps li.current { background-color: #31b0d6; }
-.steps li.current::after { border-left-color: #31b0d6; }
+.steps li.current {
+  color: #fff;
+  background-color: #31b0d6;
+}
+.steps li.current::after {
+  border-left-color: #31b0d6;
+}
 
 /* Following */
-.steps li.current ~ li { background-color: #EBEBEB; }
-.steps li.current ~ li::after { border-left-color: #EBEBEB; }
+.steps li.future {
+  color: #7f7f7f;
+  background-color: #EBEBEB;
+}
+.steps li.future::after {
+  border-left-color: #EBEBEB;
+}
