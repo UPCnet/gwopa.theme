@@ -534,16 +534,16 @@ require([
       params.item_risks = $('#kpizone-risks').val();
       params.item_zone = $('#kpizone-zone').val();
       params.item_responsible = $('#kpizone-responsible').val();
-      params.item_target1 = $('#kpizonetarget-value-1').val();
-      params.item_target2 = $('#kpizonetarget-value-2').val();
-      params.item_target3 = $('#kpizonetarget-value-3').val();
-      params.item_target4 = $('#kpizonetarget-value-4').val();
-      params.item_target5 = $('#kpizonetarget-value-5').val();
-      params.item_target6 = $('#kpizonetarget-value-6').val();
-      params.item_target7 = $('#kpizonetarget-value-7').val();
-      params.item_target8 = $('#kpizonetarget-value-8').val();
-      params.item_target9 = $('#kpizonetarget-value-9').val();
-      params.item_target10 = $('#kpizonetarget-value-10').val();
+      params.item_target1 = $('#kpizone-target-value-1').val();
+      params.item_target2 = $('#kpizone-target-value-2').val();
+      params.item_target3 = $('#kpizone-target-value-3').val();
+      params.item_target4 = $('#kpizone-target-value-4').val();
+      params.item_target5 = $('#kpizone-target-value-5').val();
+      params.item_target6 = $('#kpizone-target-value-6').val();
+      params.item_target7 = $('#kpizone-target-value-7').val();
+      params.item_target8 = $('#kpizone-target-value-8').val();
+      params.item_target9 = $('#kpizone-target-value-9').val();
+      params.item_target10 = $('#kpizone-target-value-10').val();
       url = window.location.href;
       project_path = url.substring(0, url.lastIndexOf("/planning"));
       $.ajax({
