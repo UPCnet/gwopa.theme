@@ -3,6 +3,22 @@ require([
   'jquery'
 ], function(expect, $) {
   // Target Value editabble field
+  $('#myTab a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
+
+  // store the currently selected tab in the hash value
+  $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+    var id = $(e.target).attr("href").substr(1);
+    window.location.hash = id;
+  });
+
+  // on load of the page: switch to the currently selected tab
+  var hash = window.location.hash;
+  $('#myTab a[href="' + hash + '"]').tab('show');
+
+
   $('.editable').editable({
      inputclass: function(e, f) {
        $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
@@ -566,7 +582,6 @@ require([
     var myValContributedProject = $(this).data('contributed-project');
     var myValContributing = $(this).data('contributing-factors');
     var myValObstacles= $(this).data('obstacles');
-    var myValLimiting = $(this).data('limiting-factors');
     var myValConsensus = $(this).data('consensus');
     var myValExplain = $(this).data('explain');
     var myValSelectedMonitoring = $(this).data('selected-monitoring');
@@ -591,7 +606,6 @@ require([
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', '');
     }
-    $('#modalEditOutcomeCCS').find("#outcomeccs-limiting_factors").val(myValLimiting);
     $('#modalEditOutcomeCCS').find("#outcomeccs-consensus").select2('data',{id: myValConsensus, text: myValConsensus});
     $('#modalEditOutcomeCCS').find("#outcomeccs-explain").val(myValExplain);
     $('#modalEditOutcomeCCS').find("#outcomeccs-selected_monitoring").val(myValSelectedMonitoring);
@@ -629,7 +643,6 @@ require([
     params.degree_changes = $('#outcomeccs-degree_changes').val()
     params.contributed_project = $('#outcomeccs-contributed_project').val()
     params.contributing_factors = $('#outcomeccs-contributing_factors').val()
-    params.limiting_factors = $('#outcomeccs-limiting_factors').val()
     params.consensus = $('#outcomeccs-consensus').val()
     params.explain = $('#outcomeccs-explain').val()
     params.selected_monitoring = $('#outcomeccs-selected_monitoring').val()
@@ -649,7 +662,8 @@ require([
       method: 'POST',
       data: params,
       success: function(resp)
-        { if(resp) {location.reload();}}
+        { if(resp) { location.reload();
+                    }}
     });
   });
 
