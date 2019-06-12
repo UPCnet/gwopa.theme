@@ -12,7 +12,7 @@ require([
     params.wa = $('#selectWA').children("option:selected").val();
     params.year = $('.disabled')[0].id;
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/visualizating"));
+    project_path = url.substring(0, url.lastIndexOf("/dash-areas"));
     $.ajax({
       url: window.project_path + '/api-getActivities',
       method: 'GET',
@@ -33,10 +33,15 @@ require([
           $('#graphicActivity').show();
           $('#graphicOutput').show();
           $('#noInfo').hide();
+          if (titles.length == 1)
+            var height = 80;
+          else
+            var height = titles.length * 50;
           var optionsActivity = {
             chart: {
               id: 'chartActivity',
-              height: 150,
+              height: height,
+              parentHeightOffset: 0,
               type: 'bar',
               toolbar: {
                 show: false,
@@ -134,10 +139,15 @@ require([
           titles[i] = titles[i].replace(titles[i], titles[i].trunc(40));
         }
         var values = resp[1];
+        if (titles.length == 1)
+          var height = 80;
+        else
+          var height = titles.length * 50;
         var optionsOutput = {
           chart: {
             id: 'chartOutput',
-            height: 150,
+            height: height,
+            parentHeightOffset: 0,
             type: 'bar',
             toolbar: {
               show: false,
@@ -213,39 +223,6 @@ require([
         chartOutput.render();
       }
     });
-    // $.ajax({
-    //   url: window.project_path + '/api-getCapacityChanges',
-    //   method: 'GET',
-    //   data: params,
-    //   transport: function(params){
-    //     params.beforeSend = function(request){
-    //       request.setRequestHeader("Accept", "application/json");
-    //     };
-    //     return $.ajax(params);
-    //   },
-    //   success: function(resp) {
-    //     resp = JSON.parse(resp);
-    //     var specifics = resp[0];
-    //     for (var i=0; i < specifics.length; i++) {
-    //       $('#'+specifics[i].id).removeClass();
-    //       $('#'+specifics[i].id).addClass("item basic " + specifics[i].selected_monitoring);
-    //     }
-    //     var others = resp[1];
-    //     if (others.length > 0) {
-    //       $('#others').show();
-    //       $('.cuartafila').html('')
-    //       for (var i=0; i < others.length; i++) {
-    //         $('.cuartafila').append('<a id="' + others[i].id + '" class="item basic ' + others[i].selected_monitoring + '"><div class="item_image "><img alt="" title="" src="++theme++gwopa.theme/assets/images/w-others.png"></div><div class="item_text"><span>lalala</span></div></a>');
-    //         $('#'+others[i].id).removeClass();
-    //         $('#'+others[i].id).addClass("item basic " + others[i].selected_monitoring);
-    //         $('#'+others[i].id).children('.item_text').children().text(others[i].title_specific);
-    //       }
-    //     }
-    //     else {
-    //       $('#others').hide();
-    //     }
-    //   }
-    // });
   }
 
   function reDrawInfo() {
@@ -253,7 +230,7 @@ require([
     params.wa = $('#selectWA').children("option:selected").val();
     params.year = $('.disabled')[0].id;
     url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/visualizating"));
+    project_path = url.substring(0, url.lastIndexOf("/dash-areas"));
     $.ajax({
       url: window.project_path + '/api-getActivities',
       method: 'GET',
@@ -274,7 +251,14 @@ require([
           $('#graphicActivity').show();
           $('#graphicOutput').show();
           $('#noInfo').hide();
+          if (titles.length == 1)
+            var height = 80;
+          else
+            var height = titles.length * 50;
           ApexCharts.exec('chartActivity', 'updateOptions', {
+            chart: {
+              height: height,
+            },
             xaxis: {
               categories: titles,
             },
@@ -305,7 +289,14 @@ require([
         }
         var values = resp[1];
         if (titles.length > 0 && values[0].data.length) {
+          if (titles.length == 1)
+            var height = 80;
+          else
+            var height = titles.length * 50;
           ApexCharts.exec('chartOutput', 'updateOptions', {
+            chart: {
+              height: height,
+            },
             xaxis: {
               categories: titles,
             },
