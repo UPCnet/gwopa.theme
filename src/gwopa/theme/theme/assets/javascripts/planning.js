@@ -202,8 +202,10 @@ require([
     var myValBaseDate = $(this).data('base-date');
     var myValObjective = $(this).data('objective');
     var myValObjectiveDate = $(this).data('objective-date');
+    var myValIdCapacity = $(this).data('id-capacity');
     $('#modalEditOutcomeCC').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCC').find(".modal-url").text(myValUrl);
+    $('#modalEditOutcomeCC').find(".modal-idCapacity").text(myValIdCapacity);
     $('#modalEditOutcomeCC').find("#outcomecc-description").text(myValDescription);
     $('#modalEditOutcomeCC').find("#outcomecc-baseline").val(myValBaseValue);
     $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
@@ -224,9 +226,11 @@ require([
     var myValBaseDate = $(this).data('base-date');
     var myValObjective = $(this).data('objective');
     var myValObjectiveDate = $(this).data('objective-date');
+    var myValIdCapacity = $(this).data('id-capacity');
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
     $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find(".modal-idCapacityCCS").text(myValIdCapacity);
     $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
@@ -510,6 +514,7 @@ require([
     params.objective_date = $('#outcomecc-objective_date').val();
     params.item_path = $('#OutcomeCCPath').html();
     params.year = $('#OutcomeCCYear').html();
+    params.id_capacity = $('#idCapacity').html();
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
@@ -517,7 +522,14 @@ require([
       method: 'POST',
       data: params,
       success: function(resp)
-        { if(resp) {location.reload();}}
+        { if(resp) {
+          outcome = $("#" + params.id_capacity + " a ");
+          outcome.data("description", params.description);
+          outcome.data("base-value", params.baseline);
+          outcome.data("base-date", params.baseline_date);
+          outcome.data("objective", params.objective);
+          outcome.data("objective-date", params.objective_date);
+        }}
     });
   });
 
@@ -533,6 +545,7 @@ require([
     params.item_path = $('#OutcomeCCSPath').html();
     params.year = $('#OutcomeCCSYear').html();
     params.id_specific = $('#idSpecific').html();
+    params.id_capacity = $('#idCapacityCCS').html();
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
@@ -540,7 +553,17 @@ require([
       method: 'POST',
       data: params,
       success: function(resp)
-        { if(resp) {location.reload();}}
+        { if(resp) {
+          outcome = $("#" + params.id_capacity + " a[data-id_specific='" + params.id_specific + "']");
+          outcome.addClass("selected");
+          img = outcome.find("img");
+          img.attr("src", img.attr("data-selected"));
+          outcome.data("description", params.description);
+          outcome.data("base-value", params.baseline);
+          outcome.data("base-date", params.baseline_date);
+          outcome.data("objective", params.objective);
+          outcome.data("objective-date", params.objective_date);
+        }}
     });
   });
 

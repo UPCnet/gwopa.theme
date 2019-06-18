@@ -585,9 +585,11 @@ require([
     var myValConsensus = $(this).data('consensus');
     var myValExplain = $(this).data('explain');
     var myValSelectedMonitoring = $(this).data('selected-monitoring');
+    var myValIdCapacity = $(this).data('id-capacity');
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
     $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find(".modal-idCapacity").text(myValIdCapacity);
     $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date").prop('value', myValBaseDate)
@@ -660,6 +662,7 @@ require([
       params.item_path = $('#OutcomeCCSPath').html()
       params.year = $('#OutcomeCCSYear').html()
       params.id_specific = $('#idSpecific').html()
+      params.id_capacity = $('#idCapacity').html();
 
       params.obstacles = "";
       temp = [];
@@ -673,8 +676,29 @@ require([
         method: 'POST',
         data: params,
         success: function(resp)
-          { if(resp) { location.reload();
-                      }}
+          { if(resp) {
+            outcome = $("#" + params.id_capacity + " a[data-id_specific='" + params.id_specific + "']");
+            outcome.addClass("selected");
+            img = outcome.find("img");
+            img.attr("src", img.attr("data-selected"));
+            var degree_values = {'-2': 'verybad', '-1': 'bad', '0': 'equal', '1': 'good', '2': 'verygood'}
+            icon = outcome.find("i");
+            icon.css("display", "block");
+            icon.removeClass("verybad");
+            icon.removeClass("bad");
+            icon.removeClass("equal");
+            icon.removeClass("good");
+            icon.removeClass("verygood");
+            var degree_changes = degree_values[params.degree_changes.split(" ")[0]]
+            icon.addClass(degree_changes);
+            outcome.data("degree-changes", params.degree_changes);
+            outcome.data("contributed-project", params.contributed_project);
+            outcome.data("contributing-factors", params.contributing_factors);
+            outcome.data("consensus", params.consensus);
+            outcome.data("explain", params.explain);
+            outcome.data("selected-monitoring", params.selected_monitoring);
+            outcome.data("obstacles", params.obstacles);
+          }}
       });
     }
     else{
