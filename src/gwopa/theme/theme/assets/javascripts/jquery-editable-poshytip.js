@@ -1038,7 +1038,10 @@ Applied as jQuery method.
             this.$form
             .editableform(this.formOptions)
             .on({
-                save: $.proxy(this.save, this), //click on submit button (value changed)
+                save: $.proxy(function(){
+                  this.save;
+                  location.reload();
+                }, this), //click on submit button (value changed)
                 nochange: $.proxy(function(){ this.hide('nochange'); }, this), //click on submit button (value NOT changed)
                 cancel: $.proxy(function(){ this.hide('cancel'); }, this), //click on calcel button
                 show: $.proxy(function() {
@@ -3202,6 +3205,7 @@ $(function(){
         autosubmit: function() {
             this.$input.off('keydown.editable').on('change.editable', function(){
                 $(this).closest('form').submit();
+                location.reload();
             });
         }
     });
