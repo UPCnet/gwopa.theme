@@ -602,16 +602,36 @@ require([
 
     let numPhases = $('#totalPhases').text();
     if (numPhases === "1") {
-      $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
+      $("#KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").hide();
     }
+
     $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
       let idnum = counter + 1;
-      if (counter>=numPhases) {
-        swal('Not allowed!',
-             'Sorry, but only ' + numPhases + ' target values are accepted.',
-             'warning');
+      let okAdd = true
+      if (this.getAttribute('id') == 'addTargetValueButton'){
+        // TODO Si se modifica el formato de fecha dejará de funcionar, la solción coger el 3 valor
+        //      que devuelve el split.
+        let startYear = $("#modalOutput .modal-start").text().split('-')[0];
+        let endYear = $("#modalOutput .modal-end").text().split('-')[0];
+        // ----------------------------------------------------------------------------------------
+
+        let activityNumPhases = endYear - startYear;
+        if (counter >= activityNumPhases) {
+          okAdd = false
+          swal('Not allowed!',
+               'Sorry, but only ' + activityNumPhases + ' target values are accepted.',
+               'warning');
+        }
+      }else{
+        if (counter >= numPhases) {
+          okAdd = false
+          swal('Not allowed!',
+               'Sorry, but only ' + numPhases + ' target values are accepted.',
+               'warning');
+        }
       }
-      else {
+
+      if (okAdd) {
         let newTextBoxDiv = $(document.createElement('div'));
         newTextBoxDiv.attr("id", 'TextBoxDiv' + idnum);
         newTextBoxDiv.attr("class", "toDelete" );
