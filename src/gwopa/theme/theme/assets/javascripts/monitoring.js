@@ -573,6 +573,7 @@ require([
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urloutcomeccs');
     var myValId = $(this).data('id_specific');
+    var myValTitle = $(this).data('title_specific');
     var myValDescription = $(this).data('description');
     var myValBaseValue = $(this).data('base-value');
     var myValBaseDate = $(this).data('base-date');
@@ -589,6 +590,7 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
     $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find(".modal-title").text(myValTitle);
     $('#modalEditOutcomeCCS').find(".modal-idCapacity").text(myValIdCapacity);
     $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
@@ -626,9 +628,11 @@ require([
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urloutcomeccs');
     var myValStage = $(this).data('stage');
+    var myIdCapacity = $(this).data('id-capacity');
     $('#modalUpdateStage').find(".modal-pk").text(myValYear);
     $('#modalUpdateStage').find(".modal-url").text(myValUrl);
     $('#modalUpdateStage').find(".modal-stage").text(myValStage);
+    $('#modalUpdateStage').find(".modal-idCapacity").text(myIdCapacity);
     $("#checkstage"+myValStage).prop('checked', true);
   });
 
@@ -733,6 +737,7 @@ require([
     params.item_path = $('#OutcomeCCSPathStage').html()
     params.year = $('#OutcomeCCSYearStage').html();
     params.stage = $('#StageRadio input[name=radio]:checked').val();
+    params.id_capacity = $('#idCapacityStage').html();
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"));
     $.ajax({
@@ -740,7 +745,28 @@ require([
       method: 'POST',
       data: params,
       success: function(resp)
-        { if(resp) {location.reload();}}
+        { if(resp) {
+         /* outcome = $(".stages #" + params.id_capacity + '-update-stage').find("li");
+          var stage = params.stage;
+          $(".stages #" + params.id_capacity + '-update-stage').data("stage", stage);
+          stage = stage - 1;
+          for (var i=0; i<outcome.length; i++){
+            $(outcome[i]).removeClass('past');
+            $(outcome[i]).removeClass('current');
+            $(outcome[i]).removeClass('future');
+
+            if (i < stage){
+              $(outcome[i]).addClass('past');
+            }else{
+              if (i == stage){
+                $(outcome[i]).addClass('current');
+              }else{
+                $(outcome[i]).addClass('future');
+              }
+            }
+          }*/
+          location.reload();
+        }}
     });
   });
 
@@ -748,6 +774,7 @@ require([
     $(".monitoring_info").hide();
     $(".cc_container").hide();
     $(".cc_container_others").hide();
+    $(".stages").hide();
 
     $('.expandWaMo').click(function() {
       $(this).hide();
@@ -824,6 +851,7 @@ require([
     $('.expandccs').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandccs').show();
+      $(this).parent().parent().parent().find('.stages').show();
       $(this).parent().parent().parent().find('.cc_container').show();
       $(this).parent().parent().parent().find('.cc_container_others').show();
     });
@@ -831,6 +859,7 @@ require([
     $('.notexpandccs').click(function() {
       $(this).hide();
       $(this).parent().find('.expandccs').show();
+      $(this).parent().parent().parent().find('.stages').hide();
       $(this).parent().parent().parent().find('.cc_container').hide();
       $(this).parent().parent().parent().find('.cc_container_others').hide();
     });

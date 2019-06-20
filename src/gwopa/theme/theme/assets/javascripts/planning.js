@@ -221,6 +221,7 @@ require([
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urloutcomeccs');
     var myValId = $(this).data('id_specific');
+    var myValTitle = $(this).data('title_specific');
     var myValDescription = $(this).data('description');
     var myValBaseValue = $(this).data('base-value');
     var myValBaseDate = $(this).data('base-date');
@@ -230,6 +231,7 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
     $('#modalEditOutcomeCCS').find(".modal-id").text(myValId);
+    $('#modalEditOutcomeCCS').find(".modal-title").text(myValTitle);
     $('#modalEditOutcomeCCS').find(".modal-idCapacityCCS").text(myValIdCapacity);
     $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
