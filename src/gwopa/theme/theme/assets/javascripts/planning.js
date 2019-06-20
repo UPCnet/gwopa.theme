@@ -73,7 +73,7 @@ require([
           input: 'picker__input__datetime',
         },
       })
-      $("#out-title").select2({
+      /*$("#out-title").select2({
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
         ajax: {
@@ -96,7 +96,7 @@ require([
             return { results: res };
           }
         },
-      });
+      });*/
       $("#out-unit").select2({
         dropdownParent: $('#modalOutput'),
         maximumSelectionSize: 1,
