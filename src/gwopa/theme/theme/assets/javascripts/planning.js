@@ -125,7 +125,7 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1').html(end_date);
+        $('#target-date-1').html('<span class="projectYear">Project Year 1</span> - ' + end_date);
     });
   });
   // afegirKPI ZONE
@@ -190,7 +190,7 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#kpizone-target-date-1').html(end_date);
+        $('#kpizone-target-date-1').html('<span class="projectYear">Project Year 1</span> - ' + end_date);
     });
   });
   // editOutcomeCC
@@ -607,8 +607,9 @@ require([
 
     $("#addTargetValueButton, #KPIaddTargetValueButton, #KPIZoneaddTargetValueButton").click(function () {
       let idnum = counter + 1;
-      let okAdd = true
-      if (this.getAttribute('id') == 'addTargetValueButton'){
+      let okAdd = true;
+      let btnID = this.getAttribute('id');
+      if (btnID == 'addTargetValueButton'){
         let start = $("#modalOutput .modal-start").text();
         let end = $("#modalOutput .modal-end").text();
         // TODO Si se modifica el formato de fecha dejará de funcionar.
@@ -672,10 +673,19 @@ require([
       fetch('api-getPhases')
       .then(function(response) { return response.json();})
       .then(function(data) {
+          let project_year_num = $('.projectYear').length + 1;
+          let project_year = 'Project Year ' + project_year_num
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
-          $('#target-date-' + (idnum) + '').html(end_date);
-          $('#kpi-target-date-' + (idnum) + '').html(end_date);
-          $('#kpizone-target-date-' + (idnum) + '').html(end_date);
+          if (btnID == 'addTargetValueButton') {
+            $('#target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+          }
+          if (btnID == 'KPIaddTargetValueButton') {
+            $('#kpi-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+          }
+          if (btnID == 'KPIZoneaddTargetValueButton') {
+            $('#kpizone-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+          }
+
       });
       counter++;
     });
