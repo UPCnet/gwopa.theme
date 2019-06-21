@@ -305,7 +305,6 @@ require([
     var myValTargetValue = $(this).data('target-value-planned');
     var myValUnit = $(this).data('unit');
     var myValResponsible = $(this).data('responsible');
-    var responseVal = myValResponsible.replace(/'/g,'');
     var myValMeans = $(this).data('means');
     var myValRisks = $(this).data('risks');
     $('#modalEditOutput').find(".modal-pk").text(myValYear);
@@ -323,8 +322,12 @@ require([
     $('#modalEditOutput').find("#out-means").val(myValMeans);
     $('#modalEditOutput').find("#out-risks").val(myValRisks);
 
-    if (myValResponsible != ''){
-      $('#modalEditOutput').find("#out-responsible").select2('data',{id: responseVal.split(','), text: responseVal.split(',')});
+    if (myValResponsible != '' && myValResponsible.length > 0){
+      var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
+      var data = responseVal.map(function(e){
+        return {'id': e, 'text': e};
+      });
+      $('#modalEditOutput').find("#out-responsible").select2('data', data);
     }else{
       $('#modalEditOutput').find("#out-responsible").select2('data', '');
     }
