@@ -305,6 +305,7 @@ require([
     var myValTargetValue = $(this).data('target-value-planned');
     var myValUnit = $(this).data('unit');
     var myValResponsible = $(this).data('responsible');
+    var myValResponsibleID = $(this).data('responsible-id');
     var myValMeans = $(this).data('means');
     var myValRisks = $(this).data('risks');
     $('#modalEditOutput').find(".modal-pk").text(myValYear);
