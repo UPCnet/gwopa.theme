@@ -305,7 +305,6 @@ require([
     var myValTargetValue = $(this).data('target-value-planned');
     var myValUnit = $(this).data('unit');
     var myValResponsible = $(this).data('responsible');
-    var responseVal = myValResponsible.replace(/'/g,'');
     var myValMeans = $(this).data('means');
     var myValRisks = $(this).data('risks');
     $('#modalEditOutput').find(".modal-pk").text(myValYear);
@@ -324,11 +323,39 @@ require([
     $('#modalEditOutput').find("#out-risks").val(myValRisks);
 
     if (myValResponsible != ''){
+      var responseVal = myValResponsible.replace(/'/g,'');
       $('#modalEditOutput').find("#out-responsible").select2('data',{id: responseVal.split(','), text: responseVal.split(',')});
     }else{
       $('#modalEditOutput').find("#out-responsible").select2('data', '');
     }
 
+  });
+
+  // Update Output
+  $('#updateOutputFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.title = $('#modalEditOutput #out-title').val();
+    params.description = $('#modalEditOutput #out-description').val();
+    params.unit = $('#modalEditOutput  #out-unit').val();
+    params.completation_date = $('#modalEditOutput  #out-datetimepicker + .pattern-pickadate-wrapper input').val();
+    params.target_value = $('#modalEditOutput  #target-value-1').val();
+    params.means = $('#modalEditOutput  #out-means').val();
+    params.risks = $('#modalEditOutput  #out-risks').val();
+    params.responsible = $('#modalEditOutput #out-responsible').val();
+    params.item_path = $('#modalEditOutput  #OutputPath').html();
+    params.year = $('#modalEditOutput  #OutputYear').html();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/updateOutput',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {
+            location.reload();
+        }}
+    });
   });
 
   // Validate fields Activity
