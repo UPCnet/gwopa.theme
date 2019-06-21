@@ -609,13 +609,20 @@ require([
       let idnum = counter + 1;
       let okAdd = true
       if (this.getAttribute('id') == 'addTargetValueButton'){
-        // TODO Si se modifica el formato de fecha dejará de funcionar, la solción coger el 3 valor
-        //      que devuelve el split.
-        let startYear = $("#modalOutput .modal-start").text().split('-')[0];
-        let endYear = $("#modalOutput .modal-end").text().split('-')[0];
+        let start = $("#modalOutput .modal-start").text();
+        let end = $("#modalOutput .modal-end").text();
+        // TODO Si se modifica el formato de fecha dejará de funcionar.
+        let startYear = start.split('-')[0];
+        let endYear = end.split('-')[0];
+        let activityNumPhases = endYear - startYear;
+        if (end.split('-')[1] > start.split('-')[1]){
+          activityNumPhases = activityNumPhases + 1
+        }
+        if (end.split('-')[1] == start.split('-')[1] && end.split('-')[2] > start.split('-')[2]){
+          activityNumPhases = activityNumPhases + 1
+        }
         // ----------------------------------------------------------------------------------------
 
-        let activityNumPhases = endYear - startYear;
         if (counter >= activityNumPhases) {
           okAdd = false
           swal('Not allowed!',
