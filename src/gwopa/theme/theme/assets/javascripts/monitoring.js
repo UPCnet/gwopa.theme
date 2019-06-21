@@ -568,6 +568,7 @@ require([
         },
   });
 
+
   // editOutcomeCCS
   $("a.editOutcomeCCS").click(function() {
     var myValYear = $(this).data('pk');
