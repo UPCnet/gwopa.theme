@@ -335,6 +335,14 @@ require([
       $('#modalEditOutput').find("#out-responsible").select2('data', '');
     }
 
+    fetch('api-getPhases')
+     .then(function(response) { return response.json();})
+     .then(function(data) {
+         let end_date = data[0].gwopa_year_phases[0].end;
+         let year = $(".block-nav .pagination li.disabled").data("project-year");
+         $('#modalEditOutput #target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+     });
+
   });
 
   // Update Output
@@ -355,6 +363,116 @@ require([
     project_path = url.substring(0, url.lastIndexOf("/planning"));
     $.ajax({
       url: project_path + '/updateOutput',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {
+            location.reload();
+        }}
+    });
+  });
+
+
+
+  $("#modalEditKPIZone #kpizone-unit").select2({
+      dropdownParent: $('#modalEditKPIZone'),
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getUnits',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
+    });
+
+  // editKPIZone
+  $("a.editKPIZone").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urlkpi');
+    var myValTitle = $(this).data('title');
+    var myValDescription = $(this).data('description');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
+    var myValTargetValue = $(this).data('target-value-planned');
+    var myValUnit = $(this).data('unit');
+    var myValResponsible = $(this).data('responsible');
+    var myValResponsibleID = $(this).data('responsible-id');
+    var myValZone = $(this).data('zone');
+    var myValMeans = $(this).data('means');
+    var myValRisks = $(this).data('risks');
+    var myValBaseValue = $(this).data('base-value');
+    var myValBaseDate = $(this).data('base-date');
+    $('#modalEditKPIZone').find(".modal-pk").text(myValYear);
+    $('#modalEditKPIZone').find(".modal-url").text(myValUrl);
+    $('#modalEditKPIZone').find(".modal-title").text('Edit ' + myValTitle);
+    $('#modalEditKPIZone').find("#kpizone-title").val(myValTitle);
+    $('#modalEditKPIZone').find(".modal-start").text(myValStart);
+    $('#modalEditKPIZone').find(".modal-end").text(myValEnd);
+    $('#modalEditKPIZone').find("#kpizone-description").text(myValDescription);
+    $('#modalEditKPIZone').find("#kpizone-zone").val(myValZone);
+    $('#modalEditKPIZone').find("#kpizone-unit").select2('data',{id: myValUnit, text: myValUnit});
+    $('#modalEditKPIZone').find("#kpizone-baseline").val(myValBaseValue);
+    $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
+    $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
+    $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper input").change();
+    $('#modalEditKPIZone').find("#kpizone-target-value-1").val(myValTargetValue);
+    $('#modalEditKPIZone').find("#kpizone-means").val(myValMeans);
+    $('#modalEditKPIZone').find("#kpizone-risks").val(myValRisks);
+
+
+    if (myValResponsible != '' && myValResponsible.length > 0){
+      var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
+      var data = responseVal.map(function(e){
+        return {'id': e, 'text': e};
+      });
+      $('#modalEditKPIZone').find("#kpizone-responsible").select2('data', data);
+    }else{
+      $('#modalEditKPIZone').find("#kpizone-responsible").select2('data', '');
+    }
+    fetch('api-getPhases')
+     .then(function(response) { return response.json();})
+     .then(function(data) {
+         let end_date = data[0].gwopa_year_phases[0].end;
+         let year = $(".block-nav .pagination li.disabled").data("project-year");
+         $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+     });
+
+
+  });
+
+    // Update KPIZone
+  $('#updateKPIZoneFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.zone = $('#modalEditKPIZone #kpizone-zone').val();
+    params.responsible = $('#modalEditKPIZone #kpizone-responsible').val();
+    params.description = $('#modalEditKPIZone #kpizone-description').val();
+    params.base_value = $('#modalEditKPIZone #kpizone-baseline').val();
+    params.base_date = $('#modalEditKPIZone #kpizone-datetimepicker + .pattern-pickadate-wrapper input').val();
+    params.unit = $('#modalEditKPIZone #kpizone-unit').val();
+    params.target_value = $('#modalEditKPIZone #kpizone-target-value-1').val();
+    params.means = $('#modalEditKPIZone #kpizone-means').val();
+    params.risks = $('#modalEditKPIZone #kpizone-risks').val();
+    params.item_path = $('#modalEditKPIZone #KPIZonePath').html();
+    params.year = $('#modalEditKPIZone #KPIZoneYear').html();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/updateKPIZone',
       method: 'POST',
       data: params,
       success: function(resp)
