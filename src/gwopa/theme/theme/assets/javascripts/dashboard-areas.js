@@ -166,7 +166,7 @@ require([
             }
           },
           dataLabels: {
-            enabled: true,
+            enabled: false,
             offsetX: -12,
             formatter: function(val, opt) {
               return val + "%"
