@@ -276,13 +276,14 @@ require([
       },
     });
 
-
-
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
     $("#modalEditOutput #out-responsible").select2({
       placeholder: "Search Users",
       multiple: true,
       ajax: {
-        url: window.location.pathname + "/api-select2-users.json",
+        url: path + "/api-select2-users.json",
         delay: 250,
         results: function (data, page) {
           return data;
@@ -820,11 +821,14 @@ require([
     });
   });
   $(document).ready(function() {
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
     $("#out-responsible").select2({
       placeholder: "Search Users",
       multiple: true,
       ajax: {
-        url: window.location.pathname + "/api-select2-users.json",
+        url: path + "/api-select2-users.json",
         delay: 250,
         results: function (data, page) {
           return data;
