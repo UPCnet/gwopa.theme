@@ -1767,7 +1767,7 @@ h3 a i.fas.fa-plus-square {
   margin-top: -5px;
 }
 .template-planning #outcomesCapacity #total {
-  width: calc(100% - 5rem);
+  width: calc(100% - 6rem);
   text-align: left;
   margin-top: -5px;
 }
@@ -1936,8 +1936,12 @@ body#visual-portal-wrapper.template-view .row .col-md-3 div {
   background-color: #0a5272a8 !important;
 }
 .fa-edit:before,
+.fa-info-circle:before,
 .fa-trash-alt:before {
   color: #a7a7a7 !important
+}
+.fa-info-circle:before {
+  font-size: 16px;
 }
 li {
   display: block;
@@ -2580,6 +2584,11 @@ i.far.fa-edit,
 i.far.fa-trash-alt {
   color: #274656;
   float: left;
+  margin: 0px 5px;
+}
+i.fa.fa-info-circle {
+  color: #274656;
+  float: right;
   margin: 0px 5px;
 }
 .information #actions a.pat-plone-modal {
@@ -3848,4 +3857,18 @@ div#formfield-form-widgets-inkind {
 }
 .steps li.future::after {
   border-left-color: #EBEBEB;
+}
+
+/* Info capacity modal */
+#modalInfoCapacity .modal-dialog {
+  width: 1000px !important;
+}
+
+#modalInfoCapacity td {
+  border: 1px solid #e5e5e5;
+  padding: 5px;
+}
+
+#modalInfoCapacity td img {
+  width: 30px !important;
 }
