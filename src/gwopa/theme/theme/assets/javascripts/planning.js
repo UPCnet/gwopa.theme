@@ -323,11 +323,13 @@ require([
     $('#modalEditOutput').find("#out-means").val(myValMeans);
     $('#modalEditOutput').find("#out-risks").val(myValRisks);
 
-    if (myValResponsible != '' && myValResponsible.length > 0){
+    if (myValResponsible != '' && myValResponsible.length > 0 && myValResponsibleID != '' && myValResponsibleID.length > 0){
       var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
-      var data = responseVal.map(function(e){
-        return {'id': e, 'text': e};
-      });
+      var responsibleIDVal = myValResponsibleID.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
+      var data = [];
+      for (var i=0; i<responseVal.length; i++){
+        data.push({'id': responsibleIDVal[i], 'text': responseVal[i]});
+      }
       $('#modalEditOutput').find("#out-responsible").select2('data', data);
     }else{
       $('#modalEditOutput').find("#out-responsible").select2('data', '');
