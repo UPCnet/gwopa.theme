@@ -250,6 +250,120 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-pk").text(myValYear);
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
   });
+
+  $("#modalEditOutput #out-unit").select2({
+      dropdownParent: $('#modalEditOutput'),
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getUnits',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
+    });
+
+
+
+    $("#modalEditOutput #out-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: window.location.pathname + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
+
+
+  // editOutput
+  $("a.editOutput").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValUrl = $(this).data('urloutput');
+    var myValTitle = $(this).data('title');
+    var myValDescription = $(this).data('description');
+    var myValStart = $(this).data('start');
+    var myValEnd = $(this).data('end');
+    var myValLimitStart = $(this).data('limit-start');
+    var myValLimitEnd = $(this).data('limit-end');
+    var myValTargetValue = $(this).data('target-value-planned');
+    var myValUnit = $(this).data('unit');
+    var myValResponsible = $(this).data('responsible');
+    var myValResponsibleID = $(this).data('responsible-id');
+    var myValMeans = $(this).data('means');
+    var myValRisks = $(this).data('risks');
+    $('#modalEditOutput').find(".modal-pk").text(myValYear);
+    $('#modalEditOutput').find(".modal-url").text(myValUrl);
+    $('#modalEditOutput').find(".modal-title").text('Edit ' + myValTitle);
+    $('#modalEditOutput').find("#out-title").val(myValTitle);
+    $('#modalEditOutput').find(".modal-start").text(myValStart);
+    $('#modalEditOutput').find(".modal-end").text(myValEnd);
+    $('#modalEditOutput').find("#out-description").text(myValDescription);
+    $('#modalEditOutput').find("#out-unit").select2('data',{id: myValUnit, text: myValUnit});
+    $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper input").prop('value', myValEnd);
+    $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper div[aria-label='" + myValEnd + "']").trigger("click");
+    $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper input").change();
+    $('#modalEditOutput').find("#target-value-1").val(myValTargetValue);
+    $('#modalEditOutput').find("#out-means").val(myValMeans);
+    $('#modalEditOutput').find("#out-risks").val(myValRisks);
+
+    if (myValResponsible != '' && myValResponsible.length > 0 && myValResponsibleID != '' && myValResponsibleID.length > 0){
+      var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
+      var responsibleIDVal = myValResponsibleID.replace(/'/g,'').replace('[', '').replace(']', '').split(',');
+      var data = [];
+      for (var i=0; i<responseVal.length; i++){
+        data.push({'id': responsibleIDVal[i], 'text': responseVal[i]});
+      }
+      $('#modalEditOutput').find("#out-responsible").select2('data', data);
+    }else{
+      $('#modalEditOutput').find("#out-responsible").select2('data', '');
+    }
+
+  });
+
+  // Update Output
+  $('#updateOutputFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.title = $('#modalEditOutput #out-title').val();
+    params.description = $('#modalEditOutput #out-description').val();
+    params.unit = $('#modalEditOutput  #out-unit').val();
+    params.completation_date = $('#modalEditOutput  #out-datetimepicker + .pattern-pickadate-wrapper input').val();
+    params.target_value = $('#modalEditOutput  #target-value-1').val();
+    params.means = $('#modalEditOutput  #out-means').val();
+    params.risks = $('#modalEditOutput  #out-risks').val();
+    params.responsible = $('#modalEditOutput #out-responsible').val();
+    params.item_path = $('#modalEditOutput  #OutputPath').html();
+    params.year = $('#modalEditOutput  #OutputYear').html();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/updateOutput',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {
+            location.reload();
+        }}
+    });
+  });
+
   // Validate fields Activity
   function validateFormActivity() {
     start_date = $('#act-start').val();

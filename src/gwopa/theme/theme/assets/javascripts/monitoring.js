@@ -568,6 +568,7 @@ require([
         },
   });
 
+
   // editOutcomeCCS
   $("a.editOutcomeCCS").click(function() {
     var myValYear = $(this).data('pk');
@@ -599,14 +600,21 @@ require([
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date").prop('value', myValObjectiveDate);
     $('#modalEditOutcomeCCS').find("#outcomeccs-degree_changes").select2('data',{id: myValDegree, text: myValDegree});
     $('#modalEditOutcomeCCS').find("#outcomeccs-contributed_project").select2('data',{id: myValContributedProject, text: myValContributedProject});
+
     if (myValContributing != ''){
-      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data',{id: myValContributing.split(','), text: myValContributing.split(',')});
+      var data = myValContributing.split(',').map(function(e){
+        return {'id': e, 'text': e};
+      });
+      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', data);
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', '');
     }
 
     if (myValObstacles != ''){
-      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data',{id: myValObstacles.split(','), text: myValObstacles.split(',')});
+      var data = myValObstacles.split(',').map(function(e){
+        return {'id': e, 'text': e};
+      });
+      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', data);
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', '');
     }
