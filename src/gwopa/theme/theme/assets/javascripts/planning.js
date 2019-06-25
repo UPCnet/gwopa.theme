@@ -333,6 +333,14 @@ require([
       $('#modalEditOutput').find("#out-responsible").select2('data', '');
     }
 
+    fetch('api-getPhases')
+     .then(function(response) { return response.json();})
+     .then(function(data) {
+         let end_date = data[0].gwopa_year_phases[0].end;
+         let year = $(".block-nav .pagination li.disabled").data("project-year");
+         $('#modalEditOutput #target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+     });
+
   });
 
   // Update Output
@@ -433,6 +441,14 @@ require([
     }else{
       $('#modalEditKPIZone').find("#kpizone-responsible").select2('data', '');
     }
+    fetch('api-getPhases')
+     .then(function(response) { return response.json();})
+     .then(function(data) {
+         let end_date = data[0].gwopa_year_phases[0].end;
+         let year = $(".block-nav .pagination li.disabled").data("project-year");
+         $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+     });
+
 
   });
 
