@@ -361,8 +361,8 @@ require([
         }}
     });
   });
-                             
-                                  
+
+
 
   $("#modalEditKPIZone #kpizone-unit").select2({
       dropdownParent: $('#modalEditKPIZone'),
@@ -434,6 +434,34 @@ require([
       $('#modalEditKPIZone').find("#kpizone-responsible").select2('data', '');
     }
 
+  });
+
+    // Update KPIZone
+  $('#updateKPIZoneFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.zone = $('#modalEditKPIZone #kpizone-zone').val();
+    params.responsible = $('#modalEditKPIZone #kpizone-responsible').val();
+    params.description = $('#modalEditKPIZone #kpizone-description').val();
+    params.base_value = $('#modalEditKPIZone #kpizone-baseline').val();
+    params.base_date = $('#modalEditKPIZone #kpizone-datetimepicker + .pattern-pickadate-wrapper input').val();
+    params.unit = $('#modalEditKPIZone #kpizone-unit').val();
+    params.target_value = $('#modalEditKPIZone #kpizone-target-value-1').val();
+    params.means = $('#modalEditKPIZone #kpizone-means').val();
+    params.risks = $('#modalEditKPIZone #kpizone-risks').val();
+    params.item_path = $('#modalEditKPIZone #KPIZonePath').html();
+    params.year = $('#modalEditKPIZone #KPIZoneYear').html();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/planning"));
+    $.ajax({
+      url: project_path + '/updateKPIZone',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {
+            location.reload();
+        }}
+    });
   });
 
   // Validate fields Activity
