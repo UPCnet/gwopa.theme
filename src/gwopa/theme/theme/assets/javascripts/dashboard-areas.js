@@ -223,6 +223,9 @@ require([
         chartOutput.render();
       }
     });
+
+    drawCapacityChanges(window.project_path, params);
+    drawCurrentStage(window.project_path, params);
   }
 
   function reDrawInfo() {
@@ -305,8 +308,14 @@ require([
         }
       }
     });
+
+    drawCapacityChanges(window.project_path, params);
+    drawCurrentStage(window.project_path, params);
+  }
+
+  function drawCapacityChanges(project_path, params) {
     $.ajax({
-      url: window.project_path + '/api-getCapacityChanges',
+      url: project_path + '/api-getCapacityChanges',
       method: 'GET',
       data: params,
       transport: function(params){
@@ -350,8 +359,11 @@ require([
         }
       }
     });
+  }
+
+  function drawCurrentStage(project_path, params) {
     $.ajax({
-      url: window.project_path + '/api-getCurrentStage',
+      url: project_path + '/api-getCurrentStage',
       method: 'GET',
       data: params,
       transport: function(params){
@@ -381,7 +393,7 @@ require([
       reDrawInfo();
     });
     $('#selectWA').change(function() {
-      reDrawInfo()
+      reDrawInfo();
     });
   });
 });
