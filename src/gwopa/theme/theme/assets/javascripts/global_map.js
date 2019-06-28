@@ -185,4 +185,95 @@ require([
         myData.addTo(map);
     });
 
+     $(document).ready(function(){
+      $("#map-year").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectDates",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-area").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectWorkingArea",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-country").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectCountry",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-platform").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectWOPPlatform",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-program").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectWOPProgram",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-partner").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectPartners",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-kpi").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectKPIs",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+      $("#map-tags").select2({
+        multiple: true,
+        ajax: {
+          url: window.location.pathname + "/api-getProjectTags",
+          delay: 250,
+          results: function (data, page) {
+            return data;
+          },
+        },
+      });
+
+     });
+
 });
