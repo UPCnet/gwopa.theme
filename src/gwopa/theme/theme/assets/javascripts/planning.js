@@ -46,6 +46,21 @@ require([
   });
   // AfegirActivity
   $("a.afegirActivity").click(function() {
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
+    $("#modalActivity #act-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: path + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
     var myValEnd = $(this).data('end');
@@ -130,6 +145,21 @@ require([
   });
   // afegirKPI ZONE
   $("a.afegirKPIZone").click(function() {
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
+    $("#modalKPIZone #kpizone-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: path + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
     var myVal = $(this).data('val');
     var myValStart = $(this).data('start');
     var myValEnd = $(this).data('end');
@@ -274,24 +304,7 @@ require([
           return { results: res };
         }
       },
-    });
-
-    var path = window.location.pathname.split('/')
-    path.splice(-1,1)
-    path = path.join('/')
-    $("#modalEditOutput #out-responsible").select2({
-      placeholder: "Search Users",
-      multiple: true,
-      ajax: {
-        url: path + "/api-select2-users.json",
-        delay: 250,
-        results: function (data, page) {
-          return data;
-        },
-      },
-    });
-
-
+  });
 
   // editOutput
   $("a.editOutput").click(function() {
@@ -402,6 +415,21 @@ require([
 
   // editKPIZone
   $("a.editKPIZone").click(function() {
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
+    $("#modalEditKPIZone #kpizone-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: path + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urlkpi');
     var myValTitle = $(this).data('title');
@@ -825,7 +853,7 @@ require([
     var path = window.location.pathname.split('/')
     path.splice(-1,1)
     path = path.join('/')
-    $("#out-responsible").select2({
+    $("#modalEditOutput #out-responsible").select2({
       placeholder: "Search Users",
       multiple: true,
       ajax: {
