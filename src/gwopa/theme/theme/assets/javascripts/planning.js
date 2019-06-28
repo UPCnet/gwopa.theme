@@ -308,6 +308,21 @@ require([
 
   // editOutput
   $("a.editOutput").click(function() {
+    var path = window.location.pathname.split('/')
+    path.splice(-1,1)
+    path = path.join('/')
+    $("#modalEditOutput #out-responsible").select2({
+      placeholder: "Search Users",
+      multiple: true,
+      ajax: {
+        url: path + "/api-select2-users.json",
+        delay: 250,
+        results: function (data, page) {
+          return data;
+        },
+      },
+    });
+
     var myValYear = $(this).data('pk');
     var myValUrl = $(this).data('urloutput');
     var myValTitle = $(this).data('title');
@@ -853,7 +868,7 @@ require([
     var path = window.location.pathname.split('/')
     path.splice(-1,1)
     path = path.join('/')
-    $("#modalEditOutput #out-responsible").select2({
+    $("#modalOutput #out-responsible").select2({
       placeholder: "Search Users",
       multiple: true,
       ajax: {
