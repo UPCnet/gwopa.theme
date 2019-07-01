@@ -6,8 +6,12 @@ require([
   $("a.addPartner").click(function() {
     var url = $(this).data('url');
     var type = $(this).data('type');
+    var currency = $(this).data('currency');
     $('#modalPartner').find(".modal-url").text(url);
     $('#modalPartner').find(".modal-type").text(type);
+    $('#modalPartner').find(".modal-currency").text(currency.charAt(currency.length-1));
+
+
   });
   // Validate fields Contributors
   function validateForm() {
