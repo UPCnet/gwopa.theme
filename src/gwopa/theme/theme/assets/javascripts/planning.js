@@ -336,7 +336,7 @@ require([
     var myValResponsible = $(this).data('responsible');
     var myValResponsibleID = $(this).data('responsible-id');
     var myValMeans = $(this).data('means');
-    var myValRisks = $(this).data('risks');
+    /*var myValRisks = $(this).data('risks');*/
     $('#modalEditOutput').find(".modal-pk").text(myValYear);
     $('#modalEditOutput').find(".modal-url").text(myValUrl);
     $('#modalEditOutput').find(".modal-title").text('Edit ' + myValTitle);
@@ -350,7 +350,7 @@ require([
     $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper input").change();
     $('#modalEditOutput').find("#target-value-1").val(myValTargetValue);
     $('#modalEditOutput').find("#out-means").val(myValMeans);
-    $('#modalEditOutput').find("#out-risks").val(myValRisks);
+    /*$('#modalEditOutput').find("#out-risks").val(myValRisks);*/
 
     if (myValResponsible != '' && myValResponsible.length > 0 && myValResponsibleID != '' && myValResponsibleID.length > 0){
       var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(', ');
@@ -384,7 +384,7 @@ require([
     params.completation_date = $('#modalEditOutput  #out-datetimepicker + .pattern-pickadate-wrapper input').val();
     params.target_value = $('#modalEditOutput  #target-value-1').val();
     params.means = $('#modalEditOutput  #out-means').val();
-    params.risks = $('#modalEditOutput  #out-risks').val();
+    /*params.risks = $('#modalEditOutput  #out-risks').val();*/
     params.responsible = $('#modalEditOutput #out-responsible').val();
     params.item_path = $('#modalEditOutput  #OutputPath').html();
     params.year = $('#modalEditOutput  #OutputYear').html();
@@ -457,7 +457,7 @@ require([
     var myValResponsibleID = $(this).data('responsible-id');
     var myValZone = $(this).data('zone');
     var myValMeans = $(this).data('means');
-    var myValRisks = $(this).data('risks');
+    /*var myValRisks = $(this).data('risks');*/
     var myValBaseValue = $(this).data('base-value');
     var myValBaseDate = $(this).data('base-date');
     $('#modalEditKPIZone').find(".modal-pk").text(myValYear);
@@ -475,7 +475,7 @@ require([
     $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper input").change();
     $('#modalEditKPIZone').find("#kpizone-target-value-1").val(myValTargetValue);
     $('#modalEditKPIZone').find("#kpizone-means").val(myValMeans);
-    $('#modalEditKPIZone').find("#kpizone-risks").val(myValRisks);
+    /*$('#modalEditKPIZone').find("#kpizone-risks").val(myValRisks);*/
 
     if (myValResponsible != '' && myValResponsible.length > 0 && myValResponsibleID != '' && myValResponsibleID.length > 0){
       var responseVal = myValResponsible.replace(/'/g,'').replace('[', '').replace(']', '').split(', ');
@@ -511,7 +511,7 @@ require([
     params.unit = $('#modalEditKPIZone #kpizone-unit').val();
     params.target_value = $('#modalEditKPIZone #kpizone-target-value-1').val();
     params.means = $('#modalEditKPIZone #kpizone-means').val();
-    params.risks = $('#modalEditKPIZone #kpizone-risks').val();
+    /*params.risks = $('#modalEditKPIZone #kpizone-risks').val();*/
     params.item_path = $('#modalEditKPIZone #KPIZonePath').html();
     params.year = $('#modalEditKPIZone #KPIZoneYear').html();
     url = window.location.href;
@@ -640,7 +640,7 @@ require([
       params.item_start = $('#act-start').val();
       params.item_end = $('#act-end').val();
       params.item_budget = $('#act-budget').val();
-      params.item_risks = $('#act-risks').val();
+      /*params.item_risks = $('#act-risks').val();*/
       params.item_responsible = $('#act-responsible').val();
       url = window.location.href;
       project_path = url.substring(0, url.lastIndexOf("/planning"));
@@ -668,7 +668,7 @@ require([
       params.item_date = $('#out-datetimepicker').val();
       params.item_unit = $('#out-unit').val();
       params.item_means = $('#out-means').val();
-      params.item_risks = $('#out-risks').val();
+      /*params.item_risks = $('#out-risks').val();*/
       params.item_responsible = $('#out-responsible').val();
       params.item_target1 = $('#target-value-1').val();
       params.item_target2 = $('#target-value-2').val();
@@ -708,7 +708,7 @@ require([
       params.item_unit = $('#kpizone-unit').val();
       params.item_frequency = $('#kpizone-frequency').val();
       params.item_means = $('#kpizone-means').val();
-      params.item_risks = $('#kpizone-risks').val();
+      /*params.item_risks = $('#kpizone-risks').val();*/
       params.item_zone = $('#kpizone-zone').val();
       params.item_responsible = $('#kpizone-responsible').val();
       params.item_target1 = $('#kpizone-target-value-1').val();
