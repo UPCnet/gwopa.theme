@@ -140,7 +140,7 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1').html('<span class="projectYear">Project Year 1</span> - ' + end_date);
+        $('#target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
     });
   });
   // afegirKPI ZONE
@@ -220,7 +220,7 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#kpizone-target-date-1').html('<span class="projectYear">Project Year 1</span> - ' + end_date);
+        $('#kpizone-target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
     });
   });
   // editOutcomeCC
@@ -493,7 +493,7 @@ require([
      .then(function(data) {
          let end_date = data[0].gwopa_year_phases[0].end;
          let year = $(".block-nav .pagination li.disabled").data("project-year");
-         $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+         $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">End Project Year ' + year + '</span> (' + end_date + ')');
      });
 
 
@@ -954,16 +954,16 @@ require([
       .then(function(response) { return response.json();})
       .then(function(data) {
           let project_year_num = $('.projectYear').length + 1;
-          let project_year = 'Project Year ' + project_year_num
+          let project_year = 'End Project Year ' + project_year_num
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
           if (btnID == 'addTargetValueButton') {
-            $('#target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+            $('#target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> (' + end_date + ')');
           }
           if (btnID == 'KPIaddTargetValueButton') {
-            $('#kpi-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+            $('#kpi-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> (' + end_date + ')');
           }
           if (btnID == 'KPIZoneaddTargetValueButton') {
-            $('#kpizone-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> - ' + end_date);
+            $('#kpizone-target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> (' + end_date + ')');
           }
 
       });
