@@ -14,7 +14,7 @@ require([
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/dash-areas"));
     $.ajax({
-      url: window.project_path + '/api-getActivities',
+      url: window.project_path + '/api-getDashboard',
       method: 'GET',
       data: params,
       transport: function(params){
@@ -395,5 +395,17 @@ require([
     $('#selectWA').change(function() {
       reDrawInfo();
     });
+  });
+
+  $('.showOutputs').click(function() {
+    $(this).hide();
+    $(this).parent().find('.hideOutputs').show();
+    $(this).parent().parent().parent().next().slideDown();
+  });
+
+  $('.hideOutputs').click(function() {
+    $(this).hide();
+    $(this).parent().find('.showOutputs').show();
+    $(this).parent().parent().parent().next().slideUp();
   });
 });
