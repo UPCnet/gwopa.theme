@@ -58,4 +58,47 @@ require([
     }
   });
 
+  // Delete element on click button
+  $('.btn-delete').on('click', function(e) {
+    e.preventDefault();
+    item = $(this).attr('data-url');
+    item_type = $(this).attr('data-type');
+    item_title = $(this).attr('data-id');
+    var params = {};
+    params.item = item;
+    swal({
+      title: "Delete " + item_type + "?",
+      text: item_title,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        url = window.location.href;
+        project_path = url.substring(0, url.lastIndexOf("/view"));
+        $.ajax({
+          url: project_path + '/removeElement',
+          method: 'POST',
+          data: params,
+          success: function(resp)
+                {
+                  if(resp) {
+                    location.reload();
+                    swal("Deleted", "The item has been deleted", "success", {
+                      buttons: false,
+                      timer: 2000,
+                    })
+                  }
+                }
+      })
+      } else {
+        swal("Cancelled", "The deleting process has been cancelled", "error", {
+          buttons: false,
+          timer: 1200,
+        })
+      }
+    });
+  });
+
 });
