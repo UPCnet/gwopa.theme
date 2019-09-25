@@ -7,14 +7,14 @@ require([
       return (this.length > n) ? this.substr(0, n-1) + '...' : this;
     };
 
-  function fillInfo() {
+  function drawInfo() {
     var params = {};
     params.wa = $('#selectWA').children("option:selected").val();
     params.year = $('.disabled')[0].id;
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/dash-areas"));
     $.ajax({
-      url: window.project_path + '/api-getActivities',
+      url: window.project_path + '/api-getDashboard',
       method: 'GET',
       data: params,
       transport: function(params){
@@ -24,291 +24,9 @@ require([
         return $.ajax(params);
       },
       success: function(resp) {
-        var titles = resp[0];
-        for (var i=0; i < titles.length; i++) {
-          titles[i] = titles[i].replace(titles[i], titles[i].trunc(40));
-        }
-        var values = resp[1];
-        if (titles.length > 0 && values[0].data.length) {
-          $('#graphicActivity').show();
-          $('#graphicOutput').show();
-          $('#noInfo').hide();
-          if (titles.length == 1)
-            var height = 80;
-          else
-            var height = titles.length * 50;
-          var optionsActivity = {
-            chart: {
-              id: 'chartActivity',
-              height: height,
-              parentHeightOffset: 0,
-              type: 'bar',
-              toolbar: {
-                show: false,
-              },
-            },
-            plotOptions: {
-              bar: {
-                horizontal: true,
-                distributed: false,
-                dataLabels: {
-                  position: 'top',
-                },
-                colors: {
-                  backgroundBarColors: ['#cacaca']
-                }
-              }
-            },
-            dataLabels: {
-              enabled: true,
-              offsetX: -12,
-              formatter: function(val, opt) {
-                return val + "%"
-              },
-              dropShadow: {
-                enabled: true
-              }
-            },
-            stroke: { width: 1,colors: ['#fff'] },
-            series: values,
-            colors: ['#00b2d7', '#66DA26', '#546E7A', '#E91E63'],
-            xaxis: {
-              labels: {
-                show: false,
-                maxWidth: 300,
-              },
-              axisTicks: {
-                show: false,
-              },
-              axisBorder: {
-                show: false,
-              },
-              min: 0,
-              max: 100,
-              categories: titles,
-            },
-            yaxis: {
-              labels: {
-                show: true,
-                align: 'left',
-                maxWidth: 300,
-                style: {
-                  fontSize: '14px',
-                }
-              },
-            },
-            tooltip: {
-              enabled: false,
-              theme: 'dark',
-              x: {
-                show: false
-              },
-              y: {
-                show: false,
-                title: {
-                  formatter: function() {
-                    return ''
-                  }
-                }
-              }
-            }
-          }
-          var chartActivity = new ApexCharts(document.querySelector("#chartActivity"), optionsActivity);
-          chartActivity.render();
-        }
-        else {
-          $('#graphicActivity').hide();
-          $('#graphicOutput').hide();
-          $('#noInfo').show();
-        }
+        drawActivitiesOutputs(resp);
       }
     });
-    $.ajax({
-      url: window.project_path + '/api-getDashboardOutputs',
-      method: 'GET',
-      data: params,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      success: function(resp) {
-        var titles = resp[0];
-        for (var i=0; i < titles.length; i++) {
-          titles[i] = titles[i].replace(titles[i], titles[i].trunc(40));
-        }
-        var values = resp[1];
-        if (titles.length == 1)
-          var height = 80;
-        else
-          var height = titles.length * 50;
-        var optionsOutput = {
-          chart: {
-            id: 'chartOutput',
-            height: height,
-            parentHeightOffset: 0,
-            type: 'bar',
-            toolbar: {
-              show: false,
-            },
-          },
-          plotOptions: {
-            bar: {
-              horizontal: true,
-              distributed: false,
-              dataLabels: {
-                position: 'top',
-              },
-              colors: {
-                backgroundBarColors: ['#cacaca']
-              }
-            }
-          },
-          dataLabels: {
-            enabled: true,
-            offsetX: -12,
-            formatter: function(val, opt) {
-              return val + "%"
-            },
-            dropShadow: {
-              enabled: true
-            }
-          },
-          stroke: { width: 1,colors: ['#fff'] },
-          series: values,
-          colors: ['#00b2d7', '#66DA26', '#546E7A', '#E91E63'],
-          xaxis: {
-            labels: {
-              show: false,
-              maxWidth: 300,
-            },
-            axisTicks: {
-              show: false,
-            },
-            axisBorder: {
-              show: false,
-            },
-            min: 0,
-            max: 100,
-            categories: titles,
-          },
-          yaxis: {
-            labels: {
-              show: true,
-              align: 'left',
-              maxWidth: 300,
-              style: {
-                fontSize: '14px',
-              }
-            },
-          },
-          tooltip: {
-            enabled: false,
-            theme: 'dark',
-            x: {
-              show: false
-            },
-            y: {
-              show: false,
-              title: {
-                formatter: function() {
-                  return ''
-                }
-              }
-            }
-          }
-        }
-        var chartOutput = new ApexCharts(document.querySelector("#chartOutput"), optionsOutput);
-        chartOutput.render();
-      }
-    });
-
-    drawCapacityChanges(window.project_path, params);
-    drawCurrentStage(window.project_path, params);
-  }
-
-  function reDrawInfo() {
-    var params = {};
-    params.wa = $('#selectWA').children("option:selected").val();
-    params.year = $('.disabled')[0].id;
-    url = window.location.href;
-    project_path = url.substring(0, url.lastIndexOf("/dash-areas"));
-    $.ajax({
-      url: window.project_path + '/api-getActivities',
-      method: 'GET',
-      data: params,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      success: function(resp) {
-        var titles = resp[0];
-        for (var i=0; i < titles.length; i++) {
-          titles[i] = titles[i].replace(titles[i], titles[i].trunc(40));
-        }
-        var values = resp[1];
-        if (titles.length > 0 && values[0].data.length) {
-          $('#graphicActivity').show();
-          $('#graphicOutput').show();
-          $('#noInfo').hide();
-          if (titles.length == 1)
-            var height = 80;
-          else
-            var height = titles.length * 50;
-          ApexCharts.exec('chartActivity', 'updateOptions', {
-            chart: {
-              height: height,
-            },
-            xaxis: {
-              categories: titles,
-            },
-            series: values,
-          }, true, true);
-        }
-        else {
-          $('#graphicActivity').hide();
-          $('#graphicOutput').hide();
-          $('#noInfo').show();
-        }
-      }
-    });
-    $.ajax({
-      url: window.project_path + '/api-getDashboardOutputs',
-      method: 'GET',
-      data: params,
-      transport: function(params){
-        params.beforeSend = function(request){
-          request.setRequestHeader("Accept", "application/json");
-        };
-        return $.ajax(params);
-      },
-      success: function(resp) {
-        var titles = resp[0];
-        for (var i=0; i < titles.length; i++) {
-          titles[i] = titles[i].replace(titles[i], titles[i].trunc(40));
-        }
-        var values = resp[1];
-        if (titles.length > 0 && values[0].data.length) {
-          if (titles.length == 1)
-            var height = 80;
-          else
-            var height = titles.length * 50;
-          ApexCharts.exec('chartOutput', 'updateOptions', {
-            chart: {
-              height: height,
-            },
-            xaxis: {
-              categories: titles,
-            },
-            series: values,
-          }, true, true);
-        }
-      }
-    });
-
     drawCapacityChanges(window.project_path, params);
     drawCurrentStage(window.project_path, params);
   }
@@ -381,8 +99,87 @@ require([
     });
   }
 
+  function drawActivitiesOutputs(resp) {
+    if (!$.isEmptyObject(resp)) {
+      $('#graphicActivityOutput').show();
+      $('#noInfo').hide();
+      $('#graphicActivityOutput').empty();
+      var card = '';
+      $.each(resp, function(activity, values) {
+        var act_val = values['activity_val'];
+        var outputs_dict = values['outputs'];
+        var showOutputs = '';
+        var outputs = '';
+        if (!$.isEmptyObject(outputs_dict)) {
+          showOutputs = `
+          <div class="expand">
+            <i class="fas fa-chevron-down showOutputs" aria-hidden="true"></i>
+            <i style="display: none" class="fas fa-chevron-up hideOutputs" aria-hidden="true"></i>
+          </div>`;
+          $.each(outputs_dict, function(output, value) {
+            var re  = value.split('/');
+            var obtained = parseInt(re[0]);
+            var total = parseInt(re[1]);
+            var percent = obtained*100/total;
+            outputs += `
+            <div class="indicators indicators-outputs" style="display: none">
+              <div class="indicators__elem">
+                <p class="indicators-root indicators-outputs-p">${output}</p>
+                <h3 class="indicators-root indicators-outputs-h3">${value}</h3>
+                <div class="indicators-outputs-progress" role="progressbar" aria-valuenow=${percent}>
+                  <div class="indicators-progress-bar" style="transform: translateX(${percent-100}%);"></div>
+                </div>
+              </div>
+            </div>`;
+          });
+        }
+        card +=
+        `<div class="indicators indicators__elem card">
+          <div class="indicators__paper">
+            <div class="indicators__paper__content">
+              <div class="indicators__paper__content--descr">
+                <div class="indicators__elem indicators__elem--title">
+                  <p class="indicators-root indicators-p">${activity}</p>
+                  <h3 class="indicators-root indicators-h3">${act_val}%</h3>
+                </div>
+                <div class="indicators__elem indicators__elem--icon">
+                  <div class="indicators__icon indicators__icon__circle">
+                    <div class="indicators__icon--fa">
+                      <i class="far fa-chart-bar"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="indicators-progress" role="progressbar" aria-valuenow=${act_val}>
+                <div class="indicators-progress-bar" style="transform: translateX(${act_val-100}%);"></div>
+              </div>${showOutputs}
+            </div>
+          </div>${outputs}</div>`;
+      });
+      $('#graphicActivityOutput').append(card);
+      collapseUncollapse()
+    }
+    else {
+      $('#graphicActivityOutput').hide();
+      $('#noInfo').show();
+    }
+  }
+
+  function collapseUncollapse() {
+    $('.showOutputs').click(function() {
+      $(this).hide();
+      $(this).parent().find('.hideOutputs').show();
+      $(this).parent().parent().parent().next().slideDown();
+    });
+    $('.hideOutputs').click(function() {
+      $(this).hide();
+      $(this).parent().find('.showOutputs').show();
+      $(this).parent().parent().parent().next().slideUp();
+    });
+  }
+
   $(document).ready(function() {
-    fillInfo();
+    drawInfo();
 
     // habilitar/deshabilitar ProjectYear en dashboard
     $('#1, #2, #3, #4, #5, #6, #7, #8, #9, #10').click(function() {
@@ -390,10 +187,11 @@ require([
       $(`#${this.id}`).removeClass("visible");
       $(`#${this.id}`).addClass("disabled");
       $(`#${idDis}`).removeClass("disabled");
-      reDrawInfo();
+      drawInfo();
     });
     $('#selectWA').change(function() {
-      reDrawInfo();
+      drawInfo();
     });
   });
+
 });
