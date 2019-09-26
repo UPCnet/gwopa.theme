@@ -169,12 +169,12 @@ require([
     $('.showOutputs').click(function() {
       $(this).hide();
       $(this).parent().find('.hideOutputs').show();
-      $(this).parent().parent().parent().next().slideDown();
+      $(this).parent().parent().parent().nextAll().slideDown();
     });
     $('.hideOutputs').click(function() {
       $(this).hide();
       $(this).parent().find('.showOutputs').show();
-      $(this).parent().parent().parent().next().slideUp();
+      $(this).parent().parent().parent().nextAll().slideUp();
     });
   }
 
