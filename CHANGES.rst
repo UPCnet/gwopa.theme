@@ -2,11 +2,16 @@ Changelog
 =========
 
 
-1.1 (unreleased)
+1.1 (2019-09-30)
 ----------------
 
-- Nothing changed yet.
-
+* Estilos portaltype-improvementarea mail:to [Iago López Fernández]
+* Corregir margin bottom [alberto.duran]
+* Cajas dashboard para 1280px y correcion js [alberto.duran]
+* Canvis estils dashboard [alberto.duran]
+* Merge remote-tracking branch 'origin/dashboards' [alberto.duran]
+* Print Dashboard with JS, not Python [alberto.duran]
+* Delete others in project by modal [Pilar Marinas]
 
 1.0 (2019-09-10)
 ----------------
