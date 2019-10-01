@@ -61,7 +61,8 @@ require([
   // Delete element on click button
   $('.btn-delete').on('click', function(e) {
     e.preventDefault();
-    item = $(this).attr('data-url');
+    item = $(this).attr('data-path');
+    item_url = $(this).attr('data-url');
     item_type = $(this).attr('data-type');
     item_title = $(this).attr('data-id');
     var params = {};
@@ -75,10 +76,10 @@ require([
     })
     .then((willDelete) => {
       if (willDelete) {
-        url = window.location.href;
-        project_path = url.substring(0, url.lastIndexOf("/view"));
+        url = window.location.href;        
+        // project_path = url.substring(0, url.lastIndexOf("/view"));
         $.ajax({
-          url: project_path + '/removeElement',
+          url: item_url + '/removeElement',
           method: 'POST',
           data: params,
           success: function(resp)
