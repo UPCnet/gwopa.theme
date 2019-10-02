@@ -852,6 +852,16 @@ require([
     e.preventDefault();
     var params = {};
     params.item_title = $('#outcomeccs-title').val();
+    params.item_title_es = $('#outcomeccs-title_es').val();
+    params.item_title_fr = $('#outcomeccs-title_fr').val();
+    if (params.item_title == '' || params.item_title_es == '' || params.item_title_fr == ''){
+      if ($("html").prop("lang") == 'es') {
+        swal("Por favor llene los campos requeridos", "Falta el título", "warning");
+      } else {
+        swal("Please fill in the required fields", "Title is missing", "warning");
+      }
+      return false;
+    }
     params.item_path = $('#OutcomeCCSPath').html();
     params.year = $('#OutcomeCCSYear').html();
     url = window.location.href;
