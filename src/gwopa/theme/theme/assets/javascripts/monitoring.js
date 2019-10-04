@@ -431,7 +431,7 @@ require([
           var res = [];
           var len = data.length;
           for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
           }
           return { results: res };
         }
@@ -456,7 +456,7 @@ require([
           var res = [];
           var len = data.length;
           for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
           }
           return { results: res };
         }
@@ -561,7 +561,7 @@ require([
             var res = [];
             var len = data.length;
             for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+              res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
             }
             return { results: res };
           }
@@ -581,10 +581,13 @@ require([
     var myValObjective = $(this).data('objective');
     var myValObjectiveDate = $(this).data('objective-date');
     var myValDegree = $(this).data('degree-changes');
+    var myValDegreeText = $(this).data('degree-changes-text');
     var myValContributedProject = $(this).data('contributed-project');
+    var myValContributedProjectText = $(this).data('contributed-project-text');
     var myValContributing = $(this).data('contributing-factors');
     var myValObstacles= $(this).data('obstacles');
     var myValConsensus = $(this).data('consensus');
+    var myValConsensusText = $(this).data('consensus-text');
     var myValExplain = $(this).data('explain');
     var myValSelectedMonitoring = $(this).data('selected-monitoring');
     var myValIdCapacity = $(this).data('id-capacity');
@@ -598,8 +601,8 @@ require([
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date").prop('value', myValBaseDate)
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective").val(myValObjective);
     $('#modalEditOutcomeCCS').find("#outcomeccs-objective_date").prop('value', myValObjectiveDate);
-    $('#modalEditOutcomeCCS').find("#outcomeccs-degree_changes").select2('data',{id: myValDegree, text: myValDegree});
-    $('#modalEditOutcomeCCS').find("#outcomeccs-contributed_project").select2('data',{id: myValContributedProject, text: myValContributedProject});
+    $('#modalEditOutcomeCCS').find("#outcomeccs-degree_changes").select2('data',{id: myValDegree, text: myValDegreeText});
+    $('#modalEditOutcomeCCS').find("#outcomeccs-contributed_project").select2('data',{id: myValContributedProject, text: myValContributedProjectText});
 
     if (myValContributing != ''){
       var data = myValContributing.split(',').map(function(e){
@@ -618,7 +621,7 @@ require([
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', '');
     }
-    $('#modalEditOutcomeCCS').find("#outcomeccs-consensus").select2('data',{id: myValConsensus, text: myValConsensus});
+    $('#modalEditOutcomeCCS').find("#outcomeccs-consensus").select2('data',{id: myValConsensus, text: myValConsensusText});
     $('#modalEditOutcomeCCS').find("#outcomeccs-explain").val(myValExplain);
     $('#modalEditOutcomeCCS').find("#outcomeccs-selected_monitoring").val(myValSelectedMonitoring);
   });
@@ -704,9 +707,12 @@ require([
             var degree_changes = degree_values[params.degree_changes.split(" ")[0]]
             icon.addClass(degree_changes);
             outcome.data("degree-changes", params.degree_changes);
+            outcome.data("degree-changes-text", resp['degree_changes_text']);
             outcome.data("contributed-project", params.contributed_project);
+            outcome.data("contributed-project-text", resp['contributed_project_text']);
             outcome.data("contributing-factors", params.contributing_factors);
             outcome.data("consensus", params.consensus);
+            outcome.data("consensus-text", resp['consensus_text']);
             outcome.data("explain", params.explain);
             outcome.data("selected-monitoring", params.selected_monitoring);
             outcome.data("obstacles", params.obstacles);

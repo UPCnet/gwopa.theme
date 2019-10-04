@@ -117,7 +117,8 @@ require([
             <i style="display: none" class="fas fa-chevron-up hideOutputs" aria-hidden="true"></i>
           </div>`;
           $.each(outputs_dict, function(output, value) {
-            var re  = value.split('/');
+            var re = value.split(' ')[0].split('/');
+            var measuring_unit = value.split(' ')[1];
             var obtained = parseInt(re[0]);
             var total = parseInt(re[1]);
             var percent = obtained*100/total;
@@ -125,7 +126,7 @@ require([
             <div class="indicators indicators-outputs" style="display: none">
               <div class="indicators__elem">
                 <p class="indicators-root indicators-outputs-p">${output}</p>
-                <h3 class="indicators-root indicators-outputs-h3">${value}</h3>
+                <h3 class="indicators-root indicators-outputs-h3">${obtained} / ${total} ${measuring_unit}</h3>
                 <div class="indicators-outputs-progress" role="progressbar" aria-valuenow=${percent}>
                   <div class="indicators-progress-bar" style="transform: translateX(${percent-100}%);"></div>
                 </div>

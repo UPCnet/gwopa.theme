@@ -9,9 +9,6 @@ require([
     var currency = $(this).data('currency');
     $('#modalPartner').find(".modal-url").text(url);
     $('#modalPartner').find(".modal-type").text(type);
-    $('#modalPartner').find(".modal-currency").text(currency.charAt(currency.length-1));
-
-
   });
   // Validate fields Contributors
   function validateForm() {
@@ -76,7 +73,7 @@ require([
     })
     .then((willDelete) => {
       if (willDelete) {
-        url = window.location.href;        
+        url = window.location.href;
         // project_path = url.substring(0, url.lastIndexOf("/view"));
         $.ajax({
           url: item_url + '/removeElement',

@@ -130,7 +130,7 @@ require([
             var res = [];
             var len = data.length;
             for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+              res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
             }
             return { results: res };
           }
@@ -210,7 +210,7 @@ require([
             var res = [];
             var len = data.length;
             for (var i=0; i<len; i++) {
-              res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+              res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
             }
             return { results: res };
           }
@@ -299,7 +299,7 @@ require([
           var res = [];
           var len = data.length;
           for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
           }
           return { results: res };
         }
@@ -421,7 +421,7 @@ require([
           var res = [];
           var len = data.length;
           for (var i=0; i<len; i++) {
-            res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+            res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
           }
           return { results: res };
         }
