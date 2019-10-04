@@ -2,11 +2,14 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.2 (2019-10-04)
 ----------------
 
-- Nothing changed yet.
-
+* Traduccion campos Settingspage [Iago López Fernández]
+* Permisos [pilar.marinas]
+* Deshabilitar Enter en el buscador de la homepage [Iago López Fernández]
+* Traduccion Outcome [Iago López Fernández]
+* Remove other in project [pilar.marinas]
 
 1.1 (2019-09-30)
 ----------------
