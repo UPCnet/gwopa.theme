@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.3 (unreleased)
+1.3 (2019-10-04)
 ----------------
 
-- Nothing changed yet.
-
+* Solucionar error password y add en config [pilar.marinas]
+* Estilos settingspage [Iago López Fernández]
 
 1.2 (2019-10-04)
 ----------------
