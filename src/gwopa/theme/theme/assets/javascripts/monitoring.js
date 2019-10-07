@@ -166,21 +166,18 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
+
   $("[id$='-activity-contrib']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
@@ -199,21 +196,18 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
+
   $("[id$='-output-obs']").select2({
     dropdownParent: $('#updateKPI'),
     multiple: true,
@@ -232,18 +226,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -265,18 +255,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -298,18 +284,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -331,18 +313,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -364,18 +342,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -397,18 +371,14 @@ require([
         var res = [];
         var len = data.length;
         for (var i=0; i<len; i++) {
-          res = res.concat({ id: data[i]["name"], text: data[i]["name"] });
+          res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
         }
         return { results: res };
       }
     },
     initSelection: function(element, callback) {
-      var savedData = $(element).val().split(',');
-      var preSelected = [];
-      for (i=0; i<savedData.length; i++) {
-        preSelected = preSelected.concat({id: savedData[i], text: savedData[i]});
-      }
-      $(element).select2('data', preSelected);
+      var savedData = JSON.parse($(element).val())
+      $(element).select2('data', savedData);
       $(element).trigger('change');
     },
   });
@@ -605,19 +575,13 @@ require([
     $('#modalEditOutcomeCCS').find("#outcomeccs-contributed_project").select2('data',{id: myValContributedProject, text: myValContributedProjectText});
 
     if (myValContributing != ''){
-      var data = myValContributing.split(',').map(function(e){
-        return {'id': e, 'text': e};
-      });
-      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', data);
+      $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', myValContributing);
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-contributing_factors").select2('data', '');
     }
 
     if (myValObstacles != ''){
-      var data = myValObstacles.split(',').map(function(e){
-        return {'id': e, 'text': e};
-      });
-      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', data);
+      $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', myValObstacles);
     }else{
       $('#modalEditOutcomeCCS').find("#outcomeccs-obstacles").select2('data', '');
     }
@@ -710,12 +674,12 @@ require([
             outcome.data("degree-changes-text", resp['degree_changes_text']);
             outcome.data("contributed-project", params.contributed_project);
             outcome.data("contributed-project-text", resp['contributed_project_text']);
-            outcome.data("contributing-factors", params.contributing_factors);
+            outcome.data("contributing-factors", JSON.parse(resp['contributing_factors']));
             outcome.data("consensus", params.consensus);
             outcome.data("consensus-text", resp['consensus_text']);
             outcome.data("explain", params.explain);
             outcome.data("selected-monitoring", params.selected_monitoring);
-            outcome.data("obstacles", params.obstacles);
+            outcome.data("obstacles", JSON.parse(resp['obstacles']));
           }}
       });
     }
