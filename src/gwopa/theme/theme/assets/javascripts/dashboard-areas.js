@@ -122,11 +122,12 @@ require([
             var obtained = parseInt(re[0]);
             var total = parseInt(re[1]);
             var percent = obtained*100/total;
+            var text = value.replace('/', ' / ');
             outputs += `
             <div class="indicators indicators-outputs" style="display: none">
               <div class="indicators__elem">
                 <p class="indicators-root indicators-outputs-p">${output}</p>
-                <h3 class="indicators-root indicators-outputs-h3">${obtained} / ${total} ${measuring_unit}</h3>
+                <h3 class="indicators-root indicators-outputs-h3">${text}</h3>
                 <div class="indicators-outputs-progress" role="progressbar" aria-valuenow=${percent}>
                   <div class="indicators-progress-bar" style="transform: translateX(${percent-100}%);"></div>
                 </div>
