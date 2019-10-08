@@ -24,7 +24,17 @@ require([
        $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
      },
      validate: function(value) {
-       if (!value) return 'Required value';
+       if (!value) {
+        var userLang = $("html").prop("lang");
+        if(userLang == 'es') {
+          var msg = 'Valor requerido';
+        }else if(userLang == 'fr'){
+          var msg = 'Required value';
+        }else{
+          var msg = 'Required value';
+        }
+        return msg;
+       }
      },
   });
 
@@ -480,10 +490,23 @@ require([
         success: function(resp)
           {
             if(resp) {
-              swal("Added", "Obstacle Title has been added", "success", {
-                buttons: false,
-                timer: 4000,
-              })
+              var userLang = $("html").prop("lang");
+              if(userLang == 'es') {
+                swal("Añadido", "Título de obstáculo ha sido agregado", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }else if(userLang == 'fr'){
+                swal("Added", "Obstacle Title has been added", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }else{
+                swal("Added", "Obstacle Title has been added", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }
             }
           }
       });
@@ -503,10 +526,23 @@ require([
         success: function(resp)
           {
             if(resp) {
-              swal("Added", "Contributing factor Title has been added", "success", {
-                buttons: false,
-                timer: 4000,
-              })
+              var userLang = $("html").prop("lang");
+              if(userLang == 'es') {
+                swal("Añadido", "Se ha agregado el título del factor contribuyente", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }else if(userLang == 'fr'){
+                swal("Added", "Contributing factor Title has been added", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }else{
+                swal("Added", "Contributing factor Title has been added", "success", {
+                  buttons: false,
+                  timer: 4000,
+                });
+              }
             }
           }
       });
@@ -614,7 +650,14 @@ require([
  // Validate fields Output
   function validateFormOutcomeCCS() {
     if ($('#outcomeccs-degree_changes').val() == "") {
-      swal("Please fill in the required fields", "Title is missing", "warning");
+      var userLang = $("html").prop("lang");
+      if(userLang == 'es') {
+        swal("Por favor llene los campos requeridos", "Falta el título", "warning");
+      }else if(userLang == 'fr'){
+        swal("Please fill in the required fields", "Title is missing", "warning");
+      }else{
+        swal("Please fill in the required fields", "Title is missing", "warning");
+      }
       return false;
     }
     else {
@@ -698,9 +741,12 @@ require([
     params.item_title_es = $('#outcomeccs-title_es').val();
     params.item_title_fr = $('#outcomeccs-title_fr').val();
     if (params.item_title == '' || params.item_title_es == '' || params.item_title_fr == ''){
-      if ($("html").prop("lang") == 'es') {
+      var userLang = $("html").prop("lang");
+      if(userLang == 'es') {
         swal("Por favor llene los campos requeridos", "Falta el título", "warning");
-      } else {
+      }else if(userLang == 'fr'){
+        swal("Please fill in the required fields", "Title is missing", "warning");
+      }else{
         swal("Please fill in the required fields", "Title is missing", "warning");
       }
       return false;

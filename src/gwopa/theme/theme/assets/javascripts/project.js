@@ -12,20 +12,55 @@ require([
   });
   // Validate fields Contributors
   function validateForm() {
-    if ($('#partnerName').val() == "") {
-      swal("Contributor is missing", '', "warning");
-      return false;
-    }
-    else if ($('#incash').val() == "") {
-      swal('In-cash value is missing', '', 'warning');
-      return false;
-    }
-    else if ($('#inkind').val() == "") {
-      swal('In-kind value is missing', '', 'warning');
-      return false;
-    }
-    else {
-      return true;
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      if ($('#partnerName').val() == "") {
+        swal("Falta el nombre del colaborador", '', "warning");
+        return false;
+      }
+      else if ($('#incash').val() == "") {
+        swal('Falta el valor en efectivo', '', 'warning');
+        return false;
+      }
+      else if ($('#inkind').val() == "") {
+        swal('Falta el valor en especie', '', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else if(userLang == 'fr'){
+      if ($('#partnerName').val() == "") {
+        swal("Contributor is missing", '', "warning");
+        return false;
+      }
+      else if ($('#incash').val() == "") {
+        swal('In-cash value is missing', '', 'warning');
+        return false;
+      }
+      else if ($('#inkind').val() == "") {
+        swal('In-kind value is missing', '', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else{
+      if ($('#partnerName').val() == "") {
+        swal("Contributor is missing", '', "warning");
+        return false;
+      }
+      else if ($('#incash').val() == "") {
+        swal('In-cash value is missing', '', 'warning');
+        return false;
+      }
+      else if ($('#inkind').val() == "") {
+        swal('In-kind value is missing', '', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
     }
   }
 
@@ -64,14 +99,23 @@ require([
     item_title = $(this).attr('data-id');
     var params = {};
     params.item = item;
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var title = "Eliminar " + item_type + "?";
+    }else if(userLang == 'fr'){
+      var title = "Delete " + item_type + "?";
+    }else{
+      var title = "Delete " + item_type + "?";
+    }
     swal({
-      title: "Delete " + item_type + "?",
+      title: title,
       text: item_title,
       icon: "warning",
       buttons: true,
       dangerMode: true,
     })
     .then((willDelete) => {
+      var userLang = $("html").prop("lang");
       if (willDelete) {
         url = window.location.href;
         // project_path = url.substring(0, url.lastIndexOf("/view"));
@@ -83,18 +127,42 @@ require([
                 {
                   if(resp) {
                     location.reload();
-                    swal("Deleted", "The item has been deleted", "success", {
-                      buttons: false,
-                      timer: 2000,
-                    })
+                    if(userLang == 'es') {
+                      swal("Eliminado", "El item ha sido eliminado", "success", {
+                        buttons: false,
+                        timer: 2000,
+                      });
+                    }else if(userLang == 'fr'){
+                      swal("Deleted", "The item has been deleted", "success", {
+                        buttons: false,
+                        timer: 2000,
+                      });
+                    }else{
+                      swal("Deleted", "The item has been deleted", "success", {
+                        buttons: false,
+                        timer: 2000,
+                      });
+                    }
                   }
                 }
       })
       } else {
-        swal("Cancelled", "The deleting process has been cancelled", "error", {
-          buttons: false,
-          timer: 1200,
-        })
+        if(userLang == 'es') {
+          swal("Cancelado", "El proceso de borrado ha sido cancelado", "error", {
+            buttons: false,
+            timer: 1200,
+          });
+        }else if(userLang == 'fr'){
+          swal("Cancelled", "The deleting process has been cancelled", "error", {
+            buttons: false,
+            timer: 1200,
+          });
+        }else{
+          swal("Cancelled", "The deleting process has been cancelled", "error", {
+            buttons: false,
+            timer: 1200,
+          });
+        }
       }
     });
   });

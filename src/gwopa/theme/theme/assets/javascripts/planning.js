@@ -26,7 +26,17 @@ require([
        $("a[aria-describedby=" + $(this).closest(".ui-tooltip").prop("id") + "]").data("shared", this);
      },
      validate: function(value) {
-       if (!value) return 'Required value';
+       if (!value) {
+        var userLang = $("html").prop("lang");
+        if(userLang == 'es') {
+          var msg = 'Valor requerido';
+        }else if(userLang == 'fr'){
+          var msg = 'Required value';
+        }else{
+          var msg = 'Required value';
+        }
+        return msg;
+       }
      },
   });
   // Click on close & cancel clears fields
@@ -140,7 +150,14 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        let userLang = $("html").prop("lang");
+        if(userLang == 'es') {
+          $('#target-date-1').html('<span class="projectYear">Fin del año del proyecto 1</span> (' + end_date + ')');
+        }else if(userLang == 'fr'){
+          $('#target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        }else{
+          $('#target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        }
     });
   });
   // afegirKPI ZONE
@@ -220,7 +237,14 @@ require([
     .then(function(response) { return response.json();})
     .then(function(data) {
         let end_date = data[0].gwopa_year_phases[0].end;
-        $('#kpizone-target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        let userLang = $("html").prop("lang");
+        if(userLang == 'es') {
+          $('#kpizone-target-date-1').html('<span class="projectYear">Fin del año del proyecto 1</span> (' + end_date + ')');
+        }else if(userLang == 'fr'){
+          $('#kpizone-target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        }else{
+          $('#kpizone-target-date-1').html('<span class="projectYear">End Project Year 1</span> (' + end_date + ')');
+        }
     });
   });
   // editOutcomeCC
@@ -491,9 +515,16 @@ require([
     fetch('api-getPhases')
      .then(function(response) { return response.json();})
      .then(function(data) {
-         let end_date = data[0].gwopa_year_phases[0].end;
-         let year = $(".block-nav .pagination li.disabled").data("project-year");
-         $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">End Project Year ' + year + '</span> (' + end_date + ')');
+        let end_date = data[0].gwopa_year_phases[0].end;
+        let year = $(".block-nav .pagination li.disabled").data("project-year");
+        let userLang = $("html").prop("lang");
+        if(userLang == 'es') {
+          $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">Fin del año del proyecto ' + year + '</span> (' + end_date + ')');
+        }else if(userLang == 'fr'){
+          $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">End Project Year ' + year + '</span> (' + end_date + ')');
+        }else{
+          $('#modalEditKPIZone #kpizone-target-date-1').html('<span class="projectYear">End Project Year ' + year + '</span> (' + end_date + ')');
+        }
      });
 
 
@@ -534,95 +565,280 @@ require([
     start = Date.parse(start_date);
     end = Date.parse(end_date);
 
-    if (start>end) {
-      swal("Please provide valid dates", 'Start date must begin before Completion date', "warning");
-      return false;
-    }
-    else if ($('#act-title').val() == "") {
-      swal("Please fill in the required fields", 'Title is missing', "warning");
-      return false;
-    }
-    else if ($('#act-start').val() == "") {
-      swal('Please fill in the required fields', 'Starting date is missing', 'warning');
-      return false;
-    }
-    else if ($('#act-end').val() == "") {
-      swal('Please fill in the required fields', 'Completion date is missing', 'warning');
-      return false;
-    }
-    else {
-      return true;
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      if (start>end) {
+        swal("Por favor proporcione fechas válidas", 'La fecha de inicio debe comenzar antes de la fecha de finalización', "warning");
+        return false;
+      }
+      else if ($('#act-title').val() == "") {
+        swal("Por favor llene los campos requeridos", 'Falta el título', "warning");
+        return false;
+      }
+      else if ($('#act-start').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la fecha de inicio', 'warning');
+        return false;
+      }
+      else if ($('#act-end').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la fecha de finalización', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else if(userLang == 'fr'){
+      if (start>end) {
+        swal("Please provide valid dates", 'Start date must begin before Completion date', "warning");
+        return false;
+      }
+      else if ($('#act-title').val() == "") {
+        swal("Please fill in the required fields", 'Title is missing', "warning");
+        return false;
+      }
+      else if ($('#act-start').val() == "") {
+        swal('Please fill in the required fields', 'Starting date is missing', 'warning');
+        return false;
+      }
+      else if ($('#act-end').val() == "") {
+        swal('Please fill in the required fields', 'Completion date is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else{
+      if (start>end) {
+        swal("Please provide valid dates", 'Start date must begin before Completion date', "warning");
+        return false;
+      }
+      else if ($('#act-title').val() == "") {
+        swal("Please fill in the required fields", 'Title is missing', "warning");
+        return false;
+      }
+      else if ($('#act-start').val() == "") {
+        swal('Please fill in the required fields', 'Starting date is missing', 'warning');
+        return false;
+      }
+      else if ($('#act-end').val() == "") {
+        swal('Please fill in the required fields', 'Completion date is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
     }
   }
   // Validate fields Output
   function validateFormOutput() {
-    if ($('#out-title').val() == "") {
-      swal("Please fill in the required fields", "Title is missing", "warning");
-      return false;
-    }
-    else if ($('#out-datetimepicker').val() == "") {
-      swal('Please fill in the required fields', 'Completion date is missing', 'warning');
-      return false;
-    }
-    else if ($('#out-unit').val() == "") {
-      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
-      return false;
-    }
-    else {
-      return true;
+
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      if ($('#out-title').val() == "") {
+        swal("Por favor llene los campos requeridos", "Falta el título", "warning");
+        return false;
+      }
+      else if ($('#out-datetimepicker').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la fecha de finalización', 'warning');
+        return false;
+      }
+      else if ($('#out-unit').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la unidad de medida', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else if(userLang == 'fr'){
+      if ($('#out-title').val() == "") {
+        swal("Please fill in the required fields", "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#out-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Completion date is missing', 'warning');
+        return false;
+      }
+      else if ($('#out-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else{
+      if ($('#out-title').val() == "") {
+        swal("Please fill in the required fields", "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#out-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Completion date is missing', 'warning');
+        return false;
+      }
+      else if ($('#out-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
     }
   }
   // Validate fields KPI
   function validateFormKPI() {
-    if ($('#kpi-title').val() == "") {
-      swal('Please fill in the required fields', "Title is missing", "warning");
-      return false;
+
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      if ($('#kpi-title').val() == "") {
+        swal('Por favor llene los campos requeridos', "Falta el título", "warning");
+        return false;
+      }
+      else if ($('#kpi-baseline').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta el valor de referencia', 'warning');
+        return false;
+      }
+      else if ($('#kpi-datetimepicker').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la fecha de referencia', 'warning');
+        return false;
+      }
+      else if ($('#kpi-unit').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la unidad de medida', 'warning');
+        return false;
+      }
+      else if ($('#kpi-frequency').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la frecuencia de medición', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else if(userLang == 'fr'){
+      if ($('#kpi-title').val() == "") {
+        swal('Please fill in the required fields', "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#kpi-baseline').val() == "") {
+        swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-frequency').val() == "") {
+        swal('Please fill in the required fields', 'The measuring frequency is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else{
+      if ($('#kpi-title').val() == "") {
+        swal('Please fill in the required fields', "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#kpi-baseline').val() == "") {
+        swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpi-frequency').val() == "") {
+        swal('Please fill in the required fields', 'The measuring frequency is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
     }
-    else if ($('#kpi-baseline').val() == "") {
-      swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpi-datetimepicker').val() == "") {
-      swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpi-unit').val() == "") {
-      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpi-frequency').val() == "") {
-      swal('Please fill in the required fields', 'The measuring frequency is missing', 'warning');
-      return false;
-    }
-    else {
-      return true;
-    }
+
   }
   // Validate fields KPIZone
   function validateFormKPIZone() {
-    if ($('#kpizone-title').val() == "") {
-      swal('Please fill in the required fields', "Title is missing", "warning");
-      return false;
+
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      if ($('#kpizone-title').val() == "") {
+        swal('Por favor llene los campos requeridos', "Falta el título", "warning");
+        return false;
+      }
+      else if ($('#kpizone-baseline').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta el valor de referencia', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-datetimepicker').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la fecha de referencia', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-unit').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la unidad de medida', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-frequency').val() == "") {
+        swal('Por favor llene los campos requeridos', 'Falta la frecuencia de medición', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else if(userLang == 'fr'){
+      if ($('#kpizone-title').val() == "") {
+        swal('Please fill in the required fields', "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#kpizone-baseline').val() == "") {
+        swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-frequency').val() == "") {
+        swal('Please fill in the required fields', 'Measuring frequency is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
+    }else{
+      if ($('#kpizone-title').val() == "") {
+        swal('Please fill in the required fields', "Title is missing", "warning");
+        return false;
+      }
+      else if ($('#kpizone-baseline').val() == "") {
+        swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-datetimepicker').val() == "") {
+        swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-unit').val() == "") {
+        swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
+        return false;
+      }
+      else if ($('#kpizone-frequency').val() == "") {
+        swal('Please fill in the required fields', 'Measuring frequency is missing', 'warning');
+        return false;
+      }
+      else {
+        return true;
+      }
     }
-    else if ($('#kpizone-baseline').val() == "") {
-      swal('Please fill in the required fields', 'Baseline value is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpizone-datetimepicker').val() == "") {
-      swal('Please fill in the required fields', 'Baseline date is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpizone-unit').val() == "") {
-      swal('Please fill in the required fields', 'Measuring unit is missing', 'warning');
-      return false;
-    }
-    else if ($('#kpizone-frequency').val() == "") {
-      swal('Please fill in the required fields', 'Measuring frequency is missing', 'warning');
-      return false;
-    }
-    else {
-      return true;
-    }
+
   }
   // Create Activity
   $('#createActivityFromModal').click(function(e){
@@ -748,10 +964,24 @@ require([
       success: function(resp)
             {
               if(resp) {
-                swal("Added", "The Output Title has been added", "success", {
-                  buttons: false,
-                  timer: 2000,
-                });
+                var userLang = $("html").prop("lang");
+                if(userLang == 'es') {
+                  swal("Añadido", "Se ha agregado el título de salida", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }else if(userLang == 'fr'){
+                  swal("Added", "The Output Title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }else{
+                  swal("Added", "The Output Title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }
+
                 $("#addOutputTitle").show();
                 $("#addBox").hide();
               }
@@ -771,10 +1001,23 @@ require([
       success: function(resp)
             {
               if(resp) {
-                swal("Added", "The KPI Title has been added", "success", {
-                  buttons: false,
-                  timer: 2000,
-                });
+                var userLang = $("html").prop("lang");
+                if(userLang == 'es') {
+                  swal("Añadido", "Se ha agregado el título de KPI", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }else if(userLang == 'fr'){
+                  swal("Added", "The KPI Title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }else{
+                  swal("Added", "The KPI Title has been added", "success", {
+                    buttons: false,
+                    timer: 2000,
+                  });
+                }
                 $("#addKPITitle").show();
                 $("#kpiBox").hide();
               }
@@ -855,9 +1098,11 @@ require([
     params.item_title_es = $('#outcomeccs-title_es').val();
     params.item_title_fr = $('#outcomeccs-title_fr').val();
     if (params.item_title == '' || params.item_title_es == '' || params.item_title_fr == ''){
-      if ($("html").prop("lang") == 'es') {
+      if($("html").prop("lang") == 'es'){
         swal("Por favor llene los campos requeridos", "Falta el título", "warning");
-      } else {
+      }else if(userLang == 'fr'){
+        swal("Please fill in the required fields", "Title is missing", "warning");
+      }else{
         swal("Please fill in the required fields", "Title is missing", "warning");
       }
       return false;
@@ -899,6 +1144,7 @@ require([
       let idnum = counter + 1;
       let okAdd = true;
       let btnID = this.getAttribute('id');
+      let userLang = $("html").prop("lang");
       if (btnID == 'addTargetValueButton'){
         let start = $("#modalOutput .modal-start").text();
         let end = $("#modalOutput .modal-end").text();
@@ -915,17 +1161,38 @@ require([
         // ----------------------------------------------------------------------------------------
 
         if (counter >= activityNumPhases) {
-          okAdd = false
-          swal('Not allowed!',
-               'Sorry, but only ' + activityNumPhases + ' target values are accepted.',
-               'warning');
+          okAdd = false;
+          if(userLang == 'es') {
+            swal('¡No permitido!',
+                 'Lo siento pero solo se aceptan ' + activityNumPhases + ' valores.',
+                 'warning');
+          }else if(userLang == 'fr'){
+            swal('Not allowed!',
+                 'Sorry, but only ' + activityNumPhases + ' target values are accepted.',
+                 'warning');
+          }else{
+            swal('Not allowed!',
+                 'Sorry, but only ' + activityNumPhases + ' target values are accepted.',
+                 'warning');
+          }
         }
       }else{
         if (counter >= numPhases) {
-          okAdd = false
-          swal('Not allowed!',
-               'Sorry, but only ' + numPhases + ' target values are accepted.',
-               'warning');
+          okAdd = false;
+          if(userLang == 'es') {
+            swal('¡No permitido!',
+                 'Lo siento pero solo se aceptan ' + activityNumPhases + ' valores.',
+                 'warning');
+
+          }else if(userLang == 'fr'){
+            swal('Not allowed!',
+                 'Lo siento pero solo ' + numPhases + ' target values are accepted.',
+                 'warning');
+          }else{
+            swal('Not allowed!',
+                 'Sorry, but only ' + numPhases + ' target values are accepted.',
+                 'warning');
+          }
         }
       }
 
@@ -964,7 +1231,14 @@ require([
       .then(function(response) { return response.json();})
       .then(function(data) {
           let project_year_num = $('.projectYear').length + 1;
-          let project_year = 'End Project Year ' + project_year_num
+          let userLang = $("html").prop("lang");
+          if(userLang == 'es') {
+            let project_year = 'Fin del año del proyecto ' + project_year_num
+          }else if(userLang == 'fr'){
+            let project_year = 'End Project Year ' + project_year_num
+          }else{
+            let project_year = 'End Project Year ' + project_year_num
+          }
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
           if (btnID == 'addTargetValueButton') {
             $('#target-date-' + (idnum) + '').html('<span class="projectYear">' + project_year + '</span> (' + end_date + ')');
@@ -987,14 +1261,23 @@ require([
       item_title = $(this).attr('data-id');
       var params = {};
       params.item = item;
+      var userLang = $("html").prop("lang");
+      if(userLang == 'es') {
+        var title = "Eliminar " + item_type + "?";
+      }else if(userLang == 'fr'){
+        var title = "Delete " + item_type + "?";
+      }else{
+        var title = "Delete " + item_type + "?";
+      }
       swal({
-        title: "Delete " + item_type + "?",
+        title: title,
         text: item_title,
         icon: "warning",
         buttons: true,
         dangerMode: true,
       })
       .then((willDelete) => {
+        var userLang = $("html").prop("lang");
         if (willDelete) {
           url = window.location.href;
           project_path = url.substring(0, url.lastIndexOf("/planning"));
@@ -1006,18 +1289,42 @@ require([
                   {
                     if(resp) {
                       location.reload();
-                      swal("Deleted", "The item has been deleted", "success", {
-                        buttons: false,
-                        timer: 2000,
-                      })
+                      if(userLang == 'es') {
+                        swal("Eliminado", "El item ha sido eliminado", "success", {
+                          buttons: false,
+                          timer: 2000,
+                        });
+                      }else if(userLang == 'fr'){
+                        swal("Deleted", "The item has been deleted", "success", {
+                          buttons: false,
+                          timer: 2000,
+                        });
+                      }else{
+                        swal("Deleted", "The item has been deleted", "success", {
+                          buttons: false,
+                          timer: 2000,
+                        });
+                      }
                     }
                   }
         })
         } else {
-          swal("Cancelled", "The deleting process has been cancelled", "error", {
-            buttons: false,
-            timer: 1200,
-          })
+          if(userLang == 'es') {
+            swal("Cancelado", "El proceso de borrado ha sido cancelado", "error", {
+              buttons: false,
+              timer: 1200,
+            });
+          }else if(userLang == 'fr'){
+            swal("Cancelled", "The deleting process has been cancelled", "error", {
+              buttons: false,
+              timer: 1200,
+            });
+          }else{
+            swal("Cancelled", "The deleting process has been cancelled", "error", {
+              buttons: false,
+              timer: 1200,
+            });
+          }
         }
       });
     });
