@@ -59,8 +59,16 @@ require([
     var path = window.location.pathname.split('/')
     path.splice(-1,1)
     path = path.join('/')
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var placeholder = 'Buscar usuarios';
+    }else if(userLang == 'fr'){
+      var placeholder = 'Search Users';
+    }else{
+      var placeholder = 'Search Users';
+    }
     $("#modalActivity #act-responsible").select2({
-      placeholder: "Search Users",
+      placeholder: placeholder,
       multiple: true,
       ajax: {
         url: path + "/api-select2-users.json",
@@ -165,8 +173,16 @@ require([
     var path = window.location.pathname.split('/')
     path.splice(-1,1)
     path = path.join('/')
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var placeholder = 'Buscar usuarios';
+    }else if(userLang == 'fr'){
+      var placeholder = 'Search Users';
+    }else{
+      var placeholder = 'Search Users';
+    }
     $("#modalKPIZone #kpizone-responsible").select2({
-      placeholder: "Search Users",
+      placeholder: placeholder,
       multiple: true,
       ajax: {
         url: path + "/api-select2-users.json",
@@ -332,11 +348,19 @@ require([
 
   // editOutput
   $("a.editOutput").click(function() {
-    var path = window.location.pathname.split('/')
-    path.splice(-1,1)
-    path = path.join('/')
+    var path = window.location.pathname.split('/');
+    path.splice(-1,1);
+    path = path.join('/');
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var placeholder = 'Buscar usuarios';
+    }else if(userLang == 'fr'){
+      var placeholder = 'Search Users';
+    }else{
+      var placeholder = 'Search Users';
+    }
     $("#modalEditOutput #out-responsible").select2({
-      placeholder: "Search Users",
+      placeholder: placeholder,
       multiple: true,
       ajax: {
         url: path + "/api-select2-users.json",
@@ -454,11 +478,19 @@ require([
 
   // editKPIZone
   $("a.editKPIZone").click(function() {
-    var path = window.location.pathname.split('/')
-    path.splice(-1,1)
-    path = path.join('/')
+    var path = window.location.pathname.split('/');
+    path.splice(-1,1);
+    path = path.join('/');
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var placeholder = 'Buscar usuarios';
+    }else if(userLang == 'fr'){
+      var placeholder = 'Search Users';
+    }else{
+      var placeholder = 'Search Users';
+    }
     $("#modalEditKPIZone #kpizone-responsible").select2({
-      placeholder: "Search Users",
+      placeholder: placeholder,
       multiple: true,
       ajax: {
         url: path + "/api-select2-users.json",
@@ -1120,11 +1152,19 @@ require([
     });
   });
   $(document).ready(function() {
-    var path = window.location.pathname.split('/')
-    path.splice(-1,1)
-    path = path.join('/')
+    var path = window.location.pathname.split('/');
+    path.splice(-1,1);
+    path = path.join('/');
+    var userLang = $("html").prop("lang");
+    if(userLang == 'es') {
+      var placeholder = 'Buscar usuarios';
+    }else if(userLang == 'fr'){
+      var placeholder = 'Search Users';
+    }else{
+      var placeholder = 'Search Users';
+    }
     $("#modalOutput #out-responsible").select2({
-      placeholder: "Search Users",
+      placeholder: placeholder,
       multiple: true,
       ajax: {
         url: path + "/api-select2-users.json",
