@@ -381,6 +381,7 @@ require([
     var myValLimitEnd = $(this).data('limit-end');
     var myValTargetValue = $(this).data('target-value-planned');
     var myValUnit = $(this).data('unit');
+    var myValUnitText = $(this).data('unit-text');
     var myValResponsible = $(this).data('responsible');
     var myValResponsibleID = $(this).data('responsible-id');
     var myValMeans = $(this).data('means');
@@ -392,7 +393,7 @@ require([
     $('#modalEditOutput').find(".modal-start").text(myValStart);
     $('#modalEditOutput').find(".modal-end").text(myValEnd);
     $('#modalEditOutput').find("#out-description").text(myValDescription);
-    $('#modalEditOutput').find("#out-unit").select2('data',{id: myValUnit, text: myValUnit});
+    $('#modalEditOutput').find("#out-unit").select2('data',{id: myValUnit, text: myValUnitText});
     $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper input").prop('value', myValEnd);
     $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper div[aria-label='" + myValEnd + "']").trigger("click");
     $('#modalEditOutput').find("#out-datetimepicker + .pattern-pickadate-wrapper input").change();
@@ -509,6 +510,7 @@ require([
     var myValEnd = $(this).data('end');
     var myValTargetValue = $(this).data('target-value-planned');
     var myValUnit = $(this).data('unit');
+    var myValUnitText = $(this).data('unit-text');
     var myValResponsible = $(this).data('responsible');
     var myValResponsibleID = $(this).data('responsible-id');
     var myValZone = $(this).data('zone');
@@ -524,7 +526,7 @@ require([
     $('#modalEditKPIZone').find(".modal-end").text(myValEnd);
     $('#modalEditKPIZone').find("#kpizone-description").text(myValDescription);
     $('#modalEditKPIZone').find("#kpizone-zone").val(myValZone);
-    $('#modalEditKPIZone').find("#kpizone-unit").select2('data',{id: myValUnit, text: myValUnit});
+    $('#modalEditKPIZone').find("#kpizone-unit").select2('data',{id: myValUnit, text: myValUnitText});
     $('#modalEditKPIZone').find("#kpizone-baseline").val(myValBaseValue);
     $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
     $('#modalEditKPIZone').find("#kpizone-datetimepicker + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
