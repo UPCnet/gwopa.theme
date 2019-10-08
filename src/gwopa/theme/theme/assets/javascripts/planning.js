@@ -278,6 +278,10 @@ require([
     $('#modalEditOutcomeCC').find(".modal-idCapacity").text(myValIdCapacity);
     $('#modalEditOutcomeCC').find("#outcomecc-description").text(myValDescription);
     $('#modalEditOutcomeCC').find("#outcomecc-baseline").val(myValBaseValue);
+
+    $('#modalEditOutcomeCC').find('#outcomecc-baseline_date + .pattern-pickadate-wrapper .pattern-pickadate-clear').trigger('click');
+    $('#modalEditOutcomeCC').find('#outcomecc-objective_date + .pattern-pickadate-wrapper .pattern-pickadate-clear').trigger('click');
+
     $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
     $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
     $('#modalEditOutcomeCC').find("#outcomecc-baseline_date + .pattern-pickadate-wrapper input").change();
@@ -305,6 +309,10 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-idCapacityCCS").text(myValIdCapacity);
     $('#modalEditOutcomeCCS').find("#outcomeccs-description").text(myValDescription);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline").val(myValBaseValue);
+
+    $('#modalEditOutcomeCCS').find('#outcomeccs-baseline_date + .pattern-pickadate-wrapper .pattern-pickadate-clear').trigger('click');
+    $('#modalEditOutcomeCCS').find('#outcomeccs-objective_date + .pattern-pickadate-wrapper .pattern-pickadate-clear').trigger('click');
+
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper input").prop('value', myValBaseDate);
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper div[aria-label='" + myValBaseDate + "']").trigger("click");
     $('#modalEditOutcomeCCS').find("#outcomeccs-baseline_date + .pattern-pickadate-wrapper input").change();
@@ -1070,7 +1078,6 @@ require([
   $('#updateOutcomeCCFromModal').click(function(e){
     e.preventDefault();
     var params = {};
-    params.description = $('#outcomecc-description').val();
     params.baseline = $('#outcomecc-baseline').val();
     params.baseline_date = $('#outcomecc-baseline_date').val();
     params.objective = $('#outcomecc-objective').val();
@@ -1086,8 +1093,7 @@ require([
       data: params,
       success: function(resp)
         { if(resp) {
-          outcome = $("#" + params.id_capacity + " a ");
-          outcome.data("description", params.description);
+          outcome = $("a[data-target='#modalEditOutcomeCC'][data-id-capacity='" + params.id_capacity + "']");
           outcome.data("base-value", params.baseline);
           outcome.data("base-date", params.baseline_date);
           outcome.data("objective", params.objective);
@@ -1117,7 +1123,7 @@ require([
       data: params,
       success: function(resp)
         { if(resp) {
-          outcome = $("#" + params.id_capacity + " a[data-id_specific='" + params.id_specific + "']");
+          outcome = $("a[data-id-capacity='" + params.id_capacity + "'][data-id_specific='" + params.id_specific + "']");
           outcome.addClass("selected");
           img = outcome.find("img");
           img.attr("src", img.attr("data-selected"));
