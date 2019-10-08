@@ -1282,11 +1282,11 @@ require([
           let project_year_num = $('.projectYear').length + 1;
           let userLang = $("html").prop("lang");
           if(userLang == 'es') {
-            let project_year = 'Fin del año del proyecto ' + project_year_num
+            var project_year = 'Fin del año del proyecto ' + project_year_num
           }else if(userLang == 'fr'){
-            let project_year = 'End Project Year ' + project_year_num
+            var project_year = 'End Project Year ' + project_year_num
           }else{
-            let project_year = 'End Project Year ' + project_year_num
+            var project_year = 'End Project Year ' + project_year_num
           }
           let end_date = data[0].gwopa_year_phases[idnum-1].end;
           if (btnID == 'addTargetValueButton') {
