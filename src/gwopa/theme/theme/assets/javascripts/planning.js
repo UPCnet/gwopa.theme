@@ -418,7 +418,14 @@ require([
      .then(function(data) {
          let end_date = data[0].gwopa_year_phases[0].end;
          let year = $(".block-nav .pagination li.disabled").data("project-year");
-         $('#modalEditOutput #target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+         let userLang = $("html").prop("lang");
+         if(userLang == 'es') {
+          $('#modalEditOutput #target-date-1').html('<span class="projectYear">Año del proyecto ' + year + '</span> - ' + end_date);
+         }else if(userLang == 'fr'){
+          $('#modalEditOutput #target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+         }else{
+          $('#modalEditOutput #target-date-1').html('<span class="projectYear">Project Year ' + year + '</span> - ' + end_date);
+         }
      });
 
   });
