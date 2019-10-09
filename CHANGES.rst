@@ -2,11 +2,18 @@ Changelog
 =========
 
 
-1.4 (unreleased)
+1.4 (2019-10-09)
 ----------------
 
-- Nothing changed yet.
-
+* Limpiar modales Planificación/Resultados [Iago López Fernández]
+* Solucionar error project_year [Iago López Fernández]
+* Traduccion Año del proyecto [Iago López Fernández]
+* Solucionar error traduccion mesuring_unit [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Traducciones [Iago López Fernández]
+* Traducciones outcomesdefault [Iago López Fernández]
+* Arreglar error dashboard-areas [Iago López Fernández]
+* Traduccion campos mainobstacles y maincontributing [Iago López Fernández]
 
 1.3 (2019-10-04)
 ----------------
