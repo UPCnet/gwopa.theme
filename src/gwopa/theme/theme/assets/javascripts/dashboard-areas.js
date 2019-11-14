@@ -108,7 +108,7 @@ require([
       $.each(resp, function(activity, values) {
         var act_val = values['activity_val'];
         var outputs_dict = values['outputs'];
-        var showOutputs = '';
+        var showOutputs = '<div class="expand"></div>';
         var outputs = '';
         if (!$.isEmptyObject(outputs_dict)) {
           showOutputs = `
