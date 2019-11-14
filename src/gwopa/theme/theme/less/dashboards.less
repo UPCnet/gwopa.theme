@@ -1,63 +1,57 @@
-@media (max-width: 1920px) {
-  .indicators {
-    flex-grow: 0;
-    flex-basis: 24%;
-  }
-}
-@media (max-width: 1280px) {
-  .indicators {
-    flex-grow: 0;
-    flex-basis: 32%;
-  }
-  .indicators__elem {
-    .indicators__elem--title {
-      width: 80% !important;
-    }
-  }
-  .indicators-h3 {
-    font-size: 20px !important;
-    line-height: normal !important;
-  }
-}
-@media (max-width: 600px) {
-  .indicators {
-    flex-grow: 0;
-    flex-basis: 49%;
-  }
-}
-@media (max-width: 320px) {
-  .indicators {
-    flex-grow: 0;
-    flex-basis: 99%;
-  }
+.card {
+  min-width: 250px;
+  width: 25%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  margin: 3px;
-}
 .stats {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: stretch;
   margin-top: 16px;
+}
+
+.indicators {
+    margin:3px 3px -2px 3px;
+    justify-content: space-between;
+    padding: 15px 15px 5px 15px;
+    color: #263238;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    &.indicators-outputs{
+        margin: -1px 3px;
+        border-radius:0  0 4px 4px;
+        .indicators-outputs-p {
+          line-height: 14px; margin-bottom: 5px;
+         }
+    }
+}
+
+.title_icon{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .indicators__elem {
   box-sizing: border-box;
+  &.card {
+      color: #263238;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      box-shadow: none;
+      border: 1px solid #ccc;
+  }
   .indicators__elem--title {
     width: 85%;
   }
 }
 
-.indicators__paper {
-  color: #263238;
-  background-color: #FFFFFF;
-  border-radius: 4px;
-  box-shadow: none;
-  border: 1px solid #ccc;
-  height: 163px;
-  overflow: hidden;
-}
 
 .indicators__paper__content {
   padding: 16px;
@@ -111,7 +105,6 @@
   font-size: 24px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
-  line-height: 44px;
   letter-spacing: -0.06px;
 }
 
@@ -145,7 +138,7 @@
 }
 
 .indicators-outputs {
-  padding: 24px;
+  padding: 20px 20px 10px 20px;
   color: #263238;
   background-color: #f6f6f6;
   border-radius: 0px;
@@ -159,7 +152,6 @@
   font-size: 10px;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 700;
-  line-height: 24px;
   letter-spacing: -0.04px;
   text-transform: uppercase;
 }

@@ -136,27 +136,27 @@ require([
           });
         }
         card +=
-        `<div class="indicators indicators__elem card">
-          <div class="indicators__paper">
-            <div class="indicators__paper__content">
-              <div class="indicators__paper__content--descr">
-                <div class="indicators__elem indicators__elem--title">
-                  <p class="indicators-root indicators-p">${activity}</p>
-                  <h3 class="indicators-root indicators-h3">${act_val}%</h3>
+        `<div class=" card">
+            <div class="indicators">
+                <div class="title_icon">
+                     <h4 class="indicators-root indicators-p">${activity}</h4>
+                     <div class="indicators__elem indicators__elem--icon">
+                         <div class="indicators__icon indicators__icon__circle">
+                             <div class="indicators__icon--fa">
+                                 <i class="far fa-chart-bar"></i>
+                             </div>
+                         </div>
+                     </div>
                 </div>
-                <div class="indicators__elem indicators__elem--icon">
-                  <div class="indicators__icon indicators__icon__circle">
-                    <div class="indicators__icon--fa">
-                      <i class="far fa-chart-bar"></i>
-                    </div>
-                  </div>
+                <h3 class="indicators-root indicators-h3">${act_val}%</h3>
+                <div class="indicators-progress" role="progressbar" aria-valuenow=${act_val}>
+                    <div class="indicators-progress-bar" style="transform: translateX(${act_val-100}%);"></div>
                 </div>
-              </div>
-              <div class="indicators-progress" role="progressbar" aria-valuenow=${act_val}>
-                <div class="indicators-progress-bar" style="transform: translateX(${act_val-100}%);"></div>
-              </div>${showOutputs}
-            </div>
-          </div>${outputs}</div>`;
+                ${showOutputs}
+             </div>
+                ${outputs}
+         </div>`;
+
       });
       $('#graphicActivityOutput').append(card);
       collapseUncollapse()
@@ -171,12 +171,12 @@ require([
     $('.showOutputs').click(function() {
       $(this).hide();
       $(this).parent().find('.hideOutputs').show();
-      $(this).parent().parent().parent().nextAll().slideDown();
+      $(this).parent().parent().nextAll().slideDown();
     });
     $('.hideOutputs').click(function() {
       $(this).hide();
       $(this).parent().find('.showOutputs').show();
-      $(this).parent().parent().parent().nextAll().slideUp();
+      $(this).parent().parent().nextAll().slideUp();
     });
   }
 
