@@ -2,11 +2,11 @@ Changelog
 =========
 
 
-1.5 (unreleased)
+1.5 (2019-11-28)
 ----------------
 
-- Nothing changed yet.
-
+* More css to dropdown [alberto.duran]
+* Show dropdown in dashboard all browsers [alberto.duran]
 
 1.4 (2019-10-09)
 ----------------
