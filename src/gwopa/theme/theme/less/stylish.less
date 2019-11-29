@@ -260,6 +260,10 @@ button#addTargetValueButton {
 
 .template-monitoring .autotabs .autotoc-nav,
 .template-monitoring .pat-autotoc.autotabs .autotoc-nav,
+.template-reporting .autotabs .autotoc-nav,
+.template-reporting .pat-autotoc.autotabs .autotoc-nav,
+.template-reportpreview .autotabs .autotoc-nav,
+.template-reportpreview .pat-autotoc.autotabs .autotoc-nav,
 .template-planning .autotabs .autotoc-nav,
 .template-planning .pat-autotoc.autotabs .autotoc-nav {
   border: none;
@@ -2296,7 +2300,8 @@ body#visual-portal-wrapper.template-view .row .col-md-3 div {
 
 .fa-edit:before,
 .fa-info-circle:before,
-.fa-trash-alt:before {
+.fa-trash-alt:before,
+.fa-download:before {
   color: #a7a7a7 !important;
 }
 
@@ -2448,6 +2453,11 @@ li#portal-personaltools {
   padding: 50px 15px 15px;
 }
 
+#reportPreviewProject.tabla_contenido_items,
+#reportingProject.tabla_contenido_items {
+  padding: 15px;
+}
+
 .tab-content#edit-zone.plone-toolbar-top .plone-toolbar-container,
 .tab-content.clearfix,
 .tab-content.container,
@@ -2462,6 +2472,8 @@ li#portal-personaltools {
   background-color: white;
 }
 
+.template-reporPreview a.autotoc-level-1,
+.template-reporting a.autotoc-level-1,
 .template-monitoring a.autotoc-level-1,
 .template-planning a.autotoc-level-1 {
   margin-bottom: 0 !important;
@@ -2475,12 +2487,15 @@ li#portal-personaltools {
   border-bottom-width: 0 !important;
   padding: 10px 15px !important;
 }
-
+.template-reporPreview a.autotoc-level-1:hover,
+.template-reporting a.autotoc-level-1:hover,
 .template-monitoring a.autotoc-level-1:hover,
 .template-planning a.autotoc-level-1:hover {
   background-color: #053449 !important;
 }
 
+.template-reporPreview a.autotoc-level-1.active,
+.template-reporting a.autotoc-level-1.active,
 .template-monitoring a.autotoc-level-1.active,
 .template-planning a.autotoc-level-1.active {
   border: none !important;
@@ -2488,6 +2503,8 @@ li#portal-personaltools {
   color: #4d4d4d !important;
 }
 
+.template-reporPreview .pat-autotoc.autotabs .autotoc-section.active,
+.template-reporting .pat-autotoc.autotabs .autotoc-section.active,
 .template-monitoring .pat-autotoc.autotabs .autotoc-section.active,
 .template-planning .pat-autotoc.autotabs .autotoc-section.active {
   padding: 20px 10px;
@@ -2609,6 +2626,8 @@ button.searchbtn:hover {
   background-color: transparent!important;
 }
 
+.template-reporting article#content,
+.template-reportpreview article#content,
 .template-monitoring article#content,
 .template-planning article#content {
   padding: 0 15px;
@@ -2630,6 +2649,8 @@ ul.pagination.pagination-lg {
   margin-bottom: 0;
 }
 
+.template-reporting .col-xs-12.col-sm-12,
+.template-reportpreview .col-xs-12.col-sm-12,
 .template-monitoring .col-xs-12.col-sm-12,
 .template-planning .col-xs-12.col-sm-12 {
   padding: 0;
@@ -2770,6 +2791,8 @@ ul .fas:before {
 
 .template-dash-areas .documentDescription,
 .template-dash-performance .documentDescription,
+.template-reporting .documentDescription,
+.template-reportpreview .documentDescription,
 .template-monitoring .documentDescription,
 .template-planning .documentDescription {
   font-size: 16px;
@@ -2780,6 +2803,8 @@ ul .fas:before {
 
 .template-dash-areas .pagination,
 .template-dash-performance .pagination,
+.template-reporting .pagination,
+.template-reportpreview .pagination,
 .template-monitoring .pagination,
 .template-planning .pagination {
   display: inline-block;
@@ -2791,6 +2816,8 @@ ul .fas:before {
 
 .template-dash-areas #content .container,
 .template-dash-performance #content .container,
+.template-reporting #content .container,
+.template-reportpreview #content .container,
 .template-monitoring #content .container,
 .template-planning #content .container {
   margin-right: auto;
@@ -2801,6 +2828,8 @@ ul .fas:before {
 
 .template-dash-areas .block-nav,
 .template-dash-performance .block-nav,
+.template-reporting .block-nav,
+.template-reportpreview .block-nav,
 .template-monitoring .block-nav,
 .template-planning .block-nav {
   float: right;
@@ -3053,10 +3082,16 @@ button#addButton {
 i.far.fa-calendar,
 i.far.fa-edit,
 i.far.fa-trash-alt,
-i.fas.fa-exclamation-triangle {
+i.fas.fa-exclamation-triangle,
+i.fas.fa-download {
   color: #274656;
   float: left;
   margin: 0 5px;
+}
+
+i.fas.fa-download {
+  width: 15px;
+  height: 15px;
 }
 
 i.fa.fa-info-circle {
@@ -4551,4 +4586,24 @@ div#formfield-form-widgets-inkind {
 
 #modalInfoCapacity td img {
   width: 30px !important;
+}
+
+/* Reporting */
+
+#reportPreviewProject,
+#reportingProject {
+  margin-top: 10px;
+
+  #reportActions {
+    display: inline-block;
+    width: 100%;
+
+    button.context {
+      margin-left: 10px;
+    }
+  }
+
+  table {
+    margin-top: 10px;
+  }
 }
