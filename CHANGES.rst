@@ -2,11 +2,14 @@ Changelog
 =========
 
 
-1.6 (unreleased)
+1.6 (2019-12-16)
 ----------------
 
-- Nothing changed yet.
-
+* Prova saveReport [pilar.marinas]
+* Estilo report [Iago López Fernández]
+* Report [Iago López Fernández]
+* Estilos dash-areas [Iago López Fernández]
+* Reporting [Iago López Fernández]
 
 1.5 (2019-11-28)
 ----------------
