@@ -9,6 +9,30 @@ require([
     var currency = $(this).data('currency');
     $('#modalPartner').find(".modal-url").text(url);
     $('#modalPartner').find(".modal-type").text(type);
+    $("#out-roles").select2({
+        dropdownParent: $('#modalPartner'),
+        maximumSelectionSize: 1,
+        ajax: {
+          url: 'api-getRolesOtherContributor',
+          dataType: 'json',
+          quietMillis: 250,
+          cache: true,
+          transport: function(params){
+            params.beforeSend = function(request){
+              request.setRequestHeader("Accept", "application/json");
+            };
+            return $.ajax(params);
+          },
+          results: function (data) {
+            var res = [];
+            var len = data.length;
+            for (var i=0; i<len; i++) {
+              res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
+            }
+            return { results: res };
+          }
+        },
+    });
   });
   // Validate fields Contributors
   function validateForm() {
@@ -74,6 +98,7 @@ require([
       params.item_title = $('#partnerName').val();
       params.item_path = $('#partnerPath')[0].textContent;
 
+      params.item_roles = $("#out-roles").val();
       params.item_incash = $('#incash').val();
       params.item_inkind = $('#inkind').val();
 
