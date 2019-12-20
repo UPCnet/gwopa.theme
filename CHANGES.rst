@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.7 (unreleased)
+1.7 (2019-12-20)
 ----------------
 
-- Nothing changed yet.
-
+* Add roles organization in WOP and Other Organizations [pilar.marinas]
 
 1.6 (2019-12-16)
 ----------------
