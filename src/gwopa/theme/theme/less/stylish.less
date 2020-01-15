@@ -184,7 +184,7 @@ ul#sidenav-vertical {
   font-weight: 400;
   color: #696969;
   margin-bottom: 10px;
-  padding: 10px !important;
+  padding: 10px 0px !important;
 }
 
 input[type="checkbox"] {
@@ -258,6 +258,8 @@ button#addTargetValueButton {
   border-color: #00608a;
 }
 
+body.portaltype-report .autotabs .autotoc-nav,
+body.portaltype-report .pat-autotoc.autotabs .autotoc-nav,
 .template-dash-areas .autotabs .autotoc-nav,
 .template-dash-areas .pat-autotoc.autotabs .autotoc-nav,
 .template-monitoring .autotabs .autotoc-nav,
@@ -2479,6 +2481,7 @@ li#portal-personaltools {
   background-color: white;
 }
 
+body.portaltype-report a.autotoc-level-1,
 .template-reporPreview a.autotoc-level-1,
 .template-reporting a.autotoc-level-1,
 .template-monitoring a.autotoc-level-1,
@@ -2494,6 +2497,8 @@ li#portal-personaltools {
   border-bottom-width: 0 !important;
   padding: 10px 15px !important;
 }
+
+body.portaltype-report a.autotoc-level-1:hover,
 .template-reporPreview a.autotoc-level-1:hover,
 .template-reporting a.autotoc-level-1:hover,
 .template-monitoring a.autotoc-level-1:hover,
@@ -2501,6 +2506,7 @@ li#portal-personaltools {
   background-color: #053449 !important;
 }
 
+body.portaltype-report a.autotoc-level-1.active,
 .template-reporPreview a.autotoc-level-1.active,
 .template-reporting a.autotoc-level-1.active,
 .template-monitoring a.autotoc-level-1.active,
@@ -2510,6 +2516,7 @@ li#portal-personaltools {
   color: #4d4d4d !important;
 }
 
+body.portaltype-report .pat-autotoc.autotabs .autotoc-section.active,
 .template-reporPreview .pat-autotoc.autotabs .autotoc-section.active,
 .template-reporting .pat-autotoc.autotabs .autotoc-section.active,
 .template-monitoring .pat-autotoc.autotabs .autotoc-section.active,
@@ -2633,6 +2640,7 @@ button.searchbtn:hover {
   background-color: transparent!important;
 }
 
+body.portaltype-report article#content,
 .template-dash-areas article#content,
 .template-reporting article#content,
 .template-reportpreview article#content,
@@ -2657,6 +2665,7 @@ ul.pagination.pagination-lg {
   margin-bottom: 0;
 }
 
+body.portaltype-report .col-xs-12.col-sm-12,
 .template-dash-areas .col-xs-12.col-sm-12,
 .template-reporting .col-xs-12.col-sm-12,
 .template-reportpreview .col-xs-12.col-sm-12,
@@ -2798,6 +2807,7 @@ ul .fas:before {
   padding: 10px !important;
 }
 
+body.portaltype-report .documentDescription,
 .template-dash-areas .documentDescription,
 .template-dash-performance .documentDescription,
 .template-reporting .documentDescription,
@@ -2810,6 +2820,7 @@ ul .fas:before {
   margin: 0;
 }
 
+body.portaltype-report .pagination,
 .template-dash-areas .pagination,
 .template-dash-performance .pagination,
 .template-reporting .pagination,
@@ -2831,6 +2842,7 @@ ul .fas:before {
   }
 }
 
+body.portaltype-report #content .container,
 .template-dash-areas #content .container,
 .template-dash-performance #content .container,
 .template-reporting #content .container,
@@ -2843,6 +2855,7 @@ ul .fas:before {
   float: left;
 }
 
+body.portaltype-report .block-nav,
 .template-dash-areas .block-nav,
 .template-dash-performance .block-nav,
 .template-reporting .block-nav,
@@ -2917,6 +2930,7 @@ body.template-default_error_message #content-core p {
 }
 
 .documentFirstHeading {
+  padding: 0px;
   padding-bottom: 0;
   margin: 10px 0 5px;
   border-bottom: none;
@@ -4631,5 +4645,32 @@ div#formfield-form-widgets-inkind {
 
   table {
     margin-top: 10px;
+  }
+}
+
+body.portaltype-report {
+
+  #reportActions {
+    display: inline-block;
+    width: 100%;
+
+    & > button.context {
+      margin-right: 10px;
+    }
+  }
+
+  table {
+    margin-top: 10px;
+  }
+
+  ul.nav > li {
+
+    &.active > a {
+      margin-right: 0px;
+    }
+
+    & > a {
+      width: auto;
+    }
   }
 }
