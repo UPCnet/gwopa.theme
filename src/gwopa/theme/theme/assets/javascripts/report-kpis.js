@@ -15,6 +15,7 @@ require([
       var params = {};
       var id = $(this).attr("id");
       params.performance = $(this).attr("data-url");
+      params.table = $(this).closest('div.tab-pane').attr('id');
 
       $.ajax({
         url: project_path + '/api-getPerformance',
@@ -70,7 +71,7 @@ require([
             },
           }
 
-          var chartPerfomance = new ApexCharts(document.querySelector("#" + id), options);
+          var chartPerfomance = new ApexCharts(document.querySelector("#" + data['table'] + " #" + id), options);
           chartPerfomance.render();
         }
       });
