@@ -4648,7 +4648,26 @@ div#formfield-form-widgets-inkind {
   }
 }
 
+body.template-reporting .plone-modal .view-name-edit .field,
+body.portaltype-report.template-edit .field {
+  margin: 2px !important;
+}
+
 body.portaltype-report {
+
+  h4 {
+    margin-top: 20px;
+  }
+
+  .text-bold {
+    font-weight: 600 !important;
+  }
+
+  .break {
+    width: 100%;
+    border-bottom: 1px solid #0A5272;
+    margin: 20px 0px 10px 0px;
+  }
 
   #reportActions {
     display: inline-block;
@@ -4673,6 +4692,157 @@ body.portaltype-report {
       width: auto;
       font-size: 14px !important;
       padding: 6px 10px !important;
+    }
+  }
+
+  .overallProjectStatus {
+
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+
+    .status > div {
+      min-height: 30px;
+      border-right: 1px solid #FFFFFF;
+      border-radius: 5px;
+
+      &.bg-danger {
+        background-color: #DC3545 !important;
+      }
+
+      &.bg-warning {
+        background-color: #FFC107 !important;
+      }
+
+      &.bg-success {
+        background-color: #28A745 !important;
+      }
+
+      &.bg-disabled {
+        background-color: #CACACA !important;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      p {
+        color: #FFFFFF !important;
+        margin: 0px;
+        padding: 8px 0px;
+      }
+    }
+  }
+
+  .infoSummary {
+    margin-top: 20px;
+
+    .editField {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .fa.fa-edit {
+      margin-bottom: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #stakeholders,
+    #other {
+      white-space: pre;
+    }
+  }
+
+  #firstpage {
+
+    h2 {
+      font-size: 50px !important;
+    }
+
+    h3 {
+      font-size: 35px !important;
+    }
+
+    .info {
+      margin-top: 100px;
+    }
+
+    .logos {
+      margin-top: 100px;
+      height: 400px;
+    }
+  }
+
+  div#tabla6 {
+
+    .infoSummary {
+
+      .editField {
+        float: none;
+      }
+
+      .fa.fa-edit {
+        display: none;
+      }
+    }
+
+    .bg-disabled:hover {
+      cursor: initial;
+    }
+  }
+}
+
+@media print {
+
+  body.portaltype-report {
+
+    margin-top: 0px;
+    background-color: #FFFFFF !important;
+
+    .documentFirstHeading,
+    .documentDescription,
+    #reportActions,
+    .nav.nav-tabs {
+      display: none;
+    }
+
+    article#content {
+      overflow: hidden;
+    }
+
+    .container #main-container .col-sm-11 {
+      width: 100% !important;
+    }
+
+    #firstpage {
+
+      .title {
+        height: 300px;
+        position: relative;
+
+        h2 {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
+      }
+
+      .break {
+        display: none;
+      }
+    }
+
+    .infoSummary {
+
+      .editField {
+        float: none;
+      }
+
+      .fa.fa-edit {
+        display: none;
+      }
     }
   }
 }
