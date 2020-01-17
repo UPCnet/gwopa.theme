@@ -30,7 +30,7 @@ require([
             method: 'POST',
             data: params,
             success: function(resp) {
-                $('#stakeholders').text($('#stakeholdersModal textarea').val());
+                location.reload();
             }
         });
     });
@@ -48,7 +48,7 @@ require([
             method: 'POST',
             data: params,
             success: function(resp) {
-                $('#other').text($('#otherModal textarea').val());
+                location.reload();
             }
         });
     });

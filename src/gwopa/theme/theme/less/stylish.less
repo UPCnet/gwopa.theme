@@ -2753,7 +2753,7 @@ div.titulocatplan {
 
 body#visual-portal-wrapper.template-view .col-xs-12.col-sm-12 img {
   object-fit: cover;
-  height: 20px !important;
+  height: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -4648,6 +4648,7 @@ div#formfield-form-widgets-inkind {
   }
 }
 
+body.template-reporting .plone-modal .view-name-add-Report .field,
 body.template-reporting .plone-modal .view-name-edit .field,
 body.portaltype-report.template-edit .field {
   margin: 2px !important;
@@ -4755,18 +4756,50 @@ body.portaltype-report {
     }
   }
 
-  #firstpage {
+  .coverpage {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    height: 600px;
+    width: 100%;
 
-    h2 {
-      font-size: 50px !important;
+    img.imageCoverpage {
+      height: 600px !important;
+      width: 100%;
     }
 
-    h3 {
-      font-size: 35px !important;
-    }
+    .text {
+      position: absolute;
+      display: inline-grid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFFFFF;
+      background-color: #0A5272BB;
+      width: 90%;
+      padding: 20px;
+      max-width: 1200px;
 
-    .info {
-      margin-top: 100px;
+      h2 {
+        font-size: 35px !important;
+      }
+
+      h3 {
+        font-size: 25px !important;
+      }
+
+      p.linebreak {
+        border-top: 1px solid #FFFFFF;
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+
+      h2,
+      h3,
+      p {
+        margin: 10px 0px;
+        font-weight: 400;
+      }
     }
 
     .logos {
@@ -4814,24 +4847,6 @@ body.portaltype-report {
 
     .container #main-container .col-sm-11 {
       width: 100% !important;
-    }
-
-    #firstpage {
-
-      .title {
-        height: 300px;
-        position: relative;
-
-        h2 {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-        }
-      }
-
-      .break {
-        display: none;
-      }
     }
 
     .infoSummary {
