@@ -4765,6 +4765,7 @@ body.portaltype-report {
     img.imageCoverpage {
       height: 600px !important;
       width: 100%;
+      display: block;
     }
 
     .text {
@@ -4773,8 +4774,7 @@ body.portaltype-report {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #FFFFFF;
-      background-color: #0A5272BB;
+      background-color: #0A5272BB !important;
       width: 90%;
       padding: 20px;
       max-width: 1200px;
@@ -4796,14 +4796,25 @@ body.portaltype-report {
       h2,
       h3,
       p {
+        color: #FFFFFF !important;
         margin: 10px 0px;
         font-weight: 400;
       }
+
+      span {
+        color: #FFFFFF !important;
+      }
     }
 
-    .logos {
-      margin-top: 100px;
-      height: 400px;
+  }
+
+  .logos {
+    margin: 30px 0px 20px 0px;
+    text-align: center;
+
+    .logo {
+      height: 90px !important;
+      margin: 0px 10px 10px 10px!important;
     }
   }
 
@@ -4856,6 +4867,14 @@ body.portaltype-report {
 
       .fa.fa-edit {
         display: none;
+      }
+    }
+
+    .coverpage {
+      height: 400px !important;
+
+      img.imageCoverpage {
+        height: 400px !important;
       }
     }
   }
