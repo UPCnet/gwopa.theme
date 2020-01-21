@@ -11,11 +11,10 @@ require([
     var url = window.location.href;
     var project_path = url.substring(0, url.lastIndexOf("/reports"));
 
-    $(".chartPerfomance").each(function(){
+    $("#tabla4 .chartPerfomance").each(function(){
       var params = {};
       var id = $(this).attr("id");
       params.performance = $(this).attr("data-url");
-      params.table = $(this).closest('div.tab-pane').attr('id');
 
       $.ajax({
         url: project_path + '/api-getPerformance',
@@ -71,7 +70,9 @@ require([
             },
           }
 
-          var chartPerfomance = new ApexCharts(document.querySelector("#" + data['table'] + " #" + id), options);
+          var chartPerfomance = new ApexCharts(document.querySelector("#tabla4 #" + id), options);
+          chartPerfomance.render();
+          chartPerfomance = new ApexCharts(document.querySelector("#tabla6 #" + id), options);
           chartPerfomance.render();
         }
       });
