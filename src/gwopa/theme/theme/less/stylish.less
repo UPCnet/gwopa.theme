@@ -4661,10 +4661,12 @@ body.portaltype-report {
 
   h5 {
     margin-top: 16px;
+    font-size: 16px;
   }
 
   .text-bold {
     font-weight: 500 !important;
+    color: #000000;
   }
 
   .break {
@@ -4866,6 +4868,8 @@ body.portaltype-report {
     }
   }
 
+  .capacityBlock,
+  .outcomeBlock,
   .activityBlock {
     border: 2px solid #007BB1;
     border-radius: 6px;
@@ -4883,6 +4887,8 @@ body.portaltype-report {
     padding: 10px;
   }
 
+  .capacityBlock,
+  .outcomeBlock,
   .activityBlock,
   .outputBlock {
 
@@ -4891,8 +4897,8 @@ body.portaltype-report {
     }
 
     & > .row {
-      margin-right: -10px !important;
-      margin-left: -10px !important;
+      margin-right: -15px !important;
+      margin-left: -15px !important;
     }
 
     & > div {
@@ -4908,6 +4914,10 @@ body.portaltype-report {
     }
 
     table {
+
+      th {
+        font-weight: 500 !important;
+      }
 
       th,
       td {
@@ -4931,6 +4941,27 @@ body.portaltype-report {
     .fas,
     .fas:before {
       color: #007BB1 !important;
+    }
+
+    .col-sm-10,
+    .col-sm-11 {
+      float: left !important;
+    }
+  }
+
+  .legendBox {
+    margin-top: -30px;
+  }
+
+  #chartCapacities {
+    margin-bottom: 10px;
+
+    .item_image img {
+      margin: 2px !important;
+    }
+
+    .item.basic:hover {
+      cursor: initial;
     }
   }
 }
@@ -4981,6 +5012,8 @@ body.portaltype-report {
       page-break-after: always;
     }
 
+    .capacityBlock,
+    .outcomeBlock,
     .activityBlock,
     .outputBlock {
       page-break-inside: avoid;
