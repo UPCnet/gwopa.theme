@@ -9,8 +9,13 @@ require([
             var params = {};
             params.status = $(this).data('status');
 
+            var url = window.location.href
+            if (url.match('#')) {
+                url = url.split('#')[0]
+            }
+
             $.ajax({
-                url: window.location.href + '/modifysummarystatus',
+                url: url + '/modifysummarystatus',
                 method: 'POST',
                 data: params,
                 success: function(resp) {
@@ -30,8 +35,13 @@ require([
         var params = {};
         params.text = $('#stakeholdersModal textarea').val();
 
+        var url = window.location.href
+        if (url.match('#')) {
+            url = url.split('#')[0]
+        }
+
         $.ajax({
-            url: window.location.href + '/modifysummaryprogressstakeholders',
+            url: url + '/modifysummaryprogressstakeholders',
             method: 'POST',
             data: params,
             success: function(resp) {
@@ -54,8 +64,13 @@ require([
         var params = {};
         params.text = $('#otherModal textarea').val();
 
+        var url = window.location.href
+        if (url.match('#')) {
+            url = url.split('#')[0]
+        }
+
         $.ajax({
-            url: window.location.href + '/modifysummaryotheradditionalchallenges',
+            url: url + '/modifysummaryotheradditionalchallenges',
             method: 'POST',
             data: params,
             success: function(resp) {

@@ -3,7 +3,10 @@ require([
   'jquery'
 ], function(expect, $) {
 
-    var url = window.location.href;
+    var url = window.location.href
+    if (url.match('#')) {
+        url = url.split('#')[0]
+    }
 
     $.ajax({
         url: url + '/api-getBudgets',

@@ -12,8 +12,13 @@ require([
         params.text = $('div#tabla5 #expenditureReportingPeriodModal input[type="number"]').val();
         params.activity = $('div#tabla5 #expenditureReportingPeriodModal').attr('data-activity');
 
+        var url = window.location.href
+        if (url.match('#')) {
+            url = url.split('#')[0]
+        }
+
         $.ajax({
-            url: window.location.href + '/modifyexpenditurereportingperiod',
+            url: url + '/modifyexpenditurereportingperiod',
             method: 'POST',
             data: params,
             success: function(resp) {
@@ -37,8 +42,13 @@ require([
         params.text = $('div#tabla5 #totalExpenditureDateModal input[type="number"]').val();
         params.activity = $('div#tabla5 #totalExpenditureDateModal').attr('data-activity');
 
+        var url = window.location.href
+        if (url.match('#')) {
+            url = url.split('#')[0]
+        }
+
         $.ajax({
-            url: window.location.href + '/modifytotalexpendituredate',
+            url: url + '/modifytotalexpendituredate',
             method: 'POST',
             data: params,
             success: function(resp) {
