@@ -20,7 +20,6 @@ require([
         }
     });
 
-
     $('div#tabla2 #stakeholdersModal button.btn-primary').on('click', function(){
         var params = {};
         params.text = $('#stakeholdersModal textarea').val();

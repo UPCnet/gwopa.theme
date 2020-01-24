@@ -4750,10 +4750,6 @@ body.portaltype-report {
 
     .fa.fa-edit {
       margin-bottom: 10px;
-
-      &:hover {
-        cursor: pointer;
-      }
     }
 
     #stakeholders,
@@ -4832,10 +4828,10 @@ body.portaltype-report {
       .editField {
         float: none;
       }
+    }
 
-      .fa.fa-edit {
-        display: none;
-      }
+    .fa.fa-edit {
+      display: none;
     }
 
     .bg-disabled:hover {
@@ -4964,6 +4960,47 @@ body.portaltype-report {
       cursor: initial;
     }
   }
+
+  .bg-gray {
+    background-color: #F1F1F1 !important;
+
+    p {
+      margin: 5px 0px;
+    }
+  }
+
+  table.budgetsTable {
+
+    th {
+      font-weight: 500 !important;
+    }
+
+    th,
+    td {
+      color: #000000 !important;
+      padding: 5px 0px !important;
+      border-bottom: 2px dotted #e2e2e2;
+      vertical-align: middle;
+    }
+
+    th:not(:first-child),
+    td:not(:first-child) {
+      text-align: center;
+    }
+
+    .fa.fa-edit {
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+  }
+
+  .fa.fa-edit:hover {
+    cursor: pointer;
+  }
+
+  input[type="number"] {
+    width: 150px;
+  }
 }
 
 @media print {
@@ -4977,6 +5014,7 @@ body.portaltype-report {
     .documentDescription,
     #reportActions,
     .nav.nav-tabs,
+    .fa.fa-edit,
     .break {
       display: none;
     }
@@ -4993,10 +5031,6 @@ body.portaltype-report {
 
       .editField {
         float: none;
-      }
-
-      .fa.fa-edit {
-        display: none;
       }
     }
 
