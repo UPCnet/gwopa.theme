@@ -17,6 +17,12 @@ require([
             method: 'POST',
             data: params,
             success: function(resp) {
+                var url = document.location.toString();
+                if (url.match('#')) {
+                    window.location.href = url.split('#')[0] + "#tabla5";
+                } else {
+                    window.location.href = url + "#tabla5";
+                }
                 location.reload();
             }
         });
@@ -36,6 +42,12 @@ require([
             method: 'POST',
             data: params,
             success: function(resp) {
+                var url = document.location.toString();
+                if (url.match('#')) {
+                    window.location.href = url.split('#')[0] + "#tabla5";
+                } else {
+                    window.location.href = url + "#tabla5";
+                }
                 location.reload();
             }
         });
