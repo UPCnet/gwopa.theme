@@ -6520,12 +6520,13 @@ i.verygood {
 .item_image img {
   max-height: 35px;
   max-width: 25px;
-  margin-top: 4px;
+  margin-top: 2px !important;
+  margin-bottom: 0px !important;
   width: 100% !important;
   height: 100% !important;
   position: absolute;
   left: 5px;
-  padding: 5px 0;
+  padding: 5px;
   top: 0;
 }
 .item_text {
@@ -9316,7 +9317,7 @@ input.submit-widget {
     width: 35px !important;
     height: 35px !important;
     left: 0;
-    padding: 0;
+    padding: 3px;
     top: 0;
   }
   .item_text {
@@ -9890,9 +9891,6 @@ body.portaltype-report .legendBox {
 }
 body.portaltype-report #chartCapacities {
   margin-bottom: 10px;
-}
-body.portaltype-report #chartCapacities .item_image img {
-  margin: 2px !important;
 }
 body.portaltype-report #chartCapacities .item.basic:hover {
   cursor: initial;
