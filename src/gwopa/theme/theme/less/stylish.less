@@ -947,17 +947,21 @@ i.verygood {
   width: 15%;
   left: 5px;
   height: 100%;
+  display: inline-block;
+  vertical-align: middle;
 
   img {
     max-height: 35px;
     max-width: 25px;
-    margin-top: 4px;
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     position: absolute;
     left: 5px;
-    padding: 5px 0;
+    padding: 2px;
     top: 0;
+    margin-left: 1px;
+    margin-top: 1px;
+    vertical-align: middle;
   }
 }
 
@@ -4301,7 +4305,6 @@ input.submit-widget {
       width: 35px !important;
       height: 35px !important;
       left: 0;
-      padding: 0;
       top: 0;
     }
   }
@@ -4951,10 +4954,6 @@ body.portaltype-report {
 
   #chartCapacities {
     margin-bottom: 10px;
-
-    .item_image img {
-      margin: 2px !important;
-    }
 
     .item.basic:hover {
       cursor: initial;
