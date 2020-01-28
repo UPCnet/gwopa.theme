@@ -4658,6 +4658,12 @@ body.portaltype-report.template-edit .field {
 
 body.portaltype-report {
 
+  h3,
+  h4,
+  h5 {
+    font-weight: 800 !important;
+  }
+
   h4 {
     margin-top: 20px;
   }
@@ -4668,7 +4674,7 @@ body.portaltype-report {
   }
 
   .text-bold {
-    font-weight: 500 !important;
+    font-weight: 800 !important;
     color: #000000;
   }
 
@@ -4692,16 +4698,51 @@ body.portaltype-report {
     color: #000000;
   }
 
-  ul.nav > li {
+  ul.nav {
 
-    &.active > a {
-      margin-right: 0px;
-    }
+    & > li {
 
-    & > a {
-      width: auto;
-      font-size: 14px !important;
-      padding: 6px 10px !important;
+      &:nth-child(1) a {
+        border-bottom: 3px solid #FF4E50;
+      }
+
+      &:nth-child(2) a {
+        border-bottom: 3px solid #FC913A;
+      }
+
+      &:nth-child(3) a {
+        border-bottom: 3px solid #F9D423;
+      }
+
+      &:nth-child(4) a {
+        border-bottom: 3px solid #EDE574;
+      }
+
+      &:nth-child(5) a {
+        border-bottom: 3px solid #E1F5C4;
+      }
+
+      &:nth-child(6) a {
+        border-bottom: 3px solid #4DBEC6;
+      }
+
+      &:nth-child(7) a {
+        border-bottom: 3px solid #32F236;
+      }
+
+      &:nth-child(8) a {
+        border-bottom: 3px solid #F927EB;
+      }
+
+      &.active > a {
+        margin-right: 0px;
+      }
+
+      & > a {
+        width: auto;
+        padding: 6px 10px !important;
+        font-size: 14px !important;
+      }
     }
   }
 
@@ -4751,7 +4792,6 @@ body.portaltype-report {
   .infoSummary {
     margin-top: 20px;
 
-
     .fa.fa-edit {
       margin-bottom: 10px;
     }
@@ -4760,6 +4800,10 @@ body.portaltype-report {
     #other {
       white-space: pre-line;
     }
+  }
+
+  #steps {
+    white-space: pre-line;
   }
 
   .coverpage {
@@ -4825,7 +4869,7 @@ body.portaltype-report {
     }
   }
 
-  div#tabla6 {
+  div#tabla8 {
 
     .editField {
       float: none;
@@ -4913,7 +4957,7 @@ body.portaltype-report {
     table {
 
       th {
-        font-weight: 500 !important;
+        font-weight: 800 !important;
       }
 
       th,
@@ -4973,7 +5017,7 @@ body.portaltype-report {
   table.budgetsTable {
 
     th {
-      font-weight: 500 !important;
+      font-weight: 800 !important;
     }
 
     th,

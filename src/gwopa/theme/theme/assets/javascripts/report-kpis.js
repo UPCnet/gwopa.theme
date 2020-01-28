@@ -72,7 +72,7 @@ require([
 
           var chartPerfomance = new ApexCharts(document.querySelector("#tabla4 #" + id), options);
           chartPerfomance.render();
-          chartPerfomance = new ApexCharts(document.querySelector("#tabla6 #" + id), options);
+          chartPerfomance = new ApexCharts(document.querySelector("#tabla8 #" + id), options);
           chartPerfomance.render();
         }
       });

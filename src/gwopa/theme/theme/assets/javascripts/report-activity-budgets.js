@@ -3,14 +3,14 @@ require([
   'jquery'
 ], function(expect, $) {
 
-    $('div#tabla5 .budgetsTable span[data-target="#expenditureReportingPeriodModal"]').on('click', function(){
-        $('div#tabla5 #expenditureReportingPeriodModal').attr('data-activity', $(this).attr('data-activity'));
+    $('div#tabla6 .budgetsTable span[data-target="#expenditureReportingPeriodModal"]').on('click', function(){
+        $('div#tabla6 #expenditureReportingPeriodModal').attr('data-activity', $(this).attr('data-activity'));
     });
 
-    $('div#tabla5 #expenditureReportingPeriodModal button.btn-primary').on('click', function(){
+    $('div#tabla6 #expenditureReportingPeriodModal button.btn-primary').on('click', function(){
         var params = {};
-        params.text = $('div#tabla5 #expenditureReportingPeriodModal input[type="number"]').val();
-        params.activity = $('div#tabla5 #expenditureReportingPeriodModal').attr('data-activity');
+        params.text = $('div#tabla6 #expenditureReportingPeriodModal input[type="number"]').val();
+        params.activity = $('div#tabla6 #expenditureReportingPeriodModal').attr('data-activity');
 
         var url = window.location.href
         if (url.match('#')) {
@@ -24,23 +24,23 @@ require([
             success: function(resp) {
                 var url = document.location.toString();
                 if (url.match('#')) {
-                    window.location.href = url.split('#')[0] + "#tabla5";
+                    window.location.href = url.split('#')[0] + "#tabla6";
                 } else {
-                    window.location.href = url + "#tabla5";
+                    window.location.href = url + "#tabla6";
                 }
                 location.reload();
             }
         });
     });
 
-    $('div#tabla5 .budgetsTable span[data-target="#totalExpenditureDateModal"]').on('click', function(){
-        $('div#tabla5 #totalExpenditureDateModal').attr('data-activity', $(this).attr('data-activity'));
+    $('div#tabla6 .budgetsTable span[data-target="#totalExpenditureDateModal"]').on('click', function(){
+        $('div#tabla6 #totalExpenditureDateModal').attr('data-activity', $(this).attr('data-activity'));
     });
 
-    $('div#tabla5 #totalExpenditureDateModal button.btn-primary').on('click', function(){
+    $('div#tabla6 #totalExpenditureDateModal button.btn-primary').on('click', function(){
         var params = {};
-        params.text = $('div#tabla5 #totalExpenditureDateModal input[type="number"]').val();
-        params.activity = $('div#tabla5 #totalExpenditureDateModal').attr('data-activity');
+        params.text = $('div#tabla6 #totalExpenditureDateModal input[type="number"]').val();
+        params.activity = $('div#tabla6 #totalExpenditureDateModal').attr('data-activity');
 
         var url = window.location.href
         if (url.match('#')) {
@@ -54,9 +54,9 @@ require([
             success: function(resp) {
                 var url = document.location.toString();
                 if (url.match('#')) {
-                    window.location.href = url.split('#')[0] + "#tabla5";
+                    window.location.href = url.split('#')[0] + "#tabla6";
                 } else {
-                    window.location.href = url + "#tabla5";
+                    window.location.href = url + "#tabla6";
                 }
                 location.reload();
             }

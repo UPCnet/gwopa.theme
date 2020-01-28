@@ -68,7 +68,7 @@ require([
 
             var chart = new ApexCharts(document.querySelector("#tabla1 #chartWaterOperators"), options);
             chart.render();
-            chart = new ApexCharts(document.querySelector("#tabla6 #chartWaterOperators"), options);
+            chart = new ApexCharts(document.querySelector("#tabla8 #chartWaterOperators"), options);
             chart.render();
 
             options['series'] = data['donors']['series'];
@@ -76,7 +76,7 @@ require([
 
             chart = new ApexCharts(document.querySelector("#tabla1 #chartDonors"), options);
             chart.render();
-            chart = new ApexCharts(document.querySelector("#tabla6 #chartDonors"), options);
+            chart = new ApexCharts(document.querySelector("#tabla8 #chartDonors"), options);
             chart.render();
 
             options['series'] = data['other_organizations']['series'];
@@ -84,7 +84,7 @@ require([
 
             chart = new ApexCharts(document.querySelector("#tabla1 #chartOtherOrganizations"), options);
             chart.render();
-            chart = new ApexCharts(document.querySelector("#tabla6 #chartOtherOrganizations"), options);
+            chart = new ApexCharts(document.querySelector("#tabla8 #chartOtherOrganizations"), options);
             chart.render();
         }
     });
