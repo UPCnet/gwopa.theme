@@ -4743,13 +4743,14 @@ body.portaltype-report {
     }
   }
 
+  .editField {
+    float: left;
+    margin-right: 10px;
+  }
+
   .infoSummary {
     margin-top: 20px;
 
-    .editField {
-      float: left;
-      margin-right: 10px;
-    }
 
     .fa.fa-edit {
       margin-bottom: 10px;
@@ -4826,11 +4827,8 @@ body.portaltype-report {
 
   div#tabla6 {
 
-    .infoSummary {
-
-      .editField {
-        float: none;
-      }
+    .editField {
+      float: none;
     }
 
     .fa.fa-edit {
@@ -5018,7 +5016,8 @@ body.portaltype-report {
     #reportActions,
     .nav.nav-tabs,
     .fa.fa-edit,
-    .break {
+    .break,
+    a[href] {
       display: none;
     }
 
@@ -5030,11 +5029,8 @@ body.portaltype-report {
       width: 100% !important;
     }
 
-    .infoSummary {
-
-      .editField {
-        float: none;
-      }
+    .editField {
+      float: none;
     }
 
     .coverpage {
