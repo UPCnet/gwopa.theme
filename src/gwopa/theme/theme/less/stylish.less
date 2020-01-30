@@ -4660,6 +4660,7 @@ body.portaltype-report {
 
   ul.nav.nav-tabs {
     display: flex;
+     width: 100%;
 
     li.nav-item {
       display: flex;
@@ -4671,12 +4672,20 @@ body.portaltype-report {
         text-align: center;
         background-color: white;
         color: black;
+        width: 100%;
 
         &:hover  {
           background-color: #d8d8d8 !important;
           color: #333 !important;
         }
       }
+    }
+
+    li.active > a {
+      border-left: 0px !important;
+      border-right: 0px !important;
+      border-top: 0px !important;
+      background-color: #f1f1f1 !important;
     }
   }
 
@@ -5126,8 +5135,4 @@ body.portaltype-report {
       page-break-inside: avoid;
     }
   }
-}
-
-body.portaltype-report ul.nav > li > a {
-    width: 100%;
 }
