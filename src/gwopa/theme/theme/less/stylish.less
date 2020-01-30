@@ -4658,6 +4658,28 @@ body.portaltype-report.template-edit .field {
 
 body.portaltype-report {
 
+  ul.nav.nav-tabs {
+    display: flex;
+
+    li.nav-item {
+      display: flex;
+      justify-content: start;
+      float: none;
+      width: 100%;
+
+      a.nav-link {
+        text-align: center;
+        background-color: white;
+        color: black;
+
+        &:hover  {
+          background-color: #d8d8d8 !important;
+          color: #333 !important;
+        }
+      }
+    }
+  }
+
   h3,
   h4,
   h5 {
@@ -5096,4 +5118,8 @@ body.portaltype-report {
       page-break-inside: avoid;
     }
   }
+}
+
+body.portaltype-report ul.nav > li > a {
+    width: 100%;
 }
