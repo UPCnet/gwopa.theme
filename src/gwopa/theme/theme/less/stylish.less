@@ -5085,14 +5085,46 @@ body.portaltype-report {
   input[type="number"] {
     width: 150px;
   }
+
+  .link-external {
+    display: none;
+  }
 }
 
 @media print {
 
   body.portaltype-report {
 
-    margin-top: 0px;
     background-color: #FFFFFF !important;
+    height: 29.7cm !important;
+    max-height: 29.7cm !important;
+    width: 21cm !important;
+    max-width: 21cm !important;
+    margin: 0px !important;
+    padding: 0px !important;
+
+    #reportPreviewProject.tabla_contenido_items,
+    #reportingProject.tabla_contenido_items {
+      padding: 0px;
+    }
+
+    table,
+    td,
+    th {
+      padding: 5px 10px !important;
+    }
+
+    .col-xs-12.col-sm-4.budgetGraphic {
+      width: 50% !important;
+      max-width: 50% !important;
+    }
+
+    .apexcharts-canvas {
+      width: 100px !important;
+      height: 100px !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+    }
 
     .documentFirstHeading,
     .documentDescription,
@@ -5100,6 +5132,7 @@ body.portaltype-report {
     .nav.nav-tabs,
     .fa.fa-edit,
     .break,
+    .link-external,
     a[href] {
       display: none;
     }
@@ -5110,6 +5143,7 @@ body.portaltype-report {
 
     .container #main-container .col-sm-11 {
       width: 100% !important;
+      padding: 0px;
     }
 
     .editField {
@@ -5124,15 +5158,197 @@ body.portaltype-report {
       }
     }
 
-    .fullreport .section {
+    .section:not(:last-child) {
       page-break-after: always;
     }
 
-    .capacityBlock,
-    .outcomeBlock,
-    .activityBlock,
-    .outputBlock {
-      page-break-inside: avoid;
+    .item_image {
+      display: none !important;
+    }
+
+    .item.transformational {
+      color: #757575 !important;
+      border: 1px solid #757575 !important;
+    }
+
+    .item.transactional {
+      color: #e38928 !important;
+      border: 1px solid #e38928 !important;
+    }
+
+    .item.individual {
+      color: #005172 !important;
+      border: 1px solid #005172 !important;
+    }
+
+    .item.other {
+      color: #00b2d7 !important;
+      border: 1px solid #00b2d7 !important;
+    }
+
+    .item.basic {
+      color: #7f7f7f !important;
+      border: 1px solid #ccc !important;
+    }
+
+    .item.transformational.selected {
+      color: #ffffff !important;
+      background-color: #757575 !important;
+    }
+
+    .item.transactional.selected {
+      color: #ffffff !important;
+      background-color: #e38928 !important;
+    }
+
+    .item.individual.selected {
+      color: #ffffff !important;
+      background-color: #005172 !important;
+    }
+
+    .item.other.selected {
+      color: #ffffff !important;
+      background-color: #00b2d7 !important;
+    }
+
+    .item.basic.verybad {
+      color: #ffffff !important;
+      background-color: #fe5467 !important;
+      border: 1px solid #b70116 !important;
+    }
+
+    .item.basic.bad {
+      color: #ffffff !important;
+      background-color: #fc895b !important;
+      border: 1px solid #b93704 !important;
+    }
+
+    .item.basic.equal {
+      background-color: #dcdcdc !important;
+      border: 1px solid #757575 !important;
+    }
+
+    .item.basic.good {
+      color: #ffffff !important;
+      background-color: #a2db70 !important;
+      border: 1px solid #568f24 !important;
+    }
+
+    .item.basic.verygood {
+      color: #ffffff !important;
+      background-color: #5f9f28 !important;
+      border: 1px solid #47761e !important;
+    }
+
+    .notset {
+      background-color: #ffffff !important;
+    }
+
+    i.notset {
+      color: #ffffff !important;
+    }
+
+    .verybad {
+      background-color: #fe5467 !important;
+    }
+
+    i.verybad {
+      color: #fe5467 !important;
+    }
+
+    .bad {
+      background-color: #fc895b !important;
+    }
+
+    i.bad {
+      color: #fc895b !important;
+    }
+
+    .equal {
+      background-color: #dcdcdc !important;
+    }
+
+    i.equal {
+      color: #dcdcdc !important;
+    }
+
+    .good {
+      background-color: #a2db70 !important;
+    }
+
+    i.good {
+      color: #a2db70 !important;
+    }
+
+    .verygood {
+      background-color: #5f9f28 !important;
+    }
+
+    i.verygood {
+      color: #5f9f28 !important;
+    }
+
+    .progress-bar-achieved {
+      background-color: #5bc0de !important;
+    }
+
+    .progress-bar-todo {
+      background-color: #dcdcdc !important;
+    }
+
+    .steps li.past {
+      color: #fff !important;
+      background-color: #31b0d6 !important;
+    }
+
+    .steps li::after {
+      border-left-color: #31b0d6 !important;
+    }
+
+    .steps li.current {
+      color: #fff !important;
+      background-color: #31b0d6 !important;
+    }
+
+    .steps li.current::after {
+      border-left-color: #31b0d6 !important;
+    }
+
+    .steps li.future {
+      color: #7f7f7f !important;
+      background-color: #EBEBEB !important;
+    }
+
+    .steps li.future::after {
+      border-left-color: #EBEBEB !important;
+    }
+
+    .primerafila .item.basic,
+    .segundafila .item.basic,
+    .tercerafila .item.basic,
+    .cuartafila .item.basic {
+      width: 16.66% !important;
+      display: block !important;
+    }
+
+    .item_text {
+      width: auto !important;
+      float: none !important;
+      right: initial !important;
+      padding: 0 !important;
+    }
+
+    .label-circle {
+      border: none !important;
+    }
+
+    .achieved:before,
+    #done:before {
+      color: #31b0d5 !important;
+    }
+    .planned:before,
+    #todo:before {
+      color: #f49200 !important;
     }
   }
 }
