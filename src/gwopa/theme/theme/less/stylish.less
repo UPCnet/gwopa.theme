@@ -5114,11 +5114,6 @@ body.portaltype-report {
       padding: 5px 10px !important;
     }
 
-    .col-xs-12.col-sm-4.budgetGraphic {
-      width: 50% !important;
-      max-width: 50% !important;
-    }
-
     .apexcharts-canvas {
       width: 100px !important;
       height: 100px !important;
@@ -5160,10 +5155,6 @@ body.portaltype-report {
 
     .section:not(:last-child) {
       page-break-after: always;
-    }
-
-    .item_image {
-      display: none !important;
     }
 
     .item.transformational {
@@ -5327,7 +5318,7 @@ body.portaltype-report {
     .segundafila .item.basic,
     .tercerafila .item.basic,
     .cuartafila .item.basic {
-      width: 16.66% !important;
+      width: 15% !important;
       display: block !important;
     }
 
@@ -5349,6 +5340,78 @@ body.portaltype-report {
     .planned:before,
     #todo:before {
       color: #f49200 !important;
+    }
+
+    /* Cambios en el columnado del print del report */
+
+    .budgetGraphic .chartInfo{
+      margin-top: -45px;
+      float: left;
+
+      h5 {
+        padding-bottom: 8px;
+        border-bottom: 1px solid #0A5272;
+        float: left;
+        width: 100%;
+      }
+
+      .col-xs-6.col-sm-6 {
+        width: 100% !important;
+      }
+    }
+
+    .col-sm-4.budgetGraphic:last-child {
+      margin-right: 0px !important;
+    }
+
+    .col-sm-4.budgetGraphic {
+      width: 33%;
+      max-width: 33% !important;
+      margin: 0px !important;
+      padding: 0px;
+
+      svg:not(:root) {
+        overflow: initial;
+      }
+
+      svg.apexcharts-svg {
+        width: 210px !important;
+      }
+    }
+
+    /* Cambios en los iconos del print del report */
+    #chartCapacities {
+      margin-bottom: 10px;
+      width: 100%;
+
+      .item.basic {
+        position: relative;
+        height: 80px;
+        max-height: 80px;
+
+        .item_text {
+          position: absolute;
+          margin: auto !important;
+          text-align: center;
+          top: 3px;
+          word-wrap: break-word !important;
+          width: 100% !important;
+        }
+
+        .item_image {
+          width: 100%;
+
+          img {
+            object-fit: contain;
+            max-height: 40px;
+            margin: auto !important;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: -35px;
+          }
+        }
+      }
     }
   }
 }
