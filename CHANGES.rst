@@ -2,11 +2,42 @@ Changelog
 =========
 
 
-1.8 (unreleased)
+1.8 (2020-02-06)
 ----------------
 
-- Nothing changed yet.
-
+* Report budgets [Iago López Fernández]
+* Report budgets [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Estilos print report [Iago López Fernández]
+* .link-external display: none [Iago López Fernández]
+* Canvis demanats [pilar.marinas]
+* Estilos nav report [Iago López Fernández]
+* Report edits Baseline and Progress Description [Iago López Fernández]
+* Estilos nav report [Iago López Fernández]
+* Refresh report [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Estilos + JS Report Next steps [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Estilos capacities [Iago López Fernández]
+* Estilos capacities [Iago López Fernández]
+* Modificar outcomes [Iago López Fernández]
+* Solvented bug [Iago López Fernández]
+* Report redirección a la ultima tab despues de editar [Iago López Fernández]
+* Report Budget [Iago López Fernández]
+* Report Outcomes [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Report Activities and Outputs [Iago López Fernández]
+* Report project overview [Iago López Fernández]
+* Estilos report firstpage [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Estilos report [Iago López Fernández]
+* Estilos report [Iago López Fernández]
+* Report summary js [Iago López Fernández]
+* Solucionar error con la visualización de los graficos en el report [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Estilos [Iago López Fernández]
+* Graficas report [Iago López Fernández]
+* Estilos [Iago López Fernández]
 
 1.7 (2019-12-20)
 ----------------
