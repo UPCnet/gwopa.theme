@@ -5097,6 +5097,10 @@ body.portaltype-report {
 
 @media print {
 
+  * {
+    background-color: inherit !important;
+  }
+
   body.portaltype-report {
 
     background-color: #FFFFFF !important;
@@ -5352,6 +5356,11 @@ body.portaltype-report {
       margin-top: -45px;
       float: left;
 
+      td {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+      }
+
       h5 {
         padding-bottom: 8px;
         border-bottom: 1px solid #0A5272;
@@ -5416,6 +5425,30 @@ body.portaltype-report {
           }
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1200px){
+
+  body.portaltype-report {
+    .budgetGraphic,
+    #chartOtherOrganizations,
+    #chartDonors,
+    #chartWaterOperators,
+    #chartOtherOrganizations > div,
+    #chartDonors > div,
+    #chartWaterOperators > div {
+      width: 7cm !important;
+    }
+
+    .budgetGraphic{
+      width: 32.333333%;
+    }
+
+    .justify-content-md-center {
+      display: flex;
+      justify-content: center;
     }
   }
 }

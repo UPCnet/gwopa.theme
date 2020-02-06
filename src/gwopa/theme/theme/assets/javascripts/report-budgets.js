@@ -26,7 +26,6 @@ require([
                 colors: data['water_operators']['colors'],
                 chart: {
                     type: 'donut',
-                    width: '100%',
                 },
                 legend: {
                     show: false,
