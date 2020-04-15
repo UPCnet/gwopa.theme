@@ -16,8 +16,8 @@ require([
       var moretext = '<i class="fa fa-plus"></i><span> Voir plus</span>';
       var lesstext = '<i class="fa fa-minus"></i><span> Voir moins</span>';
     } else {
-      var moretext = '<i class="fa fa-plus"></i><span> Show more</span>';
-      var lesstext = '<i class="fa fa-minus"></i><span> Show less</span>';
+      var moretext = '<i class="fa fa-plus"></i><span> Read more</span>';
+      var lesstext = '<i class="fa fa-minus"></i><span> Read less</span>';
     }
 
 
