@@ -2,11 +2,14 @@ Changelog
 =========
 
 
-1.9 (unreleased)
+1.9 (2020-04-16)
 ----------------
 
-- Nothing changed yet.
-
+* Nuevo logo [Iago López Fernández]
+* Nuevo logo [Iago López Fernández]
+* Traducción [Iago López Fernández]
+* Estilos print report [Iago López Fernández]
+* Estilos menu lateral izquierdo [Iago López Fernández]
 
 1.8 (2020-02-06)
 ----------------
