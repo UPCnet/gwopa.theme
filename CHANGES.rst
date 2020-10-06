@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.10 (unreleased)
+1.10 (2020-10-06)
 -----------------
 
-- Nothing changed yet.
-
+* CSS Main Obstacles | Main Contributing Factors [Iago López Fernández]
 
 1.9 (2020-04-16)
 ----------------
