@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.11 (unreleased)
+1.11 (2020-11-25)
 -----------------
 
-- Nothing changed yet.
-
+* Estilo formulario añadir usuario [Iago López Fernández]
 
 1.10 (2020-10-06)
 -----------------
