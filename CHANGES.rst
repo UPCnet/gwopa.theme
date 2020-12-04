@@ -2,11 +2,10 @@ Changelog
 =========
 
 
-1.12 (unreleased)
+1.12 (2020-12-04)
 -----------------
 
-- Nothing changed yet.
-
+* Estilos ul li, no se veian las los circulos [Iago López Fernández]
 
 1.11 (2020-11-25)
 -----------------
