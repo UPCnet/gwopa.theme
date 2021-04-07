@@ -154,6 +154,7 @@ require([
           }
         },
       });
+
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -249,6 +250,7 @@ require([
           }
         },
       });
+
     fetch('api-getPhases')
     .then(function(response) { return response.json();})
     .then(function(data) {
@@ -1391,6 +1393,32 @@ require([
       $("#kpiBox").show();
       $(this).hide();
     });
+  });
+
+  $("#out-unit").on("change.select2", function(e) {
+    if($(this).val() == 'other' || $(this).val() == 'others'){
+      var userLang = $("html").prop("lang");
+      if(userLang == 'es') {
+       alert("Debes mandar un mensage a pmp@gwopa.org para incorporar el tipo que necesitas y no está especificado en la esta lista.");
+      }else if(userLang == 'fr'){
+        alert("Vous devez envoyer un message à xxxx@xxx.org pour incorporer le type dont vous avez besoin et il n'est pas spécifié dans cette liste.");
+      }else{
+        alert("You must send a message to pmp@gwopa.org to incorporate the type you need and it is not specified in this list.");
+      }
+    }
+  });
+
+  $("#modalEditOutput #out-unit").on("change.select2", function(e) {
+    if($(this).val() == 'other' || $(this).val() == 'others'){
+      var userLang = $("html").prop("lang");
+      if(userLang == 'es') {
+       alert("Debes mandar un mensage a pmp@gwopa.org para incorporar el tipo que necesitas y no está especificado en la esta lista.");
+      }else if(userLang == 'fr'){
+        alert("Vous devez envoyer un message à xxxx@xxx.org pour incorporer le type dont vous avez besoin et il n'est pas spécifié dans cette liste.");
+      }else{
+        alert("You must send a message to pmp@gwopa.org to incorporate the type you need and it is not specified in this list.");
+      }
+    }
   });
 
   $(".cc_container").hide();
