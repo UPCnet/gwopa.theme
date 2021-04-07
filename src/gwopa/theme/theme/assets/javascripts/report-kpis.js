@@ -16,7 +16,6 @@ require([
       var id = $(this).attr("id");
       params.performance = $(this).attr("data-url");
       params.year = $(this).attr("data-year");
-      debugger;
 
       $.ajax({
         url: project_path + '/api-getPerformance',
