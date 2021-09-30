@@ -1474,6 +1474,8 @@ require([
     $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').hide();
   });
 
+  $("[id$='-expandP']").hide();
+
   $('.expandPartnership').click(function() {
       $(this).hide();
       $(this).parent().find('.notexpandPartnership').show();
