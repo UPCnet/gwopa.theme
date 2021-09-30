@@ -1473,4 +1473,16 @@ require([
     $(this).parent().find('.expandWaPla').show();
     $(this).parent().parent().parent().parent().nextAll('.tabla_cuerpo').hide();
   });
+
+  $('.expandPartnership').click(function() {
+      $(this).hide();
+      $(this).parent().find('.notexpandPartnership').show();
+      $(this).parent().parent().parent().nextAll("[id$='-expandP']").show();
+  });
+
+  $('.notexpandPartnership').click(function() {
+      $(this).hide();
+      $(this).parent().find('.expandPartnership').show();
+      $(this).parent().parent().parent().nextAll("[id$='-expandP']").hide();
+  });
 });
