@@ -9,10 +9,11 @@ require([
           step: 100
     })
 
-    var url_all = 'allProjects.json';
-    var url_open = 'activeProjects.json';
-    var url_inactive = 'inactiveProjects.json';
-    L.Icon.Default.imagePath = '++theme++gwopa.theme/assets/images/'
+    var portal_url = $('body').attr('data-portal-url');
+    var url_all = portal_url + '/allProjects.json';
+    var url_open = portal_url + '/activeProjects.json';
+    var url_inactive = portal_url + '/inactiveProjects.json';
+    L.Icon.Default.imagePath = portal_url + '/++theme++gwopa.theme/assets/images/'
 
     var map = L.map('map', {
         center: [41.39, 2.15],
