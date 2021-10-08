@@ -1858,7 +1858,6 @@ button {
   line-height: 1.42857143;
   border-radius: 2px;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -2119,7 +2118,6 @@ fieldset[disabled] .destructive.active {
   line-height: 1.42857143;
   border-radius: 2px;
   -webkit-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   color: #4d4d4d;
@@ -7589,6 +7587,13 @@ h3 a i.fas.fa-plus-square {
 #pyv {
   width: 14rem;
 }
+#score {
+  width: 11rem;
+}
+#improvement,
+#suggestions {
+  width: 25rem;
+}
 #freq,
 #nexupd {
   width: 9rem;
@@ -10536,7 +10541,6 @@ body.portaltype-report .link-external {
       flex-shrink: 0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   -webkit-user-select: none;
-     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   border-radius: 50%;
@@ -10554,7 +10558,6 @@ body.portaltype-report .link-external {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   -webkit-user-select: none;
-     -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }

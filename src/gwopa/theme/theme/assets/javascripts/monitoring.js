@@ -634,6 +634,46 @@ require([
     $('#modalEditOutcomeCCS').find(".modal-url").text(myValUrl);
   });
 
+   // editPartnership
+  $("a.editPartnership").click(function() {
+    var myValYear = $(this).data('pk');
+    var myValId = $(this).data('id');
+    var myValUrl = $(this).data('urlpartnership');
+    var myValTitle = $(this).data('title');
+    var myValOverallScore = $(this).data('overall-score');
+    var myValImprovementNeeded = $(this).data('improvement-needed');
+    var myValSuggestionsImprove = $(this).data('suggestions-improve');
+    $('#modalEditPartnership').find(".modal-pk").text(myValYear);
+    $('#modalEditPartnership').find(".modal-id").text(myValId);
+    $('#modalEditPartnership').find(".modal-url").text(myValUrl);
+    $('#modalEditPartnership').find(".modal-title").text(myValTitle);
+    $('#modalEditPartnership').find("#overall-score").text(myValOverallScore);
+    $('#modalEditPartnership').find("#improvement-needed").text(myValImprovementNeeded);
+    $('#modalEditPartnership').find("#suggestions-improve").text(myValSuggestionsImprove);
+  });
+
+     // Update Partnership
+  $('#updatePartnershipFromModal').click(function(e){
+    e.preventDefault();
+    var params = {};
+    params.year = $('#PartnershipYear').html();
+    params.item_path = $('#PartnershipPath').html();
+    params.overall_score = $('#overall-score').val();
+    params.improvement_needed = $('#improvement-needed').val();
+    params.suggestions_improve = $('#suggestions-improve').val();
+    url = window.location.href;
+    project_path = url.substring(0, url.lastIndexOf("/monitoring"));
+    $.ajax({
+      url: project_path + '/updatePartnership',
+      method: 'POST',
+      data: params,
+      success: function(resp)
+        { if(resp) {
+           location.reload();
+        }}
+    });
+  });
+
      // addOutcomeCCS
   $("[id$='-update-stage']").click(function() {
     var myValYear = $(this).data('pk');
@@ -896,6 +936,20 @@ require([
       $(this).parent().parent().parent().find('.stages').hide();
       $(this).parent().parent().parent().find('.cc_container').hide();
       $(this).parent().parent().parent().find('.cc_container_others').hide();
+    });
+
+    $("[id$='-expandP']").hide();
+
+    $('.expandPartnership').click(function() {
+        $(this).hide();
+        $(this).parent().find('.notexpandPartnership').show();
+        $(this).parent().parent().parent().nextAll("[id$='-expandP']").show();
+    });
+
+    $('.notexpandPartnership').click(function() {
+        $(this).hide();
+        $(this).parent().find('.expandPartnership').show();
+        $(this).parent().parent().parent().nextAll("[id$='-expandP']").hide();
     });
 
   });
