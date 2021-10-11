@@ -639,17 +639,67 @@ require([
     var myValYear = $(this).data('pk');
     var myValId = $(this).data('id');
     var myValUrl = $(this).data('urlpartnership');
-    var myValTitle = $(this).data('title');
+    var myValTitle = $(this).data('title');    
     var myValOverallScore = $(this).data('overall-score');
+    var myValOverallScoreText = $(this).data('overall-score-text');
     var myValImprovementNeeded = $(this).data('improvement-needed');
     var myValSuggestionsImprove = $(this).data('suggestions-improve');
     $('#modalEditPartnership').find(".modal-pk").text(myValYear);
     $('#modalEditPartnership').find(".modal-id").text(myValId);
     $('#modalEditPartnership').find(".modal-url").text(myValUrl);
     $('#modalEditPartnership').find(".modal-title").text(myValTitle);
-    $('#modalEditPartnership').find("#overall-score").text(myValOverallScore);
+    $('#modalEditPartnership').find("#overall-score").select2('data',{id: myValOverallScore, text: myValOverallScoreText});
     $('#modalEditPartnership').find("#improvement-needed").text(myValImprovementNeeded);
     $('#modalEditPartnership').find("#suggestions-improve").text(myValSuggestionsImprove);
+    // $("#overall-score").select2({
+    //     dropdownParent: $('#modalEditPartnership'),
+    //     maximumSelectionSize: 1,
+    //     ajax: {
+    //       url: 'api-getOverallScore',
+    //       dataType: 'json',
+    //       quietMillis: 250,
+    //       cache: true,
+    //       transport: function(params){
+    //         params.beforeSend = function(request){
+    //           request.setRequestHeader("Accept", "application/json");
+    //         };
+    //         return $.ajax(params);
+    //       },
+    //       results: function (data) {
+    //         var res = [];
+    //         var len = data.length;
+    //         for (var i=0; i<len; i++) {
+    //           res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
+    //         }
+    //         return { results: res };
+    //       }
+    //     },
+    // });
+  });
+
+  $("#modalEditPartnership #overall-score").select2({
+      dropdownParent: $('#modalEditPartnership'),
+      maximumSelectionSize: 1,
+      ajax: {
+        url: 'api-getOverallScore',
+        dataType: 'json',
+        quietMillis: 250,
+        cache: true,
+        transport: function(params){
+          params.beforeSend = function(request){
+            request.setRequestHeader("Accept", "application/json");
+          };
+          return $.ajax(params);
+        },
+        results: function (data) {
+          var res = [];
+          var len = data.length;
+          for (var i=0; i<len; i++) {
+            res = res.concat({ id: data[i]["id"], text: data[i]["name"] });
+          }
+          return { results: res };
+        }
+      },
   });
 
      // Update Partnership

@@ -4919,6 +4919,7 @@ body.template-logged_out #content-core .portletFooter {
 #s2id_kpizone-title,
 #s2id_out-unit,
 #s2id_out-roles,
+#s2id_overall-score,
 #s2id_kpi-unit,
 #s2id_kpizone-unit,
 #s2id_out-frequency,
@@ -7549,6 +7550,16 @@ h3 a i.fas.fa-plus-square {
   width: 100%;
   font-weight: 400;
 }
+
+.tabla_cabecera .informationPartnership{
+  text-align: justify;
+}
+
+.tabla_cuerpo .informationPartnership{
+  padding-top: 10px;
+  text-align: justify;
+}
+
 .contentt {
   float: left;
   padding: 0 0 1px;
@@ -7588,11 +7599,12 @@ h3 a i.fas.fa-plus-square {
   width: 14rem;
 }
 #score {
-  width: 11rem;
+  width: 20rem;
 }
 #improvement,
 #suggestions {
-  width: 25rem;
+  width: 35rem;
+  padding-right: 15px;
 }
 #freq,
 #nexupd {
@@ -8329,7 +8341,7 @@ tr.descripcion a[aria-expanded="false"] - tr#contenido {
 .template-monitoring #total {
   padding: 0 5px;
   float: left;
-  width: calc(100% - 645px);
+  width: calc(100% - 945px);
   text-align: left;
 }
 .tabla_cuerpo i#expandir {
