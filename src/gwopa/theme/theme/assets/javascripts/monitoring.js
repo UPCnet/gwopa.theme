@@ -643,14 +643,14 @@ require([
     var myValOverallScore = $(this).data('overall-score');
     var myValOverallScoreText = $(this).data('overall-score-text');
     var myValImprovementNeeded = $(this).data('improvement-needed');
-    var myValSuggestionsImprove = $(this).data('suggestions-improve');
+    /*var myValSuggestionsImprove = $(this).data('suggestions-improve');*/
     $('#modalEditPartnership').find(".modal-pk").text(myValYear);
     $('#modalEditPartnership').find(".modal-id").text(myValId);
     $('#modalEditPartnership').find(".modal-url").text(myValUrl);
     $('#modalEditPartnership').find(".modal-title").text(myValTitle);
     $('#modalEditPartnership').find("#overall-score").select2('data',{id: myValOverallScore, text: myValOverallScoreText});
     $('#modalEditPartnership').find("#improvement-needed").text(myValImprovementNeeded);
-    $('#modalEditPartnership').find("#suggestions-improve").text(myValSuggestionsImprove);
+    /*$('#modalEditPartnership').find("#suggestions-improve").text(myValSuggestionsImprove);*/
     // $("#overall-score").select2({
     //     dropdownParent: $('#modalEditPartnership'),
     //     maximumSelectionSize: 1,
@@ -710,7 +710,7 @@ require([
     params.item_path = $('#PartnershipPath').html();
     params.overall_score = $('#overall-score').val();
     params.improvement_needed = $('#improvement-needed').val();
-    params.suggestions_improve = $('#suggestions-improve').val();
+    /*params.suggestions_improve = $('#suggestions-improve').val();*/
     url = window.location.href;
     project_path = url.substring(0, url.lastIndexOf("/monitoring"));
     $.ajax({
