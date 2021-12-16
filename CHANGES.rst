@@ -2,11 +2,22 @@ Changelog
 =========
 
 
-1.13 (unreleased)
+1.13 (2021-12-16)
 -----------------
 
-- Nothing changed yet.
-
+* Retoques partnership [Iago López Fernández]
+* Retoques partnership [Iago López Fernández]
+* Partnership practice monitoring [Pilar Marinas]
+* Monitoring Partnership practice [Pilar Marinas]
+* Estilos homepage [Iago López Fernández]
+* Rediseño homepage [Iago López Fernández]
+* Estilos partnership [Iago López Fernández]
+* Partnership practice [Pilar Marinas]
+* Delete debugger [Iago López Fernández]
+* Mensaje de aviso al seleccionar la opción otro de las unidades [Iago López Fernández]
+* Estilos tablas tiny [Iago López Fernández]
+* Fix report outcomes [Iago López Fernández]
+* Readme [Pilar Marinas]
 
 1.12 (2020-12-04)
 -----------------
